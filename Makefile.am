@@ -26,23 +26,23 @@ TARGETS_COMMON =			\
 .deps/$(LANG1).twol.hfst: $(BASENAME).$(LANG1).twol .deps/.d
 	hfst-twolc $< -o $@
 
-.deps/$(LANG1).RL.lexc: $(BASENAME).$(LANG1).lexc .deps/.d
+.deps/$(LANG1).RL.lexd: $(BASENAME).$(LANG1).lexd .deps/.d
 	cat $< | grep -v 'Dir/LR' > $@
 
-.deps/$(LANG1).LR.lexc: $(BASENAME).$(LANG1).lexc .deps/.d
+.deps/$(LANG1).LR.lexd: $(BASENAME).$(LANG1).lexd .deps/.d
 	cat $< | grep -v 'Dir/RL' > $@
 
-.deps/$(LANG1).RL.lexc.hfst: .deps/$(LANG1).RL.lexc
-	hfst-lexc $< -o $@ -v --Werror
+.deps/$(LANG1).RL.lexd.hfst: .deps/$(LANG1).RL.lexd
+	lexd $< | hfst-txt2fst -o $@ -v
 
-.deps/$(LANG1).LR.lexc.hfst: .deps/$(LANG1).LR.lexc
-	hfst-lexc $< -o $@ -v --Werror
+.deps/$(LANG1).LR.lexd.hfst: .deps/$(LANG1).LR.lexd
+	lexd $< | hfst-txt2fst -o $@ -v
 
-.deps/$(LANG1).RL.hfst: .deps/$(LANG1).RL.lexc.hfst .deps/$(LANG1).twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexc.hfst -2 .deps/$(LANG1).twol.hfst -o $@
+.deps/$(LANG1).RL.hfst: .deps/$(LANG1).RL.lexd.hfst .deps/$(LANG1).twol.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd.hfst -2 .deps/$(LANG1).twol.hfst -o $@
 
-.deps/$(LANG1).LR.hfst: .deps/$(LANG1).LR.lexc.hfst .deps/$(LANG1).twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexc.hfst -2 .deps/$(LANG1).twol.hfst -o $@
+.deps/$(LANG1).LR.hfst: .deps/$(LANG1).LR.lexd.hfst .deps/$(LANG1).twol.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd.hfst -2 .deps/$(LANG1).twol.hfst -o $@
 
 $(LANG1).autogen.hfst: .deps/$(LANG1).RL.hfst
 	hfst-fst2fst -O $< -o $@
@@ -71,14 +71,14 @@ $(LANG1).autopgen.bin: $(BASENAME).post-$(LANG1).dix
 ## Debugging transducers (for testvoc)
 ###############################################################################
 
-debug: .deps/$(LANG1).LR-debug.hfst .deps/$(LANG1).lexc.hfst
+debug: .deps/$(LANG1).LR-debug.hfst .deps/$(LANG1).lexd.hfst
 
-.deps/$(LANG1).LR-debug.hfst: $(BASENAME).$(LANG1).lexc .deps/.d
-	cat $< | grep -v 'Dir/RL' | grep -v 'Use/Circ' > .deps/$(LANG1).LR-debug.lexc
-	hfst-lexc .deps/$(LANG1).LR-debug.lexc -o .deps/$(LANG1).LR-debug.lexc.hfst -v
-	hfst-compose-intersect -1 .deps/$(LANG1).LR-debug.lexc.hfst -2 .deps/$(LANG1).twol.hfst -o $@
+.deps/$(LANG1).LR-debug.hfst: $(BASENAME).$(LANG1).lexd .deps/.d
+	cat $< | grep -v 'Dir/RL' | grep -v 'Use/Circ' > .deps/$(LANG1).LR-debug.lexd
+	lexd .deps/$(LANG1).LR-debug.lexd | hfst-txt2fst -o .deps/$(LANG1).LR-debug.lexd.hfst -v
+	hfst-compose-intersect -1 .deps/$(LANG1).LR-debug.lexd.hfst -2 .deps/$(LANG1).twol.hfst -o $@
 
-.deps/$(LANG1).lexc.hfst: .deps/$(LANG1).RL.lexc.hfst
+.deps/$(LANG1).lexd.hfst: .deps/$(LANG1).RL.lexd.hfst
 	hfst-fst2fst -O -i $< -o $@
 
 ###############################################################################
@@ -129,7 +129,7 @@ $(LANG1).prob: corpus/$(LANG1).tagged
 ## Distribution
 ###############################################################################
 
-EXTRA_DIST=$(BASENAME).$(LANG1).lexc		\
+EXTRA_DIST=$(BASENAME).$(LANG1).lexd		\
 		$(BASENAME).$(LANG1).twol	\
 		$(BASENAME).$(LANG1).rlx	\
 		$(BASENAME).post-$(LANG1).dix	\
@@ -160,7 +160,7 @@ pkgconfig_DATA = $(BASENAME).pc
 noinst_DATA=modes/$(LANG1)-morph.mode
 
 install-data-local: install-modes
-	$(INSTALL_DATA) $(BASENAME).$(LANG1).lexc $(DESTDIR)$(apertium_hyw_srcdir)
+	$(INSTALL_DATA) $(BASENAME).$(LANG1).lexd $(DESTDIR)$(apertium_hyw_srcdir)
 	$(INSTALL_DATA) $(BASENAME).$(LANG1).twol $(DESTDIR)$(apertium_hyw_srcdir)
 	$(INSTALL_DATA) $(BASENAME).$(LANG1).rlx $(DESTDIR)$(apertium_hyw_srcdir)
 	$(INSTALL_DATA) $(BASENAME).post-$(LANG1).dix $(DESTDIR)$(apertium_hyw_srcdir)
@@ -182,3 +182,4 @@ test: all
 	@echo "TODO test analysis results" > .test-ref
 	@diff .test-ref .test-mt
 	@rm .test-ref .test-mt
+SHELL=/bin/bash -o pipefail
