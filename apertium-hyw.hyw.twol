@@ -1,17 +1,43 @@
-Alphabet
- A B Ç D E Ä F G H I J Ž K L M N Ň O Ö P R S Ş T U Ü W Y Ý Z
- a b ç d e ä f g h i j ž k l m n ň o ö p r s ş t u ü w y ý z
- %{A%}:a %>:0  ;
+Alphabet 
+ ա  ե է ը ո օ ի լ
+բ գ դ զ թ ժ  խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ ս վ տ ր ց ւ փ ք ֆ
 
-Sets
+'
+% 
+%{G1%} %{G2%} %{է%}
+;
 
-Vowel = A E Ä I O Ö U Ü Y Ý
-        a e ä i o ö u ü y ý ;
+Sets 
+
+Vowel = ա  ե է ը ո օ ի լ
+;
+
+Cons = բ գ դ զ թ ժ  խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ ս վ տ ր ց ւ փ ք ֆ ; 
+
+
 
 Rules
 
-"Remove suffix vowel with vowel-ending stem"
-i:0 <=> Vow %{VSUF%}:0 _ [ m | n ] ;
+!Indicative prefix /կ{G1}{G2}/ is [կը ] before C's and [կ'] before V's
+!Complication is that ու is a vowel while ոX is not
+
+"prefix կ{G1}{G2} to [կ'] before a vowel"
+%{G1%}:' <=> _ %{G2%}:     [ [ :Vowel - :ո ] | :ո :ւ ] ;  
+"prefix կ{G1}{G2} to կ' before a vowel"
+%{G2%}:0   <=>   _   [ [ :Vowel - :ո ] | :ո :ւ ] ;  
+
+"prefix կ{G1}{G2} to [կը ] before a consonant"
+%{G1%}:ը <=> _ %{G2%}:    [ [ :Cons ] | [ :ո - [ :ո :ւ ] ] ] ;  
+"prefix կ{G1}{G2} to [կը ] before a consonant"
+%{G2%}:%    <=>   _   [ [ :Cons ] | [ :ո - [ :ո :ւ ] ] ] ;  
+
+!In many contexts, the  ե theme vowel becomes է
+!For the lexd+two, this context is before the  %{է%} diacritic
+"theme vowel /ե%{է%}/ to [է]"
+ե:է  <=>   _ %{է%}: ;
+"delete the  /%{է%}/ diacritic"
+%{է%}:0 <=> _ ;
+
 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol
