@@ -6,71 +6,108 @@
 
 #Unclear if Aor should be tagged as aorist or nothing, because it's sometimes meaningless
 #Same for negative participle
-#Could optimize negated auxilaries, if I know how to just enforce allomorphy for a single slot
-#I might eventually separate Agrs for 3sg and elsewhere
+
+#Could optimize negated auxiliaries by using a  Constraint Grammar TO DO
+
+#Could optimize Future by using a constraint Grammar TO DO (especially for rare adverb intervention)
 
 #Neg: need to think of where to place negation tag in the hierarchy TO DO
 
-#Added particile gor
 #A lot of redundancy in Agr suffixes which can be cleaned up TO DO
 
+#Could optimize by turning all space-separated particles with a Constraint Grammar
 
-# Not sure how to tag a complex tense like past-prospective (bidi kalei)
+# Not sure how to tag a complex tense like past-prospective (bidi kalei) TODO maybe CG
+
+#TO DO Valency morphology (passive, causative, inchoative)
+
+#Weird participles like negated participles and abrelik
+
 PATTERNS
 #Infinitival
 VerbRootE VZero ThE Inf
+VerbRootI VZero ThI Inf
 
 #Indicatives 
 :Indc VerbRootE VZero Indc: ThE Pres0 PresAgr Prog?
+:Indc VerbRootI VZero Indc: ThI Pres0 PresAgr Prog?
 
 :Indc VerbRootE VZero Indc: ThE  ImpfAgr Prog?
+:Indc VerbRootI VZero Indc: ThI  ImpfAgr Prog? 
 
 #Indicatives (negative)
 :NegAuxPres VerbRootE VZero  NegAuxPres: ThE NegPtcp  Prog?
+:NegAuxPres VerbRootI VZero  NegAuxPres: ThI NegPtcp  Prog?
+
 :NegAuxImpf VerbRootE VZero NegAuxImpf: ThE  NegPtcp  Prog?
+ #It's a long distance dependency so I just change the theme vowel directly
+:NegAuxImpf VerbRootI VZero NegAuxImpf: ThE  NegPtcp  Prog?
 
 #Subjunctives
 VerbRootE VZero ThE Subj0 Pres0 PresAgr
+VerbRootI VZero ThI Subj0 Pres0 PresAgr
+
 VerbRootE VZero ThE Subj0 ImpfAgr
+VerbRootI VZero ThI Subj0 ImpfAgr
 
 #Subjunctives (negative)
-:Neg VerbRootE VZero ThE Subj0 Neg: Pres0 PresAgr
-:Neg VerbRootE VZero ThE Subj0  Neg: ImpfAgr
+:Neg VerbRootE VZero ThE Subj0  Neg: Pres0 PresAgr
+:Neg VerbRootI VZero ThI Subj0  Neg: Pres0 PresAgr
 
+:Neg VerbRootE VZero ThE Subj0  Neg: ImpfAgr
+:Neg VerbRootI VZero ThI Subj0  Neg: ImpfAgr
 
 
 #Past
 VerbRootE VZero ThE Indc0 Aor PastPrimAgr
+VerbRootI VZero ThI Indc0 Aor PastSecAgr
+
 #Past (negative)
 :Neg VerbRootE VZero ThE Indc0 Neg: Aor PastPrimAgr
+:Neg VerbRootI VZero ThI Indc0 Neg: Aor PastSecAgr
 
 
 #Future
 :Fut VerbRootE VZero ThE Indc0  Fut: PresAgr
+:Fut VerbRootI VZero ThI Indc0  Fut: PresAgr
+
 :Fut VerbRootE VZero ThE Indc0  Fut: ImpfAgr
+:Fut VerbRootI VZero ThI Indc0  Fut: ImpfAgr
+
 #Future (negative)
 :Fut :Neg VerbRootE VZero ThE Indc0 Neg: Fut: PresAgr
+:Fut :Neg VerbRootI VZero ThI Indc0 Neg: Fut: PresAgr
+
 :Fut :Neg VerbRootE VZero ThE Indc0 Neg: Fut: ImpfAgr
+:Fut :Neg VerbRootI VZero ThI Indc0 Neg: Fut: ImpfAgr
 
 
 #Imperatives
-VerbRootE VZero ThE ImpSgE
-VerbRootE VZero ThE Aor ImpPlE
+VerbRootE VZero ThE ImpSg
+VerbRootI VZero ThI ImpSg
+VerbRootI VZero ThI ImpSgI
+
+VerbRootE VZero ThE Aor ImpPl
+VerbRootI VZero ThI Aor ImpPl
 
 #Prohibitives
 :Proh VerbRootE VZero ThE Proh: ProhAgr
+:Proh VerbRootI VZero ThI Proh: ProhAgr
 
 
 #Not sure if participles should count as verbal  TO DO
 #because they feel verbal, but can also act as nouns/adjectives 
 #Subject participle
 VerbRootE VZero SubjPart
+VerbRootI VZero SubjPart
 
 #Perfect participle
 VerbRootE VZero PerfPart
- 
+VerbRootI VZero PerfPart
+
 #Evidential participle
 VerbRootE VZero EvidPart
+VerbRootI VZero EvidPart
 
 #Auxiliary outside of negated-indicatives
 Aux  Pres0 PresAgr
@@ -106,6 +143,9 @@ LEXICON Subj0
 
 LEXICON ThE
 :ե
+LEXICON ThI
+:ի
+
 
 LEXICON Inf
 <inf>:լ
@@ -119,19 +159,19 @@ LEXICON PresAgr
 <p3><pl>:ն
 
 LEXICON ImpfAgr
-<past><impf><p1><sg>:{է}ի
-<past><impf><p2><sg>:{է}իր
-<past><impf><p3><sg>:{է}ր
-<past><impf><p1><pl>:{է}ինք
-<past><impf><p2><pl>:{է}իք
-<past><impf><p3><pl>:{է}ին
+<past><impf><p1><sg>:{եէ}ի
+<past><impf><p2><sg>:{եէ}իր
+<past><impf><p3><sg>:{եէ}ր
+<past><impf><p1><pl>:{եէ}ինք
+<past><impf><p2><pl>:{եէ}իք
+<past><impf><p3><pl>:{եէ}ին
 
  
 
 
 
 LEXICON Aor
-<aor>:ց
+<aor>:{ե}ց
 
 LEXICON PastPrimAgr
 <past><pret><p1><sg>:ի
@@ -141,12 +181,23 @@ LEXICON PastPrimAgr
 <past><pret><p2><pl>:իք
 <past><pret><p3><pl>:ին
 
+LEXICON PastSecAgr
+<past><pret><p1><sg>:այ
+<past><pret><p2><sg>:ար
+<past><pret><p3><sg>:աւ
+<past><pret><p1><pl>:անք
+<past><pret><p2><pl>:աք
+<past><pret><p3><pl>:ան
 
 #TO DO add the exclamation punctuation
-LEXICON ImpSgE
-<imp><p2><sg>:{է}
+LEXICON ImpSg
+<imp><p2><sg>:{եէ}
 
-LEXICON ImpPlE
+LEXICON ImpSgI
+<imp><p2><sg>:ր
+
+
+LEXICON ImpPl
 <imp><p2><pl>:էք
 
 LEXICON Proh
@@ -203,8 +254,10 @@ LEXICON EvidPart
 
 ## Lexicon
 LEXICON VerbRootE
-scratch:քեր
+to\ scratch:քեր
 
+LEXICON VerbRootI
+to\ speak:խօս
 
 #! Resources:
 #! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon

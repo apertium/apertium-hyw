@@ -4,7 +4,7 @@ Alphabet
 
 '
 % 
-%{G1%} %{G2%} %{է%}
+%{G1%} %{G2%} %{է%} %{ե%} %{եէ%}
 ;
 
 Sets 
@@ -21,14 +21,14 @@ Rules
 !Indicative prefix /կ{G1}{G2}/ is [կը ] before C's and [կ'] before V's
 !Complication is that ու is a vowel while ոX is not
 
-"prefix կ{G1}{G2} to [կ'] before a vowel"
+"For G1, prefix կ{G1}{G2} to [կ'] before a vowel"
 %{G1%}:' <=> _ %{G2%}:     [ [ :Vowel - :ո ] | :ո :ւ ] ;  
-"prefix կ{G1}{G2} to կ' before a vowel"
+"For G2, prefix կ{G1}{G2} to կ' before a vowel"
 %{G2%}:0   <=>   _   [ [ :Vowel - :ո ] | :ո :ւ ] ;  
 
-"prefix կ{G1}{G2} to [կը ] before a consonant"
+"For G1, prefix կ{G1}{G2} to [կը ] before a consonant"
 %{G1%}:ը <=> _ %{G2%}:    [ [ :Cons ] | [ :ո - [ :ո :ւ ] ] ] ;  
-"prefix կ{G1}{G2} to [կը ] before a consonant"
+"For G2, prefix կ{G1}{G2} to [կը ] before a consonant"
 %{G2%}:%    <=>   _   [ [ :Cons ] | [ :ո - [ :ո :ւ ] ] ] ;  
 
 !In many contexts, the  ե theme vowel becomes է
@@ -37,6 +37,22 @@ Rules
 ե:է  <=>   _ %{է%}: ;
 "delete the  /%{է%}/ diacritic"
 %{է%}:0 <=> _ ;
+
+!In many contexts, the  ի theme vowel becomes ե
+!For the lexd+two, this context is before the  %{ե%} diacritic
+"theme vowel /ի%{ե%}/ to [ե]"
+ի:ե  <=>   _ %{ե%}: ;
+"delete the  /%{ե%}/ diacritic"
+%{ե%}:0 <=> _ ;
+
+!In some contexts, both  ե and ի become է
+!For the lexd+two, this context is before the  %{եէ%} diacritic
+"theme vowel /ի%{եէ%}/ to [է]"
+ի:է  <=>   _ %{եէ%}: ;
+"theme vowel /ե%{եէ%}/ to [է]"
+ե:է  <=>   _ %{եէ%}: ;
+"delete the  /%{եէ%}/ diacritic"
+%{եէ%}:0 <=> _ ;
 
 
 ! Resources:
