@@ -1,0 +1,217 @@
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!!                       M O R P H O T A C T I C S                         !!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+#Unclear if Aor should be tagged as aorist or nothing, because it's sometimes meaningless
+#Same for negative participle
+#Could optimize negated auxilaries, if I know how to just enforce allomorphy for a single slot
+#I might eventually separate Agrs for 3sg and elsewhere
+
+#Neg: need to think of where to place negation tag in the hierarchy TO DO
+
+#Added particile gor
+#A lot of redundancy in Agr suffixes which can be cleaned up TO DO
+
+
+# Not sure how to tag a complex tense like past-prospective (bidi kalei)
+PATTERNS
+#Infinitival
+VerbRootE VZero ThE Inf
+
+#Indicatives 
+:Indc VerbRootE VZero Indc: ThE Pres0 PresAgr Prog?
+
+:Indc VerbRootE VZero Indc: ThE  ImpfAgr Prog?
+
+#Indicatives (negative)
+:NegAuxPres VerbRootE VZero  NegAuxPres: ThE NegPtcp  Prog?
+:NegAuxImpf VerbRootE VZero NegAuxImpf: ThE  NegPtcp  Prog?
+
+#Subjunctives
+VerbRootE VZero ThE Subj0 Pres0 PresAgr
+VerbRootE VZero ThE Subj0 ImpfAgr
+
+#Subjunctives (negative)
+:Neg VerbRootE VZero ThE Subj0 Neg: Pres0 PresAgr
+:Neg VerbRootE VZero ThE Subj0  Neg: ImpfAgr
+
+
+
+#Past
+VerbRootE VZero ThE Indc0 Aor PastPrimAgr
+#Past (negative)
+:Neg VerbRootE VZero ThE Indc0 Neg: Aor PastPrimAgr
+
+
+#Future
+:Fut VerbRootE VZero ThE Indc0  Fut: PresAgr
+:Fut VerbRootE VZero ThE Indc0  Fut: ImpfAgr
+#Future (negative)
+:Fut :Neg VerbRootE VZero ThE Indc0 Neg: Fut: PresAgr
+:Fut :Neg VerbRootE VZero ThE Indc0 Neg: Fut: ImpfAgr
+
+
+#Imperatives
+VerbRootE VZero ThE ImpSgE
+VerbRootE VZero ThE Aor ImpPlE
+
+#Prohibitives
+:Proh VerbRootE VZero ThE Proh: ProhAgr
+
+
+#Not sure if participles should count as verbal  TO DO
+#because they feel verbal, but can also act as nouns/adjectives 
+#Subject participle
+VerbRootE VZero SubjPart
+
+#Perfect participle
+VerbRootE VZero PerfPart
+ 
+#Evidential participle
+VerbRootE VZero EvidPart
+
+#Auxiliary outside of negated-indicatives
+Aux  Pres0 PresAgr
+:Neg Aux   Neg: Pres0 PresAgr
+
+#TO DO not sure if semantics line up with past auxiliaries
+Aux  VZero ImpfAgr
+:Neg Aux  VZero Neg: ImpfAgr
+
+
+
+
+
+#Two auxilaries with yetch vs e
+LEXICON Aux 
+<aux>:ե
+
+
+
+LEXICON VZero
+<v>:
+
+LEXICON Pres0
+<pres>:
+
+
+LEXICON Indc0
+<indc>:
+
+LEXICON Subj0
+<subj>:
+
+
+LEXICON ThE
+:ե
+
+LEXICON Inf
+<inf>:լ
+
+LEXICON PresAgr
+<p1><sg>:մ
+<p2><sg>:ս
+<p3><sg>:{է}
+<p1><pl>:նք
+<p2><pl>:{է}ք
+<p3><pl>:ն
+
+LEXICON ImpfAgr
+<past><impf><p1><sg>:{է}ի
+<past><impf><p2><sg>:{է}իր
+<past><impf><p3><sg>:{է}ր
+<past><impf><p1><pl>:{է}ինք
+<past><impf><p2><pl>:{է}իք
+<past><impf><p3><pl>:{է}ին
+
+ 
+
+
+
+LEXICON Aor
+<aor>:ց
+
+LEXICON PastPrimAgr
+<past><pret><p1><sg>:ի
+<past><pret><p2><sg>:իր
+<past><pret><p3><sg>:
+<past><pret><p1><pl>:ինք
+<past><pret><p2><pl>:իք
+<past><pret><p3><pl>:ին
+
+
+#TO DO add the exclamation punctuation
+LEXICON ImpSgE
+<imp><p2><sg>:{է}
+
+LEXICON ImpPlE
+<imp><p2><pl>:էք
+
+LEXICON Proh
+<proh>:մի\ 
+
+LEXICON ProhAgr
+<p2><sg>:ր
+<p2><pl>:ք
+
+LEXICON Indc
+<indc>:կ{G1}{G2}
+
+LEXICON Prog
+<prog>:\ կոր
+
+LEXICON Fut
+<fut>:պիտի\ 
+
+#Negation-based lexicons
+LEXICON NegPtcp
+<ptcp>:ր
+
+#Negated Auxiliaries
+LEXICON NegAuxPres
+<pres><neg><p1><sg>:չեմ\ 
+<pres><neg><p2><sg>:չես\ 
+<pres><neg><p3><sg>:չի\ 
+<pres><neg><p1><pl>:չենք\ 
+<pres><neg><p2><pl>:չէք\ 
+<pres><neg><p3><pl>:չեն\ 
+LEXICON NegAuxImpf
+<pres><neg><p1><sg>:չէի\ 
+<pres><neg><p2><sg>:չէիր\ 
+<pres><neg><p3><sg>:չէր\ 
+<pres><neg><p1><pl>:չէինք\ 
+<pres><neg><p2><pl>:չէիք\ 
+<pres><neg><p3><pl>:չէին\ 
+
+LEXICON Neg
+<neg>:չ
+
+#Present participle or Agent noun? TO DO
+LEXICON SubjPart
+<pprs>:ող
+
+LEXICON PerfPart
+<perf>:ած
+
+#Need to check evidential marker TO DO
+LEXICON EvidPart
+<evid>:եր
+
+
+
+## Lexicon
+LEXICON VerbRootE
+scratch:քեր
+
+
+#! Resources:
+#! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
+#! http://wiki.apertium.org/wiki/Lttoolbox_and_lexc
+#! http://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
+#! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
+#! https://github.com/hfst/
+#! http://www.cis.upenn.edu/~cis639/docs/lexc.html
+#! http://wiki.apertium.org/wiki/Hfst
+
