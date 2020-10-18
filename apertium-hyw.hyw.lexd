@@ -7,92 +7,218 @@
 #Unclear if Aor should be tagged as aorist or nothing, because it's sometimes meaningless
 #Same for negative participle
 
-#Could optimize negated auxiliaries by using a  Constraint Grammar TO DO
-
-#Could optimize Future by using a constraint Grammar TO DO (especially for rare adverb intervention)
+#Develop complex tenses with onstraint Grammar TO DO
 
 #Neg: need to think of where to place negation tag in the hierarchy TO DO
 
-#A lot of redundancy in Agr suffixes which can be cleaned up TO DO
-
-#Could optimize by turning all space-separated particles with a Constraint Grammar
-
-# Not sure how to tag a complex tense like past-prospective (bidi kalei) TODO maybe CG
-
 #TO DO Valency morphology (passive, causative, inchoative)
+# Theme-less causatives, maybe tags or columns
+# Maybe the nil group shouldnt get a causative version? or cil class
+#
 
-#Weird participles like negated participles and abrelik
+#Ask Nick about handling lexicon expansion and mmultiple files, esp cz valency
+
+#WTO DO weird participles like negated participles and abrelik and nominalized inf
+
+# TO DO use postdix (post-generator) to figure out how to get ci -> c'
+#https://wiki.apertium.org/wiki/Post-generator
+#Could use post-dix to do indicative too
+
+#Obsolete verbs:  ուսուցանել ուսանիլ  are E/I-Class for EANC so skipping
+#Skipping -ul verbs because obsolete
+#TO DO: gbcil is an incomplete paradigm in  Boyacioglu but it has more entries in EANC
+#TO DO check for paradigm leveling of irregular nil/cil in imperatives to get aorist (EANC)
+
+#Add exlamation mark for imperative TO DO
+
+#Base of causative is root+th
+PATTERN CausBase
+VerbRootE VZero ThE 
+VerbRootI VZero ThE  #I'm just changing -i- to -e- directly
+VerbRootA VZero ThA 
+InchBase InchEmpty 
+
+#Base of passive is root
+PATTERN PassBase
+VerbRootE VZero  
+VerbRootI VZero 
+VerbRootA VZero ThA Aor
+CausBase CausPass 
+InchBase InchEmpty Aor  #Should I care that this will rarely be traversed? TO DO
+ 
+
+
+#Base of inchoative is root+th or root
+PATTERN InchBase
+InchRootNoTh VZero
+InchRootYesTh ThA VZero
+# TO DO need to add verbs with ThE
 
 PATTERNS
 #Infinitival
 VerbRootE VZero ThE Inf
 VerbRootI VZero ThI Inf
+VerbRootA VZero ThA Inf
+CausBase CausPres ThE Inf
+PassBase Pass ThI Inf
+InchBase InchNasal ThA Inf
 
-#Indicatives 
-:Indc VerbRootE VZero Indc: ThE Pres0 PresAgr Prog?
-:Indc VerbRootI VZero Indc: ThI Pres0 PresAgr Prog?
 
-:Indc VerbRootE VZero Indc: ThE  ImpfAgr Prog?
-:Indc VerbRootI VZero Indc: ThI  ImpfAgr Prog? 
+VerbRootNil EmptyNasal VZero ThI Inf # անցնիլ group from Boyacioglu
+VerbRootCil EmptyAffr VZero ThI Inf # կպչիլ group from Boyacioglu
+VerbRootNelNal EmptyNasal VZero (ThE|ThA) Inf #իջնել իջնալ
+VerbRootLelLal EmptyL VZero (ThE|ThA) Inf #ելլել ելլալ
 
-#Indicatives (negative)
-:NegAuxPres VerbRootE VZero  NegAuxPres: ThE NegPtcp  Prog?
-:NegAuxPres VerbRootI VZero  NegAuxPres: ThI NegPtcp  Prog?
+#Indicatives present
+:Indc VerbRootE VZero Indc: ThE Pres0 PresAgr 
+:Indc VerbRootI VZero Indc: ThI Pres0 PresAgr 
+:Indc VerbRootA VZero Indc: ThA Pres0 PresAgr 
+:Indc CausBase CausPres Indc: ThE Pres0 PresAgr
+:Indc PassBase Pass Indc: ThI Pres0 PresAgr 
+:Indc InchBase InchNasal Indc: ThA Inf
 
-:NegAuxImpf VerbRootE VZero NegAuxImpf: ThE  NegPtcp  Prog?
- #It's a long distance dependency so I just change the theme vowel directly
-:NegAuxImpf VerbRootI VZero NegAuxImpf: ThE  NegPtcp  Prog?
 
-#Subjunctives
+:Indc VerbRootNil EmptyNasal VZero  Indc: ThI Pres0 PresAgr 
+:Indc VerbRootCil EmptyAffr VZero   Indc: ThI Pres0 PresAgr 
+:Indc VerbRootNelNal EmptyNasal VZero   Indc: (ThE|ThA) Pres0 PresAgr 
+:Indc VerbRootLelLal EmptyL VZero   Indc: (ThE|ThA) Pres0 PresAgr 
+
+#Indicatives imperfect
+:Indc VerbRootE VZero Indc: ThE  ImpfAgr 
+:Indc VerbRootI VZero Indc: ThI  ImpfAgr 
+:Indc VerbRootA VZero Indc: ThA  ImpfAgr 
+:Indc CausBase CausPres Indc: ThE ImpfAgr
+:Indc PassBase Pass Indc: ThI  ImpfAgr 
+:Indc InchBase InchNasal Indc: ThA ImpfAgr
+
+:Indc VerbRootNil EmptyNasal  VZero Indc: ThI  ImpfAgr 
+:Indc VerbRootCil EmptyAffr VZero  Indc: ThI  ImpfAgr 
+:Indc VerbRootNelNal EmptyNasal  VZero Indc: (ThE|ThA)  ImpfAgr 
+:Indc VerbRootLelLal EmptyL  VZero Indc: (ThE|ThA)  ImpfAgr 
+
+#Subjunctives present
 VerbRootE VZero ThE Subj0 Pres0 PresAgr
 VerbRootI VZero ThI Subj0 Pres0 PresAgr
+VerbRootA VZero ThA Subj0 Pres0 PresAgr
+CausBase CausPres ThE Subj0 Pres0 PresAgr
+PassBase Pass ThI Subj0 Pres0 PresAgr
+InchBase InchNasal  ThA Subj0 Pres0 PresAgr
 
+VerbRootNil EmptyNasal VZero ThI Subj0 Pres0 PresAgr
+VerbRootCil EmptyAffr VZero ThI Subj0 Pres0 PresAgr
+VerbRootNelNal EmptyNasal VZero (ThE|ThA) Subj0 Pres0 PresAgr
+VerbRootLelLal EmptyL VZero (ThE|ThA) Subj0 Pres0 PresAgr
+
+#Subjunctives imperfect
 VerbRootE VZero ThE Subj0 ImpfAgr
 VerbRootI VZero ThI Subj0 ImpfAgr
+VerbRootA VZero ThA Subj0 ImpfAgr
+CausBase CausPres ThE Subj0 ImpfAgr
+PassBase Pass ThI Subj0 ImpfAgr
+InchBase InchNasal ThA Subj0 ImpfAgr
 
-#Subjunctives (negative)
+VerbRootNil EmptyNasal VZero ThI Subj0 ImpfAgr
+VerbRootCil EmptyAffr VZero ThI Subj0 ImpfAgr
+VerbRootNelNal EmptyNasal VZero (ThE|ThA) Subj0 ImpfAgr
+VerbRootLelLal EmptyL VZero (ThE|ThA) Subj0 ImpfAgr
+
+#Subjunctives (negative) present
 :Neg VerbRootE VZero ThE Subj0  Neg: Pres0 PresAgr
 :Neg VerbRootI VZero ThI Subj0  Neg: Pres0 PresAgr
+:Neg VerbRootA VZero ThA Subj0  Neg: Pres0 PresAgr
+:Neg CausBase CausPres ThE Subj0  Neg: Pres0 PresAgr
+:Neg PassBase Pass ThI Subj0  Neg: Pres0 PresAgr
+:Neg InchBase InchNasal ThA Subj0  Neg: Pres0 PresAgr
 
+:Neg VerbRootNil EmptyNasal VZero ThI Subj0  Neg: Pres0 PresAgr
+:Neg VerbRootCil EmptyAffr VZero ThI Subj0  Neg: Pres0 PresAgr
+:Neg VerbRootNelNal EmptyNasal VZero (ThE|ThE) Subj0  Neg: Pres0 PresAgr
+:Neg VerbRootLelLal EmptyL VZero (ThE|ThE) Subj0  Neg: Pres0 PresAgr
+
+#Subjunctives (negative) imperfect
 :Neg VerbRootE VZero ThE Subj0  Neg: ImpfAgr
 :Neg VerbRootI VZero ThI Subj0  Neg: ImpfAgr
+:Neg VerbRootA VZero ThA Subj0  Neg: ImpfAgr
+:Neg CausBase CausPres ThE Subj0  Neg: ImpfAgr
+:Neg PassBase Pass ThI Subj0  Neg: ImpfAgr
+:Neg InchBase InchNasal ThA Subj0  Neg: ImpfAgr
+
+:Neg VerbRootNil EmptyNasal VZero ThI Subj0  Neg: ImpfAgr
+:Neg VerbRootCil EmptyAffr VZero ThI Subj0  Neg: ImpfAgr
+:Neg VerbRootNelNal EmptyNasal VZero (ThE|ThA) Subj0  Neg: ImpfAgr
+:Neg VerbRootLelLal EmptyL VZero (ThE|ThA) Subj0  Neg: ImpfAgr
 
 
 #Past
 VerbRootE VZero ThE Indc0 Aor PastPrimAgr
 VerbRootI VZero ThI Indc0 Aor PastSecAgr
+VerbRootA VZero ThA Indc0 Aor PastPrimAgr
+CausBase CausPast Indc0 Aor PastPrimAgr
+PassBase Pass ThI Indc0 Aor PastSecAgr
+InchBase InchEmpty Indc0 Aor PastSecAgr
+
+
+VerbRootNil VZero  Indc0  PastSecAgr
+VerbRootCil VZero  Indc0  PastSecAgr
+VerbRootNelNal VZero  Indc0  PastSecAgr
+VerbRootLelLal VZero  Indc0  PastSecAgr
 
 #Past (negative)
 :Neg VerbRootE VZero ThE Indc0 Neg: Aor PastPrimAgr
 :Neg VerbRootI VZero ThI Indc0 Neg: Aor PastSecAgr
+:Neg VerbRootA VZero ThA Indc0 Neg: Aor PastPrimAgr
+:Neg CausBase CausPast Indc0 Neg: Aor PastPrimAgr
+:Neg PassBase Pass ThI Indc0 Neg: Aor PastSecAgr
+:Neg InchBase InchEmpty Indc0 Neg: Aor PastSecAgr
 
+:Neg VerbRootNil VZero  Indc0 Neg:  PastSecAgr
+:Neg VerbRootCil VZero  Indc0 Neg:  PastSecAgr
+:Neg VerbRootNelNal VZero  Indc0 Neg:  PastSecAgr
+:Neg VerbRootLelLal VZero  Indc0 Neg:  PastSecAgr
 
-#Future
-:Fut VerbRootE VZero ThE Indc0  Fut: PresAgr
-:Fut VerbRootI VZero ThI Indc0  Fut: PresAgr
-
-:Fut VerbRootE VZero ThE Indc0  Fut: ImpfAgr
-:Fut VerbRootI VZero ThI Indc0  Fut: ImpfAgr
-
-#Future (negative)
-:Fut :Neg VerbRootE VZero ThE Indc0 Neg: Fut: PresAgr
-:Fut :Neg VerbRootI VZero ThI Indc0 Neg: Fut: PresAgr
-
-:Fut :Neg VerbRootE VZero ThE Indc0 Neg: Fut: ImpfAgr
-:Fut :Neg VerbRootI VZero ThI Indc0 Neg: Fut: ImpfAgr
-
-
-#Imperatives
+#Optionality is handled via Dir/LR
+#Imperatives sg
 VerbRootE VZero ThE ImpSg
-VerbRootI VZero ThI ImpSg
-VerbRootI VZero ThI ImpSgI
+VerbRootI VZero ThI ImpSg # Dir/LR
+VerbRootI VZero ThI ImpSgR
+VerbRootA VZero ThA ImpSg 
+PassBase Pass ThI ImpSg   # Dir/LR
+PassBase Pass ThI ImpSgR
+CausBase CausPast ImpSgR
+InchBase InchEmpty Aor ThI ImpSgR
 
+VerbRootNil VZero  ThI ImpSgR
+VerbRootCil VZero  ThI ImpSgR
+VerbRootNelNal VZero  ThI ImpSgR
+VerbRootLelLal VZero   ImpSgR # Dir/LR
+VerbRootLelLal VZero  ThI ImpSgR
+
+#Imperatives pl
 VerbRootE VZero ThE Aor ImpPl
 VerbRootI VZero ThI Aor ImpPl
+VerbRootA VZero ThA Aor ImpPl
+CausBase CausPast Aor ImpPl
+PassBase Pass ThI Aor ImpPl
+InchBase InchEmpty Aor ImpPl
+
+VerbRootNil VZero  ImpPl
+VerbRootCil VZero  ImpPl
+VerbRootNelNal VZero  ImpPl
+VerbRootLelLal VZero  ImpPl
 
 #Prohibitives
-:Proh VerbRootE VZero ThE Proh: ProhAgr
-:Proh VerbRootI VZero ThI Proh: ProhAgr
+VerbRootE VZero ThE [<proh>:] ProhAgr
+VerbRootI VZero ThI  [<proh>:] ProhAgr
+VerbRootA VZero ThA  [<proh>:] ProhAgr
+CausBase CausPres ThE  [<proh>:] ProhAgr
+PassBase Pass ThI  [<proh>:] ProhAgr
+InchBase InchNasal ThA  [<proh>:] ProhAgr
+
+
+VerbRootNil EmptyNasal VZero ThI  [<proh>:] ProhAgr
+VerbRootCil EmptyAffr VZero ThI  [<proh>:] ProhAgr #Need to double this accuracy because Boyacioglu didnt have it
+VerbRootNelNal EmptyNasal VZero (ThE|ThA) [<proh>:] ProhAgr
+VerbRootLelLal EmptyL VZero (ThE|ThA) [<proh>:] ProhAgr
 
 
 #Not sure if participles should count as verbal  TO DO
@@ -100,31 +226,87 @@ VerbRootI VZero ThI Aor ImpPl
 #Subject participle
 VerbRootE VZero SubjPart
 VerbRootI VZero SubjPart
+VerbRootA VZero ThA Aor SubjPart
+CausBase CausPres SubjPart
+PassBase Pass SubjPart
+InchBase InchEmpty Aor SubjPart
+
+VerbRootNil EmptyNasal VZero SubjPart
+VerbRootCil EmptyAffr VZero SubjPart
+VerbRootNelNal EmptyNasal VZero SubjPart
+VerbRootLelLal EmptyL VZero SubjPart
 
 #Perfect participle
 VerbRootE VZero PerfPart
 VerbRootI VZero PerfPart
+VerbRootA VZero ThA Aor PerfPart
+CausBase CausPast Aor PerfPart
+PassBase Pass PerfPart
+InchBase InchEmpty Aor PerfPart
+
+VerbRootNil VZero PerfPart
+VerbRootCil VZero PerfPart
+VerbRootNelNal VZero PerfPart
+VerbRootLelLal VZero PerfPart
 
 #Evidential participle
 VerbRootE VZero EvidPart
 VerbRootI VZero EvidPart
+VerbRootA VZero ThA Aor EvidPart
+CausBase CausPast Aor EvidPart
+PassBase Pass EvidPart
+InchBase InchEmpty Aor EvidPart
 
-#Auxiliary outside of negated-indicatives
+VerbRootNil VZero EvidPart
+VerbRootCil VZero EvidPart
+VerbRootNelNal VZero EvidPart
+VerbRootLelLal VZero EvidPart
+
+#Negative participle
+#Indicatives (negative)
+VerbRootE VZero  ThE NegPtcp  
+VerbRootI VZero  ThI NegPtcp 
+VerbRootI VZero  ThE [<impf>:] NegPtcp  #For i->e
+VerbRootA VZero  ThA NegPtcp  
+CausBase CausPres  ThE NegPtcp  
+PassBase Pass  ThI NegPtcp 
+PassBase Pass  ThE [<impf>:] NegPtcp  #For i->e
+InchBase InchNasal  ThA NegPtcp  
+
+VerbRootNil EmptyNasal VZero  ThI NegPtcp 
+VerbRootNil EmptyNasal VZero  ThE [<impf>:] NegPtcp  #For i->e
+VerbRootCil EmptyAffr VZero  ThI NegPtcp 
+VerbRootCil EmptyAffr VZero  ThE [<impf>:] NegPtcp  #For i->e
+VerbRootNelNal EmptyNasal VZero  (ThE|ThA) NegPtcp  
+VerbRootLelLal EmptyL VZero  (ThE|ThA) NegPtcp  
+
+
+#Auxiliary 
 Aux  Pres0 PresAgr
 :Neg Aux   Neg: Pres0 PresAgr
-
 #TO DO not sure if semantics line up with past auxiliaries
-Aux  VZero ImpfAgr
-:Neg Aux  VZero Neg: ImpfAgr
+Aux  ImpfAgr
+:Neg Aux  Neg: ImpfAgr
+
+#the special ci- auxiliary in negated present indicdative 3sg
+NegAux3SGI
+
+
+
+#Particles: Future, Prog, Proh
+Fut
+Prog
+Proh
 
 
 
 
 
-#Two auxilaries with yetch vs e
 LEXICON Aux 
-<aux>:ե
+<vaux>:ե
 
+LEXICON NegAux3SGI 
+<vaux><neg><p3><sg>:չի
 
 
 LEXICON VZero
@@ -145,33 +327,65 @@ LEXICON ThE
 :ե
 LEXICON ThI
 :ի
+LEXICON ThA
+:{ա}
 
 
 LEXICON Inf
 <inf>:լ
 
+#Valency affixes
+#Allomorphs of causative
+LEXICON CausPres
+<caus>:ցն
+
+LEXICON CausPast
+<caus>:ցու
+
+LEXICON CausPass
+<caus>:ց
+
+LEXICON Pass
+<pass>:ու
+
+LEXICON InchNasal
+<inch>:ն
+
+LEXICON InchEmpty #This is when the inchoative nasal is absent
+<inch>:
+
+
+#Empty affixes
+LEXICON EmptyNasal
+:ն
+LEXICON EmptyAffr
+:չ
+LEXICON EmptyL
+:լ
+
+
 LEXICON PresAgr
 <p1><sg>:մ
 <p2><sg>:ս
-<p3><sg>:{է}
+<p3><sg>:{Pres3SG}  #was {է}
 <p1><pl>:նք
-<p2><pl>:{է}ք
+<p2><pl>:{Pres2PL}ք  # was {է}
 <p3><pl>:ն
 
 LEXICON ImpfAgr
-<past><impf><p1><sg>:{եէ}ի
-<past><impf><p2><sg>:{եէ}իր
-<past><impf><p3><sg>:{եէ}ր
-<past><impf><p1><pl>:{եէ}ինք
-<past><impf><p2><pl>:{եէ}իք
-<past><impf><p3><pl>:{եէ}ին
+<past><impf><p1><sg>:{Impf}ի #was {եէ}
+<past><impf><p2><sg>:{Impf}իր
+<past><impf><p3><sg>:{Impf}ր
+<past><impf><p1><pl>:{Impf}ինք
+<past><impf><p2><pl>:{Impf}իք
+<past><impf><p3><pl>:{Impf}ին
 
  
 
 
 
 LEXICON Aor
-<aor>:{ե}ց
+<aor>:{Aor}ց #was {ե}
 
 LEXICON PastPrimAgr
 <past><pret><p1><sg>:ի
@@ -191,50 +405,36 @@ LEXICON PastSecAgr
 
 #TO DO add the exclamation punctuation
 LEXICON ImpSg
-<imp><p2><sg>:{եէ}
+<imp><p2><sg>:{ImpSg} #was {եէ}
 
-LEXICON ImpSgI
-<imp><p2><sg>:ր
+LEXICON ImpSgR 
+<imp><p2><sg>:ր  #Don't add the {ImpSg} tag so that don't trigger i->e change
 
 
 LEXICON ImpPl
 <imp><p2><pl>:էք
 
 LEXICON Proh
-<proh>:մի\ 
+<proh>:մի
 
 LEXICON ProhAgr
 <p2><sg>:ր
-<p2><pl>:ք
+<p2><pl>:{ProhPl}ք #Was {է}
 
 LEXICON Indc
 <indc>:կ{G1}{G2}
 
 LEXICON Prog
-<prog>:\ կոր
+<prog>:կոր
 
 LEXICON Fut
-<fut>:պիտի\ 
+<fut>:պիտի 
 
 #Negation-based lexicons
 LEXICON NegPtcp
-<ptcp>:ր
+<neg_ptcp>:ր
 
-#Negated Auxiliaries
-LEXICON NegAuxPres
-<pres><neg><p1><sg>:չեմ\ 
-<pres><neg><p2><sg>:չես\ 
-<pres><neg><p3><sg>:չի\ 
-<pres><neg><p1><pl>:չենք\ 
-<pres><neg><p2><pl>:չէք\ 
-<pres><neg><p3><pl>:չեն\ 
-LEXICON NegAuxImpf
-<pres><neg><p1><sg>:չէի\ 
-<pres><neg><p2><sg>:չէիր\ 
-<pres><neg><p3><sg>:չէր\ 
-<pres><neg><p1><pl>:չէինք\ 
-<pres><neg><p2><pl>:չէիք\ 
-<pres><neg><p3><pl>:չէին\ 
+
 
 LEXICON Neg
 <neg>:չ
@@ -258,6 +458,27 @@ to\ scratch:քեր
 
 LEXICON VerbRootI
 to\ speak:խօս
+
+LEXICON VerbRootA
+to\ read:կարդ
+
+
+#TO DO Allow a system to add nouns and adjectives
+LEXICON InchRootNoTh
+to\_understand:հասկ
+LEXICON InchRootYesTh
+to\_receive:ստ
+
+#Irregulars
+LEXICON VerbRootNil
+to\ pass:անց
+LEXICON VerbRootCil
+to\ stick:կպ
+LEXICON VerbRootNelNal
+to\_find:գտ
+LEXICON VerbRootLelLal
+to\_rise:ել
+
 
 #! Resources:
 #! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon

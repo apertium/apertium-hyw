@@ -4,18 +4,42 @@ Alphabet
 
 '
 % 
-%{G1%} %{G2%} %{է%} %{ե%} %{եէ%}
+%{G1%} %{G2%} 
+%{ա%}
+
+%{ProhPl%} %{ImpSg%} %{Aor%} %{Impf%} %{Pres3SG%} %{Pres2PL%}
+
+
 ;
 
-Sets 
+Sets
 
 Vowel = ա  ե է ը ո օ ի լ
 ;
 
 Cons = բ գ դ զ թ ժ  խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ ս վ տ ր ց ւ փ ք ֆ ; 
 
+!Morphological diacritics that should eventually delete
+Diacritic =   %{ProhPl%} %{Pres3SG%} %{ImpSg%} %{Impf%}  %{Aor%}  %{Pres2PL%}
+;
+
+!Summary of contexts ե theme vowel becomes է    
+JeToE = %{ProhPl%} %{Pres3SG%} %{ImpSg%} %{Impf%}  %{Pres2PL%}
+;
+
+! Summary of contexts ի theme vowel becomes է   
+IToE = %{ImpSg%} %{Impf%} 
+;
 
 
+! Summary of contexts ի theme vowel becomes ե   
+IToJe = %{Aor%}
+;
+
+! Summary of contexts where ա  theme vowel becomes այ
+AtoAJ = %{Pres3SG%}
+;
+ 
 Rules
 
 !Indicative prefix /կ{G1}{G2}/ is [կը ] before C's and [կ'] before V's
@@ -24,35 +48,43 @@ Rules
 "For G1, prefix կ{G1}{G2} to [կ'] before a vowel"
 %{G1%}:' <=> _ %{G2%}:     [ [ :Vowel - :ո ] | :ո :ւ ] ;  
 "For G2, prefix կ{G1}{G2} to կ' before a vowel"
-%{G2%}:0   <=>   _   [ [ :Vowel - :ո ] | :ո :ւ ] ;  
+%{G2%}:0   <=>   _   [ [ :Vowel - :ո ] | :ո :ւ Vowel: ] ;  
 
 "For G1, prefix կ{G1}{G2} to [կը ] before a consonant"
 %{G1%}:ը <=> _ %{G2%}:    [ [ :Cons ] | [ :ո - [ :ո :ւ ] ] ] ;  
 "For G2, prefix կ{G1}{G2} to [կը ] before a consonant"
 %{G2%}:%    <=>   _   [ [ :Cons ] | [ :ո - [ :ո :ւ ] ] ] ;  
 
-!In many contexts, the  ե theme vowel becomes է
-!For the lexd+two, this context is before the  %{է%} diacritic
-"theme vowel /ե%{է%}/ to [է]"
-ե:է  <=>   _ %{է%}: ;
-"delete the  /%{է%}/ diacritic"
-%{է%}:0 <=> _ ;
 
-!In many contexts, the  ի theme vowel becomes ե
-!For the lexd+two, this context is before the  %{ե%} diacritic
-"theme vowel /ի%{ե%}/ to [ե]"
-ի:ե  <=>   _ %{ե%}: ;
-"delete the  /%{ե%}/ diacritic"
-%{ե%}:0 <=> _ ;
 
-!In some contexts, both  ե and ի become է
-!For the lexd+two, this context is before the  %{եէ%} diacritic
-"theme vowel /ի%{եէ%}/ to [է]"
-ի:է  <=>   _ %{եէ%}: ;
-"theme vowel /ե%{եէ%}/ to [է]"
-ե:է  <=>   _ %{եէ%}: ;
-"delete the  /%{եէ%}/ diacritic"
-%{եէ%}:0 <=> _ ;
+"The glide յ between the {ա} theme vowel and before 3sg or imperfective ի "
+0:յ <=> %{ա%}: _ [  %{Pres3SG%}: | %{Impf%}: :ի ] ;
+"The theme vowel {ա} surfaces faithfully as ա"
+%{ա%}:ա <=> _ ;
+
+!In many contexts, the  ի theme vowel becomes է
+! These contexts  are part of IToE
+"theme vowel /իIToE/ to [է]"
+ի:է  <=>   _   IToE: ;
+
+!!In many contexts, the  ե theme vowel becomes է
+! These contexts  are part of JeToE
+"theme vowel /ե{JeToE}/ to [է]"
+ե:է  <=>   _ JeToE: ;
+
+
+!In some contexts, the ի theme vowel becomes ե
+! These contexts  are part of IToJe
+"theme vowel /իIToJe}/ to [է]"
+ի:ե  <=>   _  IToJe: ;
+
+!Delete all diacritics for morphology features
+"delete all diacritics -- "
+diacritic:0 <=>  _ ;
+      where diacritic in ( Diacritic ) 
+;
+
+
 
 
 ! Resources:
