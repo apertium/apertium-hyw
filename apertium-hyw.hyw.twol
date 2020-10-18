@@ -7,7 +7,7 @@ Alphabet
 %{G1%} %{G2%} 
 %{ա%}
 
-%{ProhPl%} %{ImpSg%} %{Aor%} %{Impf%} %{Pres3SG%} %{Pres2PL%}
+%{ProhPl%} %{ImpSg%} %{Aor%} %{Impf%} %{Pres3SG%} %{Pres2PL%} 
 
 
 ;
@@ -57,11 +57,15 @@ Rules
 
 
 
-"The glide յ between the {ա} theme vowel and before 3sg or imperfective ի "
-0:յ <=> %{ա%}: _ [  %{Pres3SG%}: | %{Impf%}: :ի ] ;
+"The glide յ between the {ա} theme vowel and before 3sg"
+0:յ <=> %{ա%}: _    %{Pres3SG%}:   ;
 "The theme vowel {ա} surfaces faithfully as ա"
 %{ա%}:ա <=> _ ;
 
+
+
+!v or imperfective ի  
+!  | %{Impf%}: :ի ] ;
 !In many contexts, the  ի theme vowel becomes է
 ! These contexts  are part of IToE
 "theme vowel /իIToE/ to [է]"
