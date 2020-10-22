@@ -19,10 +19,10 @@
     </pipeline>
   </mode>
 
-  <mode name="hyw-lexc" install="yes">
+   <mode name="hyw-lexd" install="yes">
     <pipeline>
       <program name="hfst-lookup">
-        <file name=".deps/hyw.LR.lexc.hfst"/>
+        <file name=".deps/hyw.LR.lexd.hfst"/>
       </program>
     </pipeline>
   </mode>

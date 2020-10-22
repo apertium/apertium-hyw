@@ -2,37 +2,37 @@ Alphabet
  ա  ե է ը ո օ ի լ
 բ գ դ զ թ ժ  խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ ս վ տ ր ց ւ փ ք ֆ
 
-'
-% 
-%{G1%} %{G2%} 
-%{ա%}
+'		!apostrophe
+՛		!exclamation mark in imperatives
 
-%{ProhPl%} %{ImpSg%} %{Aor%} %{Impf%} %{Pres3SG%} %{Pres2PL%} 
+% 
+%{G1%}:ը %{G2%}:%  
+%{յ%}:0
+%{լ%}:լ
+
+%{ProhPl%}:0 %{ImpSg%}:0 %{Aor%}:0 %{Impf%}:0 %{Pres3SG%}:0 %{Pres2PL%}:0
 
 
 ;
 
 Sets
 
-Vowel = ա  ե է ը ո օ ի լ
-;
+Vowel = 	ա  ե է ը ո օ ի ;
+FullVowel = ա  ե է   ո օ ի ;
 
-Cons = բ գ դ զ թ ժ  խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ ս վ տ ր ց ւ փ ք ֆ ; 
+Cons = բ գ դ զ թ ժ  լ խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ ս վ տ ր ց ւ փ ք ֆ ; 
 
-!Morphological diacritics that should eventually delete
-Diacritic =   %{ProhPl%} %{Pres3SG%} %{ImpSg%} %{Impf%}  %{Aor%}  %{Pres2PL%}
-;
 
 !Summary of contexts ե theme vowel becomes է    
 JeToE = %{ProhPl%} %{Pres3SG%} %{ImpSg%} %{Impf%}  %{Pres2PL%}
 ;
 
-! Summary of contexts ի theme vowel becomes է   
+! Some  contexts where ի theme vowel becomes է   
 IToE = %{ImpSg%} %{Impf%} 
 ;
 
 
-! Summary of contexts ի theme vowel becomes ե   
+! Some   contexts where ի theme vowel becomes ե   
 IToJe = %{Aor%}
 ;
 
@@ -42,30 +42,36 @@ AtoAJ = %{Pres3SG%}
  
 Rules
 
+
+!!!!! AFFIX ALLOMORPHY 
 !Indicative prefix /կ{G1}{G2}/ is [կը ] before C's and [կ'] before V's
 !Complication is that ու is a vowel while ոX is not
 
 "For G1, prefix կ{G1}{G2} to [կ'] before a vowel"
 %{G1%}:' <=> _ %{G2%}:     [ [ :Vowel - :ո ] | :ո :ւ ] ;  
 "For G2, prefix կ{G1}{G2} to կ' before a vowel"
-%{G2%}:0   <=>   _   [ [ :Vowel - :ո ] | :ո :ւ Vowel: ] ;  
+%{G2%}:0   <=>   _   [ [ :Vowel - :ո ] | :ո :ւ  ] ;  
 
-"For G1, prefix կ{G1}{G2} to [կը ] before a consonant"
-%{G1%}:ը <=> _ %{G2%}:    [ [ :Cons ] | [ :ո - [ :ո :ւ ] ] ] ;  
-"For G2, prefix կ{G1}{G2} to [կը ] before a consonant"
-%{G2%}:%    <=>   _   [ [ :Cons ] | [ :ո - [ :ո :ւ ] ] ] ;  
-
-
-
-"The glide յ between the {ա} theme vowel and before 3sg"
-0:յ <=> %{ա%}: _    %{Pres3SG%}:   ;
-"The theme vowel {ա} surfaces faithfully as ա"
-%{ա%}:ա <=> _ ;
+!"For G1, prefix կ{G1}{G2} to [կը ] before a consonant"
+!%{G1%}:ը <=> _ %{G2%}:    [ [ :Cons ] | [ :ո - [ :ո :ւ ] ] ] ;  
+!"For G2, prefix կ{G1}{G2} to [կը ] before a consonant"
+!%{G2%}:%    <=>   _   [ [ :Cons ] | [ :ո - [ :ո :ւ ] ] ] ;  
 
 
+!!!! GLIDE EPENTHESIS
+!The glide յ is added between the ա theme vowel and pres3sg + imperfective-i
+"The glide յ between the ա theme vowel and before 3sg: /ա{յ}Pres/ -> [այ]"
+%{յ%}:յ <=> ա: _   [  %{Pres3SG%}:  |    %{Impf%}: :ի ]   ;
 
-!v or imperfective ի  
-!  | %{Impf%}: :ի ] ;
+!Some irregular verbs have a C-final imperative, but the exlamation mark is inside the verb
+!This will metathesize the exclamation mark in this contetx
+!It only works for verbs like բերել -- the very լալ has a cheat in the lexd
+"delete the exclamation mark when it follows a consonant"
+՛:0 <=> :Cons _ ;
+"add an exclamation mark after an irregular imperative verb's final vowel"
+0:՛ <=> :FullVowel _ :Cons* :Cons  ՛:0 ;
+
+!!!!! THEME VOWEL CHANGES
 !In many contexts, the  ի theme vowel becomes է
 ! These contexts  are part of IToE
 "theme vowel /իIToE/ to [է]"
@@ -79,14 +85,15 @@ Rules
 
 !In some contexts, the ի theme vowel becomes ե
 ! These contexts  are part of IToJe
-"theme vowel /իIToJe}/ to [է]"
+"theme vowel /իIToJe}/ to [ե]"
 ի:ե  <=>   _  IToJe: ;
 
-!Delete all diacritics for morphology features
-"delete all diacritics -- "
-diacritic:0 <=>  _ ;
-      where diacritic in ( Diacritic ) 
-;
+!When there's a full vowel after the infinitival, the ի theme vowel becomes ե
+! These contexts  are part of IToJe
+"theme vowel /ի{լ}V/ to [ե]"
+ի:ե  <=>   _  %{լ%}: :FullVowel ;
+
+
 
 
 
