@@ -560,7 +560,7 @@ VerbRootSit  VZero  ThI   NegPtcp
 VerbRootEatPast VZero  ThE  NegPtcp
 VerbRootSendPres VZero  ThI NegPtcp 
 VerbRootSendPres VZero  ThE [<impf>:] NegPtcp  #For i->e
-
+  
 
 PATTERN ProspectivePart #Also called future gerund
 Infinitival ProsPtcp
@@ -819,8 +819,9 @@ LEXICON EvidPart
 
 
 ## Lexicon
-LEXICON VerbRootE
-քերել:քեր
+LEXICON VerbRootE  		#Class 1 երգել and 2 քաղել
+երգել:երգ
+քաղել:քաղ
 
 LEXICON VerbRootI
 խօսիլ:խօս
