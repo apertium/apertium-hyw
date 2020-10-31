@@ -63,6 +63,8 @@ Rules
 "The glide յ between the ա theme vowel and before 3sg: /ա{յ}Pres/ -> [այ]"
 %{յ%}:յ <=> ա: _   [  %{Pres3SG%}:  |    %{Impf%}: :ի ]   ;
 
+
+!!! Imperative exclamation point
 !Some irregular verbs have a C-final imperative, but the exlamation mark is inside the verb
 !This will metathesize the exclamation mark in this contetx
 !It only works for verbs like բերել -- the very լալ has a cheat in the lexd
@@ -89,13 +91,14 @@ Rules
 ի:ե  <=>   _  IToJe: ;
 
 !When there's a full vowel after the infinitival, the ի theme vowel becomes ե
-! These contexts  are part of IToJe
 "theme vowel /ի{լ}V/ to [ե]"
 ի:ե  <=>   _  %{լ%}: :FullVowel ;
 
-
-
-
+!When there's a full vowel after the infinitival, the ու theme vowel becomes ե
+"theme vowel /ու/ to [ե]"
+ո:ե  <=>   _ ւ:0 %{լ%}: :FullVowel ;
+"theme vowel /ու/ to [ե]"
+ւ:0  <=>   _ %{լ%}: :FullVowel ;
 
 
 ! Resources:
