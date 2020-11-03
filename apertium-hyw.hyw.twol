@@ -10,15 +10,22 @@ Alphabet
 %{յ%}:0
 %{լ%}:լ
 
+
 %{ProhPl%}:0 %{ImpSg%}:0 %{Aor%}:0 %{Impf%}:0 %{Pres3SG%}:0 %{Pres2PL%}:0
 
+%{PossPlի%}:ի  ! The plural possessive generally surfaces with ի unless before a vowel
+
+%{SpurPlե%}:0  ! Spurious plural is deleted unless after monosyllables
+%{SpurPlր%}:0 
+
+%{defն%}:ը    ! for definite allomorphy ն-ը; i assume easier default is ը
+%{Plն%}:ն		!for plural allomorphy եր ներ; I assume easier default is polysyllabic ներ
 
 ;
 
 Sets
 
 Vowel = 	ա  ե է ը ո օ ի ;
-FullVowel = ա  ե է   ո օ ի ;
 
 Cons = բ գ դ զ թ ժ  լ խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ ս վ տ ր ց ւ փ ք ֆ ; 
 
@@ -40,6 +47,17 @@ IToJe = %{Aor%}
 AtoAJ = %{Pres3SG%}
 ;
  
+ Definitions
+
+FullVowel = [ :ա | :ե | :է |  :ո | :օ | :ի | :ո :ւ ];
+
+RealVowel = [ FullVowel | :ը    ];
+
+Monosyllable =  .#. (:Cons (:յ))	RealVowel (:Cons (:Cons)) (:ք)   ;
+;
+ 
+
+
 Rules
 
 
@@ -71,7 +89,7 @@ Rules
 "delete the exclamation mark when it follows a consonant"
 ՛:0 <=> :Cons _ ;
 "add an exclamation mark after an irregular imperative verb's final vowel"
-0:՛ <=> :FullVowel _ :Cons* :Cons  ՛:0 ;
+0:՛ <=> FullVowel _ :Cons* :Cons  ՛:0 ;
 
 !!!!! THEME VOWEL CHANGES
 !In many contexts, the  ի theme vowel becomes է
@@ -91,14 +109,40 @@ Rules
 ի:ե  <=>   _  IToJe: ;
 
 !When there's a full vowel after the infinitival, the ի theme vowel becomes ե
+!Needed finessing in order to apply across zero morphs and consonants liek նի
 "theme vowel /ի{լ}V/ to [ե]"
-ի:ե  <=>   _  %{լ%}: :FullVowel ;
+ի:ե  <=>   _  %{լ%}:  [ :0 | :Cons ]*  FullVowel ;
 
 !When there's a full vowel after the infinitival, the ու theme vowel becomes ե
 "theme vowel /ու/ to [ե]"
-ո:ե  <=>   _ ւ:0 %{լ%}: :FullVowel ;
+ո:ե  <=>   _ ւ:0 %{լ%}:  [ :0 | :Cons ]*  FullVowel ;
 "theme vowel /ու/ to [ե]"
-ւ:0  <=>   _ %{լ%}: :FullVowel ;
+ւ:0  <=>   _ %{լ%}:  [ :0 | :Cons ]*  FullVowel ;
+
+
+!!!!!!!!!!!!!!!!!!!!!!
+!!! Noun allomorphy
+
+! For definite allomorphy, the input definite suffix is %{defն%} 
+! It's a  ը after consonants, and ն after vowels
+"definite suffix is ն after vowels"
+%{defն%}:ն <=>   RealVowel _ ;
+
+! For plural allomorphy, the input plural suffix is %{Plն%}եր
+! The rule will drop %{Plն%} after monosyllables, defined roughty as maximally CJVCCk
+"plural suffix is եր after monosyllables"
+%{Plն%}:0 <=> Monosyllable  _ ;
+
+! For plural possessive allomorphy, there is a fake plural suffix եր if after monosyllable
+! The rule will turn the relevant diacritics into the plural suffix
+"spurious plural suffix is եր after monosyllables: for ե"
+%{SpurPlե%}:ե <=> Monosyllable  _ ;
+"spurious plural suffix is եր after monosyllables: for ր"
+%{SpurPlր%}:ր  <=> Monosyllable  %{SpurPlե%}:ե _ ;
+
+! For plural possessive allomorphy, the suffix loses ի before a vowel
+"Delete the vowel ի of the plural possessive before a vowel է ո ի " 
+%{PossPlի%}:0  <=>  _ [:է | :ո | :ի ];
 
 
 ! Resources:
