@@ -1,0 +1,1135 @@
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!!  M O R P H O T A C T I C S  !!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+#Unclear if Aor should be tagged as aorist or nothing, because it's sometimes meaningless
+
+#Develop complex tenses with onstraint Grammar TO DO
+
+#TO DO Valency morphology (passive, causative, inchoative)
+# Theme-less causatives, maybe tags or columns
+# Maybe the nil group shouldnt get a causative version? or cil class
+# lexical caus/passives can get their own lexical entry
+#via https://wiki.apertium.org/wiki/Word_sense_disambiguation and Lexical Selection
+
+# TO DO use postdix (post-generator) to figure out how to get ci -> c'
+#https://wiki.apertium.org/wiki/Post-generator
+#Could use post-dix to do indicative too
+
+#TO DO: gbcil is an incomplete paradigm in Boyacioglu but it has more entries in EANC
+#TO DO check for paradigm leveling of irregular nil/cil in imperatives to get aorist (EANC)
+
+
+# TO DO double check defectives
+#15 Cil prohibtive, negativ present/imperfect,evid,subj
+#15 16 difference in Imperative
+
+#Not sure if participles should count as verbal TO DO
+#because they feel verbal, but can also act as nouns/adjectives 
+
+
+########################################
+########################################
+########################################
+##### VERB paradigms
+########################################
+########################################
+########################################
+########################################
+
+
+#Base of causative is root+th
+PATTERN CausBase
+VerbRootE VZero ThE 
+VerbRootI VZero ThE #I'm just changing -i- to -e- directly
+VerbRootA VZero ThA 
+InchBase InchEmpty  #<inch> marked by either covert or overt -n-
+
+CausativeVerbRoot VZero #This is for lexically listed causatives
+
+#Base of passive is root
+PATTERN PassBase
+VerbRootE VZero 
+VerbRootI VZero 
+VerbRootA VZero ThA Aor
+CausBase CausPass 
+InchBase InchEmpty Aor #Should I care that this will rarely be traversed? TO DO
+  
+ PassiveVerbRoot  VZero #This is for lexically listed passives
+
+
+#Base of inchoative is root+th or root
+PATTERN InchBase
+InchRootTh0 VZero
+InchRootThA ThA VZero
+InchRootThE ThE VZero
+
+#Infinitival
+PATTERN Infinitival
+VerbRootE VZero ThE Inf
+VerbRootI VZero ThI Inf
+VerbRootA VZero ThA Inf
+CausBase CausPres ThE Inf
+PassBase Pass ThI Inf
+InchBase InchNasal ThA Inf
+
+#Archaic/obsolete
+VerbRootUv VZero ThU Inf # արտահեղուլ 
+VerbRootUc VZero ThU Inf # թողուլ 
+VerbRootUcanel VZero ThA EmptyNasal ThE Inf  # Dir/LR # ծանուցանել , preferably part of RootE class
+VerbRootNulV EmptyNasal VZero ThU Inf # երդնուլ 
+VerbRootNulC EmptyNasal VZero ThU Inf # զբօսնուլ
+
+#Irregulars
+VerbRootNil EmptyNasal VZero ThI Inf # անցնիլ group from Boyacioglu
+VerbRootCilV|VerbRootCilC EmptyAffr VZero ThI Inf # կպչիլ group from Boyacioglu
+VerbRootNelNale EmptyNasal VZero ThE Inf #իջնել իջնալ
+VerbRootNelNala EmptyNasal VZero ThA Inf 
+VerbRootRiseEPres VZero ThE Inf #ելլել ելլալ
+VerbRootRiseAPres VZero ThA Inf 
+VerbRootCilIlc EmptyAffr VZero ThI Inf 		#դպչիլ դպիլ 
+VerbRootCilIli VZero ThI Inf 		 
+VerbRootCanLong EmptyNasal VZero ThA Inf #կարենալ, not կրնալ
+VerbRootAppear VZero ThI Inf # Defective երեւիլ, only indicative non-perfect, no subj
+VerbRootBeLongPres VZero ThA Inf # Irregular ըլլալ
+VerbRootComePres VZero ThA Inf # irregular գալ եկայ
+VerbRootCry VZero ThA Inf # լալ
+VerbRootGivePres VZero ThA Inf # տալ
+VerbRootBring VZero ThE Inf # բերել
+VerbRootTurnPres VZero ThA Inf # դառնալ
+VerbRootTake EmptyNasal VZero ThE Inf # առնել
+VerbRootOpenPres VZero ThA Inf # բանալ
+VerbRootPutPres VZero ThE Inf # դնել
+VerbRootGoPres VZero ThA Inf # երթալ
+VerbRootHitPres VZero ThE Inf # զարնել
+VerbRootYield VZero ThI Inf # զիջիլ
+VerbRootAccept VZero ThI Inf # ընդունիլ
+VerbRootDoPres VZero ThE Inf # ընել
+VerbRootSay VZero ThE Inf # ըսել
+VerbRootSpitOldPres EmptyNasal VZero ThE Inf # թքնել
+VerbRootFallPres VZero ThA Inf # իյնալ
+VerbRootBite EmptyNasal VZero ThE Inf # խածնել
+VerbRootPlay VZero ThA Inf # խաղալ
+VerbRootStay VZero ThA Inf # մնալ
+VerbRootSit VZero ThI Inf # նստիլ
+VerbRootEatPres VZero ThE Inf # ուտել
+VerbRootSendPres VZero ThI Inf # տանիլ
+
+PATTERN Indicative
+#Verbs with prefix
+:Indc IndcSubjStem Indc:
+#Including irregular monosylabic verbs that take gu-
+:IndcShort IndcSubjBaseMonoStem IndcShort:
+
+#Irregulars that lake prefix 
+IndicativeIrregular
+
+PATTERN Subjunctive
+IndcSubjStem Subj0
+IndcSubjBaseMonoStem Subj0
+
+#irregulars that lack prefix in indicative
+SubjunctiveIrregular
+
+
+PATTERN IndcSubjStem
+#Stem is base(root+th) and the agreement, no prefix or mood marking
+#present
+IndcSubjBase Pres0 PresAgr 
+#impefect
+IndcSubjBase ImpfAgr 
+
+
+PATTERN IndcSubjBase
+#Base of verb for regular Indicative and Subjunctive (without prefix)
+#Base is root till theme vowel
+#Present
+VerbRootE VZero ThE 
+VerbRootI VZero ThI 
+VerbRootA VZero ThA 
+CausBase CausPres ThE
+PassBase Pass ThI 
+InchBase InchNasal ThA 
+
+
+VerbRootUv VZero ThU	#Unclear which one is preferred because archaic
+VerbRootUv VZero ThE 
+VerbRootUcanel VZero ThA EmptyNasal ThE  # Dir/LR
+
+VerbRootNil EmptyNasal VZero ThI 
+VerbRootNelNale EmptyNasal VZero ThE
+VerbRootNelNala EmptyNasal VZero ThA
+VerbRootRiseEPres  VZero ThE
+VerbRootRiseAPres  VZero ThA
+VerbRootCilIlc EmptyAffr VZero ThI 
+VerbRootCilIli VZero ThI 
+VerbRootBeLongPres VZero ThA 
+VerbRootBring VZero ThE
+VerbRootTurnPres VZero ThA
+VerbRootTake EmptyNasal VZero ThE
+VerbRootOpenPres VZero ThA
+VerbRootPutPres VZero ThE
+VerbRootGoPres VZero ThA 
+VerbRootHitPres VZero ThE 
+VerbRootYield VZero ThI 
+VerbRootAccept VZero ThI 
+VerbRootDoPres VZero ThE
+VerbRootSay VZero ThE
+VerbRootSpitOldPres EmptyNasal VZero ThE
+VerbRootFallPres VZero ThA
+VerbRootBite EmptyNasal VZero ThE 
+VerbRootPlay VZero ThA
+VerbRootStay VZero ThA
+VerbRootSit VZero ThI
+VerbRootEatPres VZero ThE
+VerbRootSendPres VZero ThI
+
+
+PATTERN IndcSubjBaseMonoStem
+#Monosyllabic verbs which take the prefix gu-
+#stem is base (root+th) and agr
+IndcSubjBaseMono Pres0 PresAgr
+IndcSubjBaseMono ImpfAgr 
+
+PATTERN IndcSubjBaseMono
+#Monosyllabic verbs which take the prefix gu-
+#base is root and theme
+VerbRootComePres VZero ThA 
+VerbRootCry VZero ThA 
+VerbRootGivePres VZero ThA 
+
+
+PATTERN IndicativeIrregular
+# I won't generalize them just ot be safe
+#Some of these don't take prefix 
+#Some of them don't have any subjunctive form
+:Indc VerbRootCilV|VerbRootCilC EmptyAffr VZero ThI Pres0 PresAgr Indc: # երկնչիլ defective
+:Indc VerbRootCilV EmptyAffr VZero ThI ImpfAgr Indc: 
+VerbRootCanShort EmptyNasal VZero ThA Pres0 PresAgr Indc: 
+VerbRootCanShort EmptyNasal VZero ThA ImpfAgr Indc:
+:Indc VerbRootAppear VZero ThI Pres0 PresAgr Indc: # երեւիլ defective 
+:Indc VerbRootAppear VZero ThI ImpfAgr Indc: #I think Boyacioglu has an error because the -i- stayed -i- here
+VerbRootHave VZero ThI Pres0 PresAgr Indc: # ունիմ defective
+VerbRootHave VZero ThI ImpfAgr Indc:
+VerbRootKnow VZero ThE Pres0 PresAgr Indc: # գիտեմ defectve
+VerbRootKnow VZero ThE ImpfAgr Indc:
+VerbRootExist VZero ThA Pres0 PresAgr Indc: # կամ defectve
+VerbRootExist VZero ThA ImpfAgr Indc: 
+
+#imperfect
+
+#U theme vowels behave haphazardly
+#For optional variants, can't determine which is preferred form
+:Indc VerbRootUc VZero ThU Pres0 PresAgr Indc: 
+:Indc VerbRootUc VZero ThU|ThE ImpfAgr Indc:
+:Indc VerbRootNulV EmptyNasal VZero ThU Pres0 PresAgr Indc: 
+:Indc VerbRootNulV EmptyNasal VZero ThE ImpfAgr Indc: 
+:Indc VerbRootNulC EmptyNasal VZero ThU Pres0 PresAgr Indc: 
+:Indc VerbRootNulC EmptyNasal VZero ThE ImpfAgr Indc: 
+
+
+PATTERN SubjunctiveIrregular
+#These have an irregular indicative form that lacks prefix
+VerbRootCanShort EmptyNasal VZero ThA Pres0 PresAgr Subj0 #I disagree with Boyacioglu, I have subjunctives
+VerbRootCanShort EmptyNasal VZero ThA ImpfAgr Subj0
+VerbRootCanLong EmptyNasal VZero ThA Pres0 PresAgr Subj0 
+VerbRootCanLong EmptyNasal VZero ThA ImpfAgr Subj0  
+VerbRootHave VZero ThI Pres0 PresAgr Subj0  #I disagree with Boyacioglu, I have subjunctives
+VerbRootHave VZero ThI ImpfAgr Subj0 
+VerbRootKnow VZero ThE Pres0 PresAgr Subj0  #I disagree with Boyacioglu, I have subjunctives
+VerbRootKnow VZero ThE ImpfAgr Subj0 
+VerbRootBeLongPres VZero ThA Pres0 PresAgr Subj0
+VerbRootBeLongPres VZero ThA ImpfAgr Subj0
+VerbRootExist VZero ThA Pres0 PresAgr Subj0	#I disagree with Boyacioglu, I have subjunctives
+VerbRootExist VZero ThA ImpfAgr Subj0	
+
+
+ 
+ #U theme vowels with C-initial segment behave haphazardly
+#For optional variants, can't determine which is preferred form in some cases
+#I let it overgeneralize the -e- form to negation even though the grammar only shows -u-
+VerbRootUc VZero ThU|ThE Pres0 PresAgr Subj0
+VerbRootUc VZero ThU|ThE ImpfAgr Subj0
+VerbRootNulV EmptyNasal VZero ThU Pres0 PresAgr Subj0
+VerbRootNulV EmptyNasal VZero ThU|ThE ImpfAgr Subj0 #Overgeneralize because no negative form, and not clear about -e- in complex tenses
+VerbRootNulC EmptyNasal VZero  ThU  Pres0 PresAgr Subj0
+VerbRootNulC EmptyNasal VZero  ThE ImpfAgr Subj0
+
+
+
+PATTERN Past
+#Past
+VerbRootE VZero ThE Aor PastPrimAgr Indc0
+VerbRootI VZero ThI Aor PastSecAgr Indc0 
+VerbRootA VZero ThA Aor PastPrimAgr Indc0 
+CausBase CausPast Aor PastPrimAgr Indc0
+PassBase Pass ThI Aor PastSecAgr Indc0
+InchBase InchEmpty Aor PastSecAgr Indc0
+
+
+VerbRootUv VZero ThU Aor PastPrimAgr Indc0 
+VerbRootUc VZero ThU Aor PastPrimAgr Indc0 
+VerbRootUc VZero PastPrimAgr Indc0 #   This form can't b negated but I'll let it over-generalize
+VerbRootUcanel VZero PastPrimAgr Indc0  # Dir/LR
+VerbRootNulV VZero ThU PastSecAgr
+VerbRootNulV VZero PastSecAgr
+VerbRootNulC EmptyNasal VZero ThE Aor PastPrimAgr #Obsolete so the preference is unknown
+
+
+VerbRootNil VZero PastSecAgr Indc0
+VerbRootCilV|VerbRootCilC VZero PastSecAgr Indc0
+VerbRootNelNale|VerbRootNelNala VZero PastSecAgr Indc0
+VerbRootRiseEPast|VerbRootRiseAPast VZero PastSecAgr Indc0
+VerbRootCilIlc|VerbRootCilIli VZero PastSecAgr Indc0
+VerbRootCanShort VZero Aor PastSecAgr Indc0
+VerbRootBeLongPast VZero PastSecAgr Indc0
+VerbRootComePast VZero PastSecAgr Indc0
+VerbRootCry VZero ThA Aor PastSplitAgr Indc0
+VerbRootGivePast VZero PastSplitAgr Indc0
+VerbRootBring VZero PastSplitAgr Indc0
+VerbRootTurnPast VZero PastSecAgr Indc0
+VerbRootTake VZero PastSplitAgr Indc0
+VerbRootOpenPast VZero PastSplitAgr Indc0
+VerbRootPutPast VZero PastSplitAgr Indc0
+VerbRootGoPastC VZero ThA Aor PastAgrGoNo3Sg Indc0
+VerbRootGoPast3 VZero ThA Aor PastAgrGoYes3Sg Indc0
+VerbRootHitPast VZero PastSplitAgr Indc0
+VerbRootYield VZero PastSecAgr Indc0
+VerbRootAccept VZero ThI Aor PastPrimAgr Indc0 
+VerbRootAccept VZero ThI Aor PastSecAgr Indc0 # Dir/LR
+VerbRootDoPast VZero PastSplitAgr Indc0
+VerbRootSay VZero PastSplitAgr Indc0
+VerbRootSpitOldPres VZero PastSecAgr Indc0
+VerbRootSpitOldPres VZero PastSplitAgr Indc0 # Dir/LR
+VerbRootFallPast VZero PastSecAgr Indc0
+VerbRootBite VZero PastSecAgr Indc0
+VerbRootBite VZero PastSplitAgr  Indc0 # Dir/LR
+VerbRootPlay VZero Aor PastSecAgr Indc0
+VerbRootPlay VZero ThA Aor PastPrimAgr Indc0 # Dir/LR
+VerbRootStay VZero ThA Aor PastPrimAgr Indc0
+VerbRootSit VZero PastSecAgr Indc0
+VerbRootSit VZero ThI Aor PastSecAgr  Indc0 # Dir/LR
+VerbRootEatPast VZero PastSecAgr Indc0
+VerbRootSendPast VZero PastSplitAgr Indc0
+
+PATTERN Imperative
+#Optionality is handled via Dir/LR
+#Imperatives sg
+VerbRootE VZero ThE ImpSg
+VerbRootI VZero ThI ImpSg # Dir/LR
+VerbRootI VZero ImpSgIR
+VerbRootA VZero ThA ImpSg 
+PassBase Pass ThI ImpSg # Dir/LR
+PassBase Pass ImpSgIR
+CausBase CausPast ImpSgR
+InchBase InchEmpty Aor ImpSgIR
+
+VerbRootUv|VerbRootUc VZero ImpSgInternalMark #Unclear which one is preferred because archaic/obsolete
+VerbRootUv|VerbRootUc VZero ThU ImpSgInternalMark
+VerbRootUv|VerbRootUc VZero ImpSgUR
+VerbRootUcanel VZero ImpSgUR  # Dir/LR
+VerbRootNulV VZero ThU ImpSgIR
+VerbRootNulC EmptyNasal VZero ThE ImpSg
+VerbRootNulC VZero ImpSgIR	#Unclear which one is preferred because archaic/obsolete
+
+VerbRootNil VZero ImpSgIR
+VerbRootCilC VZero ImpSgIR
+VerbRootCilV VZero ThI ImpSg # Dir/LR
+VerbRootCilV VZero ImpSgIR
+VerbRootNelNale|VerbRootNelNala VZero ImpSgIR
+VerbRootRiseEPast|VerbRootRiseAPast VZero ImpSg # Dir/LR
+VerbRootRiseEPast|VerbRootRiseAPast VZero ImpSgIR
+VerbRootCilIlc|VerbRootCilIli VZero ThI ImpSg # Dir/LR
+VerbRootCilIlc|VerbRootCilIli VZero ImpSgIR
+VerbRootCanShort VZero Aor ImpSgIR
+VerbRootBeLongPast VZero ImpSgIR
+VerbRootComePast VZero ImpSgUR
+VerbRootCry VZero ThA :ImpSgInternalMark Aor ImpSgInternalMark: # Force the metathesis because aorist boundary causes problems
+VerbRootGivePres VZero ImpSgUR
+VerbRootBring VZero ImpSgInternalMark 
+VerbRootTurnPast VZero ImpSgIR 
+VerbRootTake VZero ImpSgInternalMark 
+VerbRootOpenPast VZero ImpSgInternalMark 
+VerbRootPutImpSg VZero ImpSgIR 
+VerbRootGoPast3 VZero ThA ImpSg
+VerbRootHitPast VZero ImpSgInternalMark 
+VerbRootYield VZero ThI ImpSg # Dir/LR
+VerbRootYield VZero ImpSgIR
+VerbRootAccept VZero ThI ImpSg # Dir/LR
+VerbRootAccept VZero ImpSgIR
+VerbRootDoPast VZero ThE ImpSg
+VerbRootSay VZero ThE ImpSg
+VerbRootSpitOldPres VZero ThE ImpSg
+VerbRootSpitOldPres VZero ImpSgIR # Dir/LR
+VerbRootSpitOldImpSg VZero ImpSgInternalMark # Dir/LR
+VerbRootFallPast VZero ImpSgIR
+VerbRootBite VZero ImpSgInternalMark
+VerbRootBite VZero ImpSgIR # Dir/LR
+VerbRootPlay VZero Aor ImpSgIR 
+VerbRootPlay VZero ThA ImpSg # Dir/LR
+VerbRootStay VZero ThA Aor ImpSgIR
+VerbRootStay VZero ThA ImpSg # Dir/LR
+VerbRootSit VZero ImpSgIR
+VerbRootSit VZero ThI ImpSg # Dir/LR
+VerbRootEatPast VZero ImpSgInternalMark
+VerbRootSendPast VZero ImpSgInternalMark
+
+#Imperatives pl
+VerbRootE VZero ThE Aor ImpPl
+VerbRootI VZero ThI Aor ImpPl
+VerbRootA VZero ThA Aor ImpPl
+CausBase CausPast Aor ImpPl
+PassBase Pass ThI Aor ImpPl
+InchBase InchEmpty Aor ImpPl
+
+
+VerbRootUv|VerbRootUc VZero ImpPl #Unclear which is preferred
+VerbRootUv|VerbRootUc VZero ThE Aor ImpPl
+VerbRootUv|VerbRootUc VZero ThU Aor ImpPl
+VerbRootUcanel VZero ImpPl  # Dir/LR
+VerbRootNulV VZero ThU ImpPl
+VerbRootNulC EmptyNasal VZero ThE Aor ImpPl
+
+VerbRootNil VZero ImpPl
+VerbRootCilV|VerbRootCilC VZero ImpPl
+VerbRootNelNale|VerbRootNelNala VZero ImpPl
+VerbRootRiseEPast|VerbRootRiseAPast VZero ImpPl
+VerbRootCilIlc|VerbRootCilIli VZero ImpPl
+VerbRootCanShort VZero Aor ImpPl
+VerbRootBeLongPast VZero ImpPl
+VerbRootComePast VZero ImpPl
+VerbRootCry VZero ThA Aor   ImpPl
+VerbRootGivePast VZero ImpPl
+VerbRootBring VZero ImpPl 
+VerbRootTurnPast VZero ImpPl 
+VerbRootTake VZero ImpPl 
+VerbRootOpenPast VZero ImpPl 
+VerbRootPutPast VZero ImpPl 
+VerbRootGoPastC VZero ThA Aor ImpPl
+VerbRootHitPast VZero ImpPl
+VerbRootYield VZero ImpPl
+VerbRootAccept VZero ThI Aor ImpPl
+VerbRootDoPast VZero ImpPl
+VerbRootSay VZero ImpPl
+VerbRootSpitOldPres VZero ImpPl
+VerbRootFallPast VZero ImpPl
+VerbRootBite VZero ImpPl
+VerbRootPlay VZero Aor ImpPl
+VerbRootPlay VZero ThA Aor ImpPl
+VerbRootStay VZero ThA Aor ImpPl
+VerbRootSit VZero ThI Aor ImpPl
+VerbRootSit VZero ImpPl # Dir/LR
+VerbRootEatPast VZero ImpPl
+VerbRootSendPast VZero ImpPl
+
+PATTERN Prohibitive
+#Prohibitives
+VerbRootE VZero ThE [<proh>:] ProhAgr
+VerbRootI VZero ThI [<proh>:] ProhAgr
+VerbRootA VZero ThA [<proh>:] ProhAgr
+CausBase CausPres ThE [<proh>:] ProhAgr
+PassBase Pass ThI [<proh>:] ProhAgr
+InchBase InchNasal ThA [<proh>:] ProhAgr
+
+VerbRootUv|VerbRootUc VZero ThU [<proh>:] ProhAgr
+#VerbRootUcanel group is defective and lacks prohibitives in Boyacioglu
+
+VerbRootNil EmptyNasal VZero ThI [<proh>:] ProhAgr
+#VerbRootCil EmptyAffr VZero ThI [<proh>:] ProhAgr #Need to double this accuracy because Boyacioglu didnt have it
+VerbRootNelNale EmptyNasal VZero ThE [<proh>:] ProhAgr
+VerbRootNelNala EmptyNasal VZero ThA [<proh>:] ProhAgr
+VerbRootRiseEPres VZero ThE [<proh>:] ProhAgr
+VerbRootRiseAPres VZero ThA [<proh>:] ProhAgr
+VerbRootCilIlc EmptyAffr VZero ThI [<proh>:] ProhAgr 
+VerbRootCilIli VZero ThI [<proh>:] ProhAgr 
+VerbRootCanLong EmptyNasal VZero ThA [<proh>:] ProhAgr
+VerbRootBeLongPres VZero ThA [<proh>:] ProhAgr
+VerbRootComePres VZero ThA [<proh>:] ProhAgr
+VerbRootCry VZero ThA [<proh>:] ProhAgr
+VerbRootGivePres VZero ThA [<proh>:] ProhAgr
+VerbRootBring VZero ThE [<proh>:] ProhAgr
+VerbRootTurnPres VZero ThA [<proh>:] ProhAgr
+VerbRootTake EmptyNasal VZero ThE [<proh>:] ProhAgr 
+VerbRootOpenPres VZero ThA [<proh>:] ProhAgr 
+VerbRootPutPres VZero ThE [<proh>:] ProhAgr 
+VerbRootGoPres VZero ThA [<proh>:] ProhAgr 
+VerbRootHitPres VZero ThE [<proh>:] ProhAgr 
+VerbRootYield VZero [<proh>:] ProhAgrIrEk 
+VerbRootAccept VZero [<proh>:] ProhAgrIrEk 
+VerbRootDoPres VZero ThE [<proh>:] ProhAgr 
+VerbRootSay VZero ThE [<proh>:] ProhAgr 
+VerbRootSpitOldPres EmptyNasal VZero ThE [<proh>:] ProhAgr 
+VerbRootFallPres VZero ThA [<proh>:] ProhAgr 
+VerbRootBite VZero ThE [<proh>:] ProhAgr 
+VerbRootPlay VZero ThA [<proh>:] ProhAgr 
+VerbRootStay VZero ThA [<proh>:] ProhAgr 
+VerbRootSit VZero ThI [<proh>:] ProhAgr 
+VerbRootEatPres VZero ThE [<proh>:] ProhAgr 
+VerbRootSendPres VZero ThI [<proh>:] ProhAgr 
+
+PATTERN SubjectPart
+#Subject participle
+VerbRootE VZero SubjPart
+VerbRootI VZero SubjPart
+VerbRootA VZero ThA Aor SubjPart
+CausBase CausPres SubjPart
+PassBase Pass SubjPart
+InchBase InchEmpty Aor SubjPart
+
+
+VerbRootUv|VerbRootUc VZero SubjPart #Unclear which is preferred because obsolete
+VerbRootUv|VerbRootUc VZero ThU Aor SubjPart 
+VerbRootUcanel VZero ThA EmptyNasal SubjPart  # Dir/LR
+VerbRootNulV VZero ThU SubjPart
+VerbRootNulC VZero SubjPart  #Unclear which is preferred because obsolete
+VerbRootNulC EmptyNasal VZero SubjPart 
+
+VerbRootNil EmptyNasal VZero SubjPart
+#VerbRootCil EmptyAffr VZero SubjPart #not listed in boyacioglu
+VerbRootNelNale|VerbRootNelNala EmptyNasal VZero SubjPart
+VerbRootRiseEPres|VerbRootRiseAPres VZero SubjPart
+VerbRootCilIlc EmptyAffr VZero SubjPart
+VerbRootCilIli  VZero SubjPart
+VerbRootCanShort Aor VZero SubjPart
+VerbRootBeLongPast VZero SubjPart
+VerbRootComePast VZero SubjPart
+VerbRootCry VZero ThA Aor SubjPart
+VerbRootGivePast VZero SubjPart
+VerbRootBring VZero SubjPart
+VerbRootTurnPast VZero SubjPart
+VerbRootTake EmptyNasal VZero SubjPart
+VerbRootOpenPast VZero SubjPart
+VerbRootPutPres VZero SubjPart
+VerbRootGoPastC VZero ThA Aor SubjPart
+VerbRootHitPres VZero SubjPart
+VerbRootYield VZero SubjPart
+VerbRootAccept VZero SubjPart
+VerbRootDoPres VZero SubjPart
+VerbRootSay VZero SubjPart
+VerbRootSpitOldPres EmptyNasal VZero SubjPart
+VerbRootFallPast VZero SubjPart
+VerbRootBite EmptyNasal VZero SubjPart
+VerbRootPlay VZero Aor SubjPart
+VerbRootStay VZero ThA Aor SubjPart
+VerbRootSit VZero SubjPart
+VerbRootEatPres VZero SubjPart
+VerbRootSendPres VZero SubjPart
+
+PATTERN PerfectPart
+#Perfect participle
+VerbRootE VZero PerfPart
+VerbRootI VZero PerfPart
+VerbRootA VZero ThA Aor PerfPart
+CausBase CausPast Aor PerfPart
+PassBase Pass PerfPart
+InchBase InchEmpty Aor PerfPart
+
+
+VerbRootUv|VerbRootUc VZero PerfPart #Unclear which is preferred because obsolete
+VerbRootUv|VerbRootUc VZero ThU Aor PerfPart 
+VerbRootUcanel VZero PerfPart  # Dir/LR
+VerbRootNulV VZero ThU PerfPart
+VerbRootNulC VZero PerfPart   
+
+VerbRootNil VZero PerfPart
+VerbRootCilV|VerbRootCilC VZero PerfPart
+VerbRootNelNale|VerbRootNelNala VZero PerfPart
+VerbRootRiseEPast|VerbRootRiseAPast VZero PerfPart
+VerbRootCilIlc|VerbRootCilIli VZero PerfPart
+VerbRootCanShort Aor VZero PerfPart
+VerbRootBeLongPast VZero PerfPart
+VerbRootComePast VZero PerfPart
+VerbRootCry VZero ThA Aor   PerfPart
+VerbRootGivePast VZero PerfPart
+VerbRootBring VZero PerfPart
+VerbRootTurnPast VZero PerfPart
+VerbRootTake VZero PerfPart
+VerbRootOpenPast VZero PerfPart
+VerbRootPutPast VZero PerfPart
+VerbRootGoPastC VZero ThA Aor PerfPart
+VerbRootHitPast VZero PerfPart
+VerbRootYield VZero PerfPart
+VerbRootAccept VZero PerfPart
+VerbRootDoPast VZero PerfPart
+VerbRootSay VZero PerfPart
+VerbRootSpitOldPres VZero PerfPart
+VerbRootFallPast VZero PerfPart
+VerbRootBite VZero PerfPart
+VerbRootPlay VZero Aor PerfPart
+VerbRootStay VZero ThA Aor PerfPart
+VerbRootSit VZero PerfPart
+VerbRootEatPast VZero PerfPart
+VerbRootSendPast VZero PerfPart
+
+PATTERN EvidentialPart
+#Evidential participle
+VerbRootE VZero EvidPart
+VerbRootI VZero EvidPart
+VerbRootA VZero ThA Aor EvidPart
+CausBase CausPast Aor EvidPart
+PassBase Pass EvidPart
+InchBase InchEmpty Aor EvidPart
+
+VerbRootUv|VerbRootUc VZero EvidPart #Unclear which is preferred because obsolete
+VerbRootUv|VerbRootUc VZero ThU Aor EvidPart 
+VerbRootUcanel VZero EvidPart  # Dir/LR
+VerbRootNulV VZero ThU EvidPart
+VerbRootNulC VZero ThU EvidPart   
+
+
+VerbRootNil VZero EvidPart
+#VerbRootCil VZero EvidPart #not listed in boyacioglu
+VerbRootNelNale|VerbRootNelNala VZero EvidPart
+VerbRootRiseEPast|VerbRootRiseAPast VZero EvidPart
+VerbRootCilIlc|VerbRootCilIli VZero EvidPart
+VerbRootCanShort VZero Aor EvidPart
+VerbRootBeLongPast VZero EvidPart
+VerbRootComePast VZero EvidPart
+VerbRootCry VZero ThA Aor EvidPart
+VerbRootGivePast VZero EvidPart
+VerbRootBring VZero EvidPart
+VerbRootTurnPast VZero EvidPart
+VerbRootTake VZero EvidPart
+VerbRootOpenPast VZero EvidPart
+VerbRootPutPast VZero EvidPart
+VerbRootGoPastC VZero ThA Aor EvidPart
+VerbRootHitPast VZero EvidPart
+VerbRootYield VZero EvidPart
+VerbRootAccept VZero EvidPart
+VerbRootDoPast VZero EvidPart
+VerbRootSay VZero EvidPart
+VerbRootSpitOldPres VZero EvidPart
+VerbRootFallPast VZero EvidPart
+VerbRootBite VZero EvidPart
+VerbRootPlay VZero Aor EvidPart
+VerbRootStay VZero ThA Aor EvidPart
+VerbRootSit VZero EvidPart
+VerbRootEatPast VZero EvidPart
+VerbRootSendPast VZero EvidPart
+
+PATTERN NegativePart
+#Negative participle
+#Indicatives (negative)
+VerbRootE VZero ThE Pres0|PastImpf0 NegPtcp 
+VerbRootI VZero ThI Pres0 NegPtcp 
+VerbRootI VZero ThE PastImpf0 NegPtcp #For i->e
+VerbRootA VZero ThA Pres0|PastImpf0 NegPtcp 
+CausBase CausPres ThE Pres0|PastImpf0 NegPtcp 
+PassBase Pass ThI Pres0 NegPtcp 
+PassBase Pass ThE PastImpf0 NegPtcp #For i->e
+InchBase InchNasal ThA Pres0|PastImpf0 NegPtcp 
+
+VerbRootUv VZero ThE Pres0|PastImpf0 NegPtcp 
+VerbRootUc VZero ThE|ThU Pres0|PastImpf0 NegPtcp 
+VerbRootUcanel VZero ThE Pres0|PastImpf0 NegPtcp   # Dir/LR
+VerbRootNulV VZero ThU ThE Pres0 NegPtcp 
+VerbRootNulC VZero ThE Pres0 NegPtcp 
+
+
+VerbRootNil EmptyNasal VZero ThI Pres0 NegPtcp 
+VerbRootNil EmptyNasal VZero ThE PastImpf0 NegPtcp #For i->e
+#VerbRootCil EmptyAffr VZero ThI Pres0 NegPtcp  #not listed in boyacioglu
+#VerbRootCil EmptyAffr VZero ThE PastImpf0 NegPtcp #For i->e
+VerbRootNelNale EmptyNasal VZero ThE Pres0|PastImpf0 NegPtcp 
+VerbRootNelNala EmptyNasal VZero ThA Pres0|PastImpf0 NegPtcp 
+VerbRootRiseEPres VZero ThE Pres0|PastImpf0 NegPtcp 
+VerbRootRiseAPres  VZero ThA Pres0|PastImpf0 NegPtcp 
+VerbRootCilIlc EmptyAffr VZero ThI Pres0 NegPtcp 
+VerbRootCilIli VZero ThI Pres0 NegPtcp 
+VerbRootCilIlc EmptyAffr VZero ThE PastImpf0 NegPtcp #For i->e
+VerbRootCilIli VZero ThE PastImpf0 NegPtcp #For i->e
+VerbRootCanShort EmptyNasal VZero ThA Pres0|PastImpf0 NegPtcp 
+VerbRootCanLong EmptyNasal VZero ThA Pres0|PastImpf0 NegPtcp 
+VerbRootAppear VZero ThI Pres0 NegPtcp 
+VerbRootAppear VZero ThE PastImpf0 NegPtcp #For i->e
+VerbRootKnow VZero ThE Pres0|PastImpf0 NegPtcp 
+VerbRootBeLongPres VZero ThA Pres0|PastImpf0 NegPtcp 
+VerbRootComePres VZero ThA Pres0|PastImpf0 NegPtcp 
+VerbRootCry VZero ThA Pres0|PastImpf0 NegPtcp 
+VerbRootGivePres VZero ThA Pres0|PastImpf0 NegPtcp 
+VerbRootBring VZero ThE Pres0|PastImpf0 NegPtcp 
+VerbRootTurnPres VZero ThA Pres0|PastImpf0 NegPtcp 
+VerbRootTake EmptyNasal VZero ThE Pres0|PastImpf0 NegPtcp 
+VerbRootOpenPres VZero ThA Pres0|PastImpf0 NegPtcp 
+VerbRootPutPres VZero ThE Pres0|PastImpf0 NegPtcp 
+VerbRootGoPres VZero ThA Pres0|PastImpf0 NegPtcp 
+VerbRootHitPres VZero ThE Pres0|PastImpf0 NegPtcp 
+VerbRootYield VZero ThI Pres0 NegPtcp 
+VerbRootYield VZero ThE PastImpf0 NegPtcp #For i->e
+VerbRootAccept VZero ThI Pres0 NegPtcp 
+VerbRootAccept VZero ThE PastImpf0 NegPtcp #For i->e
+VerbRootDoPres VZero ThE Pres0|PastImpf0 NegPtcp 
+VerbRootSay VZero ThE Pres0|PastImpf0 NegPtcp 
+ VerbRootSpitOldPres VZero ThE Pres0|PastImpf0 NegPtcp 
+ VerbRootFallPres VZero ThA Pres0|PastImpf0 NegPtcp 
+VerbRootBite EmptyNasal VZero ThE Pres0|PastImpf0 NegPtcp 
+VerbRootPlay VZero ThA Pres0|PastImpf0 NegPtcp 
+VerbRootStay VZero ThA Pres0|PastImpf0 NegPtcp
+VerbRootSit VZero ThI Pres0 NegPtcp 
+VerbRootSit VZero ThE PastImpf0 NegPtcp #For i->e
+VerbRootEatPres VZero ThE Pres0|PastImpf0 NegPtcp
+VerbRootSendPres VZero ThI Pres0 NegPtcp 
+VerbRootSendPres VZero ThE PastImpf0 NegPtcp #For i->e
+ 
+
+PATTERN ProspectivePart #Also called future gerund
+Infinitival ProsPtcp
+
+PATTERN FuturePart 
+Infinitival FutPtcp
+
+PATTERN NegatedChunks
+#whatever verbal paradigms that are negated by just adding the neg- prefix
+:Neg Infinitival Neg:
+:Neg Subjunctive Neg:
+:Neg Past Neg:
+:Neg SubjectPart Neg:
+:Neg PerfectPart Neg:
+:Neg ProspectivePart Neg:
+:Neg FuturePart Neg:
+
+
+
+#Bucket
+PATTERNS
+Infinitival
+Indicative 
+Subjunctive 
+Past 
+Imperative 
+Prohibitive 
+SubjectPart
+PerfectPart 
+EvidentialPart 
+ProspectivePart 
+FuturePart 
+NegativePart
+NegatedChunks 
+
+
+#Bucket
+
+#Auxiliary 
+Aux Pres0 PresAgr Indc0
+:Neg Aux  Pres0 PresAgr Indc0 Neg:
+Aux ImpfAgr Indc0
+:Neg Aux  ImpfAgr Indc0 Neg:
+
+#the special ci- auxiliary in negated present indicdative 3sg
+SyntheticNegAux3SGI
+
+
+#Irregulars that have synthetic indicative negative
+:Neg VerbRootHave VZero ThI Pres0 PresAgr Indc: Neg: 
+:Neg VerbRootHave VZero ThI ImpfAgr Indc: Neg: 
+:Neg VerbRootExist VZero ThA Pres0 PresAgr Indc:  Neg:
+:Neg VerbRootExist VZero ThA ImpfAgr Indc: Neg: 
+
+
+
+#Particles: Future, Prog, Proh
+Fut
+Prog
+Proh
+
+
+
+#####################
+#####################
+###### Verb morphemes 
+#####################
+#####################
+
+LEXICON Aux # Class 32
+է<vaux>:ե
+
+LEXICON SyntheticNegAux3SGI 
+<synth_vaux><pres><p3><sg><neg>:չի
+
+
+LEXICON VZero
+<v>:
+
+LEXICON Pres0
+<pres>:
+LEXICON PastImpf0
+<past><impf>:
+
+
+LEXICON Indc0
+<indc>:
+
+LEXICON Subj0
+<subj>:
+
+
+LEXICON ThE
+:ե
+LEXICON ThI
+:ի
+LEXICON ThA
+:ա{յ}
+LEXICON ThU
+:ու
+
+
+
+LEXICON Inf
+<inf>:{լ} #To trigger i->e raising in derived words
+
+#Valency affixes
+#Allomorphs of causative
+LEXICON CausPres
+<caus>:ցն
+
+LEXICON CausPast
+<caus>:ցու
+
+LEXICON CausPass
+<caus>:ց
+
+LEXICON Pass
+<pass>:ու
+
+LEXICON InchNasal
+<inch>:ն
+
+LEXICON InchEmpty #This is when the inchoative nasal is absent
+<inch>:
+
+
+#Empty affixes
+LEXICON EmptyNasal
+:ն
+LEXICON EmptyAffr
+:չ
+
+
+LEXICON PresAgr
+<p1><sg>:մ
+<p2><sg>:ս
+<p3><sg>:{Pres3SG} #was {է}
+<p1><pl>:նք
+<p2><pl>:{Pres2PL}ք # was {է}
+<p3><pl>:ն
+
+LEXICON ImpfAgr
+<past><impf><p1><sg>:{Impf}ի #was {եէ}
+<past><impf><p2><sg>:{Impf}իր
+<past><impf><p3><sg>:{Impf}ր
+<past><impf><p1><pl>:{Impf}ինք
+<past><impf><p2><pl>:{Impf}իք
+<past><impf><p3><pl>:{Impf}ին
+
+ 
+LEXICON ProsPtcp
+<pros_ptcp>:իք
+
+LEXICON FutPtcp
+<fut_ptcp>:ու
+
+
+LEXICON Aor
+<aor>:{Aor}ց #was {ե}
+
+LEXICON PastPrimAgr
+<past><pret><p1><sg>:ի
+<past><pret><p2><sg>:իր
+<past><pret><p3><sg>:
+<past><pret><p1><pl>:ինք
+<past><pret><p2><pl>:իք
+<past><pret><p3><pl>:ին
+
+LEXICON PastSecAgr
+<past><pret><p1><sg>:այ
+<past><pret><p2><sg>:ար
+<past><pret><p3><sg>:աւ
+<past><pret><p1><pl>:անք
+<past><pret><p2><pl>:աք
+<past><pret><p3><pl>:ան
+
+LEXICON PastSplitAgr #For լացի լացաւ
+<past><pret><p1><sg>:ի
+<past><pret><p2><sg>:իր
+<past><pret><p3><sg>:աւ
+<past><pret><p1><pl>:ինք
+<past><pret><p2><pl>:իք
+<past><pret><p3><pl>:ին
+
+LEXICON PastAgrGoNo3Sg #For գացի գնաց
+<past><pret><p1><sg>:ի
+<past><pret><p2><sg>:իր
+<past><pret><p1><pl>:ինք
+<past><pret><p2><pl>:իք
+<past><pret><p3><pl>:ին
+LEXICON PastAgrGoYes3Sg #For գացի գնաց
+<past><pret><p3><sg>:
+
+
+#TO DO add the exclamation punctuation
+LEXICON ImpSg
+<imp><p2><sg>:{ImpSg}՛ #was {եէ}
+LEXICON ImpSgR 
+<imp><p2><sg>:՛ր #Don't add the {ImpSg} tag so that don't trigger i->e change
+LEXICON ImpSgIR 
+<imp><p2><sg>:ի՛ր 
+LEXICON ImpSgUR 
+<imp><p2><sg>:ո՛ւր 
+
+
+LEXICON ImpSgInternalMark #Mark is added at end of verb; will later metathesize
+<imp><p2><sg>:՛
+
+ 
+LEXICON ImpPl
+<imp><p2><pl>:է՛ք
+
+LEXICON Proh
+<proh>:մի՛
+
+LEXICON ProhAgr
+<p2><sg>:ր
+<p2><pl>:{ProhPl}ք #Was {է}
+
+LEXICON ProhAgrIrEk #For մի զիջիր մի զիջէք
+<p2><sg>:իր
+<p2><pl>:էք 
+
+
+
+LEXICON Indc
+<indc>:կ{G1}{G2}
+LEXICON IndcShort
+<indc>:կու\ 
+
+LEXICON Prog
+<prog>:կոր
+
+LEXICON Fut
+<fut>:պիտի 
+
+#Negation-based lexicons
+LEXICON NegPtcp
+<neg_ptcp>:ր
+
+
+
+LEXICON Neg
+<neg>:չ
+
+LEXICON SubjPart
+<pprs>:ող
+
+LEXICON PerfPart
+<perf>:ած
+
+LEXICON EvidPart
+<evid>:եր
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+################################
+#### Lexicon of Verbs
+#
+### This is now all imported into the lexicon files
+### I keep the lexicon-names here for easier fact-checking
+#
+##Simple regular verbs
+#LEXICON VerbRootE 
+#երգել:երգ
+#քաղել:քաղ
+#ուսուցանել:ուսուցան 
+#ծանուցանել:ծանուցան
+#
+#LEXICON VerbRootI
+#ապրիլ:ապր
+#խօսիլ:խօս
+#ուսանիլ:ուսան
+#սնանիլ:սնան
+#
+#LEXICON VerbRootA
+#աղալ:աղ
+#կարդալ:կարդ
+#
+##Derived verbs
+#LEXICON CausativeVerbRoot
+#աճեցնել:աճե
+#մօտեցնել:մօտե
+#
+#LEXICON PassiveVerbRoot
+#ածիլուիլ:ածիլ
+#զզուիլ:զզ
+#
+#
+##TO DO Allow a system to add nouns and adjectives
+#LEXICON InchRootTh0 
+#ամչնալ:ամչ
+#նիհարնալ:նիհար
+#LEXICON InchRootThA
+#ստանալ:ստ
+#LEXICON InchRootThE
+#մօտենալ:մօտ
+#
+###############
+##Obsolete verbs
+#LEXICON VerbRootUv
+#արտահեղուլ:արտահեղ
+#LEXICON VerbRootUc
+#թողուլ:թող
+#
+#LEXICON VerbRootUcanel
+##All of its entries are preferably part of class 1 & 2
+#ուսուցանել:ուսուց 
+#ծանուցանել:ծանուց 
+#
+#LEXICON VerbRootNulV
+#երդնուլ:երդ
+#LEXICON VerbRootNulC
+#զբօսնուլ:զբօս
+#
+#
+############
+##Irregulars and defective verbs
+#LEXICON VerbRootNil
+#անցնիլ:անց
+#մեռնիլ:մեռ
+#LEXICON VerbRootCilV
+#երկնչիլ:երկն
+#LEXICON VerbRootCilC
+#կպչիլ:կպ
+#LEXICON VerbRootNelNale
+#իջնել:իջ
+#գտնել:գտ
+#դպնել:դպ #This verb is also CilIl
+#LEXICON VerbRootNelNala
+#իջնալ:իջ
+#գտնալ:գտ
+#դպնալ:դպ #This verb is also CilIl
+#LEXICON VerbRootRiseEPres
+#ելլել:ելլ
+#LEXICON VerbRootRiseEPast
+#ելլել:ել
+#LEXICON VerbRootRiseAPres
+#ելլալ:ելլ
+#LEXICON VerbRootRiseAPast
+#ելլալ:ել
+#LEXICON VerbRootCilIlc
+#դպչիլ:դպ
+#LEXICON VerbRootCilIli
+#դպիլ:դպ
+#LEXICON VerbRootCanShort
+#կրնամ:կր
+#LEXICON VerbRootCanLong
+#կարենալ:կարե
+#LEXICON VerbRootAppear #Class 28 երեւիլ, has -nal version that's regular
+#երեւիլ:երեւ
+#LEXICON VerbRootHave # Class 29 ունիմ, has -enal version that's regular
+#ունիմ:ուն
+#LEXICON VerbRootKnow # Class 30 գիտեմ, has -nal version that's regular
+#գիտեմ:գիտ
+#LEXICON VerbRootExist # Class 31 կամ 
+#կամ:կ
+#LEXICON VerbRootBeLongPres # Class 33 ըլլալ եղայ
+#ըլլալ:ըլլ
+#LEXICON VerbRootBeLongPast
+#ըլլալ:եղ
+#LEXICON VerbRootComePres # Class 34 գալ եկայ
+#գալ:գ
+#LEXICON VerbRootComePast
+#գալ:եկ
+#LEXICON VerbRootCry # Class 35 լալ
+#լալ:լ
+#LEXICON VerbRootGivePres # Class 36 տալ տուի
+#տալ:տ
+#LEXICON VerbRootGivePast
+#տալ:տու
+#LEXICON VerbRootBring  #Class 37 38 արտաբերել բերել
+#բերել:բեր
+#արտաբերել:արտաբեր
+#LEXICON VerbRootTurnPres
+#դառնալ:դառն
+#անդրադառնալ:անդրադառն
+#LEXICON VerbRootTurnPast
+#դառնալ:դարձ
+#անդրադառնալ:անդրադարձ
+#LEXICON VerbRootTake
+#առնել:առ
+#LEXICON VerbRootOpenPres
+#բանալ:բան
+#LEXICON VerbRootOpenPast
+#բանալ:բաց
+#LEXICON VerbRootPutPres
+#դնել:դն
+#LEXICON VerbRootPutPast
+#դնել:դր
+#LEXICON VerbRootPutImpSg
+#դնել:դ
+#LEXICON VerbRootGoPres
+#երթալ:երթ
+#LEXICON VerbRootGoPastC
+#երթալ:գ
+#LEXICON VerbRootGoPast3
+#երթալ:գն
+#LEXICON VerbRootHitPres
+#զարնել:զարն
+#LEXICON VerbRootHitPast
+#զարնել:զարկ
+#LEXICON VerbRootYield # Class 47 զիջիմ զիջայ մի զիջիր մի զիջէք
+#զիջիլ:զիջ
+#LEXICON VerbRootAccept # Class 48 ընդունիմ ընդունեցի ընդունեցայ մի ընդունիր մի ընդունէք
+#ընդունիլ:ընդուն
+#LEXICON VerbRootDoPres # Class 49 ընել
+#ընել:ըն
+#LEXICON VerbRootDoPast # ընել
+#ընել:ըր
+#LEXICON VerbRootSay # Class 50 ըսել
+#ըսել:ըս
+#LEXICON VerbRootSpitOldPres # Class 51 թքնել
+#թքնել:թք
+#LEXICON VerbRootSpitOldImpSg
+#թքնել:թուք
+#LEXICON VerbRootFallPres # Class 52 իյնալ
+#իյնալ:իյն
+#LEXICON VerbRootFallPast
+#իյնալ:ինկ
+#իյնալ:ընկ # Dir/LR
+#LEXICON VerbRootBite
+#խածնել:խած
+#LEXICON VerbRootPlay # Class 54 խաղալ խաղցայ խաղացի
+#խաղալ:խաղ
+#LEXICON VerbRootStay # Class 55 մնալ
+#մնալ:մն
+#LEXICON VerbRootSit # Class 56 նստիլ
+#նստիլ:նստ
+#LEXICON VerbRootEatPres # Class 57 ուտել կերայ
+#ուտել:ուտ
+#LEXICON VerbRootEatPast 
+#ուտել:կեր
+#LEXICON VerbRootSendPres # Class 58 տանիլ տարաւ
+#տանիլ:տան
+#LEXICON VerbRootSendPast
+#տանիլ:տար
+
+
+#! Resources:
+#! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
+#! http://wiki.apertium.org/wiki/Lttoolbox_and_lexc
+#! http://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
+#! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
+#! https://github.com/hfst/
+#! http://www.cis.upenn.edu/~cis639/docs/lexc.html
+#! http://wiki.apertium.org/wiki/Hfst
+
