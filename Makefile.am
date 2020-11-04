@@ -5,6 +5,15 @@
 LANG1=hyw
 BASENAME=apertium-$(LANG1)
 
+LEXD_FILES= \
+    lexd_components/$(LANG1)-verbs_paradigms_with_lex.lexd \
+    lexd_components/$(LANG1)-nouns_paradigms.lexd \
+	lexd_components/$(LANG1)-verbs_obs.lexd
+ #   lexd_components/$(LANG1)-verbs_paradigms.lexd \
+ #   lexd_components/$(LANG1)-verbs_reg.lexd \
+ #   lexd_components/$(LANG1)-verbs_irreg.lexd \
+ # 
+
 TARGETS_COMMON =			\
 	$(LANG1).automorf.hfst		\
 	$(LANG1).automorf.bin		\
@@ -22,6 +31,8 @@ TARGETS_COMMON =			\
 ###############################################################################
 ## hyw transducer
 ###############################################################################
+$(BASENAME).$(LANG1).lexd: $(LEXD_FILES)
+	cat $^ > $@
 
 .deps/$(LANG1).twol.hfst: $(BASENAME).$(LANG1).twol .deps/.d
 	hfst-twolc $< -o $@
