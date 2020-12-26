@@ -1,0 +1,220 @@
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!!!  M O R P H O T A C T I C S  !!!
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+# Adpositions from Hagopian grammar
+
+########################################
+########################################
+########################################
+### ADPOSITION PARADIGMS
+########################################
+########################################
+########################################
+########################################
+
+# All the adpositions
+PATTERNS
+TruePreposition
+TruePrepositionVary
+TruePostposition
+TruePostpositionVary
+DerivedPostposition
+DerivedPostpositionVary
+FrozenPreposition
+FrozenPrepositionVary
+FrozenPostposition
+FrozenPostpositionVary
+
+#Declinable postpositions
+#Singular առջեւը առջեւս առջեւէն առջեւինը
+DeclinablePostposition [<subs>:ին]? NouNinflBoundary NSg0 CaseRegI? (Def|Poss)? 
+#Plural առջեւինները
+DeclinablePostposition [<subs>:ին] NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+#Plural possessive (separate line for instrumental) առջեւնիս առջեւիննիս  առջեւիններնիս
+DeclinablePostposition  NouNinflBoundary NSg0  PossPl CaseRegPostPluralPoss Def|Poss
+DeclinablePostposition  NouNinflBoundary NSg0  InsReg PossPl  Def|Poss
+DeclinablePostposition [<subs>:ին] NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+DeclinablePostposition [<subs>:ին] NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+
+
+
+
+##############
+##############
+##############
+#### Prepositions Pronoun morphemes
+##############
+##############
+
+
+### Based on Hagopian 2007 page 368
+
+LEXICON TruePreposition
+#Does not decline, always a preposition
+ի<pr>:ի
+իբր<pr>:իբր
+իբրեւ<pr>:իբրեւ
+մինչեւ<pr>:մինչեւ
+առանց<pr>:առանց
+դէպի<pr>:դէպի
+ըստ<pr>:ըստ
+
+LEXICON TruePrepositionVary
+#True prepositions (doesn't decline) but can sometimes be a postposition
+բացի<pr>:բացի
+փոխանակ<pr>:փոխանակ
+բացի<post>:բացի
+փոխանակ<post>:փոխանակ
+
+LEXICON TruePostposition
+#Does not decline, always a postposition
+
+ի\ բուն<post>:ի\ բուն
+ի\ վար<post>:ի\ վար
+ի\ վեր<post>:ի\ վեր
+միջեւ<post>:միջեւ
+քան<post>:քան
+համար<post>:համար
+պէս<post>:պէս
+
+LEXICON TruePostpositionVary
+#Does not decline, can sometimes be a preposition
+
+համեմատ<post>:համեմատ
+հանդէպ<post>:հանդէպ
+փոխարէն<post>:փոխարէն
+փոխարէն<post><px1sg>:փոխարէնդ
+փոխարէն<post><px2sg>:փոխարէնդ
+
+համեմատ<pr>:համեմատ
+հանդէպ<pr>:հանդէպ
+փոխարէն<pr>:փոխարէն
+փոխարէն<pr><px1sg>:փոխարէնդ
+փոխարէն<pr><px2sg>:փոխարէնդ
+
+
+
+LEXICON DerivedPostposition
+#True postpositions, don't decline, derived from nouns or verbs or adjectives
+միասին<post>:միասին
+տեղը<post><def>:տեղը
+տեղը<post><px1sg>:տեղս
+տեղը<post><px2sg>:տեղդ
+չափ<post>:չափ
+անդին<post>:անդին
+զատ<post>:զատ
+յետոյ<post>:յետոյ
+նման<post>:նման
+կախ<post>:կախ
+մէկտեղ<post>:մէկտեղ
+
+LEXICON DerivedPostpositionVary
+#don't decline, derived from nouns or verbs or adjectives, can sometimes be preposition
+
+համաձայն<post>:համաձայն
+անկախ<post>:անկախ
+աւելի<post>:աւելի
+նուազ<post>:նուազ
+պակաս<post>:պակաս
+հակառակ<post>:հակառակ
+վերջ<post>:վերջ
+
+համաձայն<pr>:համաձայն
+անկախ<pr>:անկախ
+աւելի<pr>:աւելի
+նուազ<pr>:նուազ
+պակաս<pr>:պակաս
+հակառակ<pr>:հակառակ
+վերջ<pr>:վերջ
+
+LEXICON FrozenPreposition
+#True prepositions, don't decline, frozem from nouns or verbs or adjectives
+նկատմամբ<pr>:նկատմամբ
+բաղդատած<pr>:բաղդատած
+բաղդատմամբ<pr>:բաղդատմամբ
+կախեալ<pr>:կախեալ
+կախուած<pr>:կախուած
+չհաշուած<pr>:չհաշուած  
+նկատի\ չառած<pr>:նկատի\ չառած
+
+LEXICON FrozenPrepositionVary
+#don't decline, frozen from nouns or verbs or adjectives, can sometimes be postposition
+
+հանդերձ<pr>:հանդերձ
+նայած<pr>:նայած
+նայելով<pr>:նայելով
+
+հանդերձ<post>:հանդերձ
+նայած<post>:նայած
+նայելով<post>:նայելով
+
+LEXICON FrozenPostposition
+#True postpositions, don't decline, frozem from nouns or verbs or adjectives
+
+դիմաց<post>:դիմաց
+դիմաց<post><def>:դիմացը
+դիմաց<post><px1sg>:դիմացս
+դիմաց<post><px2sg>:դիմացդ
+մասին<post><def>:մասին
+մասին<post><px1sg>:մասիս
+մասին<post><px2sg>:մասիդ
+
+միջոցով<post>:միջոցով
+միջոցաւ<post>:միջոցաւ
+վերաբերեալ<post>:վերաբերեալ
+պատճառով<post>:պատճառով
+պատճառաւ<post>:պատճառաւ
+առթիւ<post>:առթիւ
+չափով<post>:չափով
+սկսեալ<post>:սկսեալ
+սկսած<post>:սկսած
+
+LEXICON FrozenPostpositionVary
+#don't decline, frozen from nouns or verbs or adjectives, can sometimes be preposition
+շնորհիւ<post>:շնորհիւ
+շնորհիւ<pr>:շնորհիւ
+
+LEXICON DeclinablePostposition
+#Take case and plural and substantive
+առջեւ<post>:առջեւ
+դէմ<post>:դէմ
+մէջ<post>:մէջ
+վրայ<post>:վրայ
+տակ<post>:տակ
+քով<post>:քով
+մօտ<post>:մօտ
+հետ<post>:հետ
+
+# Also include adverbal postpositions
+առաջ<post>:առաջ
+ատեն<post>:ատեն
+ետեւ<post>:ետեւ
+ետք<post>:ետք
+դուրս<post>:դուրս
+վեր<post>:վեր
+վերեւ<post>:վերեւ
+վար<post>:վար
+հեռու<post>:հեռու
+շուրջ<post>:շուրջ
+մէջտեղ<post>:մէջտեղ
+ներս<post>:ներս
+ներքեւ<post>:ներքեւ
+
+
+
+#TO DO Numerals
+
+
+#! Resources:
+#! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
+#! http://wiki.apertium.org/wiki/Lttoolbox_and_lexc
+#! http://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
+#! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
+#! https://github.com/hfst/
+#! http://www.cis.upenn.edu/~cis639/docs/lexc.html
+#! http://wiki.apertium.org/wiki/Hfst
+
+
+
