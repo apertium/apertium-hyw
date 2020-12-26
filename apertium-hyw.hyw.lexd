@@ -157,39 +157,47 @@ PATTERN NounDeclIrregMonoWithN
 #These are for nouns which are monosyllabic but take ներ, whether descriptively or prescriptively
 
 #For nouns which take ներ prescriptively but not in practice
-#Singular
+#I give a special diacritic in the plural -ner so that it can trigger reduction
+#Singular մուկ մուկէ մկնէ 
 NounIrregMonoNerOld NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?
-NounIrregMonoNerOld NZero NouNinflBoundaryRed NSg0 CaseRegI (Def|Poss)?   # Dir/LR
+NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer NSg0 [:ն]? CaseRegI (Def|Poss)?   # Dir/LR
 #Plural
+#մուկեր
 NounIrregMonoNerOld NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+#մկեր
 NounIrregMonoNerOld NZero NouNinflBoundaryRed NPlReg CaseRegU? (Def|Poss)?  # Dir/LR
-NounIrregMonoNerOld NZero NouNinflBoundary NPlNerOnly CaseRegU? (Def|Poss)?    # Dir/LR
+#մուկներ մկներ
+NounIrregMonoNerOld NZero NouNinflBoundary|NouNinflBoundaryRedForcedNer NPlNerOnly CaseRegU? (Def|Poss)?    # Dir/LR
 #Plural possessive (separate line for instrumental)
 #I manually add the ն for singular forms before the plural possessive
+#մուկերնիս
 NounIrregMonoNerOld NZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss 
-NounIrregMonoNerOld NZero NouNinflBoundary (NSg0 [:ն])|NPlNerOnly  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
 NounIrregMonoNerOld NZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+
+#մկերնիս
+NounIrregMonoNerOld NZero NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss    # Dir/LR
+NounIrregMonoNerOld NZero NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss   # Dir/LR
+
+#մուկներնիս
+NounIrregMonoNerOld NZero NouNinflBoundary (NSg0 [:ն])|NPlNerOnly  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
 NounIrregMonoNerOld NZero NouNinflBoundary NSg0|NPlNerOnly  InsReg PossPl  Def|Poss   # Dir/LR
 
-NounIrregMonoNerOld NZero NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss    # Dir/LR
-NounIrregMonoNerOld NZero NouNinflBoundaryRed (NSg0 [:ն])|NPlNerOnly  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
-NounIrregMonoNerOld NZero NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss   # Dir/LR
-NounIrregMonoNerOld NZero NouNinflBoundaryRed NSg0|NPlNerOnly  InsReg PossPl  Def|Poss   # Dir/LR
+#մկներնիս
+NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer (NSg0 [:ն])|NPlNerOnly  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer NSg0|NPlNerOnly  InsReg PossPl  Def|Poss   # Dir/LR
 
 
 #For nouns which take ներ both prescriptively and in practice
-#Singular
+#It's just լեռ
+#Singular լեռէ լեռնէ
 NounIrregMonoNerStill NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?
-NounIrregMonoNerStill NZero NouNinflBoundaryRed NSg0 CaseRegI (Def|Poss)?    # Dir/LR
+NounIrregMonoNerStill NZero NouNinflBoundary [:ն] NSg0 CaseRegI (Def|Poss)?  # Dir/LR
 #Plural
 NounIrregMonoNerStill NZero NouNinflBoundary NPlNerOnly CaseRegU? (Def|Poss)? 
-NounIrregMonoNerStill NZero NouNinflBoundaryRed NPlNerOnly CaseRegU? (Def|Poss)?   # Dir/LR
 #Plural possessive (separate line for instrumental)
 #I manually add the ն for singular forms before the plural possessive
 NounIrregMonoNerStill NZero NouNinflBoundary (NSg0 [:ն])|NPlNerOnly  PossPl CaseRegPostPluralPoss Def|Poss 
-NounIrregMonoNerStill NZero NouNinflBoundaryRed (NSg0 [:ն])|NPlNerOnly  PossPl CaseRegPostPluralPoss Def|Poss # Dir/LR
 NounIrregMonoNerStill NZero NouNinflBoundary NSg0|NPlNerOnly  InsReg PossPl  Def|Poss 
-NounIrregMonoNerStill NZero NouNinflBoundaryRed NSg0|NPlNerOnly  InsReg PossPl  Def|Poss  # Dir/LR
 
 
 PATTERN NounDeclUtjunSuffix
@@ -484,7 +492,6 @@ NounLoveBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 
 #աղջիկ for dative աղջկան աղջկայ
-#TO DO, plural
 #Singular 
 NounGirlBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
 # regular case աղջիկի
@@ -600,6 +607,9 @@ LEXICON NouNinflBoundary
 #Used for reduction and other boundary rules
 LEXICON NouNinflBoundaryRed
 :{NinflRed}
+#Used for forced reduction before plural -ner 
+LEXICON NouNinflBoundaryRedForcedNer
+:{NinflRedForcedNer}
 
 #Case marking
 #LEXICON NomAccReg
@@ -701,7 +711,6 @@ LEXICON NounIrregMonoNerOld   #Some prescriptively take -ner, but in real life, 
 
 LEXICON NounIrregMonoNerStill  #Only very few both descriptively and presriptively  take -ner
 լեռ:լեռ
- դուռ:դուռ
 
 LEXICON NounRisingClusters
 մեղր:մեղր
