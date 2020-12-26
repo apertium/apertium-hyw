@@ -1,15 +1,16 @@
 Alphabet 
  ա  ե է ը ո օ ի լ
 բ գ դ զ թ ժ  խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ ս վ տ ր ց ւ փ ք ֆ
+ Ա  Ե Է Ը Ո Օ Ի Լ
+Բ Գ Դ Զ Թ Ժ  Խ Ծ Կ Հ Ձ Ղ Ճ Մ Յ Ն Շ Չ Պ Ջ Ռ Ս Վ Տ Ր Ց Ւ Փ Ք Ֆ
 
 '		!apostrophe
 ՛		!exclamation mark in imperatives
 
 % 
 %{G1%}:ը %{G2%}:%  
-%{յ%}:0
+%{ThAյ%}:0
 %{լ%}:լ
-
 
 %{ProhPl%}:0 %{ImpSg%}:0 %{Aor%}:0 %{Impf%}:0 %{Pres3SG%}:0 %{Pres2PL%}:0
 
@@ -21,14 +22,23 @@ Alphabet
 %{defն%}:ը    ! for definite allomorphy ն-ը; i assume easier default is ը
 %{Plն%}:ն		!for plural allomorphy եր ներ; I assume easier default is polysyllabic ներ
 
+%{Ninfl%}:0  ! Boundary between noun and inflection
+%{NinflRed%}:0 ! Boundary between noun and inflection, for obligatory reduction
+
+%{mono%}:0     ! This is boundary before a monosyllabic root to trigger the right plural
 ;
 
 Sets
 
-Vowel = 	ա  ե է ը ո օ ի ;
+Vowel = 	ա  ե է ը ո օ ի  
+		Ա  Ե Է Ը Ո Օ Ի  ;
 
-Cons = բ գ դ զ թ ժ  լ խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ ս վ տ ր ց ւ փ ք ֆ ; 
+Cons = բ գ դ զ թ ժ  լ խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ ս վ տ ր ց ւ փ ք ֆ  
+       Բ Գ Դ Զ Թ Ժ  Լ Խ Ծ Կ Հ Ձ Ղ Ճ Մ Յ Ն Շ Չ Պ Ջ Ռ Ս Վ Տ Ր Ց Ւ Փ Ք Ֆ 
+       ; 
 
+!Noun-infl boundaries
+GeneralNInflBoundary = %{Ninfl%} %{NinflRed%} ;
 
 !Summary of contexts ե theme vowel becomes է    
 JeToE = %{ProhPl%} %{Pres3SG%} %{ImpSg%} %{Impf%}  %{Pres2PL%}
@@ -49,14 +59,25 @@ AtoAJ = %{Pres3SG%}
  
  Definitions
 
-FullVowel = [ :ա | :ե | :է |  :ո | :օ | :ի | :ո :ւ ];
+FullVowel = [ :ա | :ե | :է |  :ո | :օ | :ի | :ո :ւ | 
+			 :Ա | :Ե | :Է |  :Ո | :Օ | :Ի | :Ո :Ւ ]
+			;
 
-RealVowel = [ FullVowel | :ը    ];
+RealVowel = [ FullVowel | :ը | :Ը   ];
 
-Monosyllable =  .#. (:Cons (:յ))	RealVowel (:Cons (:Cons)) (:ք)   ;
+RealVowelUR = [ ա: | ե: | է: |  ո: | օ: | ի: | ո: ւ: | ը: |
+			Ա: | Ե: | Է: |  Ո: | Օ: | Ի: | Ո: Ւ: | Ը:]  
+			;
+
+! For finding monosyllables, I have to specify monosyllabic words with schwa
+! because of conflicts with vowel reduction
+! Also has to reference underlyng segments because of conflicts with other rules
+MonosyllableWithoutSchwa =  .#.  (Cons: (յ:))	RealVowelUR (Cons: (Cons:)) (ք:)   ;
+MonosyllableWithSchwa  =  .#. Cons: Cons:* ; 
+Monosyllable =   [ MonosyllableWithoutSchwa | MonosyllableSchwa ];
 ;
  
-
+! I think I'm going to force a monosyllable plural by using this mono boundary instead
 
 Rules
 
@@ -78,8 +99,8 @@ Rules
 
 !!!! GLIDE EPENTHESIS
 !The glide յ is added between the ա theme vowel and pres3sg + imperfective-i
-"The glide յ between the ա theme vowel and before 3sg: /ա{յ}Pres/ -> [այ]"
-%{յ%}:յ <=> ա: _   [  %{Pres3SG%}:  |    %{Impf%}: :ի ]   ;
+"The glide յ between the ա theme vowel and before 3sg: /ա{ThAյ}Pres/ -> [այ]"
+%{ThAյ%}:յ <=> ա: _   [  %{Pres3SG%}:  |    %{Impf%}: :ի ]   ;
 
 
 !!! Imperative exclamation point
@@ -125,26 +146,73 @@ Rules
 
 ! For definite allomorphy, the input definite suffix is %{defն%} 
 ! It's a  ը after consonants, and ն after vowels
+! Need the :0* context because of deleted glides
 "definite suffix is ն after vowels"
-%{defն%}:ն <=>   RealVowel _ ;
-
+%{defն%}:ն <=>   RealVowel  :0* _ ;
+ 				
+		
 ! For plural allomorphy, the input plural suffix is %{Plն%}եր
 ! The rule will drop %{Plն%} after monosyllables, defined roughty as maximally CJVCCk
-"plural suffix is եր after monosyllables"
-%{Plն%}:0 <=> Monosyllable  _ ;
+!The suffix is -er also after monosyllabic-headed compounds
+!I assume that the right compounds end in a {mono} diacritic
+"plural suffix is եր after monosyllables and after monosyllabic-headed compounds"
+%{Plն%}:0 <=> Monosyllable :0*  _ ;
+				%{mono%}: :0*  _ ;
 
 ! For plural possessive allomorphy, there is a fake plural suffix եր if after monosyllable
 ! The rule will turn the relevant diacritics into the plural suffix
-"spurious plural suffix is եր after monosyllables: for ե"
-%{SpurPlե%}:ե <=> Monosyllable  _ ;
-"spurious plural suffix is եր after monosyllables: for ր"
-%{SpurPlր%}:ր  <=> Monosyllable  %{SpurPlե%}:ե _ ;
+!Same for compounds with monosyllabic head
+"spurious plural suffix is եր after monosyllables and mono-head compounds: for ե"
+%{SpurPlե%}:ե <=> Monosyllable  :0*  _ ;
+				%{mono%}:  :0*  _ ;
+"spurious plural suffix is եր after monosyllables and mono-head compounds: for ր"
+%{SpurPlր%}:ր  <=> Monosyllable  :0*  %{SpurPlե%}:ե _ ;
+				%{mono%}:  :0*  %{SpurPlե%}:ե _ ;
 
 ! For plural possessive allomorphy, the suffix loses ի before a vowel
 "Delete the vowel ի of the plural possessive before a vowel է ո ի " 
 %{PossPlի%}:0  <=>  _ [:է | :ո | :ի ];
 
 
+
+!!!!!!!!!!!!!!!!
+!!!! Destressed reduction
+! In nouns, if the last stem vowel is ի or ու, then it is deleted in the orthography if
+! It precedes a vowel-initial inflectional suffix
+! I capture that by using a morpheme boundary %{NinflRed%} that's only found
+! between nouns and inflection for reduction
+"Delete ի if before a vowel-initial suffix, with 1 or more consonants between them"
+ի:0 <=> _ :Cons :Cons* (:0)* %{NinflRed%}: (:0)*  FullVowel ; 
+"Delete ու  if before a vowel-initial suffix, with 1 or more consonants between them (part 1)"
+ո:0 <=> _ ւ: :Cons :Cons* (:0)* %{NinflRed%}: (:0)*  FullVowel ;
+"Delete ու  if before a vowel-initial suffix, with 1 or more consonants between them (part 2)"
+ւ:0 <=> ո: _  :Cons :Cons* (:0)* %{NinflRed%}: (:0)*  FullVowel ;
+
+
+!!!!!!!!!
+!! glide deletion in nouns
+! The glide յ is deleted when a) it follows ա or ո, b) it's before nominal suffixes
+! and c) the suffix is consonantal-initial
+! But not for monosyllabic nouns
+! It's deleted before definite suffix
+"Delete glide յ  in the context ա/ո _ C-initial suffix "
+յ:0 <=>  :ա _ :0* GeneralNInflBoundary: :0* :Cons ;
+        :ա _ :0* GeneralNInflBoundary: :0* %{defն%}: ;
+		:ո _ :0* GeneralNInflBoundary: :0* :Cons ;
+        :ո _ :0* GeneralNInflBoundary: :0* %{defն%}: ;
+		except
+   	    	Monosyllable :0*	_  ;
+
+!! glide epenthesis in nouns
+! The glide յ is added when a) it follows ա , b) it's before nominal suffixes
+! and c) the suffix is vowel-initial
+! It's absent before definite suffix
+"Insert glide յ  in the context ա _ V-initial suffix "
+0:յ <=>  :ա _ :0* GeneralNInflBoundary: :0* RealVowelUR ;
+		except
+   	    	Monosyllable :0*	_  ;
+!        :ա _ :0* GeneralNInflBoundary: :0* %{defն%}: ;
+   	 
 ! Resources:
 ! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol
 ! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome

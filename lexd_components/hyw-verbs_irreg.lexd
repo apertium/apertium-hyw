@@ -6,7 +6,6 @@
 
 LEXICON VerbRootNil		#Class 13 անցնիլ and 14 մեռնիլ
 անցնիլ:անց
-ընկողմանիլ:ընկողմա   # Dir/LR it's regularized for Hossep, the final V also looks off
 բուսնիլ:բուս
 հագնիլ:հագ
 հասնիլ:հաս
@@ -14,7 +13,6 @@ LEXICON VerbRootNil		#Class 13 անցնիլ and 14 մեռնիլ
 մեռնիլ:մեռ
 յանդգնիլ:յանդգ
 յաւակնիլ:յաւակ
-քրտնիլ:քրտ  # Dir/LR it's regularized for Hossep
 
 #------#
 
@@ -30,23 +28,23 @@ LEXICON VerbRootCilC		#Class 16 կպչիլ
 #------#
 
 LEXICON VerbRootNelNale		#Class 23 իջնել իջնալ and 24 գտնել գտնալ
-իջնել:իջ
-գտնել:գտ
-հեծնել:հեծ
-մտնել:մտ
-տեսնել:տես
+իջնալ:իջ
+գտնալ:գտ
+հեծնալ:հեծ
+մտնալ:մտ
+տեսնալ:տես
+
 
 դպնել:դպ #This verb is also CilIl
 
 
 LEXICON VerbRootNelNala		
 
-
-իջնալ:իջ
-գտնալ:գտ
-հեծնալ:հեծ
-մտնալ:մտ
-տեսնալ:տես
+իջնել:իջ
+գտնել:գտ
+հեծնել:հեծ
+մտնել:մտ
+տեսնել:տես
 
 դպնալ:դպ #This verb is also CilIl
 
@@ -112,7 +110,7 @@ LEXICON VerbRootSit # Class 56 նստիլ
 #------------------#
 #Suppletives
 LEXICON VerbRootRiseEPres		#Class 25 ելլել ելլալ
-ելլել:ելլ		
+ելլել:ելլ
 LEXICON VerbRootRiseEPast
 ելլել:ել		
 LEXICON VerbRootRiseAPres		

@@ -49,18 +49,26 @@ VerbRootI VZero ThE #I'm just changing -i- to -e- directly
 VerbRootA VZero ThA 
 InchBase InchEmpty  #<inch> marked by either covert or overt -n-
 
-CausativeVerbRoot VZero #This is for lexically listed causatives
+#This is for lexically listed causatives
+CausativeVerbRoot VZero 
+
 
 #Base of passive is root
 PATTERN PassBase
 VerbRootE VZero 
 VerbRootI VZero 
 VerbRootA VZero ThA Aor
+
 CausBase CausPass 
+#This is for orthographic variants
+CausativeVerbRootOrthographicSchwa VZero CausPass
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPass
+
+
+PassiveVerbRoot  VZero #This is for lexically listed passives
+
 InchBase InchEmpty Aor #Should I care that this will rarely be traversed? TO DO
   
- PassiveVerbRoot  VZero #This is for lexically listed passives
-
 
 #Base of inchoative is root+th or root
 PATTERN InchBase
@@ -73,8 +81,14 @@ PATTERN Infinitival
 VerbRootE VZero ThE Inf
 VerbRootI VZero ThI Inf
 VerbRootA VZero ThA Inf
+
 CausBase CausPres ThE Inf
+CausativeVerbRootOrthographicSchwa VZero CausOrthographicSchwaPres ThE Inf
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPres ThE Inf
+
+
 PassBase Pass ThI Inf
+
 InchBase InchNasal ThA Inf
 
 #Archaic/obsolete
@@ -151,8 +165,14 @@ PATTERN IndcSubjBase
 VerbRootE VZero ThE 
 VerbRootI VZero ThI 
 VerbRootA VZero ThA 
+
 CausBase CausPres ThE
+CausativeVerbRootOrthographicSchwa VZero CausOrthographicSchwaPres ThE
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPres ThE
+
+
 PassBase Pass ThI 
+
 InchBase InchNasal ThA 
 
 
@@ -266,8 +286,14 @@ PATTERN Past
 VerbRootE VZero ThE Aor PastPrimAgr Indc0
 VerbRootI VZero ThI Aor PastSecAgr Indc0 
 VerbRootA VZero ThA Aor PastPrimAgr Indc0 
+
 CausBase CausPast Aor PastPrimAgr Indc0
+CausativeVerbRootOrthographicSchwa VZero CausPast Aor PastPrimAgr Indc0
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPast Aor PastPrimAgr Indc0
+
+
 PassBase Pass ThI Aor PastSecAgr Indc0
+
 InchBase InchEmpty Aor PastSecAgr Indc0
 
 
@@ -323,9 +349,15 @@ VerbRootE VZero ThE ImpSg
 VerbRootI VZero ThI ImpSg # Dir/LR
 VerbRootI VZero ImpSgIR
 VerbRootA VZero ThA ImpSg 
+
 PassBase Pass ThI ImpSg # Dir/LR
 PassBase Pass ImpSgIR
+
 CausBase CausPast ImpSgR
+CausativeVerbRootOrthographicSchwa VZero CausPast ImpSgR
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPast ImpSgR
+
+
 InchBase InchEmpty Aor ImpSgIR
 
 VerbRootUv|VerbRootUc VZero ImpSgInternalMark #Unclear which one is preferred because archaic/obsolete
@@ -382,8 +414,13 @@ VerbRootSendPast VZero ImpSgInternalMark
 VerbRootE VZero ThE Aor ImpPl
 VerbRootI VZero ThI Aor ImpPl
 VerbRootA VZero ThA Aor ImpPl
+
 CausBase CausPast Aor ImpPl
+CausativeVerbRootOrthographicSchwa VZero CausPast Aor ImpPl
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPast Aor ImpPl
+
 PassBase Pass ThI Aor ImpPl
+
 InchBase InchEmpty Aor ImpPl
 
 
@@ -431,8 +468,13 @@ PATTERN Prohibitive
 VerbRootE VZero ThE [<proh>:] ProhAgr
 VerbRootI VZero ThI [<proh>:] ProhAgr
 VerbRootA VZero ThA [<proh>:] ProhAgr
+
 CausBase CausPres ThE [<proh>:] ProhAgr
+CausativeVerbRootOrthographicSchwa VZero CausPres ThE [<proh>:] ProhAgr
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPres  ThE [<proh>:] ProhAgr
+
 PassBase Pass ThI [<proh>:] ProhAgr
+
 InchBase InchNasal ThA [<proh>:] ProhAgr
 
 VerbRootUv|VerbRootUc VZero ThU [<proh>:] ProhAgr
@@ -464,7 +506,7 @@ VerbRootDoPres VZero ThE [<proh>:] ProhAgr
 VerbRootSay VZero ThE [<proh>:] ProhAgr 
 VerbRootSpitOldPres EmptyNasal VZero ThE [<proh>:] ProhAgr 
 VerbRootFallPres VZero ThA [<proh>:] ProhAgr 
-VerbRootBite VZero ThE [<proh>:] ProhAgr 
+VerbRootBite EmptyNasal VZero ThE [<proh>:] ProhAgr 
 VerbRootPlay VZero ThA [<proh>:] ProhAgr 
 VerbRootStay VZero ThA [<proh>:] ProhAgr 
 VerbRootSit VZero ThI [<proh>:] ProhAgr 
@@ -476,8 +518,13 @@ PATTERN SubjectPart
 VerbRootE VZero SubjPart
 VerbRootI VZero SubjPart
 VerbRootA VZero ThA Aor SubjPart
+
 CausBase CausPres SubjPart
+CausativeVerbRootOrthographicSchwa VZero CausPres SubjPart
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPres SubjPart
+
 PassBase Pass SubjPart
+
 InchBase InchEmpty Aor SubjPart
 
 
@@ -524,8 +571,13 @@ PATTERN PerfectPart
 VerbRootE VZero PerfPart
 VerbRootI VZero PerfPart
 VerbRootA VZero ThA Aor PerfPart
+
 CausBase CausPast Aor PerfPart
+CausativeVerbRootOrthographicSchwa VZero CausPast Aor PerfPart
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPast Aor PerfPart
+
 PassBase Pass PerfPart
+
 InchBase InchEmpty Aor PerfPart
 
 
@@ -570,8 +622,13 @@ PATTERN EvidentialPart
 VerbRootE VZero EvidPart
 VerbRootI VZero EvidPart
 VerbRootA VZero ThA Aor EvidPart
+
 CausBase CausPast Aor EvidPart
+CausativeVerbRootOrthographicSchwa VZero CausPast Aor EvidPart
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPast Aor EvidPart
+
 PassBase Pass EvidPart
+
 InchBase InchEmpty Aor EvidPart
 
 VerbRootUv|VerbRootUc VZero EvidPart #Unclear which is preferred because obsolete
@@ -618,9 +675,14 @@ VerbRootE VZero ThE Pres0|PastImpf0 NegPtcp
 VerbRootI VZero ThI Pres0 NegPtcp 
 VerbRootI VZero ThE PastImpf0 NegPtcp #For i->e
 VerbRootA VZero ThA Pres0|PastImpf0 NegPtcp 
+
 CausBase CausPres ThE Pres0|PastImpf0 NegPtcp 
+CausativeVerbRootOrthographicSchwa VZero CausPres ThE Pres0|PastImpf0 NegPtcp 
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPres ThE Pres0|PastImpf0 NegPtcp 
+
 PassBase Pass ThI Pres0 NegPtcp 
 PassBase Pass ThE PastImpf0 NegPtcp #For i->e
+
 InchBase InchNasal ThA Pres0|PastImpf0 NegPtcp 
 
 VerbRootUv VZero ThE Pres0|PastImpf0 NegPtcp 
@@ -772,7 +834,7 @@ LEXICON ThE
 LEXICON ThI
 :ի
 LEXICON ThA
-:ա{յ}
+:ա{ThAյ}
 LEXICON ThU
 :ու
 
@@ -791,6 +853,16 @@ LEXICON CausPast
 
 LEXICON CausPass
 <caus>:ց
+
+#Orthographic variants of causative
+LEXICON CausOrthographicSchwaPres
+<caus>:ցըն
+LEXICON CausOrthographicAffrPres
+<caus>:ձն
+LEXICON CausOrthographicAffrPast
+<caus>:ձու
+LEXICON CausOrthographicAffrPass
+<caus>:ձ
 
 LEXICON Pass
 <pass>:ու
@@ -888,9 +960,6 @@ LEXICON ImpSgInternalMark #Mark is added at end of verb; will later metathesize
 LEXICON ImpPl
 <imp><p2><pl>:է՛ք
 
-LEXICON Proh
-<proh>:մի՛
-
 LEXICON ProhAgr
 <p2><sg>:ր
 <p2><pl>:{ProhPl}ք #Was {է}
@@ -899,18 +968,20 @@ LEXICON ProhAgrIrEk #For մի զիջիր մի զիջէք
 <p2><sg>:իր
 <p2><pl>:էք 
 
-
-
 LEXICON Indc
 <indc>:կ{G1}{G2}
 LEXICON IndcShort
 <indc>:կու\ 
 
+
+LEXICON Proh
+մի՛<pro><proh>:մի՛
+
 LEXICON Prog
-<prog>:կոր
+կոր<enc><prog>:կոր
 
 LEXICON Fut
-<fut>:պիտի 
+պիտի<pro><fut>:պիտի
 
 #Negation-based lexicons
 LEXICON NegPtcp
@@ -975,6 +1046,14 @@ LEXICON VerbRootA
 LEXICON CausativeVerbRoot
 աճեցնել:աճե
 մօտեցնել:մօտե
+
+LEXICON CausativeVerbRootOrthographicSchwa
+անցընել:ան 
+LEXICON CausativeVerbRootOrthographicAffr
+դարձնել:դար
+վերադարձնել:վերադար
+
+
 
 LEXICON PassiveVerbRoot
 ածիլուիլ:ածիլ
