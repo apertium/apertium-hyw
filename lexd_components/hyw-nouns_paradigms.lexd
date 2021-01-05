@@ -130,8 +130,10 @@ NounIrregUReducePoly NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Pos
 PATTERN InfinitivalDecl
 #For declined infinitivals, I assume they're not pluralized
 #I don't add the reduction boundary as a safety precaution
-#Singular
-Infinitival NZero NSg0 CaseRegU? (Def|Poss)?
+#I make bare infinitival get analyezd as just a verb
+#Singular caseless definite
+Infinitival NZero NSg0 (Def|Poss)
+Infinitival NZero NSg0 CaseRegU (Def|Poss)?
 #Plural possessive (separate line for instrumental)
 Infinitival NZero  PossPl CaseRegPostPluralPoss Def|Poss
 Infinitival NZero  InsReg PossPl  Def|Poss
@@ -178,12 +180,12 @@ NounIrregMonoNerOld NZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 NounIrregMonoNerOld NZero NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss    # Dir/LR
 NounIrregMonoNerOld NZero NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss   # Dir/LR
 
-#մուկներնիս
-NounIrregMonoNerOld NZero NouNinflBoundary (NSg0 [:ն])|NPlNerOnly  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+#մուկներնիս, I have to force -er 
+NounIrregMonoNerOld NZero NouNinflBoundary (NSg0 [:ներ])|NPlNerOnly  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
 NounIrregMonoNerOld NZero NouNinflBoundary NSg0|NPlNerOnly  InsReg PossPl  Def|Poss   # Dir/LR
 
 #մկներնիս
-NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer (NSg0 [:ն])|NPlNerOnly  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer (NSg0 [:ներ])|NPlNerOnly  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
 NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer NSg0|NPlNerOnly  InsReg PossPl  Def|Poss   # Dir/LR
 
 
@@ -196,18 +198,19 @@ NounIrregMonoNerStill NZero NouNinflBoundary [:ն] NSg0 CaseRegI (Def|Poss)?  # 
 NounIrregMonoNerStill NZero NouNinflBoundary NPlNerOnly CaseRegU? (Def|Poss)? 
 #Plural possessive (separate line for instrumental)
 #I manually add the ն for singular forms before the plural possessive
-NounIrregMonoNerStill NZero NouNinflBoundary (NSg0 [:ն])|NPlNerOnly  PossPl CaseRegPostPluralPoss Def|Poss 
+# Have to force եր inside the singular
+NounIrregMonoNerStill NZero NouNinflBoundary (NSg0 [:ներ])|NPlNerOnly  PossPl CaseRegPostPluralPoss Def|Poss 
 NounIrregMonoNerStill NZero NouNinflBoundary NSg0|NPlNerOnly  InsReg PossPl  Def|Poss 
 
 
 PATTERN NounDeclUtjunSuffix
 #paradigm of suffix թիւն
 #Singular caseless
-NounUtjunSuffix NUtjunSuffix NZero NouNinflBoundary NSg0 (Def|Poss)? 
+NounUtjunSuffix NUtjunSuffix NZero NouNinflBoundary NSg0 (Def|Poss)?  
 #Singular archaic case
 NounUtjunSuffix NZero NouNinflBoundary NSg0 CaseUtjunArchaic (Def|Poss)? 
 #Singular regular case
-NounUtjunSuffix NUtjunSuffix NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+NounUtjunSuffix NUtjunSuffix NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?    # Dir/LR
 
 #Plural 
 NounUtjunSuffix NUtjunSuffix  NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
@@ -234,7 +237,8 @@ NounUmSuffix NUmSuffixBase NZero NouNinflBoundary NSg0 (Def|Poss)?
 #Singular archaic case
 NounUmSuffix NUmSuffixReduced NZero NouNinflBoundary NSg0 DatGenArchaicAn (Def|Poss)? 
 #Singular regular case
-NounUmSuffix NUmSuffixBase NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+NounUmSuffix NUmSuffixBase NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?   # Dir/LR
+NounUmSuffix NUmSuffixBase NZero NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)?  
 
 #Plural (already know it's polysyllabic)
 NounUmSuffix NUmSuffixBase NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
@@ -256,9 +260,9 @@ NounDecOldOchNominativeStem NZero NouNinflBoundary NSg0 (Def|Poss)?
 #Singular archaic case with oblique forms ընկերոջ ընկերոջմէ կնոջ կնոջմէ
 NounDecOldOchObliqueStem NZero NouNinflBoundary NSg0 DatGenArchaicOch (CaseBoundaryM CaseRegOblique)? (Def|Poss)? 
  #without nasal boundary ընկերոջէ կնոջէ
-NounDecOldOchObliqueStem NZero NouNinflBoundary NSg0 DatGenArchaicOch CaseRegOblique (Def|Poss)? 
+NounDecOldOchObliqueStem NZero NouNinflBoundary NSg0 DatGenArchaicOch CaseRegOblique (Def|Poss)?  # Dir/LR
 #Singular regular case
-NounDecOldOchNominativeStem  NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+NounDecOldOchNominativeStem  NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?   # Dir/LR
 
 #Plural 
 NounDecOldOchNominativeStem  NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
@@ -267,8 +271,8 @@ NounDecOldOchNominativeStem  NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)?
 NounDecOldOchNominativeStem NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
 NounDecOldOchNominativeStem NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 #irregular plural possessive ընկերոջնիս ընկերոջմովնիս ընկերոջովնիս կնոջնիս կնոջմովնիս կնոջոջնիս
-NounDecOldOchObliqueStem NZero	 NouNinflBoundary  DatGenArchaicOch PossPl CaseRegPostPluralPoss Def|Poss
-NounDecOldOchObliqueStem NZero  NouNinflBoundary  DatGenArchaicOch CaseBoundaryM? InsReg PossPl  Def|Poss
+NounDecOldOchObliqueStem NZero	 NouNinflBoundary  DatGenArchaicOch PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+NounDecOldOchObliqueStem NZero  NouNinflBoundary  DatGenArchaicOch CaseBoundaryM? InsReg PossPl  Def|Poss  # Dir/LR
 
 
 PATTERN NounDecOldOchNominativeStem
@@ -294,9 +298,9 @@ NounFamilyOBase NZero NouNinflBoundary NSg0 (Def|Poss)?
 #Singular archaic case with oblique forms հօր  հօրմէ 
 NounFamilyOAblauted NZero NouNinflBoundary NSg0  DatGenArchaicEmpty (CaseBoundaryM CaseRegOblique)? (Def|Poss)? 
  #without nasal boundary հօրէ
-NounFamilyOAblauted NZero NouNinflBoundary NSg0 DatGenArchaicEmpty CaseRegOblique (Def|Poss)? 
+NounFamilyOAblauted NZero NouNinflBoundary NSg0 DatGenArchaicEmpty CaseRegOblique (Def|Poss)?   # Dir/LR
 #Singular regular case հայրէ
-NounFamilyOBase  NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+NounFamilyOBase  NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?   # Dir/LR
 
 #Plural հայրեր հայրերուն
 NounFamilyOBase  NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
@@ -305,8 +309,8 @@ NounFamilyOBase  NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)?
 NounFamilyOBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
 NounFamilyOBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 #irregular plural possessive եղբօրնիս եղբօրմովնիս եղբօրովնիս
-NounFamilyOAblauted NZero	 NouNinflBoundary  DatGenArchaicEmpty PossPl CaseRegPostPluralPoss Def|Poss
-NounFamilyOAblauted NZero  NouNinflBoundary  DatGenArchaicEmpty CaseBoundaryM? InsReg PossPl  Def|Poss
+NounFamilyOAblauted NZero	 NouNinflBoundary  DatGenArchaicEmpty PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+NounFamilyOAblauted NZero  NouNinflBoundary  DatGenArchaicEmpty CaseBoundaryM? InsReg PossPl  Def|Poss  # Dir/LR
 
 PATTERN NounDeclOldRandomOAblaut
 # These are nouns which take ablaut -ա- in the dative
@@ -318,9 +322,10 @@ NounRandomOBase NZero NouNinflBoundary NSg0 (Def|Poss)?
 #Singular archaic case  տան
 NounRandomOAblauted NZero NouNinflBoundary NSg0  DatGenArchaicEmpty   (Def|Poss)? 
 #Singular regular case տունէ
-NounRandomOBase  NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+NounRandomOBase  NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?   # Dir/LR
+NounRandomOBase  NZero NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)? 
 #Optional reduction
-NounRandomOBase  NZero NouNinflBoundaryRed NSg0 CaseRegI (Def|Poss)? 
+NounRandomOBase  NZero NouNinflBoundaryRed NSg0 CaseRegI (Def|Poss)?   # Dir/LR
 
 
 #Plural տուներ
@@ -342,9 +347,9 @@ PATTERN NounDeclCountryOj
 #Singular caseless անգլիա
 NounCountryBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
 #Singular archaic case  անգլիոյ, must add infl boundary to get glide deletion անգլիոն
-NounCountryReduced NZero NouNinflBoundary NSg0  DatGenArchaicOj  NouNinflBoundary (Def|Poss)? 
+NounCountryReduced NZero NouNinflBoundary NSg0  DatGenArchaicOj  NouNinflBoundary (Def|Poss)?   # Dir/LR
 #Singular regular case անգլիայի
-NounCountryBase  NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+NounCountryBase  NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?  
 
 #Plural անգլիաներ
 NounCountryBase  NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
@@ -374,15 +379,16 @@ NounIrregBoyBase NZero NouNinflBoundary NSg0 CaseRegOblique? (Def|Poss)?
 NounIrregBoyBase NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
 #irregular dative case տղու
 NounIrregBoyReduced NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)? 
+
 #regularized plural and reguarlized case տղաներու տղաքներու
-NounIrregBoyBase NZero  NouNinflBoundary NPlIrregK? NPlReg CaseRegU? (Def|Poss)? 
+NounIrregBoyBase NZero  NouNinflBoundary NPlIrregK? NPlReg CaseRegU? (Def|Poss)?   # Dir/LR
 #Irregular plural and irregular case տղաք տղոց տղոցմէ
 NounIrregBoyBase NZero NouNinflBoundary NPlIrregK  (Def|Poss)? 
 NounIrregBoyReduced NZero NouNinflBoundary PlDatGenIrregularOts (CaseBoundaryM CaseRegOblique)? (Def|Poss)? 
 
 #regularized plural possessive տղայներնիս տղաքներնիս
-NounIrregBoyBase NZero	 NouNinflBoundary NSg0|(NPlIrregK? NPlReg)  PossPl CaseRegPostPluralPoss Def|Poss
-NounIrregBoyBase NZero  NouNinflBoundary NSg0|(NPlIrregK? NPlReg)  InsReg PossPl  Def|Poss
+NounIrregBoyBase NZero	 NouNinflBoundary NSg0|(NPlIrregK? NPlReg)  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+NounIrregBoyBase NZero  NouNinflBoundary NSg0|(NPlIrregK? NPlReg)  InsReg PossPl  Def|Poss  # Dir/LR
 #irregular plural possessive տղաքնիս տղաքովնիս տղաքմովնիս
 NounIrregBoyBase NZero	 NouNinflBoundary NPlIrregK  PossPl CaseRegPostPluralPoss Def|Poss
 NounIrregBoyBase NZero  NouNinflBoundary NPlIrregK CaseBoundaryM? InsReg PossPl  Def|Poss
@@ -394,15 +400,16 @@ NounIrregMan NZero NouNinflBoundary NSg0 CaseRegOblique? (Def|Poss)?
 NounIrregMan NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
 #irregular dative case մարդու
 NounIrregMan NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)? 
+
 #regularized plural and reguarlized case մարդերու
-NounIrregMan NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+NounIrregMan NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)?   # Dir/LR
 #Irregular plural and irregular case մարդիկ մարդոց մարդոցմէ
 NounIrregMan NZero NouNinflBoundary NPlIrregIg  (Def|Poss)? 
 NounIrregMan NZero NouNinflBoundary PlDatGenIrregularOts (CaseBoundaryM CaseRegOblique)? (Def|Poss)? 
 
 #regularized plural possessive մարդերնիս
-NounIrregMan NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounIrregMan NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+NounIrregMan NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+NounIrregMan NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss	 # Dir/LR
 #irregular plural possessive մարդիկնիս մարդոցնիս մարդոցովնիս մարդոցմովնիս
 NounIrregMan NZero	 NouNinflBoundary NPlIrregIg  PossPl CaseRegPostPluralPoss Def|Poss
 NounIrregMan NZero  NouNinflBoundary  PlDatGenIrregularOts CaseBoundaryM? InsReg PossPl  Def|Poss
@@ -479,10 +486,10 @@ NounIrregGod NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 #Singular 
 NounLoveBase NZero NouNinflBoundary NSg0  (Def|Poss)? 
 #regular case 
-NounLoveBase NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+NounLoveBase NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?  
 # Archaic dative case  սիրոյ 
 #Have to force a boundary after ոյ to trigger glide deletion
-NounLoveReduced NZero NouNinflBoundary NSg0 DatGenArchaicOj NouNinflBoundary (Def|Poss)? 
+NounLoveReduced NZero NouNinflBoundary NSg0 DatGenArchaicOj NouNinflBoundary (Def|Poss)?   # Dir/LR
 
 #Plural
 NounLoveBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
@@ -495,11 +502,12 @@ NounLoveBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 #Singular 
 NounGirlBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
 # regular case աղջիկի
-NounGirlBase NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+NounGirlBase NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)? 
+NounGirlBase NZero NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)?  # Dir/LR
 #Reduced աղջկայ աղջկան -- not sure if nasal is always definite TO DO
 NounGirlReduced NZero NouNinflBoundary NSg0 DatGenArchaicAnAj NouNinflBoundary (Def|Poss)?  
 # Reduced and oblique աղջկանէ
-NounGirlReduced NZero NouNinflBoundary NSg0 DatGenArchaicAn CaseRegOblique (Def|Poss)?  
+NounGirlReduced NZero NouNinflBoundary NSg0 DatGenArchaicAn CaseRegOblique (Def|Poss)?   # Dir/LR
 
 #Plural
 NounGirlBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
@@ -866,8 +874,6 @@ LEXICON NounRandomOAblauted
 LEXICON NounFamilyNkForm
 Վարդանանք:Վարդանա
 
-LEXICON NounCountryBase
-անգլիա:անգլիա
 
 
 #These are nouns which supplete or have irregular reduction in their declensions

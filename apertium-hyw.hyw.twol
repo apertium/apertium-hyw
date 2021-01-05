@@ -4,7 +4,7 @@ Alphabet
  Ա  Ե Է Ը Ո Օ Ի Լ
 Բ Գ Դ Զ Թ Ժ  Խ Ծ Կ Հ Ձ Ղ Ճ Մ Յ Ն Շ Չ Պ Ջ Ռ Ս Վ Տ Ր Ց Ւ Փ Ք Ֆ
 
-'		!apostrophe
+՚		!apostrophe
 ՛		!exclamation mark in imperatives
 
 % 
@@ -72,12 +72,11 @@ RealVowelUR = [ ա: | ե: | է: |  ո: | օ: | ի: | ո: ւ: | ը: |
 ! For finding monosyllables, I have to specify monosyllabic words with schwa
 ! because of conflicts with vowel reduction
 ! Also has to reference underlyng segments because of conflicts with other rules
-MonosyllableWithoutSchwa =  .#.  (Cons: (յ:))	RealVowelUR (Cons: (Cons:)) (ք:)   ;
-MonosyllableWithSchwa  =  .#. Cons: Cons:* ; 
+MonosyllableWithoutSchwa =  .#.  (Cons:  (յ:))	RealVowelUR  (Cons:  (Cons:))   (ք:)   ;
+MonosyllableWithSchwa  =  .#. Cons: (Cons:) (Cons:)  ; 
 Monosyllable =   [ MonosyllableWithoutSchwa | MonosyllableSchwa ];
 ;
  
-! I think I'm going to force a monosyllable plural by using this mono boundary instead
 
 Rules
 
@@ -86,9 +85,9 @@ Rules
 !Indicative prefix /կ{G1}{G2}/ is [կը ] before C's and [կ'] before V's
 !Complication is that ու is a vowel while ոX is not
 
-"For G1, prefix կ{G1}{G2} to [կ'] before a vowel"
-%{G1%}:' <=> _ %{G2%}:     [ [ :Vowel - :ո ] | :ո :ւ ] ;  
-"For G2, prefix կ{G1}{G2} to կ' before a vowel"
+"For G1, prefix կ{G1}{G2} to [կ՚] before a vowel"
+%{G1%}:՚ <=> _ %{G2%}:     [ [ :Vowel - :ո ] | :ո :ւ ] ;  
+"For G2, prefix կ{G1}{G2} to կ՚ before a vowel"
 %{G2%}:0   <=>   _   [ [ :Vowel - :ո ] | :ո :ւ  ] ;  
 
 !"For G1, prefix կ{G1}{G2} to [կը ] before a consonant"

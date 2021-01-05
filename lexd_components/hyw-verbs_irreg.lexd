@@ -16,23 +16,12 @@ LEXICON VerbRootNil		#Class 13 անցնիլ and 14 մեռնիլ
 
 #------#
 
-LEXICON VerbRootCilV		#Class 15 երկնչիլ; differs from 16 in the imperative
-երկնչիլ:երկն
-
-LEXICON VerbRootCilC		#Class 16 կպչիլ 
-կորնչիլ:կորն
-կորչիլ:կոր
-կպչիլ:կպ
-մատչիլ:մատ
-
-#------#
 
 LEXICON VerbRootNelNale		#Class 23 իջնել իջնալ and 24 գտնել գտնալ
 իջնալ:իջ
 գտնալ:գտ
 հեծնալ:հեծ
 մտնալ:մտ
-տեսնալ:տես
 
 
 դպնել:դպ #This verb is also CilIl
@@ -44,7 +33,6 @@ LEXICON VerbRootNelNala
 գտնել:գտ
 հեծնել:հեծ
 մտնել:մտ
-տեսնել:տես
 
 դպնալ:դպ #This verb is also CilIl
 
@@ -56,6 +44,17 @@ LEXICON VerbRootCilIlc		#Class 26 դպչիլ դպիլ
 փախչիլ:փախ
 փակչիլ:փակ
 փլչիլ:փլ
+
+#LEXICON VerbRootCilV		#Class 15 երկնչիլ; differs from 16 in the imperative
+#LEXICON VerbRootCilC		#Class 16 կպչիլ 
+#These classes are treated as defective by Boyacioglu. 
+#But in my judgment, these are conjugated the same as class 26
+
+երկնչիլ:երկն
+կորնչիլ:կորն
+կորչիլ:կոր
+կպչիլ:կպ
+մատչիլ:մատ
 
 
 LEXICON VerbRootCilIli		# Class 26 դպիլ includes 44
@@ -78,6 +77,12 @@ LEXICON VerbRootBring  #Class 37 38 արտաբերել բերել
 
 LEXICON VerbRootTake		# Class 41 առնել
 առնել:առ
+
+LEXICON VerbRootSeeE #Incorrectly part of գտնել group but it has bare imperative 2sg like առնել
+տեսնել:տես
+LEXICON VerbRootSeeA #Incorrectly part of գտնել group but it has bare imperative 2sg like առնել
+տեսնալ:տես
+
 
 LEXICON VerbRootYield # Class 47 զիջիմ զիջայ մի զիջիր մի զիջէք
 զիջիլ:զիջ
@@ -121,7 +126,10 @@ LEXICON VerbRootExist # Class 31 կամ
 կամ:կ
 LEXICON VerbRootBeLongPres # Class 33 ըլլալ եղայ
 ըլլալ:ըլլ
+LEXICON VerbRootBeLongPresEastern # Eastern form
+լինել:լին
 LEXICON VerbRootBeLongPast
+լինել:եղ
 ըլլալ:եղ
 LEXICON VerbRootComePres # Class 34 գալ եկայ
 գալ:գ
@@ -193,10 +201,15 @@ LEXICON VerbRootCanLong
 կարենալ:կարե
 LEXICON VerbRootAppear #Class 28 երեւիլ, has -nal version that's regular
 երեւիլ:երեւ
-LEXICON VerbRootHave # Class 29 ունիմ, has -enal version that's regular
+
+LEXICON VerbRootHaveE # Class 29 ունիմ, has -enal version that's regular
+#Has infinitival form in Kouyoumdjian grammar ունել
+ունել:ուն
+LEXICON VerbRootHaveI  # There is also rare infinitval ունիլ
+ունիլ:ուն
 ունիմ:ուն
 LEXICON VerbRootKnow # Class 30 գիտեմ, has -nal version that's regular
+#Has infinitival form in Kouyoumdjian grammar
+գիտել:գիտ
 գիտեմ:գիտ
-
-
 

@@ -100,7 +100,8 @@ VerbRootNulC EmptyNasal VZero ThU Inf # զբօսնուլ
 
 #Irregulars
 VerbRootNil EmptyNasal VZero ThI Inf # անցնիլ group from Boyacioglu
-VerbRootCilV|VerbRootCilC EmptyAffr VZero ThI Inf # կպչիլ group from Boyacioglu
+# VerbRootCilV|VerbRootCilC EmptyAffr VZero ThI Inf # կպչիլ group from Boyacioglu
+VerbRootCel EmptyAffr VZero ThE Inf # թռչել not in Boyacioglu
 VerbRootNelNale EmptyNasal VZero ThE Inf #իջնել իջնալ
 VerbRootNelNala EmptyNasal VZero ThA Inf 
 VerbRootRiseEPres VZero ThE Inf #ելլել ելլալ
@@ -110,12 +111,15 @@ VerbRootCilIli VZero ThI Inf
 VerbRootCanLong EmptyNasal VZero ThA Inf #կարենալ, not կրնալ
 VerbRootAppear VZero ThI Inf # Defective երեւիլ, only indicative non-perfect, no subj
 VerbRootBeLongPres VZero ThA Inf # Irregular ըլլալ
+VerbRootBeLongPresEastern VZero ThE Inf # Irregular լինել
 VerbRootComePres VZero ThA Inf # irregular գալ եկայ
 VerbRootCry VZero ThA Inf # լալ
 VerbRootGivePres VZero ThA Inf # տալ
 VerbRootBring VZero ThE Inf # բերել
 VerbRootTurnPres VZero ThA Inf # դառնալ
 VerbRootTake EmptyNasal VZero ThE Inf # առնել
+VerbRootSeeA EmptyNasal VZero ThA Inf # տեսնալ
+VerbRootSeeE EmptyNasal VZero ThE Inf # տեսնալ
 VerbRootOpenPres VZero ThA Inf # բանալ
 VerbRootPutPres VZero ThE Inf # դնել
 VerbRootGoPres VZero ThA Inf # երթալ
@@ -132,6 +136,16 @@ VerbRootStay VZero ThA Inf # մնալ
 VerbRootSit VZero ThI Inf # նստիլ
 VerbRootEatPres VZero ThE Inf # ուտել
 VerbRootSendPres VZero ThI Inf # տանիլ
+
+#Following defective verbs lack infinitival for Boyacioglu, but they have one in Kouyoumdjian
+VerbRootHaveE   VZero ThE Inf # ունել, but inflected as ունիմ
+VerbRootHaveI   VZero ThI Inf # ունիլ
+VerbRootKnow  VZero ThE Inf # գիտել 
+
+PATTERN  VerbRootHave
+#To merge the infinitivals ունիլ ունել for conjugations besides the infinitival
+VerbRootHaveE
+VerbRootHaveI
 
 PATTERN Indicative
 #Verbs with prefix
@@ -187,10 +201,14 @@ VerbRootRiseEPres  VZero ThE
 VerbRootRiseAPres  VZero ThA
 VerbRootCilIlc EmptyAffr VZero ThI 
 VerbRootCilIli VZero ThI 
+VerbRootCel EmptyAffr VZero ThE    
 VerbRootBeLongPres VZero ThA 
+VerbRootBeLongPresEastern VZero ThE
 VerbRootBring VZero ThE
 VerbRootTurnPres VZero ThA
 VerbRootTake EmptyNasal VZero ThE
+VerbRootSeeA EmptyNasal VZero ThA
+VerbRootSeeE EmptyNasal VZero ThE
 VerbRootOpenPres VZero ThA
 VerbRootPutPres VZero ThE
 VerbRootGoPres VZero ThA 
@@ -227,8 +245,8 @@ PATTERN IndicativeIrregular
 # I won't generalize them just ot be safe
 #Some of these don't take prefix 
 #Some of them don't have any subjunctive form
-:Indc VerbRootCilV|VerbRootCilC EmptyAffr VZero ThI Pres0 PresAgr Indc: # երկնչիլ defective
-:Indc VerbRootCilV EmptyAffr VZero ThI ImpfAgr Indc: 
+#:Indc VerbRootCilV|VerbRootCilC EmptyAffr VZero ThI Pres0 PresAgr Indc: # երկնչիլ defective
+#:Indc VerbRootCilV EmptyAffr VZero ThI ImpfAgr Indc: 
 VerbRootCanShort EmptyNasal VZero ThA Pres0 PresAgr Indc: 
 VerbRootCanShort EmptyNasal VZero ThA ImpfAgr Indc:
 :Indc VerbRootAppear VZero ThI Pres0 PresAgr Indc: # երեւիլ defective 
@@ -264,6 +282,9 @@ VerbRootKnow VZero ThE Pres0 PresAgr Subj0  #I disagree with Boyacioglu, I have 
 VerbRootKnow VZero ThE ImpfAgr Subj0 
 VerbRootBeLongPres VZero ThA Pres0 PresAgr Subj0
 VerbRootBeLongPres VZero ThA ImpfAgr Subj0
+VerbRootBeLongPresEastern VZero ThE  Pres0 PresAgr Subj0
+VerbRootBeLongPresEastern VZero ThE ImpfAgr Subj0
+
 VerbRootExist VZero ThA Pres0 PresAgr Subj0	#I disagree with Boyacioglu, I have subjunctives
 VerbRootExist VZero ThA ImpfAgr Subj0	
 
@@ -307,7 +328,8 @@ VerbRootNulC EmptyNasal VZero ThE Aor PastPrimAgr #Obsolete so the preference is
 
 
 VerbRootNil VZero PastSecAgr Indc0
-VerbRootCilV|VerbRootCilC VZero PastSecAgr Indc0
+# VerbRootCilV|VerbRootCilC VZero PastSecAgr Indc0
+VerbRootCel VZero PastSecAgr Indc0
 VerbRootNelNale|VerbRootNelNala VZero PastSecAgr Indc0
 VerbRootRiseEPast|VerbRootRiseAPast VZero PastSecAgr Indc0
 VerbRootCilIlc|VerbRootCilIli VZero PastSecAgr Indc0
@@ -319,6 +341,7 @@ VerbRootGivePast VZero PastSplitAgr Indc0
 VerbRootBring VZero PastSplitAgr Indc0
 VerbRootTurnPast VZero PastSecAgr Indc0
 VerbRootTake VZero PastSplitAgr Indc0
+VerbRootSeeA|VerbRootSeeE VZero PastSecAgr Indc0
 VerbRootOpenPast VZero PastSplitAgr Indc0
 VerbRootPutPast VZero PastSplitAgr Indc0
 VerbRootGoPastC VZero ThA Aor PastAgrGoNo3Sg Indc0
@@ -369,14 +392,16 @@ VerbRootNulC EmptyNasal VZero ThE ImpSg
 VerbRootNulC VZero ImpSgIR	#Unclear which one is preferred because archaic/obsolete
 
 VerbRootNil VZero ImpSgIR
-VerbRootCilC VZero ImpSgIR
-VerbRootCilV VZero ThI ImpSg # Dir/LR
-VerbRootCilV VZero ImpSgIR
+# VerbRootCilC VZero ImpSgIR
+# VerbRootCilV VZero ThI ImpSg # Dir/LR
+# VerbRootCilV VZero ImpSgIR
 VerbRootNelNale|VerbRootNelNala VZero ImpSgIR
 VerbRootRiseEPast|VerbRootRiseAPast VZero ImpSg # Dir/LR
 VerbRootRiseEPast|VerbRootRiseAPast VZero ImpSgIR
 VerbRootCilIlc|VerbRootCilIli VZero ThI ImpSg # Dir/LR
 VerbRootCilIlc|VerbRootCilIli VZero ImpSgIR
+VerbRootCel VZero ThI ImpSg # Dir/LR   թռի, not թռէ
+VerbRootCel VZero ImpSgIR
 VerbRootCanShort VZero Aor ImpSgIR
 VerbRootBeLongPast VZero ImpSgIR
 VerbRootComePast VZero ImpSgUR
@@ -385,6 +410,7 @@ VerbRootGivePres VZero ImpSgUR
 VerbRootBring VZero ImpSgInternalMark 
 VerbRootTurnPast VZero ImpSgIR 
 VerbRootTake VZero ImpSgInternalMark 
+VerbRootSeeA|VerbRootSeeE VZero ImpSgInternalMark 
 VerbRootOpenPast VZero ImpSgInternalMark 
 VerbRootPutImpSg VZero ImpSgIR 
 VerbRootGoPast3 VZero ThA ImpSg
@@ -432,10 +458,11 @@ VerbRootNulV VZero ThU ImpPl
 VerbRootNulC EmptyNasal VZero ThE Aor ImpPl
 
 VerbRootNil VZero ImpPl
-VerbRootCilV|VerbRootCilC VZero ImpPl
+# VerbRootCilV|VerbRootCilC VZero ImpPl
 VerbRootNelNale|VerbRootNelNala VZero ImpPl
 VerbRootRiseEPast|VerbRootRiseAPast VZero ImpPl
 VerbRootCilIlc|VerbRootCilIli VZero ImpPl
+VerbRootCel VZero ImpPl
 VerbRootCanShort VZero Aor ImpPl
 VerbRootBeLongPast VZero ImpPl
 VerbRootComePast VZero ImpPl
@@ -444,6 +471,7 @@ VerbRootGivePast VZero ImpPl
 VerbRootBring VZero ImpPl 
 VerbRootTurnPast VZero ImpPl 
 VerbRootTake VZero ImpPl 
+VerbRootSeeA|VerbRootSeeE VZero ImpPl 
 VerbRootOpenPast VZero ImpPl 
 VerbRootPutPast VZero ImpPl 
 VerbRootGoPastC VZero ThA Aor ImpPl
@@ -488,14 +516,18 @@ VerbRootRiseEPres VZero ThE [<proh>:] ProhAgr
 VerbRootRiseAPres VZero ThA [<proh>:] ProhAgr
 VerbRootCilIlc EmptyAffr VZero ThI [<proh>:] ProhAgr 
 VerbRootCilIli VZero ThI [<proh>:] ProhAgr 
+VerbRootCel EmptyAffr VZero ThE [<proh>:] ProhAgr 
 VerbRootCanLong EmptyNasal VZero ThA [<proh>:] ProhAgr
 VerbRootBeLongPres VZero ThA [<proh>:] ProhAgr
+VerbRootBeLongPresEastern VZero ThE [<proh>:] ProhAgr
 VerbRootComePres VZero ThA [<proh>:] ProhAgr
 VerbRootCry VZero ThA [<proh>:] ProhAgr
 VerbRootGivePres VZero ThA [<proh>:] ProhAgr
 VerbRootBring VZero ThE [<proh>:] ProhAgr
 VerbRootTurnPres VZero ThA [<proh>:] ProhAgr
 VerbRootTake EmptyNasal VZero ThE [<proh>:] ProhAgr 
+VerbRootSeeA EmptyNasal VZero ThA [<proh>:] ProhAgr 
+VerbRootSeeE EmptyNasal VZero ThE [<proh>:] ProhAgr 
 VerbRootOpenPres VZero ThA [<proh>:] ProhAgr 
 VerbRootPutPres VZero ThE [<proh>:] ProhAgr 
 VerbRootGoPres VZero ThA [<proh>:] ProhAgr 
@@ -541,6 +573,7 @@ VerbRootNelNale|VerbRootNelNala EmptyNasal VZero SubjPart
 VerbRootRiseEPres|VerbRootRiseAPres VZero SubjPart
 VerbRootCilIlc EmptyAffr VZero SubjPart
 VerbRootCilIli  VZero SubjPart
+VerbRootCel EmptyAffr VZero SubjPart
 VerbRootCanShort Aor VZero SubjPart
 VerbRootBeLongPast VZero SubjPart
 VerbRootComePast VZero SubjPart
@@ -549,6 +582,7 @@ VerbRootGivePast VZero SubjPart
 VerbRootBring VZero SubjPart
 VerbRootTurnPast VZero SubjPart
 VerbRootTake EmptyNasal VZero SubjPart
+VerbRootSeeA|VerbRootSeeE EmptyNasal VZero SubjPart
 VerbRootOpenPast VZero SubjPart
 VerbRootPutPres VZero SubjPart
 VerbRootGoPastC VZero ThA Aor SubjPart
@@ -588,10 +622,11 @@ VerbRootNulV VZero ThU PerfPart
 VerbRootNulC VZero PerfPart   
 
 VerbRootNil VZero PerfPart
-VerbRootCilV|VerbRootCilC VZero PerfPart
+# VerbRootCilV|VerbRootCilC VZero PerfPart
 VerbRootNelNale|VerbRootNelNala VZero PerfPart
 VerbRootRiseEPast|VerbRootRiseAPast VZero PerfPart
 VerbRootCilIlc|VerbRootCilIli VZero PerfPart
+VerbRootCel VZero PerfPart
 VerbRootCanShort Aor VZero PerfPart
 VerbRootBeLongPast VZero PerfPart
 VerbRootComePast VZero PerfPart
@@ -600,6 +635,7 @@ VerbRootGivePast VZero PerfPart
 VerbRootBring VZero PerfPart
 VerbRootTurnPast VZero PerfPart
 VerbRootTake VZero PerfPart
+VerbRootSeeA|VerbRootSeeE  VZero PerfPart
 VerbRootOpenPast VZero PerfPart
 VerbRootPutPast VZero PerfPart
 VerbRootGoPastC VZero ThA Aor PerfPart
@@ -643,6 +679,7 @@ VerbRootNil VZero EvidPart
 VerbRootNelNale|VerbRootNelNala VZero EvidPart
 VerbRootRiseEPast|VerbRootRiseAPast VZero EvidPart
 VerbRootCilIlc|VerbRootCilIli VZero EvidPart
+VerbRootCel VZero EvidPart
 VerbRootCanShort VZero Aor EvidPart
 VerbRootBeLongPast VZero EvidPart
 VerbRootComePast VZero EvidPart
@@ -651,6 +688,7 @@ VerbRootGivePast VZero EvidPart
 VerbRootBring VZero EvidPart
 VerbRootTurnPast VZero EvidPart
 VerbRootTake VZero EvidPart
+VerbRootSeeA|VerbRootSeeE VZero EvidPart
 VerbRootOpenPast VZero EvidPart
 VerbRootPutPast VZero EvidPart
 VerbRootGoPastC VZero ThA Aor EvidPart
@@ -704,18 +742,22 @@ VerbRootCilIlc EmptyAffr VZero ThI Pres0 NegPtcp
 VerbRootCilIli VZero ThI Pres0 NegPtcp 
 VerbRootCilIlc EmptyAffr VZero ThE PastImpf0 NegPtcp #For i->e
 VerbRootCilIli VZero ThE PastImpf0 NegPtcp #For i->e
+VerbRootCel EmptyAffr VZero ThE Pres0|PastImpf0 NegPtcp 
 VerbRootCanShort EmptyNasal VZero ThA Pres0|PastImpf0 NegPtcp 
 VerbRootCanLong EmptyNasal VZero ThA Pres0|PastImpf0 NegPtcp 
 VerbRootAppear VZero ThI Pres0 NegPtcp 
 VerbRootAppear VZero ThE PastImpf0 NegPtcp #For i->e
 VerbRootKnow VZero ThE Pres0|PastImpf0 NegPtcp 
 VerbRootBeLongPres VZero ThA Pres0|PastImpf0 NegPtcp 
+VerbRootBeLongPresEastern VZero ThE Pres0|PastImpf0 NegPtcp 
 VerbRootComePres VZero ThA Pres0|PastImpf0 NegPtcp 
 VerbRootCry VZero ThA Pres0|PastImpf0 NegPtcp 
 VerbRootGivePres VZero ThA Pres0|PastImpf0 NegPtcp 
 VerbRootBring VZero ThE Pres0|PastImpf0 NegPtcp 
 VerbRootTurnPres VZero ThA Pres0|PastImpf0 NegPtcp 
 VerbRootTake EmptyNasal VZero ThE Pres0|PastImpf0 NegPtcp 
+VerbRootSeeA  EmptyNasal VZero ThA Pres0|PastImpf0 NegPtcp 
+VerbRootSeeE  EmptyNasal VZero ThE Pres0|PastImpf0 NegPtcp 
 VerbRootOpenPres VZero ThA Pres0|PastImpf0 NegPtcp 
 VerbRootPutPres VZero ThE Pres0|PastImpf0 NegPtcp 
 VerbRootGoPres VZero ThA Pres0|PastImpf0 NegPtcp 
@@ -1071,17 +1113,18 @@ LEXICON InchRootThE
 
 ##############
 #Obsolete verbs
-LEXICON VerbRootUv
+LEXICON VerbRootUv  # class 7 8
 արտահեղուլ:արտահեղ
 LEXICON VerbRootUc
 թողուլ:թող
 
 LEXICON VerbRootUcanel
+# class 11 12
 #All of its entries are preferably part of class 1 & 2
 ուսուցանել:ուսուց 
 ծանուցանել:ծանուց 
 
-LEXICON VerbRootNulV
+LEXICON VerbRootNulV # Class 21 22
 երդնուլ:երդ
 LEXICON VerbRootNulC
 զբօսնուլ:զբօս
@@ -1089,14 +1132,17 @@ LEXICON VerbRootNulC
 
 ###########
 #Irregulars and defective verbs
-LEXICON VerbRootNil
+LEXICON VerbRootNil # Class 13 14
 անցնիլ:անց
 մեռնիլ:մեռ
-LEXICON VerbRootCilV
-երկնչիլ:երկն
-LEXICON VerbRootCilC
-կպչիլ:կպ
-LEXICON VerbRootNelNale
+
+#These two classes are defective in Boyacioglu, but conjugated the same (for me) as class 26
+#LEXICON VerbRootCilV # Class 15 16
+#երկնչիլ:երկն
+#LEXICON VerbRootCilC
+#կպչիլ:կպ
+
+LEXICON VerbRootNelNale # Class 23 24
 իջնել:իջ
 գտնել:գտ
 դպնել:դպ #This verb is also CilIl
@@ -1104,7 +1150,7 @@ LEXICON VerbRootNelNala
 իջնալ:իջ
 գտնալ:գտ
 դպնալ:դպ #This verb is also CilIl
-LEXICON VerbRootRiseEPres
+LEXICON VerbRootRiseEPres # Class 25
 ելլել:ելլ
 LEXICON VerbRootRiseEPast
 ելլել:ել
@@ -1112,25 +1158,40 @@ LEXICON VerbRootRiseAPres
 ելլալ:ելլ
 LEXICON VerbRootRiseAPast
 ելլալ:ել
-LEXICON VerbRootCilIlc
+LEXICON VerbRootCilIlc # Class 26
 դպչիլ:դպ
 LEXICON VerbRootCilIli
 դպիլ:դպ
+
+### Added this for the lone irregular words which are չել instead of չիլ
+LEXICON VerbRootCel 
+թռչել:թռ
+
 LEXICON VerbRootCanShort
 կրնամ:կր
 LEXICON VerbRootCanLong
 կարենալ:կարե
 LEXICON VerbRootAppear #Class 28 երեւիլ, has -nal version that's regular
 երեւիլ:երեւ
-LEXICON VerbRootHave # Class 29 ունիմ, has -enal version that's regular
+LEXICON VerbRootHaveE # Class 29 ունիմ, has -enal version that's regular
+#Has infinitival form in Kouyoumdjian grammar ունել
+ունել:ուն
+LEXICON VerbRootHaveI  # There is also rare infinitval ունիլ
+ունիլ:ուն
 ունիմ:ուն
 LEXICON VerbRootKnow # Class 30 գիտեմ, has -nal version that's regular
+#Has infinitival form in Kouyoumdjian grammar
+գիտել:գիտ
 գիտեմ:գիտ
+
 LEXICON VerbRootExist # Class 31 կամ 
 կամ:կ
 LEXICON VerbRootBeLongPres # Class 33 ըլլալ եղայ
 ըլլալ:ըլլ
+LEXICON VerbRootBeLongPresEastern # Eastern form
+լինել:լին
 LEXICON VerbRootBeLongPast
+լինել:եղ
 ըլլալ:եղ
 LEXICON VerbRootComePres # Class 34 գալ եկայ
 գալ:գ
@@ -1153,6 +1214,10 @@ LEXICON VerbRootTurnPast
 անդրադառնալ:անդրադարձ
 LEXICON VerbRootTake
 առնել:առ
+LEXICON VerbRootSeeE #Incorrectly part of գտնել group but it has bare imperative 2sg like առնել
+տեսնել:տես
+LEXICON VerbRootSeeA #Incorrectly part of գտնել group but it has bare imperative 2sg like առնել
+տեսնալ:տես
 LEXICON VerbRootOpenPres
 բանալ:բան
 LEXICON VerbRootOpenPast

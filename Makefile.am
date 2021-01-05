@@ -7,12 +7,17 @@ BASENAME=apertium-$(LANG1)
 
 LEXD_FILES=  \
        lexd_components/$(LANG1)-nouns_paradigms.lexd \
+       lexd_components/$(LANG1)-verbs_paradigms_with_lex.lexd \
+	   lexd_components/$(LANG1)-verbs_irreg.lexd \
+	   lexd_components/$(LANG1)-nouns_lex_irreg.lexd \
+       lexd_components/$(LANG1)-nouns_lex_suffixbased.lexd \
+	   lexd_components/$(LANG1)-verbs_reg.lexd \
+	   lexd_components/$(LANG1)-verbs_kouyoumdjian.lexd \
        lexd_components/$(LANG1)-pronouns.lexd \
        lexd_components/$(LANG1)-adpositions.lexd \
-       lexd_components/$(LANG1)-verbs_paradigms_with_lex.lexd    \
-	   lexd_components/$(LANG1)-verbs_obs.lexd  \
-       lexd_components/$(LANG1)-verbs_reg.lexd \
-       lexd_components/$(LANG1)-verbs_irreg.lexd 
+       lexd_components/$(LANG1)-punctuation.lexd \
+	   lexd_components/$(LANG1)-verbs_obs.lexd  
+	    
  
 
 TARGETS_COMMON =			\
