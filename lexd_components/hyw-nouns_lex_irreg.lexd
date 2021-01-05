@@ -1,0 +1,215 @@
+################################
+#### Lexicon of nouns which are present in Kouyoumdjian's dictionary "A comprehensive dictionary Armenian-English"
+### These are nouns which are based on potentially irregular roots
+
+#Monosyllabic nouns which arbitrary take -ner 
+#When forming their possessive plural, I have to manually add the ն before the possessive plural
+LEXICON NounIrregMonoNerOld   #Some prescriptively take -ner, but in real life, they take -er
+բեռ:բեռ  #Taken from Hagopian 350
+սայլաբեռ:սայլաբեռ{mono}
+
+դուռ:դուռ
+ականջդուռ:ականջդուռ{mono}
+բաժադուռ:բաժադուռ{mono}
+գաղտադուռ:գաղտադուռ{mono}
+դառձադուռ:դառձադուռ{mono}
+ծալադուռ:ծալադուռ{mono}
+մեռելադուռ:մեռելադուռ{mono}
+վերնադուռ:վերնադուռ{mono}
+
+եզ:եզ
+թոռ:թոռ
+հարս:հարս
+մատ:մատ
+մուկ:մուկ
+ձուկ:ձուկ
+ձեռ:ձեռ
+ոտ:ոտ
+ռուս:ռուս
+մահ:մահ
+
+LEXICON NounIrregMonoNerStill  #Only very few both descriptively and presriptively  take -ner
+լեռ:լեռ
+
+LEXICON NounIrregU
+#These words take ու in the dative
+#I allow them to optionally take ի 
+#This don't have high vowels that can reduce
+հայ:հայ #Taken from Hagopian 351
+ձի:ձի
+մանչ:մանչ
+չին:չին
+չար:չար
+գահ:գահ
+պահ:պահ
+ժամ:ժամ
+դար:դար
+ծով:ծով
+կով:կով
+հաւ:հաւ
+էշ:էշ
+արջ:արջ
+թի:թի
+արեւ:արեւ
+գահ:գահ
+
+#Some nouns optionally take irregular inflection
+#When they do, they reduce
+LEXICON NounIrregUReducePoly
+ամիս:ամիս
+գլուխ:գլուխ
+
+
+
+
+
+#Time words which take the ուան declension
+LEXICON NounTimeVan
+մահ:մահ
+օր:օր
+երբ:երբ
+անգամ:անգամ
+առաջ:առաջ
+ժամ:ժամ
+ժամանակ:ժամանակ
+գիշեր:գիշեր
+ցերեկ:ցերեկ
+վաղը:վաղ
+երեկ:երեկ
+ատեն:ատեն
+ամառ:ամառ
+ձմեռ:ձմեռ
+
+LEXICON NounTimeVanHima
+հիմակուան:հիմակ #This word takes the time suffixes
+
+#Time words which reduce a final vowel or substring in inflected forms
+LEXICON NounTimeVanReducedBase
+ամիս:ամիս
+շաբաթ:շաբաթ
+իրիկուն:իրիկուն
+տարի:տարի
+առտու:առտու
+հեռու:հեռու
+LEXICON NounTimeVanReducedReduced
+ամիս:ամս
+շաբաթ:շաբթ
+իրիկուն:իրիկ
+տարի:տար
+առտու:առտ
+հեռու:հեռ
+
+
+#These irregulars only take an optional irregular dative ան, 
+#while everything else is regular
+#So I'll only make a lexicon for their reduced form for the dative
+LEXICON NounOldAnForm
+գարուն:գարն
+աշուն:աշն
+ամառ:ամռ
+ձմեռ:ձմռ
+մանուկ:մանկ
+կնիկ:կնկ
+լեռ:լեր
+դուռ:դր
+
+#These irregulars  take an optional irregular dative ոջ, 
+#The oblique forms can take a մ 
+#I classify into nouns that never reduce, those that do reduce, and the reduced form
+LEXICON NounFamilyOchFixed
+ընկեր:ընկեր
+աներ:աներ
+տալ:տալ
+տագր:տագր
+ներ:ներ
+դասընկեր:դասընկեր
+LEXICON NounFamilyOchBase
+կին:կին
+քոյր:քոյր
+աներ:աներ
+սկեսուր:սկեսուր
+մօրաքոյր:մօրաքոյր{mono}
+LEXICON NounFamilyOchReduced
+կին:կն
+քոյր:քր
+սկեսուր:սկեսր
+ներ:ներ
+մօրաքոյր:մօրաքր
+
+#Words like հայր հօր
+LEXICON NounFamilyOBase
+հայր:հայր
+մայր:մայր
+եղբայր:եղբայր
+տիրամայր:տիրամայր{mono}
+կնքահայր:կնքահայր{mono}
+LEXICON NounFamilyOAblauted
+հայր:հօր
+մայր:մօր
+եղբայր:եղբօր
+տիրամայր:տիրամօր
+կնքահայր:կնքահօր
+
+#Words like տուն տան
+LEXICON NounRandomOBase
+տուն:տուն
+շուն:շուն
+դրամատուն:դրամատուն{mono}
+ծովաշուն:ծովաշուն{mono}
+LEXICON NounRandomOAblauted
+տուն:տան
+շուն:շան
+դրամատուն:դրամատան
+ծովաշուն:ծովաշան
+
+
+
+
+
+
+#These are nouns which supplete or have irregular reduction in their declensions
+#The noun տղայ suppletes to տղու for dative/genitive and takes irregular plural
+LEXICON NounIrregBoyBase
+տղայ:տղայ
+LEXICON NounIrregBoyReduced
+տղայ:տղ
+LEXICON NounIrregMan
+մարդ:մարդ
+LEXICON NounIrregWomanBase
+տիկին:տիկին
+տանտիկին:տանտիկին
+LEXICON NounIrregWomanReduced #I make hard-coded allomorphs տիկնայք տիկնանց inside the PATTTERns
+տիկին:տիկն
+տանտիկին:տանտիկն
+
+#The noun շաբաթ suppletes to շաբթու for dative/genitive
+LEXICON NounIrregUReduceWeekBase
+շաբաթ:շաբաթ
+LEXICON NounIrregUReduceWeekReduced
+շաբաթ:շաբթ
+#The noun տարի suppletes to տարու for dative/genitive
+LEXICON NounIrregUReduceYearBase
+տարի:տարի
+LEXICON NounIrregUReduceYearReduced
+տարի:տար
+
+#The noun ասուած suppletes to աստծոյ աստուծոյ  for dative/genitive
+LEXICON NounIrregGod
+աստուած:աստուած
+LEXICON NounIrregGodReducedU
+աստուած:աստուծ
+LEXICON NounIrregGodNoVowel
+աստուած:աստծ
+
+#The noun սէր reduces to սիրոյ  for dative/genitive
+LEXICON NounLoveBase
+սէր:սէր
+LEXICON NounLoveReduced
+սէր:սիր
+
+#The noun աղջիկ reduces to աղջկա աղջկան  for dative/genitive
+LEXICON NounGirlBase
+աղջիկ:աղջիկ
+LEXICON NounGirlReduced
+աղջիկ:աղջկ
+

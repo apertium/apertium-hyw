@@ -1,0 +1,68 @@
+################################
+#### Lexicon of punctuation
+#### Tags based on https://wiki.apertium.org/wiki/List_of_symbols#Punctuation
+#### Content based off https://en.wikipedia.org/wiki/Armenian_alphabet#Punctuation
+
+PATTERNS 
+
+NonInfixalPunctuation
+InfixalPunctuation
+Phonetic
+EnglishOptions
+
+# These are punctuation markers which are not inserted inside words
+# But kept at the end of clauses or phrases
+LEXICON NonInfixalPunctuation
+
+։:<sent> 	# Sentence-ending punctuation, e.g. full stop, question mark
+
+,:<cm> 		# Comma punctuation
+«:<lquot>	# Left quote
+»:<rquot>	# Right quote
+(:<larp>	# Left parenthesis 
+):<rpar> 	# Right parenthesis 	
+՚:<apos>		# Apostrophe, mostly used for combining a function words with verbs
+
+…:<clb>		# Ellipses
+.:<clb>		# Acts like a semicolon
+՝:<clb>		# A weaker boundary than a semicolon
+★
+
+֊:<guio>		# Rather outdated type of hyphen that's on Wikipedia, but not on keyboards
+-:<guio>	# Normal hyphen
+–:<guio>	# Longer hyphen, also used in English
+—:<guio>	# Longest hyphen, also used in English. Connected sentences
+
+##########################
+##########################
+##########################
+##########################
+# These are punctuation markers which are added on the stressed vowel of words
+LEXICON InfixalPunctuation
+
+՜:<punct>	# Elongated marker, often used in shouting out vocatives
+՞:<punct>	# Question marker, often added to wh-words, polar question verbs, and the main questioned word in a question
+՛:<punct>	# Imperative marker, added to imperative verbs and general shouting emphasis
+
+
+##########################
+##########################
+##########################
+##########################
+#These are symbols which may be found in old or codeswitching documents
+#These symbols would be added after a segment
+LEXICON Phonetic
+ՙ:<punct>	# Used to mark aspiration on colloquial codeswitching
+՟:<punct>	# Obsolete abbreviation marker used at top of final segment
+
+
+#########################
+#########################
+#########################
+#########################
+#These are punctuation symbols from a Latin keyboard which are often used
+#Instead of the corresponding Armenian symbol because the symbols look
+#Almost the same
+
+LEXICON EnglishOptions
+':<apost>	# English apostrophe
