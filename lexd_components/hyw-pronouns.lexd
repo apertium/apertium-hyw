@@ -1,4 +1,3 @@
-
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #!!!  M O R P H O T A C T I C S  !!!
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -20,7 +19,7 @@ PersonalPronoun
 SubstantivePronoun
 ReflexivePronoun
 DemonstrativePronoun
-RelativePronoun
+RelativePronoun (Def|Poss)?
 
 
 
@@ -136,15 +135,23 @@ LEXICON SubstantivePronoun
 
 անորը<prn><subs><px3sg><sg><nom_acc>:անորը # its
 անորը<prn><subs><px3sg><sg><gen_dat>:անորինը
+անորը<prn><subs><px3sg><sg><nom_acc>:անորն # Dir/LR
+անորը<prn><subs><px3sg><sg><gen_dat>:անորինն # Dir/LR
+
 անորը<prn><subs><px3sg><sg><abl>:անորինէն 
 անորը<prn><subs><px3sg><sg><ins>:անորինով 
 անորը<prn><subs><px3sg><sg><ins><def>:անորինովը
+անորը<prn><subs><px3sg><sg><ins><def>:անորինովն # Dir/LR
 
 իրենը<prn><log><subs><px3sg><sg><nom_acc>:իրենը # hers
 իրենը<prn><log><subs><px3sg><sg><gen_dat>:իրենինը
+իրենը<prn><log><subs><px3sg><sg><nom_acc>:իրենն # Dir/LR
+իրենը<prn><log><subs><px3sg><sg><gen_dat>:իրենինն # Dir/LR
+
 իրենը<prn><log><subs><px3sg><sg><abl>:իներինէն 
 իրենը<prn><log><subs><px3sg><sg><ins>:իներինով 
 իրենը<prn><log><subs><px3sg><sg><ins><def>:իներինովը
+իրենը<prn><log><subs><px3sg><sg><ins><def>:իներինովն # Dir/LR
 
 #single possessor, many objects
 իմս<prn><subs><px1sg><pl><nom_acc>:իմիններս
@@ -158,70 +165,92 @@ LEXICON SubstantivePronoun
 իմս<prn><subs><px2sg><pl><ins>:քուկիններովդ 
 
 անորը<prn><subs><px3sg><pl><nom_acc>:անորները 
+անորը<prn><subs><px3sg><pl><nom_acc>:անորներն # Dir/LR 
 անորը<prn><subs><px3sg><pl><gen_dat>:անորներուն
 անորը<prn><subs><px3sg><pl><abl>:անորներէն 
 անորը<prn><subs><px3sg><pl><ins>:անորներով 
 անորը<prn><subs><px3sg><pl><ins><def>:անորներովը
+անորը<prn><subs><px3sg><pl><ins><def>:անորներովն # Dir/LR 
 
 իրենը<prn><log><subs><px3sg><pl><nom_acc>:իրենները  
 իրենը<prn><log><subs><px3sg><pl><gen_dat>:իրեններուն
 իրենը<prn><log><subs><px3sg><pl><abl>:իրեններէն 
 իրենը<prn><log><subs><px3sg><pl><ins>:իրեններով 
 իրենը<prn><log><subs><px3sg><pl><ins><def>:իրեններովը 
+իրենը<prn><log><subs><px3sg><pl><ins><def>:իրեններովն # Dir/LR 
 
 #many possessors, single object
 մերինը<prn><subs><px1pl><sg><nom_acc>:մերինը # our
+մերինը<prn><subs><px1pl><sg><nom_acc>:մերինն # Dir/LR 
 մերինը<prn><subs><px1pl><sg><nom_acc>:մերը # Dir/LR
 մերինը<prn><subs><px1pl><sg><gen_dat>:մերինին 
 մերինը<prn><subs><px1pl><sg><abl>:մերինէն 
 մերինը<prn><subs><px1pl><sg><ins>:մերինով 
 մերինը<prn><subs><px1pl><sg><ins><def>:մերինովը
+մերինը<prn><subs><px1pl><sg><ins><def>:մերինովն # Dir/LR 
 
 ձերինը<prn><subs><px2pl><sg><nom_acc>:ձերինը # yours
+ձերինը<prn><subs><px2pl><sg><nom_acc>:ձերինն # Dir/LR 
 ձերինը<prn><subs><px2pl><sg><nom_acc>:ձերը # Dir/LR
+ձերինը<prn><subs><px2pl><sg><nom_acc>:ձերն # Dir/LR 
 ձերինը<prn><subs><px2pl><sg><gen_dat>:ձերինին 
 ձերինը<prn><subs><px2pl><sg><abl>:ձերինէն 
 ձերինը<prn><subs><px2pl><sg><ins>:ձերինով 
 ձերինը<prn><subs><px2pl><sg><ins><def>:ձերինովը
+ձերինը<prn><subs><px2pl><sg><ins><def>:ձերինովն # Dir/LR 
 
 անոնցը<prn><subs><px3pl><sg><nom_acc>:անոնցը # theirs
 անոնցը<prn><subs><px3pl><sg><nom_acc>:անոնցինը # Dir/LR
+անոնցը<prn><subs><px3pl><sg><nom_acc>:անոնցն # Dir/LR 
+անոնցը<prn><subs><px3pl><sg><nom_acc>:անոնցինն # Dir/LR 
 անոնցը<prn><subs><px3pl><sg><gen_dat>:անոնցինին
 անոնցը<prn><subs><px3pl><sg><abl>:անոնցինէն 
 անոնցը<prn><subs><px3pl><sg><ins>:անոնցինով 
 անոնցը<prn><subs><px3pl><sg><ins><def>:անոնցինովը
+անոնցը<prn><subs><px3pl><sg><ins><def>:անոնցինովն # Dir/LR 
 
 իրենցը<prn><log><subs><px3pl><sg><nom_acc>:իրենցը  
 իրենցը<prn><log><subs><px3pl><sg><nom_acc>:իրենցինը  # Dir/LR
+իրենցը<prn><log><subs><px3pl><sg><nom_acc>:իրենցն # Dir/LR  
+իրենցը<prn><log><subs><px3pl><sg><nom_acc>:իրենցինն # Dir/LR 
 իրենցը<prn><log><subs><px3pl><sg><gen_dat>:իրենցինին
 իրենցը<prn><log><subs><px3pl><sg><abl>:իրենցինէն 
 իրենցը<prn><log><subs><px3pl><sg><ins>:իրենցինով 
 իրենցը<prn><log><subs><px3pl><sg><ins><def>:իրենցինովը
+իրենցը<prn><log><subs><px3pl><sg><ins><def>:իրենցինովն # Dir/LR 
 
 #many possessors, many objects
 մերինը<prn><subs><px1pl><pl><nom_acc>:մերինները
+մերինը<prn><subs><px1pl><pl><nom_acc>:մերիններն # Dir/LR 
 մերինը<prn><subs><px1pl><pl><gen_dat>:մերիններուն
 մերինը<prn><subs><px1pl><pl><abl>:մերիններէն 
 մերինը<prn><subs><px1pl><pl><ins>:մերիններով 
 մերինը<prn><subs><px1pl><pl><ins><def>:մերիններովը
+մերինը<prn><subs><px1pl><pl><ins><def>:մերիններովն # Dir/LR 
 
 ձերինը<prn><subs><px2pl><pl><nom_acc>:ձերինները
+ձերինը<prn><subs><px2pl><pl><nom_acc>:ձերիններն # Dir/LR 
 ձերինը<prn><subs><px2pl><pl><gen_dat>:ձերիններուն
 ձերինը<prn><subs><px2pl><pl><abl>:ձերիններէն 
 ձերինը<prn><subs><px2pl><pl><ins>:ձերիններով 
 ձերինը<prn><subs><px2pl><pl><ins><def>:ձերիններովը
+ձերինը<prn><subs><px2pl><pl><ins><def>:ձերիններովն # Dir/LR 
 
 անոնցը<prn><subs><px3pl><pl><nom_acc>:անոնցները 
+անոնցը<prn><subs><px3pl><pl><nom_acc>:անոնցներն # Dir/LR 
 անոնցը<prn><subs><px3pl><pl><gen_dat>:անոնցիններուն
 անոնցը<prn><subs><px3pl><pl><abl>:անոնցիններէն 
 անոնցը<prn><subs><px3pl><pl><ins>:անոնցիններով 
 անոնցը<prn><subs><px3pl><pl><ins><def>:անոնցիններովը
+անոնցը<prn><subs><px3pl><pl><ins><def>:անոնցիններովն # Dir/LR 
 
 իրենցը<prn><log><subs><px3pl><pl><nom_acc>:իրենցները  
+իրենցը<prn><log><subs><px3pl><pl><nom_acc>:իրենցներն # Dir/LR  
 իրենցը<prn><log><subs><px3pl><pl><gen_dat>:իրենցիններուն
 իրենցը<prn><log><subs><px3pl><pl><abl>:իրենցիններէն 
 իրենցը<prn><log><subs><px3pl><pl><ins>:իրենցիններով
 իրենցը<prn><log><subs><px3pl><pl><ins><def>:իրենցիններովը
+իրենցը<prn><log><subs><px3pl><pl><ins><def>:իրենցիններովն # Dir/LR 
 
 
 ##############
@@ -323,6 +352,7 @@ LEXICON DemonstrativePronoun
 ##############
 
 
+
 ### Based on Hagopian 2007 page 355
 
 LEXICON RelativePronoun
@@ -375,6 +405,3 @@ LEXICON RelativePronoun
 #! https://github.com/hfst/
 #! http://www.cis.upenn.edu/~cis639/docs/lexc.html
 #! http://wiki.apertium.org/wiki/Hfst
-
-
-

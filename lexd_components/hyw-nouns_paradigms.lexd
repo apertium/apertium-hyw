@@ -81,30 +81,40 @@ NounIrregU NZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 PATTERN NounDeclIrregularTimeVan
 #optional normal case
 #Have to add noun-boundary before definite too in order to trigger glide deletion
-NounTimeVan NZero NouNinflBoundary NSg0 CaseTimeVan? NouNinflBoundary (Def|Poss)? 
-NounTimeVan NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+#ժամ takes the above and dative ու
+
+NounTimeVan|NounTimeVanU NZero NouNinflBoundary NSg0 CaseTimeVan? NouNinflBoundary (Def|Poss)? 
+
+NounTimeVan|NounTimeVanU NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+
+NounTimeVanU  NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)? 
 
 #Plural
-NounTimeVan NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+NounTimeVan|NounTimeVanU NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
 #Plural possessive (separate line for instrumental)
-NounTimeVan NZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounTimeVan NZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+NounTimeVan|NounTimeVanU NZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+NounTimeVan|NounTimeVanU NZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+
 
 
 #For irregulars among the time words
 #հիմակուան without plurals
 NounTimeVanHima NZero NouNinflBoundary NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)? 
 
-#For reduced forms
-NounTimeVanReducedBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
-NounTimeVanReducedBase NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
-NounTimeVanReducedReduced NZero NouNinflBoundary NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)? 
-#Plural
-NounTimeVanReducedBase NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-#Plural possessive (separate line for instrumental)
-NounTimeVanReducedBase NZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounTimeVanReducedBase NZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+#For reduced forms իրիկուն իրիկուան
+#For reduced forms շաբաթ շաբթուան շաբթուն
+NounTimeVanReducedBase|NounTimeVanUReducedBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
 
+NounTimeVanReducedBase NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+NounTimeVanUReducedBase NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)? 
+
+NounTimeVanReducedReduced|NounTimeVanUReducedReduced NZero NouNinflBoundary NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)? 
+#Plural
+NounTimeVanReducedBase|NounTimeVanUReducedBase NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+#Plural possessive (separate line for instrumental)
+NounTimeVanReducedBase|NounTimeVanUReducedBase NZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+NounTimeVanReducedBase|NounTimeVanUReducedBase NZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+	
 
 
 
@@ -438,30 +448,7 @@ NounIrregWomanReduced NZero NouNinflBoundary [<dat_gen>:անց] CaseBoundaryM? I
 
 
 
-#,շաբաթ for dative with ու տարի
-#TO DO, plural
-#Singular regular case
-NounIrregUReduceWeekBase NZero NouNinflBoundary NSg0 CaseRegOblique? (Def|Poss)? 
-NounIrregUReduceYearBase NZero NouNinflBoundary NSg0 CaseRegOblique? (Def|Poss)? 
 
-NounIrregUReduceWeekBase NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
-NounIrregUReduceYearBase NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
-
-NounIrregUReduceWeekReduced NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)? 
-NounIrregUReduceYearReduced NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)? 
-
-#Plural
-NounIrregUReduceWeekBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-NounIrregUReduceYearBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-
-#Plural possessive (separate line for instrumental)
-NounIrregUReduceWeekBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounIrregUReduceYearBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-
-NounIrregUReduceWeekBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-NounIrregUReduceYearBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-
- 
 # աստուած աստծոյ աստուծոյ աստուծմէ
 #Singular 
 NounIrregGod NZero NouNinflBoundary NSg0   (Def|Poss)? 
@@ -627,6 +614,7 @@ LEXICON DatGenRegI
 <dat_gen>:ի
 LEXICON DatGenRegU
 <dat_gen>:ու
+<dat_gen>:ի # In case of regularization
 LEXICON AblReg
 <abl>:է
 LEXICON InsReg
@@ -674,6 +662,8 @@ LEXICON CaseBoundaryM
 #Definite/possessive marking
 LEXICON Def
 <def>:{defն}
+<def>:ն # Dir/LR
+
 LEXICON Poss
 <px1sg>:ս
 <px2sg>:դ
@@ -715,11 +705,10 @@ LEXICON NounIrregMonoNerOld   #Some prescriptively take -ner, but in real life, 
 ձեռ:ձեռ
 ոտ:ոտ
 ռուս:ռուս
-մահ:մահ
+# մահ:մահ # removed because the word has too many other irregular forms + the ner form is obsolete
 
 LEXICON NounIrregMonoNerStill  #Only very few both descriptively and presriptively  take -ner
 լեռ:լեռ
-
 LEXICON NounRisingClusters
 մեղր:մեղր
 
@@ -734,7 +723,6 @@ LEXICON NounIrregU
 չար:չար
 գահ:գահ
 պահ:պահ
-ժամ:ժամ
 դար:դար
 ծով:ծով
 կով:կով
@@ -743,7 +731,6 @@ LEXICON NounIrregU
 արջ:արջ
 թի:թի
 արեւ:արեւ
-գահ:գահ
 
 #Some nouns optionally take irregular inflection
 #When they do, they reduce
@@ -772,7 +759,6 @@ LEXICON NounTimeVan
 երբ:երբ
 անգամ:անգամ
 առաջ:առաջ
-ժամ:ժամ
 ժամանակ:ժամանակ
 գիշեր:գիշեր
 ցերեկ:ցերեկ
@@ -782,24 +768,32 @@ LEXICON NounTimeVan
 ամառ:ամառ
 ձմեռ:ձմեռ
 
+LEXICON NounTimeVanU
+#words which take the -van declension class, but can also do dative -u
+ժամ:ժամ
+
 LEXICON NounTimeVanHima
 հիմակուան:հիմակ #This word takes the time suffixes
 
 #Time words which reduce a final vowel or substring in inflected forms
 LEXICON NounTimeVanReducedBase
 ամիս:ամիս
-շաբաթ:շաբաթ
 իրիկուն:իրիկուն
-տարի:տարի
 առտու:առտու
 հեռու:հեռու
 LEXICON NounTimeVanReducedReduced
 ամիս:ամս
-շաբաթ:շաբթ
 իրիկուն:իրիկ
-տարի:տար
 առտու:առտ
 հեռու:հեռ
+
+#Words which take -van and -u and reduce
+LEXICON NounTimeVanUReducedBase
+շաբաթ:շաբաթ
+տարի:տարի
+LEXICON NounTimeVanUReducedReduced
+շաբաթ:շաբթ
+տարի:տար
 
 
 #These irregulars only take an optional irregular dative ան, 
@@ -825,17 +819,16 @@ LEXICON NounFamilyOchFixed
 տագր:տագր
 ներ:ներ
 դասընկեր:դասընկեր
+
 LEXICON NounFamilyOchBase
 կին:կին
 քոյր:քոյր
-աներ:աներ
 սկեսուր:սկեսուր
 մօրաքոյր:մօրաքոյր{mono}
 LEXICON NounFamilyOchReduced
 կին:կն
 քոյր:քր
 սկեսուր:սկեսր
-ներ:ներ
 մօրաքոյր:մօրաքր
 
 #Words like հայր հօր
@@ -891,11 +884,6 @@ LEXICON NounIrregWomanReduced #I make hard-coded allomorphs տիկնայք տի�
 տիկին:տիկն
 տանտիկին:տանտիկն
 
-#The noun շաբաթ suppletes to շաբթու for dative/genitive
-LEXICON NounIrregUReduceWeekBase
-շաբաթ:շաբաթ
-LEXICON NounIrregUReduceWeekReduced
-շաբաթ:շաբթ
 #The noun տարի suppletes to տարու for dative/genitive
 LEXICON NounIrregUReduceYearBase
 տարի:տարի
@@ -904,11 +892,11 @@ LEXICON NounIrregUReduceYearReduced
 
 #The noun ասուած suppletes to աստծոյ աստուծոյ  for dative/genitive
 LEXICON NounIrregGod
-աստուած:աստուած
+Աստուած:աստուած
 LEXICON NounIrregGodReducedU
-աստուած:աստուծ
+Աստուած:աստուծ
 LEXICON NounIrregGodNoVowel
-աստուած:աստծ
+Աստուած:աստծ
 
 #The noun սէր reduces to սիրոյ  for dative/genitive
 LEXICON NounLoveBase
