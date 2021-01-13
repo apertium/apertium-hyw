@@ -26,7 +26,8 @@ PATTERNS
 NounDeclRegular
 NounDeclRisingClusters
 InfinitivalDecl
-AdjDeclRegular
+AdjAdvDeclRegular
+
 
 #suffix-based declensions
 NounDeclUtjunSuffix
@@ -86,9 +87,9 @@ PATTERN NounDeclIrregularTimeVan
 
 NounTimeVan|NounTimeVanU NZero NouNinflBoundary NSg0 CaseTimeVan? NouNinflBoundary (Def|Poss)? 
 
-NounTimeVan|NounTimeVanU NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+NounTimeVan|NounTimeVanU NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?  # Dir/LR
 
-NounTimeVanU  NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)? 
+NounTimeVanU  NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)? # Dir/LR
 
 #Plural
 NounTimeVan|NounTimeVanU NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
@@ -99,8 +100,29 @@ NounTimeVan|NounTimeVanU NZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|
 
 
 #For irregulars among the time words
-#հիմակուան without plurals
-NounTimeVanHima NZero NouNinflBoundary NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)? 
+#For irregulars derived from adverbs like այսօր
+#Bare adverb
+NounTimeVanAdv AdvZero
+#Without case, but with definite
+NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 NouNinflBoundary (Def|Poss)
+#With case
+NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)? 
+NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?  # Dir/LR
+#Plural
+NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+#Plural possessive (separate line for instrumental)
+NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+
+#For irregular հիմակուան
+NounTimeVanHima AdvZero
+NounTimeVanHima [:կ] AdvZero SubstZero NouNinflBoundary NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)? 
+#Plural
+NounTimeVanHima [:կուան] AdvZero SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+#Plural possessive (separate line for instrumental)
+NounTimeVanHima [:կուան] AdvZero SubstZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+NounTimeVanHima [:կուան] AdvZero SubstZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+
 
 #For reduced forms իրիկուն իրիկուան
 #For reduced forms շաբաթ շաբթուան շաբթուն
@@ -116,8 +138,6 @@ NounTimeVanReducedBase|NounTimeVanUReducedBase NZero NouNinflBoundary NPlReg Cas
 NounTimeVanReducedBase|NounTimeVanUReducedBase NZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
 NounTimeVanReducedBase|NounTimeVanUReducedBase NZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 	
-
-
 
 PATTERN NounDeclIrregReducePoly
 #For nouns which reduce when they take irregular inflection
@@ -149,26 +169,31 @@ Infinitival  NSg0 CaseRegU (Def|Poss)?
 Infinitival   PossPl CaseRegPostPluralPoss Def|Poss
 Infinitival   InsReg PossPl  Def|Poss
 
-PATTERN AdjDeclRegular
-#Bare adjectives
-AdjReg AdjZero
+PATTERN AdjAdvDeclRegular
 
 #Singular
 #Without case
-AdjReg AdjZero SubstZero NouNinflBoundary NSg0  (Def|Poss)
-AdjReg AdjZero SubstZero NouNinflBoundaryRed NSg0  (Def|Poss) # Dir/LR
+AdjAdvBase SubstZero NouNinflBoundary NSg0  (Def|Poss)
+AdjAdvBase SubstZero NouNinflBoundaryRed NSg0  (Def|Poss) # Dir/LR
 #With case
-AdjReg AdjZero SubstZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
-AdjReg AdjZero SubstZero NouNinflBoundaryRed NSg0 CaseRegI (Def|Poss)?  # Dir/LR
+AdjAdvBase SubstZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+AdjAdvBase SubstZero NouNinflBoundaryRed NSg0 CaseRegI (Def|Poss)?  # Dir/LR
 
 #Plural
-AdjReg AdjZero SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-AdjReg AdjZero SubstZero NouNinflBoundaryRed NPlReg CaseRegU? (Def|Poss)?  # Dir/LR
+AdjAdvBase SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+AdjAdvBase SubstZero NouNinflBoundaryRed NPlReg CaseRegU? (Def|Poss)?  # Dir/LR
 #Plural possessive (separate line for instrumental)
-AdjReg AdjZero SubstZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-AdjReg AdjZero SubstZero NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
-AdjReg AdjZero SubstZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-AdjReg AdjZero SubstZero NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss  # Dir/LR
+AdjAdvBase SubstZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+AdjAdvBase SubstZero NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+AdjAdvBase SubstZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+AdjAdvBase SubstZero NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss  # Dir/LR
+
+PATTERN AdjAdvBase
+#Bare adjectives
+AdjReg AdjZero
+
+#Bare adverbs
+AdvReg AdvZero
 
 
 PATTERN NounDeclRisingClusters
@@ -594,6 +619,8 @@ LEXICON NNkSuffixCaseNc
 ###### Other POS morphemes
 LEXICON AdjZero
 <adj>:
+LEXICON AdvZero
+<adv>:
 LEXICON SubstZero
 <subst>:
 
@@ -657,7 +684,9 @@ LEXICON CaseTimeVan
 <dat_gen>:ուան
 <dat_gen>:ուայ 
 <abl>:ուընէ
+<abl>:ուանէ # Dir/LR
 <ins>:ուընով
+<ins>:ուանով # Dir/LR
 
 LEXICON DatGenArchaicAn
 <dat_gen>:ան
@@ -719,9 +748,12 @@ LEXICON NounReg
 հայ:հայ
 լիբանանահայ:լիբանանահայ{mono}
 
+#Adjectives and adverbs
 LEXICON AdjReg
 մեծ:մեծ
 ուրախ:ուրախ
+LEXICON AdvReg
+ուրախօրէն:ուրախօրէն
 
 #Monosyllabic nouns which arbitrary take -ner 
 #When forming their possessive plural, I have to manually add the ն before the possessive plural
@@ -805,8 +837,6 @@ LEXICON NounTimeVanU
 #words which take the -van declension class, but can also do dative -u
 ժամ:ժամ
 
-LEXICON NounTimeVanHima
-հիմակուան:հիմակ #This word takes the time suffixes
 
 #Time words which reduce a final vowel or substring in inflected forms
 LEXICON NounTimeVanReducedBase
@@ -828,6 +858,11 @@ LEXICON NounTimeVanUReducedReduced
 շաբաթ:շաբթ
 տարի:տար
 
+#Adverbs which take -van when nominalized
+LEXICON NounTimeVanAdv
+այսօր:այսօր
+LEXICON NounTimeVanHima
+հիմա:հիմա #This word takes the time suffixes
 
 #These irregulars only take an optional irregular dative ան, 
 #while everything else is regular

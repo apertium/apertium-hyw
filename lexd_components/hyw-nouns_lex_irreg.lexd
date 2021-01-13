@@ -482,8 +482,6 @@ LEXICON NounTimeVanU
 վճարաժամ:վճարաժամ{mono}
 տօթաժամ:տօթաժամ{mono}
 
-LEXICON NounTimeVanHima
-հիմակուան:հիմակ #This word takes the time suffixes
 
 #Time words which reduce a final vowel or substring in inflected forms
 LEXICON NounTimeVanReducedBase
@@ -527,6 +525,11 @@ LEXICON NounTimeVanUReducedReduced
 
 տարի:տար
 
+#Adverbs which take -van when nominalized
+LEXICON NounTimeVanAdv
+այսօր:այսօր
+LEXICON NounTimeVanHima
+հիմա:հիմա #This word takes the time suffixes with կ
 
 #These irregulars only take an optional irregular dative ան, 
 #while everything else is regular or follows a separate declension class
