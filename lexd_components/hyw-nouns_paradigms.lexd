@@ -26,6 +26,7 @@ PATTERNS
 NounDeclRegular
 NounDeclRisingClusters
 InfinitivalDecl
+AdjDeclRegular
 
 #suffix-based declensions
 NounDeclUtjunSuffix
@@ -142,11 +143,32 @@ PATTERN InfinitivalDecl
 #I don't add the reduction boundary as a safety precaution
 #I make bare infinitival get analyezd as just a verb
 #Singular caseless definite
-Infinitival NZero NSg0 (Def|Poss)
-Infinitival NZero NSg0 CaseRegU (Def|Poss)?
+Infinitival  NSg0 (Def|Poss)
+Infinitival  NSg0 CaseRegU (Def|Poss)?
 #Plural possessive (separate line for instrumental)
-Infinitival NZero  PossPl CaseRegPostPluralPoss Def|Poss
-Infinitival NZero  InsReg PossPl  Def|Poss
+Infinitival   PossPl CaseRegPostPluralPoss Def|Poss
+Infinitival   InsReg PossPl  Def|Poss
+
+PATTERN AdjDeclRegular
+#Bare adjectives
+AdjReg AdjZero
+
+#Singular
+#Without case
+AdjReg AdjZero SubstZero NouNinflBoundary NSg0  (Def|Poss)
+AdjReg AdjZero SubstZero NouNinflBoundaryRed NSg0  (Def|Poss) # Dir/LR
+#With case
+AdjReg AdjZero SubstZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+AdjReg AdjZero SubstZero NouNinflBoundaryRed NSg0 CaseRegI (Def|Poss)?  # Dir/LR
+
+#Plural
+AdjReg AdjZero SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+AdjReg AdjZero SubstZero NouNinflBoundaryRed NPlReg CaseRegU? (Def|Poss)?  # Dir/LR
+#Plural possessive (separate line for instrumental)
+AdjReg AdjZero SubstZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+AdjReg AdjZero SubstZero NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+AdjReg AdjZero SubstZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+AdjReg AdjZero SubstZero NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss  # Dir/LR
 
 
 PATTERN NounDeclRisingClusters
@@ -569,6 +591,12 @@ LEXICON NNkSuffix
 LEXICON NNkSuffixCaseNc
 <dat_gen>:նց
 
+###### Other POS morphemes
+LEXICON AdjZero
+<adj>:
+LEXICON SubstZero
+<subst>:
+
 
 #Number marking
 LEXICON NSg0
@@ -691,6 +719,10 @@ LEXICON NounReg
 հայ:հայ
 լիբանանահայ:լիբանանահայ{mono}
 
+LEXICON AdjReg
+մեծ:մեծ
+ուրախ:ուրախ
+
 #Monosyllabic nouns which arbitrary take -ner 
 #When forming their possessive plural, I have to manually add the ն before the possessive plural
 LEXICON NounIrregMonoNerOld   #Some prescriptively take -ner, but in real life, they take -er
@@ -706,6 +738,7 @@ LEXICON NounIrregMonoNerOld   #Some prescriptively take -ner, but in real life, 
 ոտ:ոտ
 ռուս:ռուս
 # մահ:մահ # removed because the word has too many other irregular forms + the ner form is obsolete
+
 
 LEXICON NounIrregMonoNerStill  #Only very few both descriptively and presriptively  take -ner
 լեռ:լեռ
