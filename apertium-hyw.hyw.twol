@@ -107,9 +107,9 @@ Rules
 !This will metathesize the exclamation mark in this contetx
 !It only works for verbs like բերել -- the very լալ has a cheat in the lexd
 "delete the exclamation mark when it follows a consonant"
-՛:0 <=> :Cons _ ;
+՛:0 <=> :Cons _ .#. ;
 "add an exclamation mark after an irregular imperative verb's final vowel"
-0:՛ <=> FullVowel _ :Cons* :Cons  ՛:0 ;
+0:՛ <=> FullVowel _ :Cons* :Cons  ՛:0 .#. ;
 
 !!!!! THEME VOWEL CHANGES
 !In many contexts, the  ի theme vowel becomes է
