@@ -989,21 +989,21 @@ LEXICON PastAgrGoYes3Sg #For գացի գնաց
 
 #TO DO add the exclamation punctuation
 LEXICON ImpSg
-<imp><p2><sg>:{ImpSg}՛ #was {եէ}
+<imp><p2><sg><punct>:{ImpSg}՛ #was {եէ}
 LEXICON ImpSgR 
-<imp><p2><sg>:՛ր #Don't add the {ImpSg} tag so that don't trigger i->e change
+<imp><p2><sg><punct>:՛ր #Don't add the {ImpSg} tag so that don't trigger i->e change
 LEXICON ImpSgIR 
-<imp><p2><sg>:ի՛ր 
+<imp><p2><sg><punct>:ի՛ր 
 LEXICON ImpSgUR 
-<imp><p2><sg>:ո՛ւր 
+<imp><p2><sg><punct>:ո՛ւր 
 
 
 LEXICON ImpSgInternalMark #Mark is added at end of verb; will later metathesize
-<imp><p2><sg>:՛
+<imp><p2><sg><punct>:՛
 
  
 LEXICON ImpPl
-<imp><p2><pl>:է՛ք
+<imp><p2><pl><punct>:է՛ք
 
 LEXICON ProhAgr
 <p2><sg>:ր
@@ -1020,7 +1020,7 @@ LEXICON IndcShort
 
 
 LEXICON Proh
-մի՛<pro><proh>:մի՛
+մի՛<pro><proh><punct>:մի՛
 
 LEXICON Prog
 կոր<enc><prog>:կոր
