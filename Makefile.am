@@ -59,11 +59,20 @@ $(BASENAME).$(LANG1).lexd: $(LEXD_FILES)
 .deps/$(LANG1).LR.lexd.hfst: .deps/$(LANG1).LR.lexd
 	lexd $< | hfst-txt2fst -o $@ -v
 
-.deps/$(LANG1).RL.hfst: .deps/$(LANG1).RL.lexd.hfst .deps/$(LANG1).twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd.hfst -2 .deps/$(LANG1).twol.hfst -o $@
+.deps/$(LANG1).punctuation.hfst: lexd_components/$(LANG1)-infixal_punctuation.lexd .deps/.d
+	lexd $< | hfst-txt2fst -o $@ -v
 
-.deps/$(LANG1).LR.hfst: .deps/$(LANG1).LR.lexd.hfst .deps/$(LANG1).twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd.hfst -2 .deps/$(LANG1).twol.hfst -o $@
+.deps/$(LANG1).RL.lexd-punct.hfst: .deps/$(LANG1).RL.lexd.hfst .deps/$(LANG1).punctuation.hfst
+	hfst-concatenate -1 $< -2 .deps/$(LANG1).punctuation.hfst -o $@ -v
+
+.deps/$(LANG1).LR.lexd-punct.hfst: .deps/$(LANG1).LR.lexd.hfst .deps/$(LANG1).punctuation.hfst
+	hfst-concatenate -1 $< -2 .deps/$(LANG1).punctuation.hfst -o $@ -v
+
+.deps/$(LANG1).RL.hfst: .deps/$(LANG1).RL.lexd-punct.hfst .deps/$(LANG1).twol.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-punct.hfst -2 .deps/$(LANG1).twol.hfst -o $@
+
+.deps/$(LANG1).LR.hfst: .deps/$(LANG1).LR.lexd-punct.hfst .deps/$(LANG1).twol.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-punct.hfst -2 .deps/$(LANG1).twol.hfst -o $@
 
 $(LANG1).autogen.hfst: .deps/$(LANG1).RL.hfst
 	hfst-fst2fst -O $< -o $@
