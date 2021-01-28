@@ -27,7 +27,7 @@ NounDeclRegular
 NounDeclRisingClusters
 InfinitivalDecl
 AdjAdvDeclRegular
-
+NounOtherPOSDeclRegular
 
 #suffix-based declensions
 NounDeclUtjunSuffix
@@ -171,11 +171,14 @@ Infinitival   InsReg PossPl  Def|Poss
 
 PATTERN AdjAdvDeclRegular
 
-#Singular
+#Used as normal adjective/adverb
+AdjAdvBase
+
+#Singular definite
 #Without case
 AdjAdvBase SubstZero NouNinflBoundary NSg0  (Def|Poss)
 AdjAdvBase SubstZero NouNinflBoundaryRed NSg0  (Def|Poss) # Dir/LR
-#With case
+#With case, with/without definite
 AdjAdvBase SubstZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
 AdjAdvBase SubstZero NouNinflBoundaryRed NSg0 CaseRegI (Def|Poss)?  # Dir/LR
 
@@ -195,6 +198,27 @@ AdjReg AdjZero
 #Bare adverbs
 AdvReg AdvZero
 
+#Multi-POS
+AdvAdjReg [<adv_adj>:]
+
+PATTERN NounOtherPOSDeclRegular
+
+#Singular
+NounOtherPOSBase NouNinflBoundary NSg0 CaseRegI? (Def|Poss)?
+NounOtherPOSBase NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)? # Dir/LR
+
+#Plural
+NounOtherPOSBase NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+NounOtherPOSBase NouNinflBoundaryRed NPlReg CaseRegU? (Def|Poss)?  # Dir/LR
+#Plural possessive (separate line for instrumental)
+NounOtherPOSBase NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+NounOtherPOSBase NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+NounOtherPOSBase NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+NounOtherPOSBase NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss  # Dir/LR
+
+PATTERN NounOtherPOSBase
+AdvNounReg [<adv_noun>:]
+NounAdjReg [<noun_adj>:]
 
 PATTERN NounDeclRisingClusters
 #This is for nouns like մեղր which can variably take եր ներ
@@ -719,7 +743,7 @@ LEXICON CaseBoundaryM
 #Definite/possessive marking
 LEXICON Def
 <def>:{defն}
-<def>:ն # Dir/LR
+<def>:ն # Dir/LR for pre-clitic forms
 
 LEXICON Poss
 <px1sg>:ս
@@ -821,9 +845,6 @@ LEXICON NounUmSuffix
 LEXICON NounTimeVan
 մահ:մահ
 օր:օր
-երբ:երբ
-անգամ:անգամ
-առաջ:առաջ
 ժամանակ:ժամանակ
 գիշեր:գիշեր
 ցերեկ:ցերեկ
@@ -836,7 +857,6 @@ LEXICON NounTimeVan
 LEXICON NounTimeVanU
 #words which take the -van declension class, but can also do dative -u
 ժամ:ժամ
-
 
 #Time words which reduce a final vowel or substring in inflected forms
 LEXICON NounTimeVanReducedBase
@@ -861,6 +881,9 @@ LEXICON NounTimeVanUReducedReduced
 #Adverbs which take -van when nominalized
 LEXICON NounTimeVanAdv
 այսօր:այսօր
+երբ:երբ
+առաջ:առաջ
+անգամ:անգամ
 LEXICON NounTimeVanHima
 հիմա:հիմա #This word takes the time suffixes
 

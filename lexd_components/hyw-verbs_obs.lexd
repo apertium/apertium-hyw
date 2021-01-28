@@ -1,43 +1,43 @@
 ##Obsolete verbs
-LEXICON VerbRootUv		#Obsolete/Archaic, Class 7 արտահեղուլ
-արտահեղուլ:արտահեղ
+LEXICON VerbRootUv(2)		#Obsolete/Archaic, Class 7 արտահեղուլ
+արտահեղուլ:արտահեղ <iv>
 
 
-LEXICON VerbRootUc		#Obsolete/Archaic, Class 8 թողուլ
-զեղուլ:զեղ
-թողուլ:թող
-լեսուլ:լես
-հեղուլ:հեղ
-յեղուլ:յեղ
-յեռուլ:յեռ
+LEXICON VerbRootUc(2)		#Obsolete/Archaic, Class 8 թողուլ
+զեղուլ:զեղ <tv>
+թողուլ:թող <tv>
+լեսուլ:լես <tv>
+հեղուլ:հեղ <tv>
+յեղուլ:յեղ <tv>
+յեռուլ:յեռ <tv>
 
-LEXICON VerbRootUcanel		#Obsolete/Archaic, Class 11 ուսուցանել and 12 ծանուցանել
+LEXICON VerbRootUcanel(2)		#Obsolete/Archaic, Class 11 ուսուցանել and 12 ծանուցանել
  		#All of its entries are preferably part of class 1 & 2
-ապացուցանել:ապացուց
-ուսուցանել:ուսուց
-ծանուցանել:ծանուց
-կառուցանել:կառուց
-կացուցանել:կացուց
-հատուցանել:հատուց
-մատուցանել:մատուց
-յարուցանել:յարուց
-սնուցանել:սնուց
+ապացուցանել:ապացուց <tv>
+ուսուցանել:ուսուց <tv>
+ծանուցանել:ծանուց <tv>
+կառուցանել:կառուց <tv>
+կացուցանել:կացուց <tv>
+հատուցանել:հատուց <tv>
+մատուցանել:մատուց <tv>
+յարուցանել:յարուց <tv>
+սնուցանել:սնուց <tv>
 
-LEXICON VerbRootNulV		#Obsolete/Archaic Class Class 21 երդնուլ
-երդնուլ:երդ
-ընթեռնուլ:ընթեռ
+LEXICON VerbRootNulV(2)		#Obsolete/Archaic Class Class 21 երդնուլ
+երդնուլ:երդ <iv>
+ընթեռնուլ:ընթեռ <tv>
 
-LEXICON VerbRootNulC		#Obsolete/Archaic Class Class 22 զբօսնուլ
-զարթնուլ:զարթ
-զբօսնուլ:զբօս
-զգածնուլ:զգած
-զգեծնուլ:զգեծ
-զգենուլ:զգե
-զենուլ:զե
-հեղձնուլ:հեղձ
-յենուլ:յե
-ոստնուլ:ոստ
-պակնուլ:պակ
-պշնուլ:պշ
-ջեռնուլ:ջեռ
+LEXICON VerbRootNulC(2)		#Obsolete/Archaic Class Class 22 զբօսնուլ
+զարթնուլ:զարթ <iv>
+զբօսնուլ:զբօս <iv>
+զգածնուլ:զգած <iv>
+զգեծնուլ:զգեծ <iv?>
+զգենուլ:զգե <iv>
+զենուլ:զե <tv>
+հեղձնուլ:հեղձ <iv>
+յենուլ:յե <iv>
+ոստնուլ:ոստ <iv>
+պակնուլ:պակ <iv>
+պշնուլ:պշ <tv>
+ջեռնուլ:ջեռ <iv>
 

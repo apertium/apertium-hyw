@@ -374,25 +374,26 @@ LEXICON RelativePronoun
 որ<prn><rel><pl><ins>:որոնցով # Dir/LR 
 որ<prn><rel><pl><ins>:որոնցմով 
 
-որ<prn><rel><sg><nom>:ինչ # what
-որ<prn><rel><sg><gen_dat>:ինչին
-որ<prn><rel><sg><acc>:ինչ
-որ<prn><rel><sg><acc>:զինչ # Dir/LR 
-որ<prn><rel><sg><abl>:ինչէ
-որ<prn><rel><sg><ins>:ինչով 
+ինչ<prn><rel><sg><nom>:ինչ # what
+ինչ<prn><rel><sg><gen_dat>:ինչին
+ինչ<prn><rel><sg><acc>:ինչ
+ինչ<prn><rel><sg><acc>:զինչ # Dir/LR 
+ինչ<prn><rel><sg><abl>:ինչէ
+ինչ<prn><rel><sg><ins>:ինչով 
 
 ով<prn><rel><sg><nom>:ով # who
 ով<prn><rel><sg><acc>:ով
 ով<prn><rel><sg><acc>:զով # Dir/LR 
 
-ով<prn><rel><sg><nom>:ուր # where
-ով<prn><rel><sg><acc>:ուր
-ով<prn><rel><sg><abl>:ուրկէ
+ուր<prn><rel><sg><nom>:ուր # where
+ուր<prn><rel><sg><acc>:ուր
+ուր<prn><rel><sg><abl>:ուրկէ
 
-ով<prn><rel><sg><nom>:երբ # where
-ով<prn><rel><sg><gen_dat>:երբուան
-ով<prn><rel><sg><acc>:երբ
-ով<prn><rel><sg><abl>:երբուընէ
+#I push երբ when into the noun-paradigm because it takes a lot of nominal inflection
+#երբ<prn><rel><sg><nom>:երբ # when
+#երբ<prn><rel><sg><gen_dat>:երբուան
+#երբ<prn><rel><sg><acc>:երբ
+#երբ<prn><rel><sg><abl>:երբուընէ
 
 
 

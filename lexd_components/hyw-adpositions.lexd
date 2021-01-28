@@ -39,8 +39,6 @@ DeclinablePostposition [<subs>:ին] NouNinflBoundary NSg0|NPlReg  PossPl CaseRe
 DeclinablePostposition [<subs>:ին] NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 
-
-
 ##############
 ##############
 ##############
@@ -201,6 +199,7 @@ LEXICON DeclinablePostposition
 մէջտեղ<post>:մէջտեղ
 ներս<post>:ներս
 ներքեւ<post>:ներքեւ
+
 
 
 

@@ -1,215 +1,99 @@
 
 ############
 ########Irregulars and defective verbs
-
+### Removing suppletive groups or few-lemma groups, and just keeping them inside the paradigm file
 #####Groupable irregular verbs
 
-LEXICON VerbRootNil		#Class 13 անցնիլ and 14 մեռնիլ
-անցնիլ:անց
-բուսնիլ:բուս
-հագնիլ:հագ
-հասնիլ:հաս
-հատնիլ:հատ
-մեռնիլ:մեռ
-յանդգնիլ:յանդգ
-յաւակնիլ:յաւակ
+LEXICON VerbRootNil(2)		#Class 13 անցնիլ and 14 մեռնիլ
+անցնիլ:անց <iv>
+բուսնիլ:բուս <iv>
+հագնիլ:հագ <iv>
+հասնիլ:հաս <iv>
+հատնիլ:հատ <iv>
+մեռնիլ:մեռ <iv>
+յանդգնիլ:յանդգ <tv>
+յաւակնիլ:յաւակ <iv>
 
 #------#
 
 
-LEXICON VerbRootNelNale		#Class 23 իջնել իջնալ and 24 գտնել գտնալ
-իջնալ:իջ
-գտնալ:գտ
-հեծնալ:հեծ
-մտնալ:մտ
+LEXICON VerbRootNelNale(2)		#Class 23 իջնել իջնալ and 24 գտնել գտնալ
+իջնալ:իջ <iv>
+գտնալ:գտ <tv>
+հեծնալ:հեծ <iv>
+մտնալ:մտ <iv>
 
 
-դպնել:դպ #This verb is also CilIl
+դպնել:դպ <tv> #This verb is also CilIl
 
 
-LEXICON VerbRootNelNala		
+LEXICON VerbRootNelNala(2)
 
-իջնել:իջ
-գտնել:գտ
-հեծնել:հեծ
-մտնել:մտ
+իջնել:իջ <iv>
+գտնել:գտ <tv>
+հեծնել:հեծ <iv>
+մտնել:մտ <iv>
 
-դպնալ:դպ #This verb is also CilIl
+դպնալ:դպ <tv> #This verb is also CilIl
+
+
+LEXICON VerbRootSeeE(2) #Incorrectly part of գտնել group but it has bare imperative 2sg like առնել
+տեսնել:տես <tv>
+LEXICON VerbRootSeeA(2) #Incorrectly part of գտնել group but it has bare imperative 2sg like առնել
+տեսնալ:տես <tv>
 
 #------#
 
-LEXICON VerbRootCilIlc		#Class 26 դպչիլ դպիլ
-դպչիլ:դպ
-թռչիլ:թռ
-փախչիլ:փախ
-փակչիլ:փակ
-փլչիլ:փլ
+LEXICON VerbRootCilIlc(2)		#Class 26 դպչիլ դպիլ
+դպչիլ:դպ <tv>
+թռչիլ:թռ <iv>
+փախչիլ:փախ <iv>
+փակչիլ:փակ <iv>
+փլչիլ:փլ <iv>
 
 #LEXICON VerbRootCilV		#Class 15 երկնչիլ; differs from 16 in the imperative
 #LEXICON VerbRootCilC		#Class 16 կպչիլ 
 #These classes are treated as defective by Boyacioglu. 
 #But in my judgment, these are conjugated the same as class 26
 
-երկնչիլ:երկն
-կորնչիլ:կորն
-կորչիլ:կոր
-կպչիլ:կպ
-մատչիլ:մատ
+երկնչիլ:երկն <iv>
+կորնչիլ:կորն <iv>
+կորչիլ:կոր <iv>
+կպչիլ:կպ <iv>
+մատչիլ:մատ <iv>
 
 
-LEXICON VerbRootCilIli		# Class 26 դպիլ includes 44
-դպիլ:դպ
-թռիլ:թռ
-փախիլ:փախ
-փակիլ:փակ
-փլիլ:փլ
+LEXICON VerbRootCilIli(2)		# Class 26 դպիլ includes 44
+դպիլ:դպ <iv>
+թռիլ:թռ <iv>
+փախիլ:փախ <iv>
+փակիլ:փակ <iv>
+փլիլ:փլ <iv>
 
 
-LEXICON VerbRootBring  #Class 37 38 արտաբերել բերել
-արտաբերել:արտաբեր
-բերել:բեր
-զոհաբերել:զոհաբեր
-մակաբերել:մակաբեր
-մտաբերել:մտաբեր
-յայտնաբերել:յայտնաբեր
-նուիրաբերել:նուիրաբեր
-տարուբերել:տարուբեր
-
-LEXICON VerbRootTake		# Class 41 առնել
-առնել:առ
-
-LEXICON VerbRootSeeE #Incorrectly part of գտնել group but it has bare imperative 2sg like առնել
-տեսնել:տես
-LEXICON VerbRootSeeA #Incorrectly part of գտնել group but it has bare imperative 2sg like առնել
-տեսնալ:տես
+LEXICON VerbRootBring(2)  #Class 37 38 արտաբերել բերել
+արտաբերել:արտաբեր <tv>
+բերել:բեր <tv>
+զոհաբերել:զոհաբեր <tv>
+մակաբերել:մակաբեր <iv>
+մտաբերել:մտաբեր <tv>
+յայտնաբերել:յայտնաբեր <tv>
+նուիրաբերել:նուիրաբեր <tv>
+տարուբերել:տարուբեր <tv>
 
 
-LEXICON VerbRootYield # Class 47 զիջիմ զիջայ մի զիջիր մի զիջէք
-զիջիլ:զիջ
-կարեկցիլ:կարեկց
-
-LEXICON VerbRootAccept # Class 48 ընդունիմ ընդունեցի ընդունեցայ մի ընդունիր մի ընդունէք
-ընդունիլ:ընդուն
-
-LEXICON VerbRootSay # Class 50 ըսել
-ըսել:ըս
-LEXICON VerbRootBite	# Class 53 խածնել
-խածնել:խած
-պագնել:պագ
-LEXICON VerbRootPlay # Class 54 խաղալ խաղցայ խաղացի
-խաղալ:խաղ
-LEXICON VerbRootStay # Class 55 մնալ
-մնալ:մն
-ջանալ:ջան
-սպառնալ:սպառն
-LEXICON VerbRootSit # Class 56 նստիլ
-ծնիլ:ծն
-նստիլ:նստ
-պրծիլ:պրծ
-սկսիլ:սկս
-վերածնիլ:վերածն
-վերսկսիլ:վերսկս
-փրթիլ:փրթ
-
-#------------------#
-#------------------#
-#Suppletives
-LEXICON VerbRootRiseEPres		#Class 25 ելլել ելլալ
-ելլել:ելլ
-LEXICON VerbRootRiseEPast
-ելլել:ել		
-LEXICON VerbRootRiseAPres		
-ելլալ:ելլ		
-LEXICON VerbRootRiseAPast
-ելլալ:ել		
-LEXICON VerbRootExist # Class 31 կամ 
-կամ:կ
-LEXICON VerbRootBeLongPres # Class 33 ըլլալ եղայ
-ըլլալ:ըլլ
-LEXICON VerbRootBeLongPresEastern # Eastern form
-լինել:լին
-LEXICON VerbRootBeLongPast
-լինել:եղ
-ըլլալ:եղ
-LEXICON VerbRootComePres # Class 34 գալ եկայ
-գալ:գ
-LEXICON VerbRootComePast
-գալ:եկ
-LEXICON VerbRootCry # Class 35 լալ
-լալ:լ
-LEXICON VerbRootGivePres # Class 36 տալ տուի
-տալ:տ
-LEXICON VerbRootGivePast
-տալ:տու
-LEXICON VerbRootTurnPres	# Class 39 40 անդրադառնալ դառնալ
-անդրադառնալ:անդրադառն
-դառնալ:դառն
-վերադառնալ:վերադառն
-LEXICON VerbRootTurnPast
-դառնալ:դարձ
-անդրադառնալ:անդրադարձ
-վերադառնալ:վերադարձ
-LEXICON VerbRootOpenPres	# Class 42 բանալ
-բանալ:բան
-LEXICON VerbRootOpenPast
-բանալ:բաց
-LEXICON VerbRootPutPres		# Class 43 դնել
-դնել:դն
-LEXICON VerbRootPutPast
-դնել:դր
-LEXICON VerbRootPutImpSg
-դնել:դ
-LEXICON VerbRootGoPres		# Class 45 երթալ
-երթալ:երթ
-LEXICON VerbRootGoPastC
-երթալ:գ
-LEXICON VerbRootGoPast3
-երթալ:գն
-LEXICON VerbRootHitPres		# Class 46 զարնել
-զարնել:զարն
-LEXICON VerbRootHitPast
-զարնել:զարկ
-LEXICON VerbRootDoPres # Class 49 ընել
-ընել:ըն
-LEXICON VerbRootDoPast # ընել
-ընել:ըր
-LEXICON VerbRootSpitOldPres # Class 51 թքնել
-թքնել:թք
-LEXICON VerbRootSpitOldImpSg
-թքնել:թուք
-LEXICON VerbRootFallPres # Class 52 իյնալ
-իյնալ:իյն
-LEXICON VerbRootFallPast
-իյնալ:ինկ
-իյնալ:ընկ # Dir/LR
-LEXICON VerbRootEatPres # Class 57 ուտել կերայ
-ուտել:ուտ
-LEXICON VerbRootEatPast 
-ուտել:կեր
-LEXICON VerbRootSendPres # Class 58 տանիլ տարաւ
-տանիլ:տան
-LEXICON VerbRootSendPast
-տանիլ:տար
 
 
-#------------------#
-#------------------#
-#Defectives
-LEXICON VerbRootCanShort	#  Class 27 կրնամ կարենալ
-կրնամ:կր
-LEXICON VerbRootCanLong
-կարենալ:կարե
-LEXICON VerbRootAppear #Class 28 երեւիլ, has -nal version that's regular
-երեւիլ:երեւ
 
-LEXICON VerbRootHaveE # Class 29 ունիմ, has -enal version that's regular
-#Has infinitival form in Kouyoumdjian grammar ունել
-ունել:ուն
-LEXICON VerbRootHaveI  # There is also rare infinitval ունիլ
-ունիլ:ուն
-ունիմ:ուն
-LEXICON VerbRootKnow # Class 30 գիտեմ, has -nal version that's regular
-#Has infinitival form in Kouyoumdjian grammar
-գիտել:գիտ
-գիտեմ:գիտ
+
+LEXICON VerbRootSit(2) # Class 56 նստիլ
+ծնիլ:ծն <iv>
+նստիլ:նստ <iv>
+պրծիլ:պրծ <iv>
+սկսիլ:սկս <iv>
+վերածնիլ:վերածն <iv>
+վերսկսիլ:վերսկս <iv>
+փրթիլ:փրթ <iv>
+
+
 
