@@ -2890,7 +2890,7 @@ LEXICON PassiveVerbRoot		# Subset of class 3 and 4
 օրօրուիլ:օրօր
 
 
-LEXICON InchRootThA(2) #Class 19 ամչնալ and 20 նիհարնալ
+LEXICON InchRoot(2) #Class 19 ամչնալ and 20 նիհարնալ
 
 ածխանալ:ածխա <iv>
 աղքատանալ:աղքատա <iv>
@@ -3120,7 +3120,7 @@ LEXICON InchRootThA(2) #Class 19 ամչնալ and 20 նիհարնալ
 օդընտելանալ:օդընտելա <iv>
 օտարանալ:օտարա <iv>
 
-LEXICON InchRootTh0(2)
+#LEXICON InchRootTh0(2)
 
 լոգնալ:լոգ <iv>
 դողդնալ:դողդ <iv>
@@ -3182,7 +3182,7 @@ LEXICON InchRootTh0(2)
 մեղքնալ:մեղք <tv>
 տաքնալ:տաք <iv>
 
-LEXICON InchRootThE(2)
+#LEXICON InchRootThE(2)
 
 արբենալ:արբե <tv>
 ընտանենալ:ընտանե <iv>

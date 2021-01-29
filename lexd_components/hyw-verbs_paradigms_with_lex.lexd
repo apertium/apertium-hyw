@@ -79,9 +79,10 @@ InchBase InchEmpty Aor
 
 #Base of inchoative is root+th or root
 PATTERN InchBase
-InchRootTh0(1) VZero InchRootTh0(2): 
-InchRootThA(1) ThA VZero InchRootThA(2):
-InchRootThE(1) ThE VZero InchRootThE(2):
+InchRoot(1) VZero InchRoot(2): 
+# InchRootTh0(1) VZero InchRootTh0(2): 
+# InchRootThA(1) ThA VZero InchRootThA(2):
+# InchRootThE(1) ThE VZero InchRootThE(2):
 
 #Infinitival
 PATTERN Infinitival
@@ -987,23 +988,23 @@ LEXICON PastAgrGoYes3Sg #For գացի գնաց
 <past><pret><p3><sg>:
 
 
-#TO DO add the exclamation punctuation
+#TO DO make a post-gen/constraint grammar to demand that imperative keep exclamation marker
 LEXICON ImpSg
-<imp><p2><sg><punct>:{ImpSg}՛ #was {եէ}
+<imp><p2><sg>:{ImpSg} #was {եէ} # had ՛
 LEXICON ImpSgR 
-<imp><p2><sg><punct>:՛ր #Don't add the {ImpSg} tag so that don't trigger i->e change
+<imp><p2><sg><punct>:ր #Don't add the {ImpSg} tag so that don't trigger i->e change, had ՛
 LEXICON ImpSgIR 
-<imp><p2><sg><punct>:ի՛ր 
+<imp><p2><sg><punct>:իր # had ՛ 
 LEXICON ImpSgUR 
-<imp><p2><sg><punct>:ո՛ւր 
+<imp><p2><sg><punct>:ուր # had ՛ 
 
 
 LEXICON ImpSgInternalMark #Mark is added at end of verb; will later metathesize
-<imp><p2><sg><punct>:՛
+<imp><p2><sg><punct>: # had ՛
 
  
 LEXICON ImpPl
-<imp><p2><pl><punct>:է՛ք
+<imp><p2><pl><punct>:էք # had ՛
 
 LEXICON ProhAgr
 <p2><sg>:ր
@@ -1020,7 +1021,7 @@ LEXICON IndcShort
 
 
 LEXICON Proh
-մի՛<pro><proh><punct>:մի՛
+մի<pro><proh><punct>:մի #had ՛
 
 LEXICON Prog
 կոր<enc><prog>:կոր
@@ -1105,13 +1106,16 @@ LEXICON PassiveVerbRoot
 բուժուիլ:բուժ
 
 #TO DO Allow a system to add nouns and adjectives
-LEXICON InchRootTh0(2)
+#I used to divide inchoatives into groups based on theme vowel
+#But it's not useful so collapsing
+LEXICON InchRoot(2)
+#LEXICON InchRootTh0(2)
 ամչնալ:ամչ <iv>
 նիհարնալ:նիհար <iv>
-LEXICON InchRootThA(2)
-ստանալ:ստ <tv>
-LEXICON InchRootThE(2)
-մօտենալ:մօտ <iv>
+#LEXICON InchRootThA(2)
+ստանալ:ստա <tv>
+#LEXICON InchRootThE(2)
+մօտենալ:մօտե <iv>
 
 ##############
 #Obsolete verbs

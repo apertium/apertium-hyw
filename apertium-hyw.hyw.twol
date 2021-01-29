@@ -104,12 +104,31 @@ Rules
 
 !!! Imperative exclamation point
 !Some irregular verbs have a C-final imperative, but the exlamation mark is inside the verb
-!This will metathesize the exclamation mark in this contetx
+!This will metathesize the exclamation mark in this context
 !It only works for verbs like բերել -- the very լալ has a cheat in the lexd
+!"delete the exclamation mark when it follows a consonant"
+!՛:0 <=> :Cons _ .#. ;
+!"add an exclamation mark after an irregular imperative verb's final vowel"
+!0:՛ <=> FullVowel _ :Cons* :Cons  ՛:0 .#. ;
+
+!!! Infixal punctuation
+!The lexd file adds an infixal punctuation at end of every word
+!This marker must metathesize into the rightmost full vowel (=stressed vowel) in regular cases irregular verbs have a C-final imperative, but the exlamation mark is inside the verb
 "delete the exclamation mark when it follows a consonant"
-՛:0 <=> :Cons _ .#. ;
+՛:0 <=> :Cons _ :0* .#. ;
 "add an exclamation mark after an irregular imperative verb's final vowel"
-0:՛ <=> FullVowel _ :Cons* :Cons  ՛:0 .#. ;
+0:՛ <=> FullVowel _ :0* (:Cons* :0*)*  :Cons :0*  ՛:0  ;
+
+"delete the question mark when it follows a consonant"
+՞:0 <=> :Cons _ :0* .#. ;
+"add an question mark after an irregular imperative verb's final vowel"
+0:՞ <=> FullVowel _ :0* (:Cons* :0*)*  :Cons :0*  ՞:0  ;
+
+"delete the vocative mark when it follows a consonant"
+՜:0 <=> :Cons _ :0* .#. ;
+"add an vocative mark after an irregular imperative verb's final vowel"
+0:՜ <=> FullVowel _ :0* (:Cons* :0*)*  :Cons :0*  ՜:0  ;
+
 
 !!!!! THEME VOWEL CHANGES
 !In many contexts, the  ի theme vowel becomes է

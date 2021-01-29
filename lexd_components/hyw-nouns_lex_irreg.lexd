@@ -24,6 +24,7 @@ LEXICON NounIrregMonoNerOld   #Some prescriptively take -ner, but in real life, 
 հարս:հարս
 նորահարս:նորահարս{mono}
 
+
 մատ:մատ
 բթամատ:բթամատ{mono}
 բութամատ:բութամատ{mono}
@@ -248,6 +249,8 @@ LEXICON NounIrregMonoNerOld   #Some prescriptively take -ner, but in real life, 
 ձեռ:ձեռ
 ոտ:ոտ
 ռուս:ռուս
+շուրթ:շուրթ #reassigned based on Essayan
+
 # մահ:մահ # removed because the word has too many other irregular forms + the ner form is obsolete
 
 LEXICON NounIrregMonoNerStill  #Only very few both descriptively and presriptively  take -ner

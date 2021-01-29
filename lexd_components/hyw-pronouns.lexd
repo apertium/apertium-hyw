@@ -17,10 +17,11 @@
 PATTERNS
 PersonalPronoun
 SubstantivePronoun
-ReflexivePronoun
+ReciprocalPronoun
+ReflexivePronoun CaseRegI? (Def|Poss)
 DemonstrativePronoun
 RelativePronoun (Def|Poss)?
-
+ReflexivePronounArchaic
 
 
 ##############
@@ -88,12 +89,15 @@ LEXICON PersonalPronoun
 անոնք<prn><ins><pl><p3>:անոնցմով
 
 
-ինքը<prn><log><nom><sg><p3>:ինքը #Hagopian had ինք but I find that odd
+ինքը<prn><log><nom><sg><p3><def>:ինքը #Hagopian had ինք but I find that odd
 ինքը<prn><log><nom><sg><p3>:ինք # Dir/LR
+ինքը<prn><log><nom><sg><p3>:ինքն # Dir/LR
 ինքը<prn><log><gen><sg><p3>:իր
 ինքը<prn><log><dat><sg><p3>:իրեն
 ինքը<prn><log><acc><sg><p3>:իրեն
 ինքը<prn><log><acc><sg><p3>:զինք # Dir/LR
+ինքը<prn><log><acc><sg><p3><def>:զինքը # Dir/LR
+ինքը<prn><log><acc><sg><p3><def>:զինքն # Dir/LR
 ինքը<prn><log><abl><sg><p3>:իրմէ
 ինքը<prn><log><ins><sg><p3>:իրմով 
 #EA but I find it ok in WA
@@ -134,7 +138,9 @@ LEXICON SubstantivePronoun
 քուկդ<prn><subs><px2sg><sg><ins>:քուկինովդ 
 
 անորը<prn><subs><px3sg><sg><nom_acc>:անորը # its
+անորը<prn><subs><px3sg><sg><nom_acc>:անորն # Dir/LR
 անորը<prn><subs><px3sg><sg><gen_dat>:անորինը
+անորը<prn><subs><px3sg><sg><gen_dat>:անորինն # Dir/LR
 անորը<prn><subs><px3sg><sg><nom_acc>:անորն # Dir/LR
 անորը<prn><subs><px3sg><sg><gen_dat>:անորինն # Dir/LR
 
@@ -144,7 +150,9 @@ LEXICON SubstantivePronoun
 անորը<prn><subs><px3sg><sg><ins><def>:անորինովն # Dir/LR
 
 իրենը<prn><log><subs><px3sg><sg><nom_acc>:իրենը # hers
+իրենը<prn><log><subs><px3sg><sg><nom_acc>:իրենն # Dir/LR
 իրենը<prn><log><subs><px3sg><sg><gen_dat>:իրենինը
+իրենը<prn><log><subs><px3sg><sg><gen_dat>:իրենինն # Dir/LR
 իրենը<prn><log><subs><px3sg><sg><nom_acc>:իրենն # Dir/LR
 իրենը<prn><log><subs><px3sg><sg><gen_dat>:իրենինն # Dir/LR
 
@@ -173,6 +181,7 @@ LEXICON SubstantivePronoun
 անորը<prn><subs><px3sg><pl><ins><def>:անորներովն # Dir/LR 
 
 իրենը<prn><log><subs><px3sg><pl><nom_acc>:իրենները  
+իրենը<prn><log><subs><px3sg><pl><nom_acc>:իրեններն # Dir/LR   
 իրենը<prn><log><subs><px3sg><pl><gen_dat>:իրեններուն
 իրենը<prn><log><subs><px3sg><pl><abl>:իրեններէն 
 իրենը<prn><log><subs><px3sg><pl><ins>:իրեններով 
@@ -183,6 +192,7 @@ LEXICON SubstantivePronoun
 մերինը<prn><subs><px1pl><sg><nom_acc>:մերինը # our
 մերինը<prn><subs><px1pl><sg><nom_acc>:մերինն # Dir/LR 
 մերինը<prn><subs><px1pl><sg><nom_acc>:մերը # Dir/LR
+մերինը<prn><subs><px1pl><sg><nom_acc>:մերն # Dir/LR
 մերինը<prn><subs><px1pl><sg><gen_dat>:մերինին 
 մերինը<prn><subs><px1pl><sg><abl>:մերինէն 
 մերինը<prn><subs><px1pl><sg><ins>:մերինով 
@@ -256,20 +266,27 @@ LEXICON SubstantivePronoun
 ##############
 ##############
 ##############
-#### Reflexive Pronoun morphemes
+#### Reflexive and reciprocal Pronoun morphemes
 ##############
 ##############
 
 
 ### Based on Hagopian 2007 page 355
-LEXICON ReflexivePronoun
+LEXICON ReciprocalPronoun
 
 իրար<prn><ref><gen_dat>:իրարու #to each other
 իրար<prn><ref><acc>:զիրար   # Dir/LR   obsolete
 իրար<prn><ref><abl>:իրարմէ
 իրար<prn><ref><ins>:իրարմով
 
+### She doesn't provide reflexive paradigms, but just reciprocals
+LEXICON ReflexivePronoun
+ինքզինքը<prn><ref>:ինքզինք
 
+LEXICON ReflexivePronounArchaic
+#Somewhat archaic
+ինքս<prn><ref><p1><sg>:ինքս
+ինքս<prn><ref><p2><sg>:ինքդ
 
 
 ##############

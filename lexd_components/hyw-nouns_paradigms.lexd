@@ -28,6 +28,7 @@ NounDeclRisingClusters
 InfinitivalDecl
 AdjAdvDeclRegular
 NounOtherPOSDeclRegular
+NameDecl
 
 #suffix-based declensions
 NounDeclUtjunSuffix
@@ -50,7 +51,8 @@ NounDeclCountryOj
 NounDeclIrregReduce
 NounDeclIrregReducePoly
 
-
+#IrregularBucket
+IrregularBucket (Def|Poss)?
 
 PATTERN NounDeclRegular
 #Singular
@@ -77,6 +79,17 @@ NounIrregU NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)?
 #Plural possessive (separate line for instrumental)
 NounIrregU NZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
 NounIrregU NZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+
+PATTERN NameDecl
+# For names or proper nouns. Don't have the NouNInflBoundary to block glide deletion
+#Singular
+Name [<np>:] CaseRegI? (Def|Poss)? 
+#Plural
+Name [<np>:]  NPlReg CaseRegU? (Def|Poss)? 
+#Plural possessive (separate line for instrumental)
+Name [<np>:] NPlReg?  PossPl CaseRegPostPluralPoss Def|Poss
+Name [<np>:] NPlReg?  InsReg PossPl  Def|Poss
+
 
 
 
@@ -194,12 +207,15 @@ AdjAdvBase SubstZero NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss  #
 PATTERN AdjAdvBase
 #Bare adjectives
 AdjReg AdjZero
-
 #Bare adverbs
 AdvReg AdvZero
-
 #Multi-POS
 AdvAdjReg [<adv_adj>:]
+AdvAdjOren [<adv_adj>:]
+
+#Derived adverbs
+AdjReg [<adv>:օրէն]
+AdvAdjReg [<adv>:օրէն]
 
 PATTERN NounOtherPOSDeclRegular
 
@@ -691,6 +707,7 @@ LEXICON NouNinflBoundaryRedForcedNer
 #<acc>:
 LEXICON DatGenRegI
 <dat_gen>:ի
+<dat_gen>:ու # In case of unexpected irregularization
 LEXICON DatGenRegU
 <dat_gen>:ու
 <dat_gen>:ի # In case of regularization
@@ -1012,6 +1029,13 @@ LEXICON NounCountryReduced
 Կիլիկիա:Կիլիկի
 Պոլիս:Պոլս
 
+
+LEXICON IrregularBucket
+#Words that are just fossilized forms
+հոգւոյ<n><dat_gen>:հոգւոյ 
+
+LEXICON Name
+Յովսէփ:Յովսէփ
 #! Resources:
 #! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
 #! http://wiki.apertium.org/wiki/Lttoolbox_and_lexc
