@@ -68,7 +68,6 @@ Files and data
 * [`apertium-hyw.hyw.twol`](apertium-hyw.hyw.twol) - Morphophonological rules
 * [`apertium-hyw.hyw.rlx`](apertium-hyw.hyw.rlx) - Constraint Grammar disambiguation rules
 * [`apertium-hyw.post-hyw.dix`](apertium-hyw.post-hyw.dix) - Post-generator
-* [`hyw.prob`](hyw.prob) - Tagger model
 * [`modes.xml`](modes.xml) - Translation modes
 
 For more information
