@@ -53,7 +53,7 @@ InchBase InchEmpty  #<inch> marked by either covert or overt -n-
 #This is for lexically listed causatives
 #Lexical causatives take their own special valency tag. Might need to change this later if 
 #it violates some tagging rule TO DO
-CausativeVerbRoot VZero [<lex_tv>:]
+CausativeVerbRoot VZero [<<tv>:]
 #Orthographic variants are separately handled based on the inflection lsot
 
 #Base of passive is root
@@ -64,14 +64,14 @@ VerbRootA(1) VZero VerbRootA(2): ThA Aor
 
 CausBase CausPass 
 #This is for orthographic variants
-CausativeVerbRootOrthographicSchwa VZero [<lex_tv>:] CausPass
-CausativeVerbRootOrthographicAffr VZero [<lex_tv>:] CausOrthographicAffrPass
+CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPass
+CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPass
 
 
 #This is for lexically listed passives
 #Lexical passives take their own special valency tag. Might need to change this later if 
 #it violates some tagging rule TO DO
-PassiveVerbRoot VZero [<lex_iv>:] 
+PassiveVerbRoot VZero [<iv>:] 
 
 #Should I care that this will rarely be traversed? TO DO
 InchBase InchEmpty Aor 
@@ -91,8 +91,8 @@ VerbRootI(1) VZero VerbRootI(2): ThI Inf
 VerbRootA(1) VZero VerbRootA(2): ThA Inf
 
 CausBase CausPres ThE Inf
-CausativeVerbRootOrthographicSchwa VZero [<lex_tv>:] CausOrthographicSchwaPres ThE Inf
-CausativeVerbRootOrthographicAffr VZero [<lex_tv>:] CausOrthographicAffrPres ThE Inf
+CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausOrthographicSchwaPres ThE Inf
+CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPres ThE Inf
 
 
 PassBase Pass ThI Inf
@@ -116,8 +116,11 @@ VerbRootRiseEPres(1) VZero VerbRootRiseEPres(2): ThE Inf #ելլել ելլալ
 VerbRootRiseAPres(1) VZero VerbRootRiseAPres(2): ThA Inf 
 VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): ThI Inf 		#դպչիլ դպիլ 
 VerbRootCilIli(1) VZero VerbRootCilIli(2): ThI Inf 		 
+
 VerbRootCanLong(1) EmptyNasal VZero VerbRootCanLong(2): ThA Inf #կարենալ, not կրնալ
-VerbRootAppear(1) VZero VerbRootAppear(2): ThI Inf # Defective երեւիլ, only indicative non-perfect, no subj
+VerbRootCanShort(1) EmptyNasal VZero VerbRootCanLong(2): ThA Inf #Dir/LR կրնալ, exists in rare speech as inflected forms չկրնալով
+
+VerbRootAppear(1) VZero VerbRootAppear(2): ThI Inf # Defective երեւիլ, only indicative non-perfect, no subj in boyacioglu, but I disagree
 VerbRootBeLongPres(1) VZero VerbRootBeLongPres(2): ThA Inf # Irregular ըլլալ
 VerbRootBeLongPresEastern(1) VZero VerbRootBeLongPresEastern(2): ThE Inf # Irregular լինել
 VerbRootComePres(1) VZero VerbRootComePres(2): ThA Inf # irregular գալ եկայ
@@ -185,8 +188,8 @@ VerbRootI(1) VZero VerbRootI(2): ThI
 VerbRootA(1) VZero VerbRootA(2): ThA 
 
 CausBase CausPres ThE
-CausativeVerbRootOrthographicSchwa VZero [<lex_tv>:] CausOrthographicSchwaPres ThE
-CausativeVerbRootOrthographicAffr VZero [<lex_tv>:] CausOrthographicAffrPres ThE
+CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausOrthographicSchwaPres ThE
+CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPres ThE
 
 
 PassBase Pass ThI 
@@ -230,6 +233,9 @@ VerbRootSit(1) VZero VerbRootSit(2): ThI
 VerbRootEatPres(1) VZero VerbRootEatPres(2): ThE
 VerbRootSendPres(1) VZero VerbRootSendPres(2): ThI
 
+VerbRootAppear(1) VZero VerbRootAppear(2): ThI # boyacioglu had defective երեւիլ defective 
+#I think Boyacioglu has an error because the -i- stayed -i- here
+
 
 PATTERN IndcSubjBaseMonoStem
 #Monosyllabic verbs which take the prefix gu-
@@ -253,8 +259,6 @@ PATTERN IndicativeIrregular
 #:Indc VerbRootCilV(1) EmptyAffr VZero VerbRootCilV(2): ThI ImpfAgr Indc: 
 VerbRootCanShort(1) EmptyNasal VZero VerbRootCanShort(2): ThA Pres0 PresAgr Indc: 
 VerbRootCanShort(1) EmptyNasal VZero VerbRootCanShort(2): ThA ImpfAgr Indc:
-:Indc VerbRootAppear(1) VZero VerbRootAppear(2): ThI Pres0 PresAgr Indc: # երեւիլ defective 
-:Indc VerbRootAppear(1) VZero VerbRootAppear(2): ThI ImpfAgr Indc: #I think Boyacioglu has an error because the -i- stayed -i- here
 VerbRootHave(1) VZero VerbRootHave(2): ThI Pres0 PresAgr Indc: # ունիմ defective
 VerbRootHave(1) VZero VerbRootHave(2): ThI ImpfAgr Indc:
 VerbRootKnow(1) VZero VerbRootKnow(2): ThE Pres0 PresAgr Indc: # գիտեմ defectve
@@ -313,8 +317,8 @@ VerbRootI(1) VZero VerbRootI(2): ThI Aor PastSecAgr Indc0
 VerbRootA(1) VZero VerbRootA(2): ThA Aor PastPrimAgr Indc0 
 
 CausBase CausPast Aor PastPrimAgr Indc0
-CausativeVerbRootOrthographicSchwa VZero [<lex_tv>:] CausPast Aor PastPrimAgr Indc0
-CausativeVerbRootOrthographicAffr VZero [<lex_tv>:] CausOrthographicAffrPast Aor PastPrimAgr Indc0
+CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor PastPrimAgr Indc0
+CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPast Aor PastPrimAgr Indc0
 
 
 PassBase Pass ThI Aor PastSecAgr Indc0
@@ -381,8 +385,8 @@ PassBase Pass ThI ImpSg # Dir/LR
 PassBase Pass ImpSgIR
 
 CausBase CausPast ImpSgR
-CausativeVerbRootOrthographicSchwa VZero [<lex_tv>:] CausPast ImpSgR
-CausativeVerbRootOrthographicAffr VZero [<lex_tv>:] CausOrthographicAffrPast ImpSgR
+CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast ImpSgR
+CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPast ImpSgR
 
 
 InchBase InchEmpty Aor ImpSgIR
@@ -446,8 +450,8 @@ VerbRootI(1) VZero VerbRootI(2): ThI Aor ImpPl
 VerbRootA(1) VZero VerbRootA(2): ThA Aor ImpPl
 
 CausBase CausPast Aor ImpPl
-CausativeVerbRootOrthographicSchwa VZero [<lex_tv>:] CausPast Aor ImpPl
-CausativeVerbRootOrthographicAffr VZero [<lex_tv>:] CausOrthographicAffrPast Aor ImpPl
+CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor ImpPl
+CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPast Aor ImpPl
 
 PassBase Pass ThI Aor ImpPl
 
@@ -502,8 +506,8 @@ VerbRootI(1) VZero VerbRootI(2): ThI [<proh>:] ProhAgr
 VerbRootA(1) VZero VerbRootA(2): ThA [<proh>:] ProhAgr
 
 CausBase CausPres ThE [<proh>:] ProhAgr
-CausativeVerbRootOrthographicSchwa VZero [<lex_tv>:] CausPres ThE [<proh>:] ProhAgr
-CausativeVerbRootOrthographicAffr VZero [<lex_tv>:] CausOrthographicAffrPres  ThE [<proh>:] ProhAgr
+CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPres ThE [<proh>:] ProhAgr
+CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPres  ThE [<proh>:] ProhAgr
 
 PassBase Pass ThI [<proh>:] ProhAgr
 
@@ -556,8 +560,8 @@ VerbRootI(1) VZero VerbRootI(2): SubjPart
 VerbRootA(1) VZero VerbRootA(2): ThA Aor SubjPart
 
 CausBase CausPres SubjPart
-CausativeVerbRootOrthographicSchwa VZero [<lex_tv>:] CausPres SubjPart
-CausativeVerbRootOrthographicAffr VZero [<lex_tv>:] CausOrthographicAffrPres SubjPart
+CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPres SubjPart
+CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPres SubjPart
 
 PassBase Pass SubjPart
 
@@ -611,8 +615,8 @@ VerbRootI(1) VZero VerbRootI(2): PerfPart
 VerbRootA(1) VZero VerbRootA(2): ThA Aor PerfPart
 
 CausBase CausPast Aor PerfPart
-CausativeVerbRootOrthographicSchwa VZero [<lex_tv>:] CausPast Aor PerfPart
-CausativeVerbRootOrthographicAffr VZero [<lex_tv>:] CausOrthographicAffrPast Aor PerfPart
+CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor PerfPart
+CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPast Aor PerfPart
 
 PassBase Pass PerfPart
 
@@ -664,8 +668,8 @@ VerbRootI(1) VZero VerbRootI(2): EvidPart
 VerbRootA(1) VZero VerbRootA(2): ThA Aor EvidPart
 
 CausBase CausPast Aor EvidPart
-CausativeVerbRootOrthographicSchwa VZero [<lex_tv>:] CausPast Aor EvidPart
-CausativeVerbRootOrthographicAffr VZero [<lex_tv>:] CausOrthographicAffrPast Aor EvidPart
+CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor EvidPart
+CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPast Aor EvidPart
 
 PassBase Pass EvidPart
 
@@ -719,8 +723,8 @@ VerbRootI(1) VZero VerbRootI(2): ThE PastImpf0 NegPtcp #For i->e
 VerbRootA(1) VZero VerbRootA(2): ThA Pres0|PastImpf0 NegPtcp 
 
 CausBase CausPres ThE Pres0|PastImpf0 NegPtcp 
-CausativeVerbRootOrthographicSchwa VZero [<lex_tv>:] CausPres ThE Pres0|PastImpf0 NegPtcp 
-CausativeVerbRootOrthographicAffr VZero [<lex_tv>:] CausOrthographicAffrPres ThE Pres0|PastImpf0 NegPtcp 
+CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPres ThE Pres0|PastImpf0 NegPtcp 
+CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPres ThE Pres0|PastImpf0 NegPtcp 
 
 PassBase Pass ThI Pres0 NegPtcp 
 PassBase Pass ThE PastImpf0 NegPtcp #For i->e
@@ -1182,7 +1186,8 @@ LEXICON VerbRootCel(2)
 թռչել:թռ <iv>
 
 LEXICON VerbRootCanShort(2)
-կրնամ:կր <iv>
+կրնամ:կր <iv> 
+#Apparently կրնալ exists, though mostly as negated form չկրնալով
 LEXICON VerbRootCanLong(2)
 կարենալ:կարե <iv>
 LEXICON VerbRootAppear(2) #Class 28 երեւիլ, has -nal version that's regular
@@ -1232,7 +1237,7 @@ LEXICON VerbRootBring(2)  #Class 37 38 արտաբերել բերել
 LEXICON VerbRootTurnPres(2)
 դառնալ:դառն <iv>
 անդրադառնալ:անդրադառն <tv>
-վերադառնալ:վերադարն <iv>
+վերադառնալ:վերադառն <iv>
 LEXICON VerbRootTurnPast(2)
 դառնալ:դարձ <iv>
 անդրադառնալ:անդրադարձ <tv>

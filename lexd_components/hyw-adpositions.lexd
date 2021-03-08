@@ -61,10 +61,10 @@ LEXICON TruePreposition
 
 LEXICON TruePrepositionVary
 #True prepositions (doesn't decline) but can sometimes be a postposition
-բացի<pr>:բացի
-փոխանակ<pr>:փոխանակ
-բացի<post>:բացի
-փոխանակ<post>:փոխանակ
+բացի<pr_post>:բացի
+փոխանակ<pr_post>:փոխանակ
+# բացի<post>:բացի
+# փոխանակ<post>:փոխանակ
 
 LEXICON TruePostposition
 #Does not decline, always a postposition
@@ -80,17 +80,17 @@ LEXICON TruePostposition
 LEXICON TruePostpositionVary
 #Does not decline, can sometimes be a preposition
 
-համեմատ<post>:համեմատ
-հանդէպ<post>:հանդէպ
-փոխարէն<post>:փոխարէն
-փոխարէն<post><px1sg>:փոխարէնդ
-փոխարէն<post><px2sg>:փոխարէնդ
+համեմատ<post_pr>:համեմատ
+հանդէպ<post_pr>:հանդէպ
+փոխարէն<post_pr>:փոխարէն
+փոխարէն<post_pr><px1sg>:փոխարէնդ
+փոխարէն<post_pr><px2sg>:փոխարէնդ
 
-համեմատ<pr>:համեմատ
-հանդէպ<pr>:հանդէպ
-փոխարէն<pr>:փոխարէն
-փոխարէն<pr><px1sg>:փոխարէնդ
-փոխարէն<pr><px2sg>:փոխարէնդ
+# համեմատ<pr>:համեմատ
+# հանդէպ<pr>:հանդէպ
+# փոխարէն<pr>:փոխարէն
+# փոխարէն<pr><px1sg>:փոխարէնդ
+# փոխարէն<pr><px2sg>:փոխարէնդ
 
 
 
@@ -111,21 +111,21 @@ LEXICON DerivedPostposition
 LEXICON DerivedPostpositionVary
 #don't decline, derived from nouns or verbs or adjectives, can sometimes be preposition
 
-համաձայն<post>:համաձայն
-անկախ<post>:անկախ
-աւելի<post>:աւելի
-նուազ<post>:նուազ
-պակաս<post>:պակաս
-հակառակ<post>:հակառակ
-վերջ<post>:վերջ
+համաձայն<post_pr>:համաձայն
+անկախ<post_pr>:անկախ
+աւելի<post_pr>:աւելի #reassigned
+նուազ<post_pr>:նուազ #reassigned
+պակաս<post_pr>:պակաս
+հակառակ<post_pr>:հակառակ
+վերջ<post_pr>:վերջ
 
-համաձայն<pr>:համաձայն
-անկախ<pr>:անկախ
-աւելի<pr>:աւելի
-նուազ<pr>:նուազ
-պակաս<pr>:պակաս
-հակառակ<pr>:հակառակ
-վերջ<pr>:վերջ
+# համաձայն<pr>:համաձայն
+# անկախ<pr>:անկախ
+# աւելի<pr>:աւելի
+# նուազ<pr>:նուազ
+# պակաս<pr>:պակաս
+# հակառակ<pr>:հակառակ
+# վերջ<pr>:վերջ
 
 LEXICON FrozenPreposition
 #True prepositions, don't decline, frozem from nouns or verbs or adjectives
@@ -136,25 +136,22 @@ LEXICON FrozenPreposition
 կախուած<pr>:կախուած
 չհաշուած<pr>:չհաշուած  
 նկատի\ չառած<pr>:նկատի\ չառած
+ընդմէջ<pr>:ընդմէջ #in my judgment, preposition is frozen, while postposition takes ablative
 
 LEXICON FrozenPrepositionVary
 #don't decline, frozen from nouns or verbs or adjectives, can sometimes be postposition
 
-հանդերձ<pr>:հանդերձ
-նայած<pr>:նայած
-նայելով<pr>:նայելով
+հանդերձ<pr_post>:հանդերձ
+նայած<pr_post>:նայած
+նայելով<pr_post>:նայելով
 
-հանդերձ<post>:հանդերձ
-նայած<post>:նայած
-նայելով<post>:նայելով
+# հանդերձ<post>:հանդերձ
+# նայած<post>:նայած
+# նայելով<post>:նայելով
 
 LEXICON FrozenPostposition
 #True postpositions, don't decline, frozem from nouns or verbs or adjectives
 
-դիմաց<post>:դիմաց
-դիմաց<post><def>:դիմացը
-դիմաց<post><px1sg>:դիմացս
-դիմաց<post><px2sg>:դիմացդ
 մասին<post><def>:մասին
 մասին<post><px1sg>:մասիս
 մասին<post><px2sg>:մասիդ
@@ -171,8 +168,8 @@ LEXICON FrozenPostposition
 
 LEXICON FrozenPostpositionVary
 #don't decline, frozen from nouns or verbs or adjectives, can sometimes be preposition
-շնորհիւ<post>:շնորհիւ
-շնորհիւ<pr>:շնորհիւ
+շնորհիւ<post_pr>:շնորհիւ
+# շնորհիւ<pr>:շնորհիւ
 
 LEXICON DeclinablePostposition
 #Take case and plural and substantive
@@ -185,6 +182,10 @@ LEXICON DeclinablePostposition
 մօտ<post>:մօտ
 հետ<post>:հետ
 
+
+դիմաց<post>:դիմաց  # reassigned from Hagopian
+
+ընդմէջ<post>:ընդմէջ #postposition form takes case in my judgments; added from corpus
 # Also include adverbal postpositions
 առաջ<post>:առաջ
 ատեն<post>:ատեն
@@ -203,7 +204,6 @@ LEXICON DeclinablePostposition
 
 
 
-#TO DO Numerals
 
 
 #! Resources:

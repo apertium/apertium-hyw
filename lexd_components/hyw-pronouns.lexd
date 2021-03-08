@@ -18,10 +18,22 @@ PATTERNS
 PersonalPronoun
 SubstantivePronoun
 ReciprocalPronoun
-ReflexivePronoun CaseRegI? (Def|Poss)
+
+ReflexivePronoun  CaseRegI? (Def|Poss)
+ReflexivePronoun  PossPl CaseRegPostPluralPoss Def|Poss
+ReflexivePronoun  InsReg PossPl  Def|Poss
+
+
 DemonstrativePronoun
 RelativePronoun (Def|Poss)?
 ReflexivePronounArchaic
+
+Quantifier [<qnt>:] CaseRegI? (Def|Poss)? 
+#Plural
+Quantifier [<qnt>:]  NPlReg CaseRegU? (Def|Poss)? 
+#Plural possessive (separate line for instrumental)
+Quantifier [<qnt>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+Quantifier [<qnt>:]  NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 
 ##############
@@ -73,6 +85,7 @@ LEXICON PersonalPronoun
 մենք<prn><ins><pl><p2>:ձեզմով
 
 ան<prn><nom><sg><p3>:ան
+նա<prn><nom><sg><p3>:նա
 ան<prn><gen><sg><p3>:անոր
 ան<prn><dat><sg><p3>:անոր
 ան<prn><acc><sg><p3>:ան  
@@ -93,6 +106,7 @@ LEXICON PersonalPronoun
 ինքը<prn><log><nom><sg><p3>:ինք # Dir/LR
 ինքը<prn><log><nom><sg><p3>:ինքն # Dir/LR
 ինքը<prn><log><gen><sg><p3>:իր
+ինքը<prn><log><gen><sg><p3>:իւր  # Dir/LR
 ինքը<prn><log><dat><sg><p3>:իրեն
 ինքը<prn><log><acc><sg><p3>:իրեն
 ինքը<prn><log><acc><sg><p3>:զինք # Dir/LR
@@ -282,11 +296,12 @@ LEXICON ReciprocalPronoun
 ### She doesn't provide reflexive paradigms, but just reciprocals
 LEXICON ReflexivePronoun
 ինքզինքը<prn><ref>:ինքզինք
+նոյնինքը<prn><ref>:նոյնինք
 
 LEXICON ReflexivePronounArchaic
 #Somewhat archaic
-ինքս<prn><ref><p1><sg>:ինքս
-ինքս<prn><ref><p2><sg>:ինքդ
+ինքս<prn><ref><px1sg>:ինքս
+ինքս<prn><ref><px2sg>:ինքդ
 
 
 ##############
@@ -303,6 +318,7 @@ LEXICON DemonstrativePronoun
 այս<prn><dem><prx><sg><nom>:այս  # this
 այս<prn><dem><prx><sg><nom>:ասիկա   # Dir/LR 
 այս<prn><dem><prx><sg><nom>:աս   # Dir/LR 
+այս<prn><dem><prx><sg><nom>:սա   # Dir/LR 
 այս<prn><dem><prx><sg><gen_dat>:ասոր   
 այս<prn><dem><prx><sg><acc>:այս
 այս<prn><dem><prx><sg><acc>:ասիկա # Dir/LR 
@@ -344,12 +360,15 @@ LEXICON DemonstrativePronoun
 այն<prn><dem><dst><sg><nom>:այն  # that yonder
 այն<prn><dem><dst><sg><nom>:անիկա   # Dir/LR 
 այն<prn><dem><dst><sg><nom>:ան   # Dir/LR 
+այն<prn><dem><dst><sg><nom>:նա   # Dir/LR 
 այն<prn><dem><dst><sg><gen_dat>:անոր   
 այն<prn><dem><dst><sg><acc>:այն
 այն<prn><dem><dst><sg><acc>:անիկա # Dir/LR 
 այն<prn><dem><dst><sg><acc>:զայն # Dir/LR 
 այն<prn><dem><dst><sg><abl>:անկէ
 այն<prn><dem><dst><sg><abl>:այնկէ # Dir/LR 
+այն<prn><dem><dst><sg><abl>:անկէց # Dir/LR 
+այն<prn><dem><dst><sg><abl>:անկից # Dir/LR 
 այն<prn><dem><dst><sg><abl>:անորմէ # Dir/LR 
 այն<prn><dem><dst><sg><ins>:անով
 այն<prn><dem><dst><sg><ins>:այնով # Dir/LR 
@@ -412,6 +431,22 @@ LEXICON RelativePronoun
 #երբ<prn><rel><sg><acc>:երբ
 #երբ<prn><rel><sg><abl>:երբուընէ
 
+
+LEXICON Quantifier
+ամէնք:ամէնք
+բոլոր:բոլոր
+ամէնայն:ամէնայն
+ամէն:ամէն
+իւրաքանչիւր:իւրաքանչիւր
+այդչափ:այդչափ
+այնչափ:այնչափ
+այսչափ:այսչափ
+այդքան:այդքան
+այնքան:այնքան
+այսքան:այսքան
+քանի:քանի #reassigned had ՞
+աւելի:աւելի #reassigned
+նուազ:նուազ #reassigned
 
 
 

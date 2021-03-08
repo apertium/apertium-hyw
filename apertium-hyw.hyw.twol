@@ -3,9 +3,37 @@ Alphabet
 բ գ դ զ թ ժ  խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ ս վ տ ր ց ւ փ ք ֆ
  Ա  Ե Է Ը Ո Օ Ի Լ
 Բ Գ Դ Զ Թ Ժ  Խ Ծ Կ Հ Ձ Ղ Ճ Մ Յ Ն Շ Չ Պ Ջ Ռ Ս Վ Տ Ր Ց Ւ Փ Ք Ֆ
+%{յ%}:յ !stable glide that cant be deleted at end of words
 
 ՚		!apostrophe
-՛		!exclamation mark in imperatives
+
+՜:՜		!punctuation from the infixial file that's added to every word
+՞:՞
+՛:՛
+%{՜%}:՜   ! irregular punctuation inside lexical entries
+%{՞%}:՞
+%{՛%}:՛
+
+
+
+!other punctuation symbols
+%-
+֊ 
+– 
+ — 
+, 
+՝
+։
+.
+'
+ «
+»
+%(
+%)
+՚
+՟
+…    
+ՙ    
 
 % 
 %{G1%}:ը %{G2%}:%  
@@ -30,9 +58,14 @@ Alphabet
 
 Sets
 
+InfixPunctAdded = ՜ ՞ ՛ ; 
+InfixPunctLexical = %{՜%}  %{՞%} %{՛%} ;
 Vowel = 	ա  ե է ը ո օ ի  
-		Ա  Ե Է Ը Ո Օ Ի  ;
-
+		Ա  Ե Է Ը Ո Օ Ի  
+		;
+NonSchwaVowel = ա  ե է ո օ ի  
+		Ա  Ե Է  Ո Օ Ի  
+		;
 Cons = բ գ դ զ թ ժ  լ խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ ս վ տ ր ց ւ փ ք ֆ  
        Բ Գ Դ Զ Թ Ժ  Լ Խ Ծ Կ Հ Ձ Ղ Ճ Մ Յ Ն Շ Չ Պ Ջ Ռ Ս Վ Տ Ր Ց Ւ Փ Ք Ֆ 
        ; 
@@ -58,6 +91,7 @@ AtoAJ = %{Pres3SG%}
 ;
  
  Definitions
+
 
 FullVowel = [ :ա | :ե | :է |  :ո | :օ | :ի | :ո :ւ | 
 			 :Ա | :Ե | :Է |  :Ո | :Օ | :Ի | :Ո :Ւ ]
@@ -115,37 +149,64 @@ Rules
 !The lexd file adds an infixal punctuation at end of every word
 !This marker must metathesize into the rightmost full vowel (=stressed vowel) in regular cases irregular verbs have a C-final imperative, but the exlamation mark is inside the verb
 "delete the exclamation mark when it follows a consonant"
-՛:0 <=> :Cons _ :0* .#. ;
-"add an exclamation mark after an irregular imperative verb's final vowel"
-0:՛ <=> FullVowel _ :0* (:Cons* :0*)*  :Cons :0*  ՛:0  ;
+՛:0 <=> (:Cons|:ը) :0* _ :0* .#. ;
+"metathesize exclamation mark"
+0:՛ <=> :NonSchwaVowel _ :0* (:Cons* | :ը* | :0*)*  (:Cons | :ը*)  :0*  ՛:0 .#. ;
+	except
+		InfixPunctLexical: :*  _  ;
 
 "delete the question mark when it follows a consonant"
-՞:0 <=> :Cons _ :0* .#. ;
-"add an question mark after an irregular imperative verb's final vowel"
-0:՞ <=> FullVowel _ :0* (:Cons* :0*)*  :Cons :0*  ՞:0  ;
+՞:0 <=>  (:Cons|:ը) :0* _ :0* .#. ;
+"metathesize question mark"
+0:՞ <=> :NonSchwaVowel _  :0* (:Cons* | :ը* | :0*)*  (:Cons | :ը*)  :0*  ՞:0  .#. ;
+	except
+		InfixPunctLexical: :*  _  ;
 
 "delete the vocative mark when it follows a consonant"
-՜:0 <=> :Cons _ :0* .#. ;
-"add an vocative mark after an irregular imperative verb's final vowel"
-0:՜ <=> FullVowel _ :0* (:Cons* :0*)*  :Cons :0*  ՜:0  ;
+՜:0 <=>  (:Cons|:ը)  :0* _ :0* .#. ;
+"metathesize vocative mark"
+0:՜ <=> :NonSchwaVowel _  :0* (:Cons* | :ը* | :0*)*  (:Cons | :ը*)  :0*  ՜:0  .#. ;
+	except
+		InfixPunctLexical: :*  _  ;
 
+"deleted added punctuation if the word already has punctuation"
+InfixPunctAdded:0 <=> InfixPunctLexical: :*  _   ;
+
+"if the word has a exclamation punctuation, then it takes the quality of the added exclamation punctuation"
+%{՜%}:՛  <=> _ :* ՛:0 .#. ;
+"if the word has a exclamation punctuation, then it takes the quality of the added question punctuation"
+%{՜%}:՞  <=> _ :* ՞:0 .#. ;
+"if the word has a exclamation punctuation, then it takes the quality of the added vocative punctuation"
+%{՜%}:՜  <=> _ :* ՜:0 .#. ;
+"if the word has a question punctuation, then it takes the quality of the added exclamation punctuation"
+%{՞%}:՛  <=> _ :* ՛:0 .#. ;
+"if the word has a question punctuation, then it takes the quality of the added question punctuation"
+%{՞%}:՞  <=> _ :* ՞:0 .#. ;
+"if the word has a question punctuation, then it takes the quality of the added vocative punctuation"
+%{՞%}:՜  <=> _ :* ՜:0 .#. ;
+"if the word has a vocative punctuation, then it takes the quality of the added exclamation punctuation"
+%{՜%}:՛  <=> _ :* ՛:0 .#. ;
+"if the word has a vocative punctuation, then it takes the quality of the added question punctuation"
+%{՜%}:՞  <=> _ :* ՞:0 .#. ;
+"if the word has a vocative punctuation, then it takes the quality of the added vocative punctuation"
+%{՜%}:՜  <=> _ :* ՜:0 .#. ;
 
 !!!!! THEME VOWEL CHANGES
 !In many contexts, the  ի theme vowel becomes է
 ! These contexts  are part of IToE
 "theme vowel /իIToE/ to [է]"
-ի:է  <=>   _   IToE: ;
+ի:է  <=>   _  0:* IToE: ;
 
 !!In many contexts, the  ե theme vowel becomes է
 ! These contexts  are part of JeToE
 "theme vowel /ե{JeToE}/ to [է]"
-ե:է  <=>   _ JeToE: ;
+ե:է  <=>   _ 0:* JeToE: ;
 
 
 !In some contexts, the ի theme vowel becomes ե
 ! These contexts  are part of IToJe
 "theme vowel /իIToJe}/ to [ե]"
-ի:ե  <=>   _  IToJe: ;
+ի:ե  <=>   _  0:* IToJe: ;
 
 !When there's a full vowel after the infinitival, the ի theme vowel becomes ե
 !Needed finessing in order to apply across zero morphs and consonants liek նի
@@ -166,7 +227,7 @@ Rules
 ! It's a  ը after consonants, and ն after vowels
 ! Need the :0* context because of deleted glides
 "definite suffix is ն after vowels"
-%{defն%}:ն <=>   RealVowel  :0* _ ;
+%{defն%}:ն <=>   RealVowel  (:0|:InfixPunctAdded)* _ ;
  				
 		
 ! For plural allomorphy, the input plural suffix is %{Plն%}եր
@@ -217,12 +278,13 @@ Rules
 ! But not for monosyllabic nouns
 ! It's deleted before definite suffix
 "Delete glide յ  in the context ա/ո _ C-initial suffix "
-յ:0 <=>  :ա _ :0* GeneralNInflBoundary: :0* :Cons ;
-        :ա _ :0* GeneralNInflBoundary: :0* %{defն%}: ;
-		:ո _ :0* GeneralNInflBoundary: :0* :Cons ;
-        :ո _ :0* GeneralNInflBoundary: :0* %{defն%}: ;
+յ:0 <=>  :ա (:0|:InfixPunctAdded)* _  (:0|:InfixPunctAdded)* GeneralNInflBoundary:  (:0|:InfixPunctAdded)*  :Cons ;
+        :ա (:0|:InfixPunctAdded)* _  (:0|:InfixPunctAdded)* GeneralNInflBoundary:  (:0|:InfixPunctAdded)* %{defն%}: ;
+		:ո (:0|:InfixPunctAdded)* _  (:0|:InfixPunctAdded)* GeneralNInflBoundary:  (:0|:InfixPunctAdded)*  :Cons ;
+        :ո (:0|:InfixPunctAdded)* _  (:0|:InfixPunctAdded)* GeneralNInflBoundary:  (:0|:InfixPunctAdded)*  %{defն%}: ;
 		except
-   	    	Monosyllable :0*	_  ;
+   	    	Monosyllable (:0|:InfixPunctAdded)*	_  ;
+   	    	 	_ (:0|:InfixPunctAdded)* %{mono%}: ;
 
 !! glide epenthesis in nouns
 ! The glide յ is added when a) it follows ա , b) it's before nominal suffixes
@@ -230,8 +292,10 @@ Rules
 ! It's absent before definite suffix
 "Insert glide յ  in the context ա _ V-initial suffix "
 0:յ <=>  :ա _ :0* GeneralNInflBoundary: :0* RealVowelUR ;
-		except
-   	    	Monosyllable :0*	_  ;
+	!	except
+   	 !   	Monosyllable :0*	_  ; !not sure if this except clause does anything
+   	   ! 	%{mono%}: :0*	_  ; 
+   	    	
 !        :ա _ :0* GeneralNInflBoundary: :0* %{defն%}: ;
    	 
 ! Resources:

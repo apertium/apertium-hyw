@@ -22,7 +22,7 @@ LEXICON NonInfixalPunctuation
 )<rpar>:) 	# Right parenthesis 	
 ՚<apos>:՚		# Apostrophe, mostly used for combining a function words with verbs
 
-<clb>…:…		# Ellipses
+…<clb>:…		# Ellipses
 .<clb>:.		# Acts like a semicolon
 ՝<clb>:՝		# A weaker boundary than a semicolon
 

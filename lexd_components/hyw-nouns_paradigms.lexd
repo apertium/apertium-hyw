@@ -6,7 +6,7 @@
 # I don't use zero affixes for nominative or accusative
 # I don't separate syncretic genitive and dative
 # Not making եան declension because obsolete
-#Not making թեանց class or նեաց class From Hagopian grammar
+#Not making եաց class From Hagopian grammar
 
 ########################################
 ########################################
@@ -29,6 +29,7 @@ InfinitivalDecl
 AdjAdvDeclRegular
 NounOtherPOSDeclRegular
 NameDecl
+ParticipleDeclension
 
 #suffix-based declensions
 NounDeclUtjunSuffix
@@ -45,14 +46,12 @@ NounDeclOldFamilyOAblaut
 NounDeclOldAnForm
 NounDeclFamilyNkForm
 NounDeclOldRandomOAblaut
-NounDeclCountryOj
+NounDeclCountry
 
 #Irregular words
 NounDeclIrregReduce
 NounDeclIrregReducePoly
 
-#IrregularBucket
-IrregularBucket (Def|Poss)?
 
 PATTERN NounDeclRegular
 #Singular
@@ -82,16 +81,25 @@ NounIrregU NZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 PATTERN NameDecl
 # For names or proper nouns. Don't have the NouNInflBoundary to block glide deletion
+#COuntry names that take -ia suffix are in separate category
 #Singular
-Name [<np>:] CaseRegI? (Def|Poss)? 
+NameBase   CaseRegI? (Def|Poss)? 
 #Plural
-Name [<np>:]  NPlReg CaseRegU? (Def|Poss)? 
+NameBase    NPlReg CaseRegU? (Def|Poss)? 
 #Plural possessive (separate line for instrumental)
-Name [<np>:] NPlReg?  PossPl CaseRegPostPluralPoss Def|Poss
-Name [<np>:] NPlReg?  InsReg PossPl  Def|Poss
+NameBase   NPlReg?  PossPl CaseRegPostPluralPoss Def|Poss
+NameBase   NPlReg?  InsReg PossPl  Def|Poss
 
+PATTERN NameBase
+NameMaleGiven [<n><np><ant><m>:]
+NameFemaleGiven [<n><np><ant><f>:]
+NameMaleFemaleGiven [<n><np><ant><f_m>:]
+NameMaleGivenLocation [<n><np><ant_m_top>:]
+NameMaleFemaleGivenLocation [<n><np><ant_f_m_top>:]
+NameFemaleGivenLocation [<n><np><ant_f_top>:]
 
-
+NameFamily  [<n><np><pat>:]
+NameGivenUnclassified [<n><np><ant>:]
 
 PATTERN NounDeclIrregularTimeVan
 #optional normal case
@@ -127,7 +135,7 @@ NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)?
 NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
 NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 
-#For irregular հիմակուան
+#For irregular հիմակուան from հիմա
 NounTimeVanHima AdvZero
 NounTimeVanHima [:կ] AdvZero SubstZero NouNinflBoundary NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)? 
 #Plural
@@ -182,40 +190,91 @@ Infinitival  NSg0 CaseRegU (Def|Poss)?
 Infinitival   PossPl CaseRegPostPluralPoss Def|Poss
 Infinitival   InsReg PossPl  Def|Poss
 
+#Negation forms
+#Singular caseless definite
+:Neg Infinitival Neg: NSg0 (Def|Poss)
+:Neg Infinitival Neg:  NSg0 CaseRegU (Def|Poss)?
+#Plural possessive (separate line for instrumental)
+:Neg Infinitival Neg:   PossPl CaseRegPostPluralPoss Def|Poss
+:Neg Infinitival Neg:   InsReg PossPl  Def|Poss
+
+
+PATTERN ParticipleDeclension
+#Subject and perfect participle can take nominal inflection
+ParticipleInflectable SubstZero NouNinflBoundary NSg0  (Def|Poss)
+#With case, with/without definite
+ParticipleInflectable SubstZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+
+#Plural
+ParticipleInflectable SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+#Plural possessive (separate line for instrumental)
+ParticipleInflectable SubstZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+ParticipleInflectable SubstZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+
+#Negation forms
+:Neg ParticipleInflectable Neg: SubstZero NouNinflBoundary NSg0  (Def|Poss)
+#With case, with/without definite
+:Neg ParticipleInflectable Neg:  SubstZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+
+#Plural
+:Neg ParticipleInflectable Neg:  SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+#Plural possessive (separate line for instrumental)
+:Neg ParticipleInflectable Neg:  SubstZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+:Neg ParticipleInflectable Neg:  SubstZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+
+
+PATTERN ParticipleInflectable
+PerfectPart
+SubjectPart
+ProspectivePart
+
 PATTERN AdjAdvDeclRegular
 
 #Used as normal adjective/adverb
-AdjAdvBase
+AdjAdvBaseDegreed
 
 #Singular definite
 #Without case
-AdjAdvBase SubstZero NouNinflBoundary NSg0  (Def|Poss)
-AdjAdvBase SubstZero NouNinflBoundaryRed NSg0  (Def|Poss) # Dir/LR
+AdjAdvBaseDegreed SubstZero NouNinflBoundary NSg0  (Def|Poss)
+AdjAdvBaseDegreed SubstZero NouNinflBoundaryRed NSg0  (Def|Poss) # Dir/LR
 #With case, with/without definite
-AdjAdvBase SubstZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
-AdjAdvBase SubstZero NouNinflBoundaryRed NSg0 CaseRegI (Def|Poss)?  # Dir/LR
+AdjAdvBaseDegreed SubstZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+AdjAdvBaseDegreed SubstZero NouNinflBoundaryRed NSg0 CaseRegI (Def|Poss)?  # Dir/LR
 
 #Plural
-AdjAdvBase SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-AdjAdvBase SubstZero NouNinflBoundaryRed NPlReg CaseRegU? (Def|Poss)?  # Dir/LR
+AdjAdvBaseDegreed SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+AdjAdvBaseDegreed SubstZero NouNinflBoundaryRed NPlReg CaseRegU? (Def|Poss)?  # Dir/LR
 #Plural possessive (separate line for instrumental)
-AdjAdvBase SubstZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-AdjAdvBase SubstZero NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
-AdjAdvBase SubstZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-AdjAdvBase SubstZero NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss  # Dir/LR
+AdjAdvBaseDegreed SubstZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+AdjAdvBaseDegreed SubstZero NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+AdjAdvBaseDegreed SubstZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+AdjAdvBaseDegreed SubstZero NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss  # Dir/LR
 
-PATTERN AdjAdvBase
+
+PATTERN AdjAdvBaseDegreed
+#Adj with or without superlative prefix
+AdjAdvBaseSimple
+:AdjSuper AdjAdvBaseSimple AdjSuper:
+
+PATTERN AdjAdvBaseSimple
 #Bare adjectives
 AdjReg AdjZero
 #Bare adverbs
 AdvReg AdvZero
 #Multi-POS
-AdvAdjReg [<adv_adj>:]
-AdvAdjOren [<adv_adj>:]
+AdvAdjReg 	[<adv_adj>:] # Dir/LR
+AdvAdjOren 	[<adv_adj>:] #Dir/LR
+AdvAdjReg 	NouNinflBoundaryRed [<adv_adj>:] # Dir/LR
+AdvAdjOren 	NouNinflBoundaryRed [<adv_adj>:] #Dir/LR
 
 #Derived adverbs
-AdjReg [<adv>:օրէն]
-AdvAdjReg [<adv>:օրէն]
+AdjReg AdvOren
+AdjReg NouNinflBoundaryRed AdvOren # Dir/LR
+AdvAdjReg [<adj>:] AdvOren
+AdvAdjReg [<adj>:] NouNinflBoundaryRed AdvOren # Dir/LR
+NounAdjReg [<n_adj>:] AdvOren
+NounAdjReg [<n_adj>:] NouNinflBoundaryRed AdvOren # Dir/LR
+
 
 PATTERN NounOtherPOSDeclRegular
 
@@ -240,8 +299,8 @@ PATTERN NounDeclRisingClusters
 #This is for nouns like մեղր which can variably take եր ներ
 #Because of speaker-variation in syllabification
 
-NounRisingClusters NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?
-NounRisingClusters NZero NouNinflBoundaryRed NSg0 CaseRegI (Def|Poss)?   # Dir/LR
+NounRisingClusters NZero NouNinflBoundary NSg0 CaseRegI? (Def|Poss)?
+NounRisingClusters NZero NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)?   # Dir/LR
 
 NounRisingClusters NZero NouNinflBoundary NPlVary CaseRegU? (Def|Poss)? 
 NounRisingClusters NZero NouNinflBoundaryRed NPlVary CaseRegU? (Def|Poss)?    # Dir/LR
@@ -258,7 +317,7 @@ PATTERN NounDeclIrregMonoWithN
 #For nouns which take ներ prescriptively but not in practice
 #I give a special diacritic in the plural -ner so that it can trigger reduction
 #Singular մուկ մուկէ մկնէ 
-NounIrregMonoNerOld NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?
+NounIrregMonoNerOld NZero NouNinflBoundary NSg0 CaseRegI? (Def|Poss)?
 NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer NSg0 [:ն]? CaseRegI (Def|Poss)?   # Dir/LR
 #Plural
 #մուկեր
@@ -289,7 +348,7 @@ NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer NSg0|NPlNerOnly  InsReg P
 #For nouns which take ներ both prescriptively and in practice
 #It's just լեռ
 #Singular լեռէ լեռնէ
-NounIrregMonoNerStill NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?
+NounIrregMonoNerStill NZero NouNinflBoundary NSg0 CaseRegI? (Def|Poss)?
 NounIrregMonoNerStill NZero NouNinflBoundary [:ն] NSg0 CaseRegI (Def|Poss)?  # Dir/LR
 #Plural
 NounIrregMonoNerStill NZero NouNinflBoundary NPlNerOnly CaseRegU? (Def|Poss)? 
@@ -311,10 +370,13 @@ NounUtjunSuffix NUtjunSuffix NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?   
 
 #Plural 
 NounUtjunSuffix NUtjunSuffix  NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-
+#Archaic -թեանց for plural genitive/dat
+NounUtjunSuffix NZero NouNinflBoundary CaseUtjunArchaicPlural   # Dir/LR
 #Plural possessive (separate line for instrumental)
 NounUtjunSuffix NUtjunSuffix  NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
 NounUtjunSuffix NUtjunSuffix  NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+
+
 
 PATTERN NounDeclOldAnForm
 #These are nouns which can take -ան in the dative
@@ -437,22 +499,23 @@ NounRandomOBase NZero  NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPlural
 NounRandomOBase NZero  NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss  # Dir/LR
 
 
-PATTERN NounDeclCountryOj
+PATTERN NounDeclCountry
 # These are country nouns which take -ոյ- reduction in dative
 # անգլիա անգլիոյ պոլիս պոլսոյ
-
+#also includes normal countries
+# Add toponym feature
 #Singular caseless անգլիա
-NounCountryBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
+NounCountryBase  [<n><np><top>:] NouNinflBoundary NSg0 (Def|Poss)? 
 #Singular archaic case  անգլիոյ, must add infl boundary to get glide deletion անգլիոն
-NounCountryReduced NZero NouNinflBoundary NSg0  DatGenArchaicOj  NouNinflBoundary (Def|Poss)?   # Dir/LR
-#Singular regular case անգլիայի
-NounCountryBase  NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?  
+
+NounCountryBase   [<n><np><top>:] NouNinflBoundary NSg0 CaseRegI (Def|Poss)?  
 
 #Plural անգլիաներ
-NounCountryBase  NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+NounCountryBase [<n><np><top>:]  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
 #regularized plural possessive տուներնիս
-NounCountryBase NZero  NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounCountryBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+NounCountryBase  [<n><np><top>:] NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+NounCountryBase  [<n><np><top>:] NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+
 
 
 
@@ -462,8 +525,8 @@ PATTERN NounDeclFamilyNkForm
 #With no other cases
 #So this pattern only derives Վարդանանք Վարդանանց
 
-NounFamilyNkForm NNkSuffix NZero NouNinflBoundary NSg0  (Def|Poss)? 
-NounFamilyNkForm NZero NouNinflBoundary NSg0  NNkSuffixCaseNc  (Def|Poss)? 
+NounFamilyNkForm NNkSuffix [<n><np><pat>:] NouNinflBoundary NSg0  (Def|Poss)? 
+NounFamilyNkForm [<n><np><pat>:] NouNinflBoundary NSg0  NNkSuffixCaseNc  (Def|Poss)? 
  
  
  
@@ -532,10 +595,6 @@ NounIrregWomanBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 NounIrregWomanReduced NZero NouNinflBoundary [<pl>:այք]  PossPl CaseRegPostPluralPoss Def|Poss
 NounIrregWomanReduced NZero NouNinflBoundary [<dat_gen>:անց] CaseBoundaryM? InsReg PossPl Def|Poss
 
-
-
-
-
 # աստուած աստծոյ աստուծոյ աստուծմէ
 #Singular 
 NounIrregGod NZero NouNinflBoundary NSg0   (Def|Poss)? 
@@ -556,14 +615,19 @@ NounIrregGod NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss D
 NounIrregGod NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 
-# սէր սիրոյ
+# սէր սիրոյ հոգի հոգւոյն, սիրով մարմին մարմնոյ
 #Singular 
 NounLoveBase NZero NouNinflBoundary NSg0  (Def|Poss)? 
 #regular case 
 NounLoveBase NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?  
-# Archaic dative case  սիրոյ 
-#Have to force a boundary after ոյ to trigger glide deletion
-NounLoveReduced NZero NouNinflBoundary NSg0 DatGenArchaicOj NouNinflBoundary (Def|Poss)?   # Dir/LR
+#in case of high vowel reduction
+NounLoveBase NZero NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)?  # Dir/LR
+
+# Archaic dative case  սիրոյ սիրոյն
+#Can't have  boundary after ոյ to block glide deletion + force ն definite
+NounLoveReduced NZero NouNinflBoundary NSg0 DatGenArchaicOj ([<def>:ն]|Poss)?   # Dir/LR
+#սիրով սիրովն
+NounLoveReduced NZero NouNinflBoundary NSg0 InsReg ([<def>:ն]|Poss)?   # Dir/LR
 
 #Plural
 NounLoveBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
@@ -590,6 +654,57 @@ NounGirlBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss D
 NounGirlBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 
+#ճամբայ ճամբուն ճամբայի ճամբէն 
+
+#Singular 
+NounIrregRoadReduceBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
+# regular case ճամբայի
+NounIrregRoadReduceBase NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
+NounIrregRoadReduceBase NZero NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)? 
+#Reduced ճամբու ճամբէն 
+NounIrregRoadReduceReduced NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)?  
+NounIrregRoadReduceReduced NZero NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)?   # Dir/LR
+
+#Plural
+NounIrregRoadReduceBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+#Plural possessive (separate line for instrumental)
+NounIrregRoadReduceBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+NounIrregRoadReduceBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+
+
+#հաշիւ հաշուով
+#Singular 
+NounIrregCountReduceBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
+# regular case հաշիւիդ հաշւիդ 
+NounIrregCountReduceBase NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+NounIrregCountReduceBase NZero NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)?  # Dir/LR
+
+#Reduced հաշուի
+NounIrregCountReduceReduced NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?    # Dir/LR
+
+#Plural
+NounIrregCountReduceBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+#Plural possessive (separate line for instrumental)
+NounIrregCountReduceBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+NounIrregCountReduceBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+
+
+#For a bunch of words with frozen classical case-slots
+# անուն անունի անուան անուամբ
+#Regular form is norm
+IrregFrozenBase NZero NouNinflBoundary NSg0 CaseRegI? (Def|Poss)? 
+IrregFrozenBase NZero NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)?  # Dir/LR
+#frozen, i pushed the infletion feature inside the lexical entry
+IrregFrozenCase (Def|Poss)? 
+
+#Plural
+IrregFrozenBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+IrregFrozenBase NZero  NouNinflBoundaryRed NPlReg CaseRegU? (Def|Poss)? # Dir/LR
+#Plural possessive (separate line for instrumental)
+IrregFrozenBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+IrregFrozenBase NZero	 NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss # Dir/LR
+IrregFrozenBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+IrregFrozenBase NZero  NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss # Dir/LR
 
 
 
@@ -610,7 +725,6 @@ PATTERN CaseRegU
 #I allow the regular ի to be an optional form
 #This overgeneralized for infintivals and reduced irregulars like ամսի
 #NomAccReg
-DatGenRegI # Dir/LR
 DatGenRegU
 AblReg
 InsReg
@@ -627,6 +741,18 @@ PATTERNS
 
 #Relevant functional morphemes
 Indf
+
+##############
+##############
+##############
+#### Adjective morphemes
+##############
+##############
+LEXICON AdvOren
+<adv>:օրէն
+LEXICON AdjSuper
+<sup>:ամէնա # Dir/LR common misspelling
+<sup>:ամենա
 
 
 ##############
@@ -707,10 +833,10 @@ LEXICON NouNinflBoundaryRedForcedNer
 #<acc>:
 LEXICON DatGenRegI
 <dat_gen>:ի
-<dat_gen>:ու # In case of unexpected irregularization
+<dat_gen>:ու #Dir/LR In case of unexpected irregularization
 LEXICON DatGenRegU
 <dat_gen>:ու
-<dat_gen>:ի # In case of regularization
+<dat_gen>:ի #Dir/LR In case of regularization
 LEXICON AblReg
 <abl>:է
 LEXICON InsReg
@@ -720,6 +846,8 @@ LEXICON CaseUtjunArchaic
 <dat_gen>:թեան
 <abl>:թենէ
 <ins>:թեամբ
+LEXICON CaseUtjunArchaicPlural
+<pl><dat_gen>:թեանց
 
 LEXICON CaseTimeVan
 <dat_gen>:ուան
@@ -901,6 +1029,7 @@ LEXICON NounTimeVanAdv
 երբ:երբ
 առաջ:առաջ
 անգամ:անգամ
+հիմակ:հիմակ # this is a very rare word, more often just հիմա
 LEXICON NounTimeVanHima
 հիմա:հիմա #This word takes the time suffixes
 
@@ -992,11 +1121,17 @@ LEXICON NounIrregWomanReduced #I make hard-coded allomorphs տիկնայք տի�
 տիկին:տիկն
 տանտիկին:տանտիկն
 
-#The noun տարի suppletes to տարու for dative/genitive
-LEXICON NounIrregUReduceYearBase
-տարի:տարի
-LEXICON NounIrregUReduceYearReduced
-տարի:տար
+#The noun ճամբայ suppletes to  ճամբու for dative/genitive
+LEXICON NounIrregRoadReduceBase
+ճամբայ:ճամբայ
+LEXICON NounIrregRoadReduceReduced
+ճամբայ:ճամբ
+
+#The noun հաշիւ suppletes to հաշուով in irregulary reduced form
+LEXICON NounIrregCountReduceBase
+հաշիւ:հաշիւ
+LEXICON NounIrregCountReduceReduced
+հաշիւ:հաշու
 
 #The noun ասուած suppletes to աստծոյ աստուծոյ  for dative/genitive
 LEXICON NounIrregGod
@@ -1009,8 +1144,20 @@ LEXICON NounIrregGodNoVowel
 #The noun սէր reduces to սիրոյ  for dative/genitive
 LEXICON NounLoveBase
 սէր:սէր
+հոգի:հոգի
+ամուսին:ամուսին
+որդի:որդի
+եկեղեցի:եկեղեցի
+մարմին:մարմին
+խնդիր:խնդիր
 LEXICON NounLoveReduced
 սէր:սիր
+հոգի:հոգւ
+ամուսին:ամուսն
+որդի:որդւ
+եկեղեցի:եկեղեցւ
+մարմին:մարմն
+խնդիր:խնդր
 
 #The noun աղջիկ reduces to աղջկա աղջկան  for dative/genitive
 LEXICON NounGirlBase
@@ -1018,24 +1165,68 @@ LEXICON NounGirlBase
 LEXICON NounGirlReduced
 աղջիկ:աղջկ
 
+#For nouns which are regular except for fossilized archaic case-forms
+LEXICON IrregFrozenBase
+դուստր:դուստր
+կայսր:կայսր
+անուն:անուն
+հիմն:հիմն
+արիւն:արիւն
+LEXICON IrregFrozenCase
+դուստր<n><dat_gen>:դստեր
+կայսր<n><dat_gen>:կայսեր
+անուն<n><dat_gen>:անուան
+անուն<n><ins>:անուամբ
+հիմն<n><dat_gen>:հիման
+արիւն<n><dat_gen>:արեան
+արիւն<n><ins>:արեամբ
 
 #The country names անգլիա changes to անգլիոյ  for dative/genitive
+#Also regular nouns which never shift
 LEXICON NounCountryBase
 Անգլիա:Անգլիա
 Կիլիկիա:Կիլիկիա
 Պոլիս:Պոլիս
+Հայաստան:Հայաստան
 LEXICON NounCountryReduced
 Անգլիա:Անգլի
 Կիլիկիա:Կիլիկի
 Պոլիս:Պոլս
 
 
-LEXICON IrregularBucket
-#Words that are just fossilized forms
-հոգւոյ<n><dat_gen>:հոգւոյ 
 
-LEXICON Name
+LEXICON NameMaleGiven
 Յովսէփ:Յովսէփ
+LEXICON NameFemaleGiven
+Մարիամ:Մարիամ
+LEXICON NameGivenUnclassified
+#Given names that were taken from un-gendered lists
+Ամալյա:Ամալյա
+LEXICON NameFamily
+Տէօվլէթեան:Տէօվլէթեան
+Յովսէփեան:Յովսէփեան
+
+#This is just for quick use o# f just the noun-paradigm lexd
+# LEXICON NameMaleGivenLocation
+# Վան:Վան
+# LEXICON NameMaleFemaleGivenLocation
+# Վան:Վան
+# LEXICON AdvAdjReg
+# կրկնակի:կրկնակի
+# LEXICON AdvAdjOren
+# կրկնակի:կրկնակի
+# LEXICON AdvNounReg
+# կրկնակի:կրկնակի
+# LEXICON NounAdjReg
+# կրկնակի:կրկնակի
+# LEXICON Infinitival
+# կրկնակի:կրկնակի
+# LEXICON NameMaleFemaleGiven 
+# կրկնակի:կրկնակի
+# LEXICON NameFemaleGivenLocation
+# կրկնակի:կրկնակի
+
+
 #! Resources:
 #! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
 #! http://wiki.apertium.org/wiki/Lttoolbox_and_lexc
