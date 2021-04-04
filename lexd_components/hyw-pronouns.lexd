@@ -24,8 +24,8 @@ ReflexivePronoun  PossPl CaseRegPostPluralPoss Def|Poss
 ReflexivePronoun  InsReg PossPl  Def|Poss
 
 
-DemonstrativePronoun
-RelativePronoun (Def|Poss)?
+DemonstrativePronoun (Def|Poss)?
+RelativePronoun ((Def Def?)|Poss)?
 ReflexivePronounArchaic
 
 Quantifier [<qnt>:] CaseRegI? (Def|Poss)? 
