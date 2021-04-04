@@ -18,7 +18,7 @@
 ########################################
 
 #TO DO: fancy reduced words like սիրով անուան
-# TO DO: vowel reduction
+# TO DO: add attributive morphology but it's really hard to know what its distribution is: Dum-Tragut 2009 page 553, and it's mostly limited to spoken speech
 #TO DO: remove repetition in output like ամիսը by reorganizing declensions based on Number
 
 #All the main declension systems
