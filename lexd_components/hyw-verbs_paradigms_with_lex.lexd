@@ -56,6 +56,36 @@ InchBase InchEmpty  #<inch> marked by either covert or overt -n-
 CausativeVerbRoot VZero [<<tv>:]
 #Orthographic variants are separately handled based on the inflection lsot
 
+
+#Irregulars
+
+#Irregulars
+VerbRootNil(1)   VZero VerbRootNil(2):   (EmptyNasal? ThE)?  # անցնիլ group from Boyacioglu
+# VerbRootCilV(1)|VerbRootCilC(1)   VZero VerbRootCilV(2):|VerbRootCilC(2):     # կպչիլ group from Boyacioglu
+VerbRootCel(1)   VZero VerbRootCel(2):  (EmptyAffr? ThE)? # թռչել not in Boyacioglu
+VerbRootNelNale(1)  VZero VerbRootNelNale(2): (EmptyNasal? ThE)? #իջնել իջնալ
+VerbRootNelNala(1)   VZero VerbRootNelNala(2): (EmptyNasal ThA)?
+VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): (EmptyAffr? ThE)? 		#դպչիլ դպիլ 
+VerbRootCilIli(1) VZero VerbRootCilIli(2): (EmptyAffr? ThE)?
+
+
+VerbRootCry(1) VZero VerbRootCry(2): ThA   # լալ
+VerbRootBring(1) VZero VerbRootBring(2): ThE   # բերել
+# skip because listed in CausativeVerbRootOrthographicAffr
+#VerbRootTurnPres(1) VZero VerbRootBring(2): ThA Inf # դառնալ
+VerbRootSeeA(1)   VZero VerbRootSeeA(2): (EmptyNasal? ThA)?    # տեսնալ
+VerbRootSeeE(1)   VZero VerbRootSeeE(2): (EmptyNasal? ThE)?   # տեսնալ
+VerbRootPutPres(1) VZero VerbRootPutPres(2): ThE   # դնել
+VerbRooThEtPast(1) VZero VerbRooThEtPast(2): ThE   # զարնել
+VerbRootAccept(1) VZero VerbRootAccept(2): ThE   # ընդունիլ
+VerbRootFallPast(1) VZero VerbRootFallPast(2): ThA   # իյնալ
+VerbRootPlay(1) VZero VerbRootPlay(2):     # խաղալ
+VerbRootPlay(1) VZero VerbRootPlay(2): ThA   # Dir/LR խաղալ
+VerbRootStay(1) VZero VerbRootStay(2): ThA   # մնալ
+VerbRootSit(1) VZero VerbRootSit(2): ThE   # նստիլ
+VerbRootEatPast(1) VZero VerbRootEatPast(2):     # ուտել
+
+
 #Base of passive is root
 PATTERN PassBase
 VerbRootE(1) VZero VerbRootE(2): 
@@ -76,6 +106,32 @@ PassiveVerbRoot VZero [<iv>:]
 #Should I care that this will rarely be traversed? TO DO
 InchBase InchEmpty Aor 
   
+#Passives of irregular or suppletive verbs
+VerbRootNil(1) EmptyNasal VZero VerbRootNil(2):  # անցնիլ group from Boyacioglu
+# VerbRootCilV(1)|VerbRootCilC(1) EmptyAffr VZero VerbRootCilV(2):|VerbRootCilC(2): # կպչիլ group from Boyacioglu
+VerbRootCel(1) EmptyAffr VZero VerbRootCel(2):  # թռչել not in Boyacioglu
+VerbRootNelNale(1) EmptyNasal VZero VerbRootNelNale(2):  #իջնել իջնալ
+VerbRootNelNala(1) EmptyNasal VZero VerbRootNelNala(2): 
+VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): 		#դպչիլ դպիլ 
+VerbRootCilIli(1) VZero VerbRootCilIli(2): 
+
+VerbRootGivePast(1) VZero VerbRootGivePast(2):  # տալ
+VerbRootBring(1) VZero VerbRootBring(2):   # բերել
+VerbRootTurnPast(1) VZero VerbRootTurnPast(2):  # դառնալ
+VerbRootTake(1) EmptyNasal VZero VerbRootTake(2):  # առնել
+VerbRootSeeA(1) EmptyNasal VZero VerbRootSeeA(2):  # տեսնալ
+VerbRootSeeE(1) EmptyNasal VZero VerbRootSeeE(2):  # տեսնալ
+VerbRootOpenPast(1) VZero VerbRootOpenPast(2):  # բանալ
+VerbRootPutPast(1) VZero VerbRootPutPast(2):   # դնել
+VerbRootHitPres(1) VZero VerbRootHitPres(2):   # զարնել
+VerbRootAccept(1) VZero VerbRootAccept(2):   # ընդունիլ
+VerbRootDoPast(1) VZero VerbRootDoPast(2):   # ընել
+VerbRootSay(1) VZero VerbRootSay(2):  # ըսել
+VerbRootBite(1) EmptyNasal VZero VerbRootBite(2):   # խածնել
+VerbRootPlay(1) VZero VerbRootPlay(2):   # խաղալ
+VerbRootEatPres(1) VZero VerbRootEatPres(2):   # ուտել
+VerbRootSendPast(1) VZero VerbRootSendPast(2):   # տանիլ
+ 
 
 #Base of inchoative is root+th or root
 PATTERN InchBase

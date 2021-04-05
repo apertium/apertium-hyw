@@ -24,8 +24,8 @@ ReflexivePronoun  PossPl CaseRegPostPluralPoss Def|Poss
 ReflexivePronoun  InsReg PossPl  Def|Poss
 
 
-DemonstrativePronoun (Def|Poss)?
-RelativePronoun ((Def Def?)|Poss)?
+DemonstrativePronoun (Def|Poss)?  
+RelativePronoun ((Def Def?)|Poss)?   # Double Def is because of attributive like որունն է 
 ReflexivePronounArchaic
 
 Quantifier [<qnt>:] CaseRegI? (Def|Poss)? 
