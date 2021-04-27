@@ -226,9 +226,10 @@ InfixPunctAdded:0 <=> InfixPunctLexical: :*  _   ;
 ! For definite allomorphy, the input definite suffix is %{defն%} 
 ! It's a  ը after consonants, and ն after vowels
 ! Need the :0* context because of deleted glides
+! Need the ու line because of infixal punctuation creating *բո՝ւը
 "definite suffix is ն after vowels"
 %{defն%}:ն <=>   RealVowel  (:0|:InfixPunctAdded)* _ ;
- 				
+ 				:ո  (:0|:InfixPunctAdded)* :ւ _ ;
 		
 ! For plural allomorphy, the input plural suffix is %{Plն%}եր
 ! The rule will drop %{Plն%} after monosyllables, defined roughty as maximally CJVCCk

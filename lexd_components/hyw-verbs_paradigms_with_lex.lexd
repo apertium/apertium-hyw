@@ -46,8 +46,12 @@
 #Base of causative is root+th
 PATTERN CausBase
 VerbRootE(1) VZero VerbRootE(2): ThE 
+VerbRootE(1) VZero VerbRootE(2): ThA? # Dir/LR   to capture variation in theme-less or with mismatched vowel 
 VerbRootI(1) VZero VerbRootI(2): ThE #I'm just changing -i- to -e- directly
+VerbRootI(1) VZero VerbRootI(2): ThA? # Dir/LR   to capture variation in theme-less or with mismatched vowel 
 VerbRootA(1) VZero VerbRootA(2): ThA 
+VerbRootA(1) VZero VerbRootA(2): ThE? # Dir/LR   to capture variation in theme-less or with mismatched vowel  
+
 InchBase InchEmpty  #<inch> marked by either covert or overt -n-
 
 #This is for lexically listed causatives
@@ -60,23 +64,32 @@ CausativeVerbRoot VZero [<<tv>:]
 #Irregulars
 
 #Irregulars
-VerbRootNil(1)   VZero VerbRootNil(2):   (EmptyNasal? ThE)?  # անցնիլ group from Boyacioglu
+VerbRootNil(1)   VZero VerbRootNil(2):    ThE  # անցնիլ group from Boyacioglu
+VerbRootNil(1)   VZero VerbRootNil(2): (EmptyNasal  ThE)?  # Dir/LR   to capture variation in theme-less or infix-less
 # VerbRootCilV(1)|VerbRootCilC(1)   VZero VerbRootCilV(2):|VerbRootCilC(2):     # կպչիլ group from Boyacioglu
-VerbRootCel(1)   VZero VerbRootCel(2):  (EmptyAffr? ThE)? # թռչել not in Boyacioglu
-VerbRootNelNale(1)  VZero VerbRootNelNale(2): (EmptyNasal? ThE)? #իջնել իջնալ
-VerbRootNelNala(1)   VZero VerbRootNelNala(2): (EmptyNasal ThA)?
-VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): (EmptyAffr? ThE)? 		#դպչիլ դպիլ 
-VerbRootCilIli(1) VZero VerbRootCilIli(2): (EmptyAffr? ThE)?
+VerbRootCel(1)   VZero VerbRootCel(2):    ThE # թռչել not in Boyacioglu
+VerbRootCel(1)   VZero VerbRootCel(2): (EmptyAffr ThE)? # Dir/LR   to capture variation in theme-less or infix-less
+VerbRootNelNale(1)  VZero VerbRootNelNale(2):  ThE  #իջնել իջնալ
+VerbRootNelNale(1)  VZero VerbRootNelNale(2): (EmptyNasal ThE)? # Dir/LR   to capture variation in theme-less or infix-less
+VerbRootNelNala(1)   VZero VerbRootNelNala(2):   ThA 
+VerbRootNelNale(1)  VZero VerbRootNelNale(2): (EmptyNasal ThA)? # Dir/LR   to capture variation in theme-less or infix-less
+VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2):  ThE  		#դպչիլ դպիլ 
+VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): (EmptyAffr ThE)? # Dir/LR   to capture variation in theme-less or infix-less
+VerbRootCilIli(1) VZero VerbRootCilIli(2):  ThE 
+VerbRootCilIli(1) VZero VerbRootCilIli(2): (EmptyAffr ThE)? # Dir/LR   to capture variation in theme-less or infix-less
 
 
 VerbRootCry(1) VZero VerbRootCry(2): ThA   # լալ
 VerbRootBring(1) VZero VerbRootBring(2): ThE   # բերել
+VerbRootBring(1) VZero VerbRootBring(2): ThE? # Dir/LR   to capture variation in theme-les
 # skip because listed in CausativeVerbRootOrthographicAffr
 #VerbRootTurnPres(1) VZero VerbRootBring(2): ThA Inf # դառնալ
-VerbRootSeeA(1)   VZero VerbRootSeeA(2): (EmptyNasal? ThA)?    # տեսնալ
-VerbRootSeeE(1)   VZero VerbRootSeeE(2): (EmptyNasal? ThE)?   # տեսնալ
+VerbRootSeeA(1)   VZero VerbRootSeeA(2):     # տեսնալ
+VerbRootSeeA(1) VZero VerbRootSeeA(2): (EmptyNasal? ThE)? # Dir/LR   to capture variation in theme-less or infix-less
+VerbRootSeeE(1)   VZero VerbRootSeeE(2):    # տեսնալ
+VerbRootSeeE(1) VZero VerbRootSeeE(2): (EmptyNasal? ThA)? # Dir/LR   to capture variation in theme-less or infix-less
 VerbRootPutPres(1) VZero VerbRootPutPres(2): ThE   # դնել
-VerbRooThEtPast(1) VZero VerbRooThEtPast(2): ThE   # զարնել
+VerbRootHitPast(1) VZero VerbRootHitPast(2): ThE   # զարնել
 VerbRootAccept(1) VZero VerbRootAccept(2): ThE   # ընդունիլ
 VerbRootFallPast(1) VZero VerbRootFallPast(2): ThA   # իյնալ
 VerbRootPlay(1) VZero VerbRootPlay(2):     # խաղալ
@@ -84,6 +97,7 @@ VerbRootPlay(1) VZero VerbRootPlay(2): ThA   # Dir/LR խաղալ
 VerbRootStay(1) VZero VerbRootStay(2): ThA   # մնալ
 VerbRootSit(1) VZero VerbRootSit(2): ThE   # նստիլ
 VerbRootEatPast(1) VZero VerbRootEatPast(2):     # ուտել
+VerbRootEatPres(1) VZero VerbRootEatPres(2):  ThE   # Dir/LR
 
 
 #Base of passive is root
@@ -108,19 +122,27 @@ InchBase InchEmpty Aor
   
 #Passives of irregular or suppletive verbs
 VerbRootNil(1) EmptyNasal VZero VerbRootNil(2):  # անցնիլ group from Boyacioglu
+VerbRootNil(1) VZero VerbRootNil(2):  # Dir/LR to capture variation in infix-drop
 # VerbRootCilV(1)|VerbRootCilC(1) EmptyAffr VZero VerbRootCilV(2):|VerbRootCilC(2): # կպչիլ group from Boyacioglu
 VerbRootCel(1) EmptyAffr VZero VerbRootCel(2):  # թռչել not in Boyacioglu
+VerbRootCel(1) 		 	VZero VerbRootCel(2):  # Dir/LR to capture variation in infix-drop
 VerbRootNelNale(1) EmptyNasal VZero VerbRootNelNale(2):  #իջնել իջնալ
+VerbRootNelNale(1)  VZero VerbRootNelNale(2):  # Dir/LR to capture variation in infix-drop
 VerbRootNelNala(1) EmptyNasal VZero VerbRootNelNala(2): 
+VerbRootNelNala(1)  VZero VerbRootNelNala(2):  # Dir/LR to capture variation in infix-drop
 VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): 		#դպչիլ դպիլ 
+VerbRootCilIlc(1) VZero VerbRootCilIlc(2):  # Dir/LR to capture variation in infix-drop
 VerbRootCilIli(1) VZero VerbRootCilIli(2): 
 
 VerbRootGivePast(1) VZero VerbRootGivePast(2):  # տալ
 VerbRootBring(1) VZero VerbRootBring(2):   # բերել
 VerbRootTurnPast(1) VZero VerbRootTurnPast(2):  # դառնալ
 VerbRootTake(1) EmptyNasal VZero VerbRootTake(2):  # առնել
+VerbRootTake(1)  VZero VerbRootTake(2):  # Dir/LR to capture variation in infix-drop
 VerbRootSeeA(1) EmptyNasal VZero VerbRootSeeA(2):  # տեսնալ
+VerbRootSeeA(1)  VZero VerbRootSeeA(2):  # Dir/LR to capture variation in infix-drop
 VerbRootSeeE(1) EmptyNasal VZero VerbRootSeeE(2):  # տեսնալ
+VerbRootSeeE(1)  VZero VerbRootSeeE(2):  # Dir/LR to capture variation in infix-drop
 VerbRootOpenPast(1) VZero VerbRootOpenPast(2):  # բանալ
 VerbRootPutPast(1) VZero VerbRootPutPast(2):   # դնել
 VerbRootHitPres(1) VZero VerbRootHitPres(2):   # զարնել
@@ -128,7 +150,8 @@ VerbRootAccept(1) VZero VerbRootAccept(2):   # ընդունիլ
 VerbRootDoPast(1) VZero VerbRootDoPast(2):   # ընել
 VerbRootSay(1) VZero VerbRootSay(2):  # ըսել
 VerbRootBite(1) EmptyNasal VZero VerbRootBite(2):   # խածնել
-VerbRootPlay(1) VZero VerbRootPlay(2):   # խաղալ
+VerbRootBite(1)  VZero VerbRootBite(2):   # Dir/LR to capture variation in infix-drop
+VerbRootPlay(1) VZero VerbRootPlay(2): Aor  # խաղալ
 VerbRootEatPres(1) VZero VerbRootEatPres(2):   # ուտել
 VerbRootSendPast(1) VZero VerbRootSendPast(2):   # տանիլ
  
@@ -1052,19 +1075,19 @@ LEXICON PastAgrGoYes3Sg #For գացի գնաց
 LEXICON ImpSg
 <imp><p2><sg>:{ImpSg} #was {եէ} # had ՛
 LEXICON ImpSgR 
-<imp><p2><sg><punct>:ր #Don't add the {ImpSg} tag so that don't trigger i->e change, had ՛
+<imp><p2><sg>:ր #Don't add the {ImpSg} tag so that don't trigger i->e change, had ՛
 LEXICON ImpSgIR 
-<imp><p2><sg><punct>:իր # had ՛ 
+<imp><p2><sg>:իր # had ՛ 
 LEXICON ImpSgUR 
-<imp><p2><sg><punct>:ուր # had ՛ 
+<imp><p2><sg>:ուր # had ՛ 
 
 
 LEXICON ImpSgInternalMark #Mark is added at end of verb; will later metathesize
-<imp><p2><sg><punct>: # had ՛
+<imp><p2><sg>: # had ՛
 
  
 LEXICON ImpPl
-<imp><p2><pl><punct>:էք # had ՛
+<imp><p2><pl>:էք # had ՛
 
 LEXICON ProhAgr
 <p2><sg>:ր
@@ -1081,7 +1104,7 @@ LEXICON IndcShort
 
 
 LEXICON Proh
-մի<pro><proh><punct>:մի #had ՛
+մի<pro><proh>:մի #had ՛
 
 LEXICON Prog
 կոր<enc><prog>:կոր
