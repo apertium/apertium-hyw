@@ -303,6 +303,7 @@ SubjectPart
 ProspectivePart
 
 PATTERN AdjAdvDeclRegular
+#Exploit this for definite-marked adverbs like ընդամէնը. would be nice to remove the subst feature from them TO DO
 
 #Used as normal adjective/adverb
 AdjAdvBaseDegreed
