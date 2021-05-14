@@ -1,4 +1,4 @@
-
+ 
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #!!!  M O R P H O T A C T I C S  !!!
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -225,7 +225,7 @@ NounIrregUReducePoly NZero NouNinflBoundaryRed NSg0 CaseRegU (Def|Poss)?   # Dir
 
 #attributive
 NounIrregUReducePoly NZero NSg0 NouNinflBoundary AttributiveGenIDef|AttributiveInst
-NounIrregUReducePoly NZero NSg0 NouNinflBoundaryRed AttributiveGeIUDef|AttributiveInst   # Dir/LR
+NounIrregUReducePoly NZero NSg0 NouNinflBoundaryRed AttributiveGenIDef|AttributiveInst   # Dir/LR
 NounIrregUReducePoly NZero NouNinflBoundaryRed NSg0 AttributiveGenUDef|AttributiveInst   # Dir/LR
 
 #Because polysyllabic, no need for reduction boundary
@@ -1146,7 +1146,9 @@ LEXICON Def
 
 LEXICON Poss
 <px1sg>:ս
+<px1sg>:ըս # Dir/LR  -- in case of typos because EANC has this rule
 <px2sg>:դ
+<px2sg>:ըդ # Dir/LR  -- in case of typos because EANC has this rule
 
 LEXICON PossPl
 # Spurious plural -er- is added before -ni 
