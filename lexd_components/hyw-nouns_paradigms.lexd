@@ -497,8 +497,8 @@ NounUtjunSuffix NUtjunSuffix  NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRe
 NounUtjunSuffix NUtjunSuffix  NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 
-#attributive, i assume no archaic cases
-NounUtjunSuffix NUtjunSuffix NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
+#attributive, arak included թեանիս
+NounUtjunSuffix  NZero NouNinflBoundary NSg0 AttributiveUtjun
 NounUtjunSuffix NUtjunSuffix  NZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
 
 
@@ -522,6 +522,11 @@ NounUmSuffix NUmSuffixReduced NZero NouNinflBoundary NSg0 DatGenArchaicAn (Def|P
 #Singular regular case
 NounUmSuffix NUmSuffixBase NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?   # Dir/LR
 NounUmSuffix NUmSuffixBase NZero NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)?  
+#Singular archaic oblique cases like ուսմանէ ուսմամբ
+NounUmSuffix NUmSuffixReduced NZero NouNinflBoundary NSg0 DatGenArchaicAn AblReg (Def|Poss)? # Dir/LR
+NounUmSuffix NUmSuffixReduced NZero NouNinflBoundary NSg0 InstArchaicAmp (Def|Poss)? # Dir/LR
+
+
 
 #Plural (already know it's polysyllabic)
 NounUmSuffix NUmSuffixBase NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
@@ -931,6 +936,11 @@ PATTERN AttributiveUm
 NUmSuffixReduced DatGenArchaicAn  [+NP:] AttributiveDefinitePostInflection #Dir/LR
 NUmSuffixBase DatGenRegI  Def   [+NP:] AttributiveDefinitePostInflection
 NUmSuffixBase InsReg [+NP:] AttributiveInstrumentalPostInflection #Dir/LR
+PATTERN AttributiveUtjun
+# archaic forms like թեանէն
+CaseUtjunArchaic   [+NP:] AttributiveDefinitePostInflection #Dir/LR 
+NUtjunSuffix AttributiveGenIDef|AttributiveInst
+
 PATTERN AttributiveOch
 #special ones for the och forms
 DatGenArchaicOch [+NP:] AttributiveDefinitePostInflection
@@ -1118,6 +1128,9 @@ LEXICON DatGenArchaicAn
 LEXICON DatGenArchaicAnAj
 <dat_gen>:ան
 <dat_gen>:այ
+
+LEXICON InstArchaicAmp
+<ins>:ամբ
 
 
 LEXICON DatGenArchaicOch
@@ -1320,9 +1333,11 @@ LEXICON NounFamilyOchBase
 քոյր:քոյր
 սկեսուր:սկեսուր
 մօրաքոյր:մօրաքոյր{mono}
+տէր:տէր
 LEXICON NounFamilyOchReduced
 կին:կն
 քոյր:քր
+տէր:տիր
 սկեսուր:սկեսր
 մօրաքոյր:մօրաքր
 

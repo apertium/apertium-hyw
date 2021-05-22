@@ -697,6 +697,15 @@ CausBase CausPast Aor PerfPart
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor PerfPart
 CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPast Aor PerfPart
 
+### Arak had հարցուցուած as perfect participle of passivized causative, even though also had հարցուիլ
+### Just to be safe, I optionally insert the past+aorist for this construction
+## TO DO: Clarify from Arak29 if this is a glitch
+CausBase CausPast Aor Pass PerfPart   # Dir/LR
+CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor Pass PerfPart   # Dir/LR
+CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPast Pass Aor PerfPart   # Dir/LR
+
+
+
 PassBase Pass PerfPart
 
 InchBase InchEmpty Aor PerfPart
