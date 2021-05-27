@@ -1,6 +1,6 @@
 AC_PREREQ(2.52)
 
-AC_INIT([Apertium hyw], [0.1.0], [hovdeov@gmail.com], [apertium-hyw], [http://wiki.apertium.org/wiki/Apertium-hyw])
+AC_INIT([Apertium hyw], [0.1.0], [hovdeov@gmail.com], [apertium-hyw], [https://wiki.apertium.org/wiki/Apertium-hyw])
 AM_INIT_AUTOMAKE
 AC_PROG_AWK
 

@@ -1485,13 +1485,13 @@ LEXICON NameFamily
 
 
 #! Resources:
-#! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
-#! http://wiki.apertium.org/wiki/Lttoolbox_and_lexc
-#! http://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
+#! https://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
+#! https://wiki.apertium.org/wiki/Lttoolbox_and_lexc
+#! https://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
 #! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
 #! https://github.com/hfst/
 #! http://www.cis.upenn.edu/~cis639/docs/lexc.html
-#! http://wiki.apertium.org/wiki/Hfst
+#! https://wiki.apertium.org/wiki/Hfst
 
 
 
@@ -2881,13 +2881,13 @@ LEXICON VerbRootSendPast(2)
 տանիլ:տար <tv>
 
 #! Resources:
-#! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
-#! http://wiki.apertium.org/wiki/Lttoolbox_and_lexc
-#! http://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
+#! https://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
+#! https://wiki.apertium.org/wiki/Lttoolbox_and_lexc
+#! https://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
 #! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
 #! https://github.com/hfst/
 #! http://www.cis.upenn.edu/~cis639/docs/lexc.html
-#! http://wiki.apertium.org/wiki/Hfst
+#! https://wiki.apertium.org/wiki/Hfst
 
 
 
@@ -26858,13 +26858,13 @@ LEXICON Quantifier
 
 
 #! Resources:
-#! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
-#! http://wiki.apertium.org/wiki/Lttoolbox_and_lexc
-#! http://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
+#! https://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
+#! https://wiki.apertium.org/wiki/Lttoolbox_and_lexc
+#! https://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
 #! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
 #! https://github.com/hfst/
 #! http://www.cis.upenn.edu/~cis639/docs/lexc.html
-#! http://wiki.apertium.org/wiki/Hfst
+#! https://wiki.apertium.org/wiki/Hfst
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 #!!!  M O R P H O T A C T I C S  !!!
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -27073,13 +27073,13 @@ LEXICON DeclinablePostposition
 
 
 #! Resources:
-#! http://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
-#! http://wiki.apertium.org/wiki/Lttoolbox_and_lexc
-#! http://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
+#! https://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Lexicon
+#! https://wiki.apertium.org/wiki/Lttoolbox_and_lexc
+#! https://wiki.apertium.org/wiki/Apertium-specific_conventions_for_lexc
 #! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
 #! https://github.com/hfst/
 #! http://www.cis.upenn.edu/~cis639/docs/lexc.html
-#! http://wiki.apertium.org/wiki/Hfst
+#! https://wiki.apertium.org/wiki/Hfst
 
 
 
