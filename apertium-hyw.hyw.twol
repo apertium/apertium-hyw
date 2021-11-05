@@ -148,48 +148,25 @@ Rules
 !!! Infixal punctuation
 !The lexd file adds an infixal punctuation at end of every word
 !This marker must metathesize into the rightmost full vowel (=stressed vowel) in regular cases irregular verbs have a C-final imperative, but the exlamation mark is inside the verb
-"delete the exclamation mark when it follows a consonant"
-՛:0 <=> (:Cons|:ը) :0* _ :0* .#. ;
-"metathesize exclamation mark"
-0:՛ <=> :NonSchwaVowel _ :0* (:Cons* | :ը* | :0*)*  (:Cons | :ը*)  :0*  ՛:0 .#. ;
-	except
-		InfixPunctLexical: :*  _  ;
 
-"delete the question mark when it follows a consonant"
-՞:0 <=>  (:Cons|:ը) :0* _ :0* .#. ;
-"metathesize question mark"
-0:՞ <=> :NonSchwaVowel _  :0* (:Cons* | :ը* | :0*)*  (:Cons | :ը*)  :0*  ՞:0  .#. ;
-	except
-		InfixPunctLexical: :*  _  ;
+"delete punctuation after consonant"
+InfixPunctAdded:0 <=> (:Cons|:ը) :0* _ :0* .#. ;
+                      InfixPunctLexical: :* _ ;
 
-"delete the vocative mark when it follows a consonant"
-՜:0 <=>  (:Cons|:ը)  :0* _ :0* .#. ;
-"metathesize vocative mark"
-0:՜ <=> :NonSchwaVowel _  :0* (:Cons* | :ը* | :0*)*  (:Cons | :ը*)  :0*  ՜:0  .#. ;
-	except
-		InfixPunctLexical: :*  _  ;
+"metathesize punctuation"
+0:Px <=> :NonSchwaVowel _ :0* (:Cons* | :ը* | :0*)* (:Cons | :ը*) :0* Px:0 .#. ;
+         except InfixPunctLexical: :* _ ;
+         where Px in InfixPunctAdded ;
 
-"deleted added punctuation if the word already has punctuation"
-InfixPunctAdded:0 <=> InfixPunctLexical: :*  _   ;
+!"if the word has a exclamation punctuation, then it takes the quality of the added exclamation punctuation"
+!"if the word has a exclamation punctuation, then it takes the quality of the added question punctuation"
+!"if the word has a exclamation punctuation, then it takes the quality of the added vocative punctuation"
 
-"if the word has a exclamation punctuation, then it takes the quality of the added exclamation punctuation"
-%{՜%}:՛  <=> _ :* ՛:0 .#. ;
-"if the word has a exclamation punctuation, then it takes the quality of the added question punctuation"
-%{՜%}:՞  <=> _ :* ՞:0 .#. ;
-"if the word has a exclamation punctuation, then it takes the quality of the added vocative punctuation"
-%{՜%}:՜  <=> _ :* ՜:0 .#. ;
-"if the word has a question punctuation, then it takes the quality of the added exclamation punctuation"
-%{՞%}:՛  <=> _ :* ՛:0 .#. ;
-"if the word has a question punctuation, then it takes the quality of the added question punctuation"
-%{՞%}:՞  <=> _ :* ՞:0 .#. ;
-"if the word has a question punctuation, then it takes the quality of the added vocative punctuation"
-%{՞%}:՜  <=> _ :* ՜:0 .#. ;
-"if the word has a vocative punctuation, then it takes the quality of the added exclamation punctuation"
-%{՜%}:՛  <=> _ :* ՛:0 .#. ;
-"if the word has a vocative punctuation, then it takes the quality of the added question punctuation"
-%{՜%}:՞  <=> _ :* ՞:0 .#. ;
-"if the word has a vocative punctuation, then it takes the quality of the added vocative punctuation"
-%{՜%}:՜  <=> _ :* ՜:0 .#. ;
+"lexical punctuation"
+Px:Py <=> _ :* Py:0 .#. ;
+          where Px in ( %{՜%} %{՞%} %{՜%} )
+                Py in ( ՛ ՞ ՜ )
+          mixed ;
 
 !!!!! THEME VOWEL CHANGES
 !In many contexts, the  ի theme vowel becomes է
@@ -205,13 +182,12 @@ InfixPunctAdded:0 <=> InfixPunctLexical: :*  _   ;
 
 !In some contexts, the ի theme vowel becomes ե
 ! These contexts  are part of IToJe
-"theme vowel /իIToJe}/ to [ե]"
-ի:ե  <=>   _  0:* IToJe: ;
-
+!"theme vowel /իIToJe}/ to [ե]
 !When there's a full vowel after the infinitival, the ի theme vowel becomes ե
 !Needed finessing in order to apply across zero morphs and consonants liek նի
 "theme vowel /ի{լ}V/ to [ե]"
-ի:ե  <=>   _  %{լ%}:  [ :0 | :Cons ]*  FullVowel ;
+ի:ե  <=>   _  0:* IToJe: ;
+           _  %{լ%}:  [ :0 | :Cons ]*  FullVowel ;
 
 !When there's a full vowel after the infinitival, the ու theme vowel becomes ե
 "theme vowel /ու/ to [ե]"
@@ -262,13 +238,13 @@ InfixPunctAdded:0 <=> InfixPunctLexical: :*  _   ;
 ! I capture that by using a morpheme boundary %{NinflRed%} that's only found
 ! between nouns and inflection for reduction
 "Delete ի if before a vowel-initial suffix, with 1 or more consonants between them; can be forced before -ner in some lexemes"
-ի:0 <=> _ :Cons :Cons* (:0)* %{NinflRed%}: (:0)*  FullVowel ; 
-		_ :Cons :Cons* (:0)* %{NinflRedForcedNer%}:  ; 
+ի:0 => _ :Cons+ :0* %{NinflRed%}: :0*  FullVowel ;
+		_ :Cons+ :0* %{NinflRedForcedNer%}:  ;
 "Delete ու  if before a vowel-initial suffix, with 1 or more consonants between them (part 1); can be forced before -ner in some lexemes"
-ո:0 <=> _ ւ: :Cons :Cons* (:0)* %{NinflRed%}: (:0)*  FullVowel ;
+ո:0 => _ ւ: :Cons :Cons* (:0)* %{NinflRed%}: (:0)*  FullVowel ;
 		_ ւ: :Cons :Cons* (:0)* %{NinflRedForcedNer%}:  ; 
 "Delete ու  if before a vowel-initial suffix, with 1 or more consonants between them (part 2); can be forced before -ner in some lexemes"
-ւ:0 <=> ո: _  :Cons :Cons* (:0)* %{NinflRed%}: (:0)*  FullVowel ;
+ւ:0 => ո: _  :Cons :Cons* (:0)* %{NinflRed%}: (:0)*  FullVowel ;
 		ո: _  :Cons :Cons* (:0)* %{NinflRedForcedNer%}:  ; 
 
 
@@ -279,13 +255,10 @@ InfixPunctAdded:0 <=> InfixPunctLexical: :*  _   ;
 ! But not for monosyllabic nouns
 ! It's deleted before definite suffix
 "Delete glide յ  in the context ա/ո _ C-initial suffix "
-յ:0 <=>  :ա (:0|:InfixPunctAdded)* _  (:0|:InfixPunctAdded)* GeneralNInflBoundary:  (:0|:InfixPunctAdded)*  :Cons ;
-        :ա (:0|:InfixPunctAdded)* _  (:0|:InfixPunctAdded)* GeneralNInflBoundary:  (:0|:InfixPunctAdded)* %{defն%}: ;
-		:ո (:0|:InfixPunctAdded)* _  (:0|:InfixPunctAdded)* GeneralNInflBoundary:  (:0|:InfixPunctAdded)*  :Cons ;
-        :ո (:0|:InfixPunctAdded)* _  (:0|:InfixPunctAdded)* GeneralNInflBoundary:  (:0|:InfixPunctAdded)*  %{defն%}: ;
+յ:0 <=>  [ :ա | :ո ] :0* _ :0* GeneralNInflBoundary: :0* [ :Cons | %{defն%}: ] ;
 		except
-   	    	Monosyllable (:0|:InfixPunctAdded)*	_  ;
-   	    	 	_ (:0|:InfixPunctAdded)* %{mono%}: ;
+   	    	Monosyllable :0*	_  ;
+   	    	_ :0* %{mono%}: ;
 
 !! glide epenthesis in nouns
 ! The glide յ is added when a) it follows ա , b) it's before nominal suffixes

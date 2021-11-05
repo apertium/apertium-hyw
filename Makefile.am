@@ -10,7 +10,7 @@ LEXD_FILES=  \
 	   lexd_components/$(LANG1)-verbs_paradigms_with_lex.lexd  \
 	   lexd_components/$(LANG1)-verbs_obs.lexd  \
 	   lexd_components/$(LANG1)-verbs_irreg.lexd \
- 	   lexd_components/$(LANG1)-verbs_reg.lexd \
+	   lexd_components/$(LANG1)-verbs_reg.lexd \
 	   lexd_components/$(LANG1)-verbs_kouyoumdjian.lexd \
 	   lexd_components/$(LANG1)-nouns_lex_irreg.lexd \
        lexd_components/$(LANG1)-nouns_lex_suffixbased.lexd \
@@ -23,7 +23,7 @@ LEXD_FILES=  \
 	   lexd_components/$(LANG1)-adjective_adverb_list.lexd \
 	   lexd_components/$(LANG1)-ambiguousPOS.lexd \
 	   lexd_components/$(LANG1)-nouns_regular_list.lexd \
-	   lexd_components/$(LANG1)-other.lexd  \	    
+	   lexd_components/$(LANG1)-other.lexd  \
 	   lexd_components/$(LANG1)-added_essayan.lexd   
 
 TARGETS_COMMON =			\
