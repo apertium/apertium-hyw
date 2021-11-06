@@ -19,9 +19,9 @@ PersonalPronoun
 SubstantivePronoun
 ReciprocalPronoun
 
-ReflexivePronoun  CaseRegI? (Def|Poss)
-ReflexivePronoun  PossPl CaseRegPostPluralPoss Def|Poss
-ReflexivePronoun  InsReg PossPl  Def|Poss
+ReflexivePronoun  CaseRegI? (Def|Poss)?
+ReflexivePronoun  PossPl CaseRegPostPluralPoss Def|Poss?
+ReflexivePronoun  InsReg PossPl  Def|Poss?
 
 
 DemonstrativePronoun (Def|Poss)?  
@@ -55,7 +55,9 @@ LEXICON PersonalPronoun
 ես<prn><acc><sg><p1>:ինձ  # Dir/LR
 ես<prn><acc><sg><p1>:ինծի
 ես<prn><abl><sg><p1>:ինձմէ
+ես<prn><abl><sg><p1>:ինծմէ  # Dir/LR
 ես<prn><ins><sg><p1>:ինձմով
+ես<prn><ins><sg><p1>:ինծմով  # Dir/LR
 
 մենք<prn><nom><pl><p1>:մենք
 մենք<prn><gen><pl><p1>:մեր
@@ -364,6 +366,7 @@ LEXICON DemonstrativePronoun
 այն<prn><dem><dst><sg><gen_dat>:անոր   
 այն<prn><dem><dst><sg><acc>:այն
 այն<prn><dem><dst><sg><acc>:անիկա # Dir/LR 
+այն<prn><dem><dst><sg><acc>:զանիկա # Dir/LR 
 այն<prn><dem><dst><sg><acc>:զայն # Dir/LR 
 այն<prn><dem><dst><sg><abl>:անկէ
 այն<prn><dem><dst><sg><abl>:այնկէ # Dir/LR 
@@ -377,6 +380,7 @@ LEXICON DemonstrativePronoun
 անոնք<prn><dem><dst><pl><nom>:անոնք  # these
 անոնք<prn><dem><dst><pl><gen_dat>:անոնց
 անոնք<prn><dem><dst><pl><acc>:անոնք
+անոնք<prn><dem><dst><pl><acc>:զանոնք # Dir/LR 
 անոնք<prn><dem><dst><pl><abl>:անոնցմէ
 անոնք<prn><dem><dst><pl><ins>:անոնցմով
 

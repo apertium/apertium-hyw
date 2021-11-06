@@ -985,6 +985,7 @@ LEXICON Inf
 #Allomorphs of causative
 LEXICON CausPres
 <caus>:ցն
+<caus>:ցըն # Dir/LR in case theres orthographic variation for some causative
 
 LEXICON CausPast
 <caus>:ցու

@@ -779,10 +779,11 @@ NounIrregWomanBase NZero  NouNinflBoundary NPlReg AttributiveGenUDef|Attributive
 NounIrregGod NZero NouNinflBoundary NSg0   (Def|Poss)? 
 #Regular case
 NounIrregGod NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?  # Dir/LR
-# Archaic dative case  աստծոյ աստուծոյ
-#Have to force a boundary after ոյ to trigger glide deletion
-NounIrregGodNoVowel NZero NouNinflBoundary NSg0 DatGenArchaicOj NouNinflBoundary (Def|Poss)?  #Dir/LR
+# Archaic dative case  աստծոյ աստուծոյ աստուծոյն
+#Have to variably force a boundary after ոյ to trigger glide deletion
+NounIrregGodNoVowel NZero NouNinflBoundary NSg0 DatGenArchaicOj NouNinflBoundary? (Def|Poss)?  #Dir/LR
 NounIrregGodReducedU NZero NouNinflBoundary NSg0 DatGenArchaicOj NouNinflBoundary (Def|Poss)? 
+NounIrregGodReducedU NZero NouNinflBoundary NSg0 DatGenArchaicOj Def|Poss #Dir/LR
 # Archaic oblique case with nasal   աստուծմէ
 NounIrregGodReducedU NZero NouNinflBoundary NSg0 CaseBoundaryM CaseRegOblique (Def|Poss)? 
 
@@ -844,7 +845,7 @@ NounGirlBase NZero NouNinflBoundary NSg0 AttributiveInst
 NounGirlBase NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
 
 
-#ճամբայ ճամբուն ճամբայի ճամբէն 
+#ճամբայ ճամբուն ճամբայի ճամբէն , էշ էշու իշու էշէ իշէ
 
 #Singular 
 NounIrregRoadReduceBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
@@ -916,6 +917,30 @@ IrregFrozenBase NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
 IrregFrozenBase NZero NouNinflBoundaryRed NSg0 AttributiveGenIDef|AttributiveInst  # Dir/LR
 IrregFrozenBase NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
 IrregFrozenBase NZero  NouNinflBoundaryRed NPlReg AttributiveGenUDef|AttributiveInst # Dir/LR
+
+
+# for words with optional syncope of non-high vowel in declined forms like բերան բերնի
+NounSyncopeBase
+#Singular  բերանը
+NounSyncopeBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
+# regular case բերանիդ  բերանէդ
+NounSyncopeBase NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+NounSyncopeBase NZero NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)?  # Dir/LR
+
+#Reduced բերնիդ բերնէդ
+NounSyncopeReduced NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?    # Dir/LR
+
+#Plural բերաններ
+NounSyncopeBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+#Plural possessive (separate line for instrumental)
+NounSyncopeBase NZero  NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+NounSyncopeBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+
+#attributive
+NounSyncopeBase NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
+NounSyncopeBase NZero NouNinflBoundaryRed NSg0 AttributiveGenIDef|AttributiveInst # Dir/LR
+NounSyncopeReduced NZero NouNinflBoundary NSg0 AttributiveGenIDef    # Dir/LR
+NounSyncopeBase NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
 
 
 ############ Attributive
@@ -1231,7 +1256,6 @@ LEXICON NounIrregU
 ծով:ծով
 կով:կով
 հաւ:հաւ
-էշ:էշ
 արջ:արջ
 թի:թի
 արեւ:արեւ
@@ -1338,6 +1362,7 @@ LEXICON NounFamilyOchReduced
 կին:կն
 քոյր:քր
 տէր:տիր
+տէր:տէր # Dir/LR
 սկեսուր:սկեսր
 մօրաքոյր:մօրաքր
 
@@ -1394,11 +1419,14 @@ LEXICON NounIrregWomanReduced #I make hard-coded allomorphs տիկնայք տի�
 տիկին:տիկն
 տանտիկին:տանտիկն
 
-#The noun ճամբայ suppletes to  ճամբու for dative/genitive
+#The noun ճամբայ suppletes to  ճամբու for dative/genitive, and էշ էշու իշու
 LEXICON NounIrregRoadReduceBase
 ճամբայ:ճամբայ
+էշ:էշ
 LEXICON NounIrregRoadReduceReduced
 ճամբայ:ճամբ
+էշ:իշ # Dir L/R
+էշ:էշ # Dir L/R
 
 #The noun հաշիւ suppletes to հաշուով in irregulary reduced form
 LEXICON NounIrregCountReduceBase
@@ -1406,13 +1434,13 @@ LEXICON NounIrregCountReduceBase
 LEXICON NounIrregCountReduceReduced
 հաշիւ:հաշու
 
-#The noun ասուած suppletes to աստծոյ աստուծոյ  for dative/genitive
+#The noun աստուած suppletes to աստծոյ աստուծոյ  for dative/genitive
 LEXICON NounIrregGod
-Աստուած:աստուած
+աստուած:աստուած
 LEXICON NounIrregGodReducedU
-Աստուած:աստուծ
+աստուած:աստուծ
 LEXICON NounIrregGodNoVowel
-Աստուած:աստծ
+աստուած:աստծ
 
 #The noun սէր reduces to սիրոյ  for dative/genitive
 LEXICON NounLoveBase
@@ -1431,6 +1459,13 @@ LEXICON NounLoveReduced
 եկեղեցի:եկեղեցւ
 մարմին:մարմն
 խնդիր:խնդր
+մարդ:մարդ  # Dir/LR  don't have unreduced form because taken care of by special declension
+
+#The noun բերանի reduces to բերնի բերնէ by irregular syncope of non-high vowel
+LEXICON NounSyncopeBase
+բերան:բերան
+LEXICON NounSyncopeReduced
+բերան:բերն
 
 #The noun աղջիկ reduces to աղջկա աղջկան  for dative/genitive
 LEXICON NounGirlBase
