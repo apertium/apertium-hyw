@@ -660,8 +660,13 @@ PATTERN NounDeclCountry
 #Singular caseless անգլիա
 NounCountryBase  [<n><np><top>:] NouNinflBoundary NSg0 (Def|Poss)? 
 #Singular archaic case  անգլիոյ, must add infl boundary to get glide deletion անգլիոն
+NounCountryReduced  [<n><np><top>:] NouNinflBoundary NSg0 DatGenArchaicOj NouNinflBoundary (Def|Poss)?  
+#Singular modern dative case
+NounCountryBase  [<n><np><top>:] NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
+#Singular regular oblique case
+NounCountryBase  [<n><np><top>:] NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)? 
 
-NounCountryBase   [<n><np><top>:] NouNinflBoundary NSg0 CaseRegI (Def|Poss)?  
+
 
 #Plural անգլիաներ
 NounCountryBase [<n><np><top>:]  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
@@ -845,7 +850,7 @@ NounGirlBase NZero NouNinflBoundary NSg0 AttributiveInst
 NounGirlBase NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
 
 
-#ճամբայ ճամբուն ճամբայի ճամբէն 
+#ճամբայ ճամբուն ճամբայի ճամբէն , էշ էշու իշու էշէ իշէ
 
 #Singular 
 NounIrregRoadReduceBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
@@ -1256,7 +1261,6 @@ LEXICON NounIrregU
 ծով:ծով
 կով:կով
 հաւ:հաւ
-էշ:էշ
 արջ:արջ
 թի:թի
 արեւ:արեւ
@@ -1420,11 +1424,14 @@ LEXICON NounIrregWomanReduced #I make hard-coded allomorphs տիկնայք տի�
 տիկին:տիկն
 տանտիկին:տանտիկն
 
-#The noun ճամբայ suppletes to  ճամբու for dative/genitive
+#The noun ճամբայ suppletes to  ճամբու for dative/genitive, and էշ էշու իշու
 LEXICON NounIrregRoadReduceBase
 ճամբայ:ճամբայ
+էշ:էշ
 LEXICON NounIrregRoadReduceReduced
 ճամբայ:ճամբ
+էշ:իշ # Dir L/R
+էշ:էշ # Dir L/R
 
 #The noun հաշիւ suppletes to հաշուով in irregulary reduced form
 LEXICON NounIrregCountReduceBase
@@ -2481,6 +2488,7 @@ SyntheticNegAux3SGI
 Fut
 Prog
 Proh
+LexiconIndcLong
 
 
 
@@ -2657,6 +2665,9 @@ LEXICON Indc
 <indc>:կ{G1}{G2}
 LEXICON IndcShort
 <indc>:կու\ 
+LEXICON LexiconIndcLong
+#Place this to help for parsing unrecognized verbs
+<indc>:կը
 
 
 LEXICON Proh
@@ -24491,7 +24502,7 @@ LEXICON NameFamily
 Բազեյան:Բազեյան
 Զելվեյան:Զելվեյան
 Արեւյան:Արեւյան
-Արևյան:Արևյան #digraph form
+#Արևյան:Արևյան #digraph form
 Բինայան:Բինայան
 Գայայան:Գայայան
 Թառայան:Թառայան
@@ -24589,12 +24600,12 @@ LEXICON NameFamily
 Ավագյան:Ավագյան
 Արեգյան:Արեգյան
 Գեւորգյան:Գեւորգյան
-Գևորգյան:Գևորգյան #digraph form
+#Գևորգյան:Գևորգյան #digraph form
 Կարագյան:Կարագյան
 Աբդուլգյան:Աբդուլգյան
 Ավդալբեգյան:Ավդալբեգյան
 Տեր-Գեւորգյան:Տեր-Գեւորգյան
-Տեր-Գևորգյան:Տեր-Գևորգյան #digraph form
+#Տեր-Գևորգյան:Տեր-Գևորգյան #digraph form
 Ադյան:Ադյան
 Աբադյան:Աբադյան
 Աբարդյան:Աբարդյան
@@ -24611,7 +24622,7 @@ LEXICON NameFamily
 Բեհբուդյան:Բեհբուդյան
 Աբլաբուդյան:Աբլաբուդյան
 Բագրեւանդյան:Բագրեւանդյան
-Բագրևանդյան:Բագրևանդյան  #digraph form
+#Բագրևանդյան:Բագրևանդյան  #digraph form
 Ալլահվերդյան:Ալլահվերդյան
 Թերզյան:Թերզյան
 Ազյան:Ազյան
@@ -25050,7 +25061,7 @@ LEXICON NameFamily
 Անասյան:Անասյան
 Արիսյան:Արիսյան
 Թեւոսյան:Թեւոսյան
-Թևոսյան:Թևոսյան #digraph form
+#Թևոսյան:Թևոսյան #digraph form
 Աբրեսյան:Աբրեսյան
 Ապրեսյան:Ապրեսյան
 Պողոսյան:Պողոսյան
@@ -25063,7 +25074,7 @@ LEXICON NameFamily
 Աֆանասյան:Աֆանասյան
 Բիթլիսյան:Բիթլիսյան
 Թադեւոսյան:Թադեւոսյան
-Թադևոսյան:Թադևոսյան #digraph form
+#Թադևոսյան:Թադևոսյան #digraph form
 Թովմասյան:Թովմասյան
 Թումասյան:Թումասյան
 Մահտեսյան:Մահտեսյան
@@ -25102,7 +25113,7 @@ LEXICON NameFamily
 Խառատյան:Խառատյան
 Արարատյան:Արարատյան
 Արեւշատյան:Արեւշատյան
-Արևշատյան:Արևշատյան #digraph form
+#Արևշատյան:Արևշատյան #digraph form
 Բաղդատյան:Բաղդատյան
 Ապլահատյան:Ապլահատյան
 Գալուստյան:Գալուստյան

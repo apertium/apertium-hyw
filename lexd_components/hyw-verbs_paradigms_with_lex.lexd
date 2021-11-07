@@ -910,9 +910,6 @@ FuturePart
 NegativePart
 NegatedChunks 
 
-
-#Bucket
-
 #Auxiliary 
 Aux Pres0 PresAgr Indc0
 :Neg Aux  Pres0 PresAgr Indc0 Neg:
@@ -922,19 +919,17 @@ Aux ImpfAgr Indc0
 #the special ci- auxiliary in negated present indicdative 3sg
 SyntheticNegAux3SGI
 
-
 #Irregulars that have synthetic indicative negative
 :Neg VerbRootHave(1) VZero VerbRootHave(2): ThI Pres0 PresAgr Indc: Neg: 
 :Neg VerbRootHave(1) VZero VerbRootHave(2): ThI ImpfAgr Indc: Neg: 
 :Neg VerbRootExist(1) VZero VerbRootExist(2): ThA Pres0 PresAgr Indc:  Neg:
 :Neg VerbRootExist(1) VZero VerbRootExist(2): ThA ImpfAgr Indc: Neg: 
 
-
-
-#Particles: Future, Prog, Proh
+#Particles
 Fut
 Prog
 Proh
+IndcLong
 
 
 
@@ -1111,6 +1106,9 @@ LEXICON Indc
 <indc>:կ{G1}{G2}
 LEXICON IndcShort
 <indc>:կու\ 
+LEXICON  IndcLong
+#Place this to help for parsing unrecognized verbs
+<indc>:կը
 
 
 LEXICON Proh
