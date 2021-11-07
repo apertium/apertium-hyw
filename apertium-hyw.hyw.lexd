@@ -655,29 +655,30 @@ NounRandomOBase  NZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveIns
 PATTERN NounDeclCountry
 # These are country nouns which take -ոյ- reduction in dative
 # անգլիա անգլիոյ պոլիս պոլսոյ
-#also includes normal countries
+#also includes normal countries as separate list NounCountryUnreducible
 # Add toponym feature
 #Singular caseless անգլիա
-NounCountryBase  [<n><np><top>:] NouNinflBoundary NSg0 (Def|Poss)? 
+NounCountryBase|NounCountryUnreducible  [<n><np><top>:] NouNinflBoundary NSg0 (Def|Poss)? 
 #Singular archaic case  անգլիոյ, must add infl boundary to get glide deletion անգլիոն
 NounCountryReduced  [<n><np><top>:] NouNinflBoundary NSg0 DatGenArchaicOj NouNinflBoundary (Def|Poss)?  
 #Singular modern dative case
 NounCountryBase  [<n><np><top>:] NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
+NounCountryUnreducible  [<n><np><top>:] NouNinflBoundary NSg0 DatGenRegI (Def|Poss)? 
 #Singular regular oblique case
-NounCountryBase  [<n><np><top>:] NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)? 
+NounCountryBase|NounCountryUnreducible  [<n><np><top>:] NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)? 
 
 
 
 #Plural անգլիաներ
-NounCountryBase [<n><np><top>:]  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+NounCountryBase|NounCountryUnreducible [<n><np><top>:]  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
 #regularized plural possessive տուներնիս
-NounCountryBase  [<n><np><top>:] NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounCountryBase  [<n><np><top>:] NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+NounCountryBase|NounCountryUnreducible  [<n><np><top>:] NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+NounCountryBase|NounCountryUnreducible  [<n><np><top>:] NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 
 #attributive, i assume no ablaut in the attributive
-NounCountryBase  [<n><np><top>:] NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst 
-NounCountryBase [<n><np><top>:]  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst 
+NounCountryBase|NounCountryUnreducible  [<n><np><top>:] NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst 
+NounCountryBase|NounCountryUnreducible [<n><np><top>:]  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst 
 
 
 PATTERN NounDeclFamilyNkForm
@@ -1495,17 +1496,17 @@ LEXICON IrregFrozenCase
 արիւն<n><ins>:արեամբ
 
 #The country names անգլիա changes to անգլիոյ  for dative/genitive
-#Also regular nouns which never shift
+#Regular nouns which never shift are in separate group
 LEXICON NounCountryBase
 Անգլիա:Անգլիա
 Կիլիկիա:Կիլիկիա
 Պոլիս:Պոլիս
-Հայաստան:Հայաստան
 LEXICON NounCountryReduced
 Անգլիա:Անգլի
 Կիլիկիա:Կիլիկի
 Պոլիս:Պոլս
-
+LEXICON NounCountryUnreducible
+Հայաստան:Հայաստան
 
 
 LEXICON NameMaleGiven
@@ -2454,7 +2455,8 @@ Indicative
 Subjunctive 
 Past 
 Imperative 
-Prohibitive 
+Proh [:\ ] Prohibitive
+Prohibitive # Dir/LR 
 SubjectPart
 PerfectPart 
 EvidentialPart 
@@ -2462,9 +2464,6 @@ ProspectivePart
 FuturePart 
 NegativePart
 NegatedChunks 
-
-
-#Bucket
 
 #Auxiliary 
 Aux Pres0 PresAgr Indc0
@@ -2475,20 +2474,17 @@ Aux ImpfAgr Indc0
 #the special ci- auxiliary in negated present indicdative 3sg
 SyntheticNegAux3SGI
 
-
 #Irregulars that have synthetic indicative negative
 :Neg VerbRootHave(1) VZero VerbRootHave(2): ThI Pres0 PresAgr Indc: Neg: 
 :Neg VerbRootHave(1) VZero VerbRootHave(2): ThI ImpfAgr Indc: Neg: 
 :Neg VerbRootExist(1) VZero VerbRootExist(2): ThA Pres0 PresAgr Indc:  Neg:
 :Neg VerbRootExist(1) VZero VerbRootExist(2): ThA ImpfAgr Indc: Neg: 
 
-
-
-#Particles: Future, Prog, Proh
+#Particles
 Fut
 Prog
 Proh
-LexiconIndcLong
+IndcLong
 
 
 
@@ -2665,7 +2661,7 @@ LEXICON Indc
 <indc>:կ{G1}{G2}
 LEXICON IndcShort
 <indc>:կու\ 
-LEXICON LexiconIndcLong
+LEXICON  IndcLong
 #Place this to help for parsing unrecognized verbs
 <indc>:կը
 
@@ -23883,7 +23879,7 @@ LEXICON NameMaleFemaleGivenLocation
 LEXICON NameFemaleGivenLocation
 Ուրարտու:Ուրարտու
 
-LEXICON NounCountryBase
+LEXICON NounCountryUnreducible
 Բաբելոն:Բաբելոն
 Լիբանան:Լիբանան # reassigned
 Աշտարակ:Աշտարակ
@@ -27487,7 +27483,6 @@ LEXICON AdjReg
 երեքհազարեան:երեքհազարեան
 տասնանկիւնի:տասնանկիւնի
 ցնցումնալից:ցնցումնալից
-Ւ:Ւ
 շրջշրջուն:շրջշրջուն
 թրթնջկական:թրթնջկական
 զմրխտի:զմրխտի
@@ -40714,7 +40709,6 @@ LEXICON AdjReg
 միաչեայ:միաչեայ
 պիէրեան:պիէրեան
 աջ:աջ
-իմ:իմ
 իսկ:իսկ
 իմն:իմն
 այլ:այլ
@@ -74285,7 +74279,7 @@ LEXICON OtherParticles
 #These are words that weren't found in Kouyoumdjian but were found in some other way
 # These are words that were not originally analyzed in the Essayan corpus
 
-LEXICON NounCountryBase
+LEXICON NounCountryUnreducible
 Չամլըճա:Չամլըճա
 Սթամպօլ:Սթամպօլ
 Սկիւտար:Սկիւտար

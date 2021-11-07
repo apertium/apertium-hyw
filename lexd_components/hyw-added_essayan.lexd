@@ -3,7 +3,7 @@
 #These are words that weren't found in Kouyoumdjian but were found in some other way
 # These are words that were not originally analyzed in the Essayan corpus
 
-LEXICON NounCountryBase
+LEXICON NounCountryUnreducible
 Չամլըճա:Չամլըճա
 Սթամպօլ:Սթամպօլ
 Սկիւտար:Սկիւտար
