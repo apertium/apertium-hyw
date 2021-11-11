@@ -100,7 +100,7 @@ NounIrregU NZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 PATTERN NameDecl
 # For names or proper nouns. Don't have the NouNInflBoundary to block glide deletion
-#COuntry names that take -ia suffix are in separate category
+#Country names  are in separate category because some of them take -ia suffix
 #Singular
 NameBase   CaseRegI? (Def|Poss)? 
 
@@ -126,7 +126,7 @@ NameFemaleGivenLocation [<n><np><ant_f_top>:]
 
 NameFamily  [<n><np><pat>:]
 NameGivenUnclassified [<n><np><ant>:]
-
+ 
 PATTERN NounDeclIrregularTimeVan
 #optional normal case
 #Have to add noun-boundary before definite too in order to trigger glide deletion
@@ -480,7 +480,7 @@ NounIrregMonoNerStill NZero NouNinflBoundary NSg0|NPlNerOnly  InsReg PossPl  Def
 
 
 PATTERN NounDeclUtjunSuffix
-#paradigm of suffix թիւն
+#paradigm of suffix ութիւն
 #Singular caseless
 NounUtjunSuffix NUtjunSuffix NZero NouNinflBoundary NSg0 (Def|Poss)?  
 #Singular archaic case
@@ -490,7 +490,7 @@ NounUtjunSuffix NUtjunSuffix NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?   
 
 #Plural 
 NounUtjunSuffix NUtjunSuffix  NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-#Archaic -թեանց for plural genitive/dat
+#Archaic -ութեանց for plural genitive/dat
 NounUtjunSuffix NZero NouNinflBoundary CaseUtjunArchaicPlural   # Dir/LR
 #Plural possessive (separate line for instrumental)
 NounUtjunSuffix NUtjunSuffix  NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
@@ -655,7 +655,7 @@ NounRandomOBase  NZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveIns
 PATTERN NounDeclCountry
 # These are country nouns which take -ոյ- reduction in dative
 # անգլիա անգլիոյ պոլիս պոլսոյ
-#also includes normal countries as separate list NounCountryUnreducible
+# also includes normal countries as separate list NounCountryUnreducible
 # Add toponym feature
 #Singular caseless անգլիա
 NounCountryBase|NounCountryUnreducible  [<n><np><top>:] NouNinflBoundary NSg0 (Def|Poss)? 
@@ -1062,7 +1062,7 @@ LEXICON NZero
 <n>:
 
 LEXICON NUtjunSuffix
-:թիւն
+:ութիւն
 
 #ում suffix reduces to մ before ան
 LEXICON NUmSuffixBase
@@ -1139,11 +1139,11 @@ LEXICON InsReg
 <ins>:ով
 
 LEXICON CaseUtjunArchaic
-<dat_gen>:թեան
-<abl>:թենէ
-<ins>:թեամբ
+<dat_gen>:ութեան
+<abl>:ութենէ
+<ins>:ութեամբ
 LEXICON CaseUtjunArchaicPlural
-<pl><dat_gen>:թեանց
+<pl><dat_gen>:ութեանց
 
 LEXICON CaseTimeVan
 <dat_gen>:ուան # Dir/LR
@@ -1274,7 +1274,7 @@ LEXICON NounIrregUReducePoly
 #List of all words that take the ութիւն suffix
 #The suffix utjun cannot be part of the stem
 LEXICON NounUtjunSuffix
-ուրախութիւն:ուրախու
+ուրախութիւն:ուրախ
 
 #List of all words that take the -ում suffix
 #The suffix ում takes an optional irregular -ան
