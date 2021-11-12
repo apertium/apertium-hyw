@@ -230,7 +230,10 @@ InfixPunctAdded:0 <=> InfixPunctLexical: :*  _   ;
 "definite suffix is ն after vowels"
 %{defն%}:ն <=>   RealVowel  (:0|:InfixPunctAdded)* _ ;
  				:ո  (:0|:InfixPunctAdded)* :ւ _ ;
-		
+				_ (:0|:InfixPunctAdded)* RealVowel ;
+ 				_  (:0|:InfixPunctAdded)* :ո   (:0|:InfixPunctAdded)* :ւ  ;
+				
+				
 ! For plural allomorphy, the input plural suffix is %{Plն%}եր
 ! The rule will drop %{Plն%} after monosyllables, defined roughty as maximally CJVCCk
 !The suffix is -er also after monosyllabic-headed compounds

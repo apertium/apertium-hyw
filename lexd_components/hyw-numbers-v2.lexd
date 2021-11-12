@@ -1,0 +1,145 @@
+################################
+#### Lexicon of numbers
+#### Using only standard numbers and most common colloquial variants
+
+PATTERNS
+#Just digits and numbers in numerical form
+DigitNumbers
+
+#Cardinals and unordinals
+NumberDeclension
+
+
+PATTERN NumberDeclension
+#Singular
+NumericalBase
+#Without case, definite
+NumericalBase SubstZero NouNinflBoundary NSg0  (Def|Poss)
+#With case, with/without definite
+NumericalBase SubstZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
+
+#Singular attributive
+NumericalBase NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
+
+
+#Plural
+NumericalBase SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+#Plural possessive (separate line for instrumental)
+NumericalBase SubstZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+NumericalBase SubstZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+
+
+#Plural attributive
+NumericalBase NZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
+
+
+
+
+PATTERN NumericalBase
+#Base for declension and so
+OnesCardinal
+Number2Declined
+OnesOrdinal
+DecadesCardinalOrdinal
+CardinalOrdinalHundreds
+CardinalOrdinalThousandsMillions
+
+PATTERN OnesCardinal
+Number1  
+Number2
+Number3_4
+Number0_5_6
+Number7_8_9 Def?
+
+PATTERN OnesOrdinal
+OnesCardinal OrdinalSuffixRegular
+SpecialOrdinals
+
+PATTERN DecadesCardinalOrdinal
+Number10 MeaninglessDefNasal? OrdinalSuffixRegular?
+NumberDecades OrdinalSuffixRegular?
+Number10 MeaninglessDefNasal ConnectiveSchwa? OnesCardinal|OnesOrdinal|Number2Declined
+NumberDecades (ConnectiveSchwa|ConnectiveU)? OnesCardinal|OnesOrdinal|Number2Declined
+
+PATTERN CardinalOrdinalHundreds
+OnesCardinal? NumberHundred OrdinalSuffixRegular?
+OnesCardinal? NumberHundred (ConnectiveSchwa|ConnectiveU)? OnesCardinal|OnesOrdinal|DecadesCardinalOrdinal|Number2Declined
+
+PATTERN CardinalOrdinalThousandsMillions
+NumberThousand OrdinalSuffixRegular?
+NumberMillionUp OrdinalSuffixRegular?
+
+
+
+
+LEXICON Number1(2)
+մէկ:մէկ <num> 
+LEXICON Number2(2)
+երկու:երկու <num> 
+LEXICON Number2Declined(2)
+երկուք:երկուք <num> 
+LEXICON Number3_4(2)
+երեք:երեք <num> 
+չորս:չորս <num> 
+LEXICON Number0_5_6(2)
+զէրօ:զէրօ <num> 
+հինգ:հինգ <num> 
+վեց:վեց <num> 
+LEXICON Number7_8_9(2)
+եօթ:եօթ <num> 
+ութ:ութ <num> 
+ին:ին <num> 
+LEXICON Number10(2)
+տաս:տաս <num> 
+LEXICON NumberDecades(2)
+քսան:քսան <num> 
+երեսուն:երեսուն <num> 
+քառասուն:քառասուն <num> 
+յիսուն:յիսուն <num> 
+վաթսուն:վաթսուն <num> 
+եօթանասուն:եօթանասուն <num> 
+ութսուն:ութսուն <num> 
+ինիսուն:ինիսուն <num> 
+իննսուն:իննսուն <num> 
+
+LEXICON NumberHundred(2)
+հարիւր:հարիւր <num> 
+LEXICON NumberThousand(2)
+հազար:հազար <num> 
+LEXICON NumberMillionUp(2)
+միլիոն:միլիոն <num> 
+պիլիոն:պիլիոն <num> 
+միլիարդ:միլիարդ <num> 
+միլիառ:միլիառ <num> 
+
+LEXICON MeaninglessDefNasal
+<def_meaningless>:ն
+LEXICON ConnectiveSchwa
+:ը
+LEXICON ConnectiveU
+:ու
+
+LEXICON OrdinalSuffixRegular
+<ord>:երորդ
+LEXICON SpecialOrdinals(2)
+առաջին:առաջին <num><ord>
+երկրորդ:երկրորդ <num><ord>
+երրորդ:երրորդ <num><ord>
+չորրորդ:չորրորդ <num><ord>
+
+
+PATTERN DigitNumbers
+Digit+ [<num>:]
+Digit+ ([.]|[,]) Digit+ [<num>:]
+
+LEXICON Digit
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9

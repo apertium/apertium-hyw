@@ -14,7 +14,7 @@ LEXD_FILES=  \
 	   lexd_components/$(LANG1)-verbs_kouyoumdjian.lexd \
 	   lexd_components/$(LANG1)-nouns_lex_irreg.lexd \
        lexd_components/$(LANG1)-nouns_lex_suffixbased.lexd \
-       lexd_components/$(LANG1)-numbers.lexd \
+       lexd_components/$(LANG1)-numbers-v2.lexd \
        lexd_components/$(LANG1)-names.lexd \
        lexd_components/$(LANG1)-names_hyebased.lexd \
        lexd_components/$(LANG1)-pronouns.lexd \
@@ -23,9 +23,9 @@ LEXD_FILES=  \
 	   lexd_components/$(LANG1)-adjective_adverb_list.lexd \
 	   lexd_components/$(LANG1)-ambiguousPOS.lexd \
 	   lexd_components/$(LANG1)-nouns_regular_list.lexd \
-	   lexd_components/$(LANG1)-other.lexd  \
-	   lexd_components/$(LANG1)-added_essayan.lexd   \
-	   lexd_components/$(LANG1)-names_bible.lexd   
+	   lexd_components/$(LANG1)-other.lexd   \
+	   lexd_components/$(LANG1)-names_bible.lexd    \
+	   lexd_components/$(LANG1)-added_essayan.lexd 
 
 TARGETS_COMMON =			\
 	$(LANG1).automorf.hfst		\
