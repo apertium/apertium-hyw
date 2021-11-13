@@ -902,10 +902,12 @@ PATTERN CaseRegI
 DatGenRegI
 AblReg
 InsReg
+LocReg # Dir/LR
 
 PATTERN CaseRegOblique
 AblReg
 InsReg
+LocReg # Dir/LR
 
 PATTERN CaseRegU
 #I allow the regular ի to be an optional form
@@ -914,12 +916,12 @@ PATTERN CaseRegU
 DatGenRegU
 AblReg
 InsReg
-
+LocReg # Dir/LR
 PATTERN CaseRegPostPluralPoss
 #NomAccReg 	
 DatGenRegI
 AblReg
-
+LocReg # Dir/LR
 
 
 
@@ -1022,13 +1024,21 @@ LEXICON DatGenRegU
 <dat_gen>:ի #Dir/LR In case of regularization
 LEXICON AblReg
 <abl>:է
+<abl>:ից # Dir/LR because of code-switching
 LEXICON InsReg
 <ins>:ով
+LEXICON LocReg
+# Locative doesn't exist in WA but can find it in EA code-switching
+<loc>:ում
+
 
 LEXICON CaseUtjunArchaic
 <dat_gen>:ութեան
 <abl>:ութենէ
+<abl>:ութենից # Dir/LR because of code-switching
 <ins>:ութեամբ
+
+
 LEXICON CaseUtjunArchaicPlural
 <pl><dat_gen>:ութեանց
 
@@ -1037,6 +1047,7 @@ LEXICON CaseTimeVan
 <dat_gen>:ուայ 
 <abl>:ուընէ
 <abl>:ուանէ # Dir/LR
+<abl>:ուանից # Dir/LR because of code-switching
 <ins>:ուընով 
 <ins>:ուանով # Dir/LR
 <ins>:ուամբ # Dir/LR
