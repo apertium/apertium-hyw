@@ -14,6 +14,32 @@ LowerCaseLetter [<min>:]
 UpperCaseLetter [<maj>:]
 Conjunction [<conj>:]
 OtherParticles [<particle>:]
+DeclDeclinableInterjection
+
+PATTERN DeclDeclinableInterjection
+#Singular
+DeclinableInterjection [<ij>:]
+DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NSg0 CaseRegI? (Def|Poss)? 
+
+#Singular attributive
+DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
+
+#Plural
+DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+
+#Plural attributive
+DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
+
+#Plural possessive (separate line for instrumental)
+DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NSg0|NPlReg  	PossPl CaseRegPostPluralPoss Def|Poss
+DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NSg0|NPlReg  	InsReg PossPl  Def|Poss
+
+
+
+LEXICON DeclinableInterjection
+այո:այո 
+ոչ:ոչ 
+
 
 LEXICON Interjection
 Ա:Ա # had ՜
@@ -22,7 +48,6 @@ LEXICON Interjection
 ահ:ահ 
 աղէ:աղէ 
 այ:այ 
-այո:այո 
 անկցի:անկցի 
 աւաղ:աւաղ # had ՜
 ափսոս:ափսոս 
@@ -46,7 +71,6 @@ LEXICON Interjection
 հովայ:հովայ 
 հուռայ:հուռայ 
 ոհ:ոհ 
-ոչ:ոչ 
 ով:ով # had ՜
 որպէս:որպէս # had ՜
 ուռա:ուռա 
@@ -59,6 +83,9 @@ LEXICON Interjection
 քաւ:քաւ 
 օխ:օխ 
 օն:օն 
+քաւլիցի:քաւլիցի # reassigned from adverb
+քաւ\ լիցի:քաւ\ լիցի
+լիցի:լիցի
 
 LEXICON LowerCaseLetter
 ա:ա

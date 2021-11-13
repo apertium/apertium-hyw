@@ -485,7 +485,7 @@ VerbRootNil(1) VZero VerbRootNil(2): ImpSgIR
 VerbRootNelNale(1)|VerbRootNelNala(1) VZero VerbRootNelNale(2):|VerbRootNelNala(2): ImpSgIR
 VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): ImpSg # Dir/LR
 VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): ImpSgIR
-VerbRootCilIlc(1)|VerbRootCilIli(1) VZero VerbRootCilIlc(2):|VerbRootCilIli(2): ThI ImpSg # Dir/LR
+VerbRootCilIlc(1)|VerbRootCilIli(1) VZero VerbRootCilIlc(2):|VerbRootCilIli(2): EmptyAffr? ThI ImpSg # Dir/LR դպչէ was found  in the bible
 VerbRootCilIlc(1)|VerbRootCilIli(1) VZero VerbRootCilIlc(2):|VerbRootCilIli(2): ImpSgIR
 VerbRootCel(1) VZero VerbRootCel(2): ThI ImpSg # Dir/LR   թռի, not թռէ
 VerbRootCel(1) VZero VerbRootCel(2): ImpSgIR
@@ -680,6 +680,7 @@ VerbRootDoPres(1) VZero VerbRootDoPres(2): SubjPart
 VerbRootSay(1) VZero VerbRootSay(2): SubjPart
 VerbRootSpitOldPres(1) EmptyNasal VZero VerbRootSpitOldPres(2): SubjPart
 VerbRootFallPast(1) VZero VerbRootFallPast(2): SubjPart
+VerbRootFallPres(1) VZero VerbRootFallPres(2): SubjPart # Dir/LR
 VerbRootBite(1) EmptyNasal VZero VerbRootBite(2): SubjPart
 VerbRootPlay(1) VZero VerbRootPlay(2): Aor SubjPart
 VerbRootStay(1) VZero VerbRootStay(2): ThA Aor SubjPart
@@ -909,6 +910,7 @@ EvidentialPart
 ProspectivePart 
 FuturePart 
 NegativePart
+:Neg NegativePart Neg: # Dir/LR because sometimes see reduction of 3SG չի/չ՚
 NegatedChunks 
 
 #Auxiliary 
@@ -945,6 +947,7 @@ LEXICON Aux # Class 32
 
 LEXICON SyntheticNegAux3SGI 
 <synth_vaux><pres><p3><sg><neg>:չի
+<synth_vaux><pres><p3><sg><neg>:չ՚
 
 
 LEXICON VZero
@@ -1326,10 +1329,16 @@ LEXICON VerbRootTurnPres(2)
 դառնալ:դառն <iv>
 անդրադառնալ:անդրադառն <tv>
 վերադառնալ:վերադառն <iv>
+ամբառնալ:ամբառն <iv_tv> # Dir/LR  optionally irregular
+բառնալ:բառն <tv> # Dir/LR  optionally irregular
+համբառնալ:համբառն <iv_tv> # Dir/LR  optionally irregular
 LEXICON VerbRootTurnPast(2)
 դառնալ:դարձ <iv>
 անդրադառնալ:անդրադարձ <tv>
 վերադառնալ:վերադարձ <iv>
+ամբառնալ:ամբարձ <iv_tv> # Dir/LR  optionally irregular
+բառնալ:բարձ <tv> # Dir/LR  optionally irregular
+համբառնալ:համբարձ <iv_tv> # Dir/LR  optionally irregular
 LEXICON VerbRootTake(2)
 առնել:առ <tv>
 LEXICON VerbRootOpenPres(2)

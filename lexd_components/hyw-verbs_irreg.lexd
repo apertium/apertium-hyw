@@ -72,7 +72,7 @@ LEXICON VerbRootCilIli(2)		# Class 26 դպիլ includes 44
 
 
 LEXICON VerbRootBring(2)  #Class 37 38 արտաբերել բերել
-արտաբերել:արտաբեր <tv>
+արտաբերել:արտաբեր <tv>  #optionally takes regular case
 բերել:բեր <tv>
 զոհաբերել:զոհաբեր <tv>
 մակաբերել:մակաբեր <iv>

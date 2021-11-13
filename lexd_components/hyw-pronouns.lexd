@@ -19,14 +19,20 @@ PersonalPronoun
 SubstantivePronoun
 ReciprocalPronoun
 
+#ինքզինքս ինքզինքիս
 ReflexivePronoun  CaseRegI? (Def|Poss)?
-ReflexivePronoun  PossPl CaseRegPostPluralPoss Def|Poss?
-ReflexivePronoun  InsReg PossPl  Def|Poss?
+ReflexivePronoun  PossPl CaseRegPostPluralPoss (Def|Poss)?
+ReflexivePronoun  InsReg PossPl  (Def|Poss)?
 
+#ինքնիրմէ ինքնիրեն 
+ReflexivePronounInkIr (CaseBoundaryM CaseRegOblique)? (Def|Poss)?
+ReflexivePronounInkIr [<acc>:են] (Def|Poss)?
+
+ReflexivePronounArchaic
 
 DemonstrativePronoun (Def|Poss)?  
 RelativePronoun ((Def Def?)|Poss)?   # Double Def is because of attributive like որունն է 
-ReflexivePronounArchaic
+
 
 Quantifier [<qnt>:] CaseRegI? (Def|Poss)? 
 #Plural
@@ -53,6 +59,7 @@ LEXICON PersonalPronoun
 ես<prn><dat><sg><p1>:ինձ  # Dir/LR
 ես<prn><acc><sg><p1>:զիս  # Dir/LR
 ես<prn><acc><sg><p1>:ինձ  # Dir/LR
+ես<prn><acc><sg><p1>:ինծ  # Dir/LR
 ես<prn><acc><sg><p1>:ինծի
 ես<prn><abl><sg><p1>:ինձմէ
 ես<prn><abl><sg><p1>:ինծմէ  # Dir/LR
@@ -69,6 +76,7 @@ LEXICON PersonalPronoun
 մենք<prn><ins><pl><p1>:մեզմով
 
 դուն<prn><nom><sg><p2>:դուն
+դուն<prn><nom><sg><p2>:դու  # Dir/LR
 դուն<prn><gen><sg><p2>:քու
 դուն<prn><dat><sg><p2>:քեզի
 դուն<prn><dat><sg><p2>:քեզ  # Dir/LR
@@ -300,6 +308,11 @@ LEXICON ReflexivePronoun
 ինքզինքը<prn><ref>:ինքզինք
 նոյնինքը<prn><ref>:նոյնինք
 
+LEXICON ReflexivePronounInkIr
+ինքիր<prn><ref>:ինքիր
+ինքնիր<prn><ref>:ինքնիր
+
+
 LEXICON ReflexivePronounArchaic
 #Somewhat archaic
 ինքս<prn><ref><px1sg>:ինքս
@@ -381,6 +394,7 @@ LEXICON DemonstrativePronoun
 անոնք<prn><dem><dst><pl><gen_dat>:անոնց
 անոնք<prn><dem><dst><pl><acc>:անոնք
 անոնք<prn><dem><dst><pl><acc>:զանոնք # Dir/LR 
+անոնք<prn><dem><dst><pl><acc>:զանոնց # Dir/LR 
 անոնք<prn><dem><dst><pl><abl>:անոնցմէ
 անոնք<prn><dem><dst><pl><ins>:անոնցմով
 
@@ -406,13 +420,18 @@ LEXICON RelativePronoun
 որ<prn><rel><sg><ins>:որմով 
 
 որ<prn><rel><pl><nom>:որոնք
+որ<prn><rel><pl><nom>:ոմանք # Dir/LR
 որ<prn><rel><pl><gen_dat>:որոնց
 որ<prn><rel><pl><acc>:որոնք # Dir/LR 
+որ<prn><rel><pl><acc>:զորոնք # Dir/LR 
 որ<prn><rel><pl><acc>:որս # Dir/LR 
 որ<prn><rel><pl><acc>:զորս # Dir/LR 
+որ<prn><rel><pl><acc>:ոմանց # Dir/LR
 որ<prn><rel><pl><abl>:որոնցմէ
+որ<prn><rel><pl><abl>:ոմանցմէ # Dir/LR
 որ<prn><rel><pl><ins>:որոնցով # Dir/LR 
 որ<prn><rel><pl><ins>:որոնցմով 
+որ<prn><rel><pl><ins>:ոմանցմով # Dir/LR
 
 ինչ<prn><rel><sg><nom>:ինչ # what
 ինչ<prn><rel><sg><gen_dat>:ինչին

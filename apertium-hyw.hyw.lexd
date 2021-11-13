@@ -23,7 +23,6 @@
 #All the main declension systems
 PATTERNS
 NounDeclRegular
-NounDeclRisingClusters
 InfinitivalDecl
 AdjAdvDeclRegular
 NounOtherPOSDeclRegular
@@ -41,7 +40,8 @@ NounDeclIrregularTimeVan
 NounDeclOldOch
 NounDeclOldFamilyOAblaut
 
-#Dative only patterns
+
+# Dative+oblique only patterns
 NounDeclOldAnForm
 NounDeclFamilyNkForm
 NounDeclOldRandomOAblaut
@@ -102,19 +102,19 @@ PATTERN NameDecl
 # For names or proper nouns. Don't have the NouNInflBoundary to block glide deletion
 #Country names  are in separate category because some of them take -ia suffix
 #Singular
-NameBase   CaseRegI? (Def|Poss)? 
+NameBase NouNinflBoundary  CaseRegI? (Def|Poss)? 
 
-NameBase AttributiveGenIDef|AttributiveInst
+NameBase NouNinflBoundary AttributiveGenIDef|AttributiveInst
 
 #Plural
-NameBase    NPlReg CaseRegU? (Def|Poss)? 
+NameBase  NouNinflBoundary  NPlReg CaseRegU? (Def|Poss)? 
 
-NameBase 	NPlReg AttributiveGenUDef|AttributiveInst
+NameBase  NouNinflBoundary	NPlReg AttributiveGenUDef|AttributiveInst
 
 
 #Plural possessive (separate line for instrumental)
-NameBase   NPlReg?  PossPl CaseRegPostPluralPoss Def|Poss
-NameBase   NPlReg?  InsReg PossPl  Def|Poss
+NameBase NouNinflBoundary  NPlReg?  PossPl CaseRegPostPluralPoss Def|Poss
+NameBase NouNinflBoundary  NPlReg?  InsReg PossPl  Def|Poss
 
 PATTERN NameBase
 NameMaleGiven [<n><np><ant><m>:]
@@ -135,6 +135,9 @@ PATTERN NounDeclIrregularTimeVan
 NounTimeVan|NounTimeVanU 	NZero NouNinflBoundary NSg0 CaseTimeVan? NouNinflBoundary (Def|Poss)? 
 NounTimeVan|NounTimeVanU	NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?  # Dir/LR
 NounTimeVanU 	 			NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)? # Dir/LR
+#sometimes see words like շատոնցմէ where get regular inflection but case-boundary M
+NounTimeVan|NounTimeVanU	NZero NouNinflBoundary NSg0 CaseBoundaryM CaseRegOblique (Def|Poss)?  # Dir/LR
+
 
 #Singular attributive
 #The ուանէ form is preferably treated as attributive
@@ -163,6 +166,9 @@ NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 NouNinflBoundary (Def|Pos
 #With case
 NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)? 
 NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?  # Dir/LR
+#with possible case-boundary m like շատոնցմէ
+NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 CaseBoundaryM CaseRegOblique (Def|Poss)?  # Dir/LR
+
 
 #Attributive
 NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 AttributiveVan
@@ -191,6 +197,8 @@ NounTimeVanHima [:կուան] AdvZero SubstZero NouNinflBoundary NSg0|NPlReg  In
 
 #For reduced forms իրիկուն իրիկուան
 #For reduced forms շաբաթ շաբթուան շաբթուն
+# I don't think we ever find մ boundary here, even in older texts
+
 NounTimeVanReducedBase|NounTimeVanUReducedBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
 
 NounTimeVanReducedReduced|NounTimeVanUReducedReduced NZero NouNinflBoundary NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)?
@@ -388,27 +396,6 @@ PATTERN NounOtherPOSBase
 AdvNounReg [<adv_noun>:]
 NounAdjReg [<noun_adj>:]
 
-PATTERN NounDeclRisingClusters
-#This is for nouns like մեղր which can variably take եր ներ
-#Because of speaker-variation in syllabification
-
-NounRisingClusters NZero NouNinflBoundary NSg0 CaseRegI? (Def|Poss)?
-NounRisingClusters NZero NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)?   # Dir/LR
-
-NounRisingClusters NZero NouNinflBoundary NPlVary CaseRegU? (Def|Poss)? 
-NounRisingClusters NZero NouNinflBoundaryRed NPlVary CaseRegU? (Def|Poss)?    # Dir/LR
-
-NounRisingClusters NZero NouNinflBoundary NSg0|NPlVary  PossPl CaseRegPostPluralPoss Def|Poss
-NounRisingClusters NZero NouNinflBoundaryRed NSg0|NPlVary  PossPl CaseRegPostPluralPoss Def|Poss   # Dir/LR
-NounRisingClusters NZero NouNinflBoundary NSg0|NPlVary  InsReg PossPl  Def|Poss
-NounRisingClusters NZero NouNinflBoundaryRed NSg0|NPlVary  InsReg PossPl  Def|Poss   # Dir/LR
-
-#attributive
-NounRisingClusters NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
-NounRisingClusters NZero NouNinflBoundaryRed NSg0 AttributiveGenIDef|AttributiveInst   # Dir/LR
-
-NounRisingClusters NZero NouNinflBoundary NPlVary AttributiveGenUDef|AttributiveInst
-NounRisingClusters NZero NouNinflBoundaryRed NPlVary AttributiveGenUDef|AttributiveInst # Dir/LR
 
 
 
@@ -508,9 +495,16 @@ PATTERN NounDeclOldAnForm
 #The -an then triggers arbitrary reduction
 #My cheat is that this pattern only forms the dative
 #The words should have a regular version in the regular list
-#So this pattern only derives գարուն գարնան
+#So this pattern only derives գարուն գարնան գարնանէ
+# can also do unreduced nouns like կողմ կողման կողմանէ
+# some can use այ when add indefinite suffx
+# Can have ամբ forms in instrumental
 
-NounOldAnForm NZero NouNinflBoundary NSg0 DatGenArchaicAn  (Def|Poss)? 
+NounOldAnForm NZero NouNinflBoundary NSg0 DatGenArchaicAn (Def|Poss)? 
+NounOldAnForm NZero NouNinflBoundary NSg0 DatGenArchaicAn CaseRegOblique  (Def|Poss)?  # Dir/LR
+NounOldAnForm NZero NouNinflBoundary NSg0 DatGenArchaicAnAj # Dir/LR
+NounOldAnForm NZero NouNinflBoundary NSg0 InstArchaicAmp (Def|Poss)?  # Dir/LR
+
 
 PATTERN NounDeclUmSuffix
 #pattern for suffix ում
@@ -523,7 +517,7 @@ NounUmSuffix NUmSuffixReduced NZero NouNinflBoundary NSg0 DatGenArchaicAn (Def|P
 NounUmSuffix NUmSuffixBase NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?   # Dir/LR
 NounUmSuffix NUmSuffixBase NZero NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)?  
 #Singular archaic oblique cases like ուսմանէ ուսմամբ
-NounUmSuffix NUmSuffixReduced NZero NouNinflBoundary NSg0 DatGenArchaicAn AblReg (Def|Poss)? # Dir/LR
+NounUmSuffix NUmSuffixReduced NZero NouNinflBoundary NSg0 DatGenArchaicAn CaseRegOblique (Def|Poss)? # Dir/LR
 NounUmSuffix NUmSuffixReduced NZero NouNinflBoundary NSg0 InstArchaicAmp (Def|Poss)? # Dir/LR
 
 
@@ -704,9 +698,10 @@ NounIrregBoyReduced NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)?
 
 #regularized plural and reguarlized case տղաներու տղաքներու
 NounIrregBoyBase NZero  NouNinflBoundary NPlIrregK? NPlReg CaseRegU? (Def|Poss)?   # Dir/LR
-#Irregular plural and irregular case տղաք տղոց տղոցմէ
+#Irregular plural and irregular case տղաք տղոց տղոցմէ and տղայոց
 NounIrregBoyBase NZero NouNinflBoundary NPlIrregK  (Def|Poss)? 
 NounIrregBoyReduced NZero NouNinflBoundary PlDatGenIrregularOts (CaseBoundaryM CaseRegOblique)? (Def|Poss)? 
+NounIrregBoyBase NZero NouNinflBoundary PlDatGenIrregularOts  (CaseBoundaryM CaseRegOblique)? (Def|Poss)?  # Dir/LR
 
 #regularized plural possessive տղայներնիս տղաքներնիս
 NounIrregBoyBase NZero	 NouNinflBoundary NSg0|(NPlIrregK? NPlReg)  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
@@ -805,148 +800,43 @@ NounIrregGod NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
 NounIrregGod NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
 
 # սէր սիրոյ հոգի հոգւոյն, սիրով մարմին մարմնոյ
-#Singular 
-NounLoveBase NZero NouNinflBoundary NSg0  (Def|Poss)? 
-#regular case 
-NounLoveBase NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?  
-#in case of high vowel reduction
-NounLoveBase NZero NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)?  # Dir/LR
+#Regular forms are derived elsewhere by having a duplicat entry in RegNoun
+#These entries here are treated as optional ones
 
 # Archaic dative case  սիրոյ սիրոյն
 #Can't have  boundary after ոյ to block glide deletion + force ն definite
-NounLoveReduced NZero NouNinflBoundary NSg0 DatGenArchaicOj ([<def>:ն]|Poss)?   # Dir/LR
+NounIrregArchaicOj NZero NouNinflBoundary NSg0 DatGenArchaicOj ([<def>:ն]|Poss)?   # Dir/LR
 #սիրով սիրովն
-NounLoveReduced NZero NouNinflBoundary NSg0 InsReg ([<def>:ն]|Poss)?   # Dir/LR
+NounIrregArchaicOj NZero NouNinflBoundary NSg0 InsReg ([<def>:ն]|Poss)?   # Dir/LR
 
-#Plural
-NounLoveBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-#Plural possessive (separate line for instrumental)
-NounLoveBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounLoveBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-
-#attributive, just regular
-NounLoveBase NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
-NounLoveBase NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
-
-#աղջիկ for dative աղջկան աղջկայ
-#Singular 
-NounGirlBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
-# regular case աղջիկի
-NounGirlBase NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?    # Dir/LR
-NounGirlBase NZero NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)?
-#Reduced աղջկայ աղջկան -- not sure if nasal is always definite TO DO
-NounGirlReduced NZero NouNinflBoundary NSg0 DatGenArchaicAnAj NouNinflBoundary (Def|Poss)?  
-# Reduced and oblique աղջկանէ
-NounGirlReduced NZero NouNinflBoundary NSg0 DatGenArchaicAn CaseRegOblique (Def|Poss)?   # Dir/LR
-
-#Plural
-NounGirlBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-#Plural possessive (separate line for instrumental)
-NounGirlBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounGirlBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-
-#attributive
-NounGirlBase NZero NouNinflBoundary NSg0 AttributiveGenIDef  # Dir/LR
-NounGirlBase NZero NouNinflBoundary NSg0 AttributiveInst
-NounGirlBase NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
-
-
+  
+#Words that supplete or reduce midvowel, and take  dative -u
 #ճամբայ ճամբուն ճամբայի ճամբէն , էշ էշու իշու էշէ իշէ
-
-#Singular 
-NounIrregRoadReduceBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
-# regular case ճամբայի
-NounIrregRoadReduceBase NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
-NounIrregRoadReduceBase NZero NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)? 
-#Reduced ճամբու ճամբէն 
-NounIrregRoadReduceReduced NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)?  
-NounIrregRoadReduceReduced NZero NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)?   # Dir/LR
-
-#Plural
-NounIrregRoadReduceBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-#Plural possessive (separate line for instrumental)
-NounIrregRoadReduceBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounIrregRoadReduceBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-
-NounIrregRoadReduceBase NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
+#Only have irregulars, while regualrs are formed elsewhere as the norm
+NounSuppleteDativeU NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)?   # Dir/LR
+NounSuppleteDativeU NZero NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)?   # Dir/LR
+#Plural possessive 
+NounSuppleteDativeU NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
 
 #attributive
-NounIrregRoadReduceBase NZero NouNinflBoundary NSg0 AttributiveGenIDef  # Dir/LR
-NounIrregRoadReduceBase NZero NouNinflBoundary NSg0 AttributiveInst 
-NounIrregRoadReduceReduced NZero NouNinflBoundary NSg0 AttributiveGenUDef 
-NounIrregRoadReduceReduced NZero NouNinflBoundary NSg0 AttributiveInst   # Dir/LR
-NounIrregRoadReduceBase NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
+NounSuppleteDativeU NZero NouNinflBoundary NSg0 AttributiveGenUDef # Dir/LR
+NounSuppleteDativeU NZero NouNinflBoundary NSg0 AttributiveInst   # Dir/LR
 
 
-#հաշիւ հաշուով
-#Singular 
-NounIrregCountReduceBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
-# regular case հաշիւիդ հաշւիդ 
-NounIrregCountReduceBase NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
-NounIrregCountReduceBase NZero NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)?  # Dir/LR
-
-#Reduced հաշուի
-NounIrregCountReduceReduced NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?    # Dir/LR
-
-#Plural
-NounIrregCountReduceBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-#Plural possessive (separate line for instrumental)
-NounIrregCountReduceBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounIrregCountReduceBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-
-#attributive
-NounIrregCountReduceBase NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
-NounIrregCountReduceBase NZero NouNinflBoundaryRed NSg0 AttributiveGenIDef|AttributiveInst # Dir/LR
-NounIrregCountReduceReduced NZero NouNinflBoundary NSg0 AttributiveGenIDef    # Dir/LR
-NounIrregCountReduceBase NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
-
-
+ 
 #For a bunch of words with frozen classical case-slots
-# անուն անունի անուան անուամբ
-#Regular form is norm
-IrregFrozenBase NZero NouNinflBoundary NSg0 CaseRegI? (Def|Poss)? 
-IrregFrozenBase NZero NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)?  # Dir/LR
-#frozen, i pushed the infletion feature inside the lexical entry
+# կայսր կայսեր
+#Regular form is norm, so I only list irregular
+#Regular form is derived in other declensions
 IrregFrozenCase (Def|Poss)? 
 
-#Plural
-IrregFrozenBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-IrregFrozenBase NZero  NouNinflBoundaryRed NPlReg CaseRegU? (Def|Poss)? # Dir/LR
-#Plural possessive (separate line for instrumental)
-IrregFrozenBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-IrregFrozenBase NZero	 NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss # Dir/LR
-IrregFrozenBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-IrregFrozenBase NZero  NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss # Dir/LR
-
-#attributive
-IrregFrozenBase NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
-IrregFrozenBase NZero NouNinflBoundaryRed NSg0 AttributiveGenIDef|AttributiveInst  # Dir/LR
-IrregFrozenBase NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
-IrregFrozenBase NZero  NouNinflBoundaryRed NPlReg AttributiveGenUDef|AttributiveInst # Dir/LR
 
 
 # for words with optional syncope of non-high vowel in declined forms like բերան բերնի
-NounSyncopeBase
-#Singular  բերանը
-NounSyncopeBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
-# regular case բերանիդ  բերանէդ
-NounSyncopeBase NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
-NounSyncopeBase NZero NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)?  # Dir/LR
-
-#Reduced բերնիդ բերնէդ
+#I only show syncopated forms as optional. Unsyncopated should be part of regular forms
 NounSyncopeReduced NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?    # Dir/LR
-
-#Plural բերաններ
-NounSyncopeBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-#Plural possessive (separate line for instrumental)
-NounSyncopeBase NZero  NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounSyncopeBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-
 #attributive
-NounSyncopeBase NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
-NounSyncopeBase NZero NouNinflBoundaryRed NSg0 AttributiveGenIDef|AttributiveInst # Dir/LR
 NounSyncopeReduced NZero NouNinflBoundary NSg0 AttributiveGenIDef    # Dir/LR
-NounSyncopeBase NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
 
 
 ############ Attributive
@@ -1096,14 +986,11 @@ LEXICON NPlReg
 #But for plural variation and errors:
 #Compounds can vary in the choice of plural suffix
 #Some monosyllables optionally surface with -ներ  because of possessive plural readings in Eastern
+#Some final CC-clusters variably take -ner or -er depending on a schwa
 <pl>:ներ		# Dir/LR
 <pl>:եր		# Dir/LR
 
-LEXICON NPlVary
-#This is for monosyllabic words which can take both plurals
-<pl>:ներ		# Dir/LR
-<pl>:եր		
-
+ 
 LEXICON NPlNerOnly
 <pl>:ներ	
 
@@ -1152,13 +1039,13 @@ LEXICON CaseTimeVan
 <abl>:ուանէ # Dir/LR
 <ins>:ուընով 
 <ins>:ուանով # Dir/LR
+<ins>:ուամբ # Dir/LR
 
 LEXICON DatGenArchaicAn
 <dat_gen>:ան
-
 LEXICON DatGenArchaicAnAj
-<dat_gen>:ան
-<dat_gen>:այ
+<dat_gen>:այ 
+
 
 LEXICON InstArchaicAmp
 <ins>:ամբ
@@ -1204,6 +1091,7 @@ LEXICON PossPl
 LEXICON Indf
 մը<enc><idf>:մը
 մը<enc><idf>:մըն
+մը<enc><idf>:մ՚
 
 #####  Nouns
 LEXICON NounReg
@@ -1229,46 +1117,24 @@ LEXICON AdvReg
 #When forming their possessive plural, I have to manually add the ն before the possessive plural
 LEXICON NounIrregMonoNerOld   #Some prescriptively take -ner, but in real life, they take -er
 բեռ:բեռ  #Taken from Hagopian 350
-դուռ:դուռ
-եզ:եզ
-թոռ:թոռ
-հարս:հարս
-մատ:մատ
-մուկ:մուկ
-ձուկ:ձուկ
-ձեռ:ձեռ
-ոտ:ոտ
-ռուս:ռուս
-# մահ:մահ # removed because the word has too many other irregular forms + the ner form is obsolete
+#Larger list is in noun_lex_irreg
 
 
 LEXICON NounIrregMonoNerStill  #Only very few both descriptively and presriptively  take -ner
+#Larger list is in noun_lex_irreg
 լեռ:լեռ
-LEXICON NounRisingClusters
-մեղր:մեղր
 
 LEXICON NounIrregU
 #These words take ու in the dative
 #I allow them to optionally take ի 
 #This don't have high vowels that can reduce
+#Larger list in noun_lex_irreg
 հայ:հայ #Taken from Hagopian 351
-ձի:ձի
-մանչ:մանչ
-չին:չին
-չար:չար
-գահ:գահ
-պահ:պահ
-դար:դար
-ծով:ծով
-կով:կով
-հաւ:հաւ
-արջ:արջ
-թի:թի
-արեւ:արեւ
 
 #Some nouns optionally take irregular inflection
 #When they do, they reduce
 LEXICON NounIrregUReducePoly
+#Larger list in noun_lex_irreg
 գլուխ:գլուխ
 
 #List of all words that take the ութիւն suffix
@@ -1287,117 +1153,78 @@ LEXICON NounUmSuffix
 
 #Time words which take the ուան declension
 LEXICON NounTimeVan
+#Larger list in noun_lex_irreg
 մահ:մահ
-օր:օր
-ժամանակ:ժամանակ
-գիշեր:գիշեր
-ցերեկ:ցերեկ
-վաղը:վաղ
-երեկ:երեկ
-ատեն:ատեն
-ամառ:ամառ
-ձմեռ:ձմեռ
 
 LEXICON NounTimeVanU
 #words which take the -van declension class, but can also do dative -u
+#Larger list in noun_lex_irreg
 ժամ:ժամ
 
 #Time words which reduce a final vowel or substring in inflected forms
 LEXICON NounTimeVanReducedBase
+#Larger list in noun_lex_irreg
 իրիկուն:իրիկուն
-առտու:առտու
-հեռու:հեռու
-տարի:տարի
 LEXICON NounTimeVanReducedReduced
+#Larger list in noun_lex_irreg
 իրիկուն:իրիկ
-առտու:առտ
-հեռու:հեռ
-տարի:տար
 
 #Words which take -van and -u and reduce
 LEXICON NounTimeVanUReducedBase
+#Larger list in noun_lex_irreg
 շաբաթ:շաբաթ
 ամիս:ամիս
-տարի:տարի # Dir/LR
 LEXICON NounTimeVanUReducedReduced
+#Larger list in noun_lex_irreg
 ամիս:ամս
 շաբաթ:շաբթ
-տարի:տար # Dir/LR
 
 #Adverbs which take -van when nominalized
 LEXICON NounTimeVanAdv
+#Larger list in noun_lex_irreg
 այսօր:այսօր
-երբ:երբ
-առաջ:առաջ
-անգամ:անգամ
 հիմակ:հիմակ # this is a very rare word, more often just հիմա
+
 LEXICON NounTimeVanHima
 հիմա:հիմա #This word takes the time suffixes
 
-#These irregulars only take an optional irregular dative ան, 
+#These irregulars only take an optional irregular dative ան, and its inflected like -անէ 
 #while everything else is regular
-#So I'll only make a lexicon for their reduced form for the dative
+# Some have ամբ form too
+#My cheat is to only use the reduced stem here
+#Each of these words should have a duplicate entry in the regular list, else in time list
 LEXICON NounOldAnForm
+#Larger list in noun_lex_irreg
 գարուն:գարն
-աշուն:աշն
-ամառ:ամռ
-ձմեռ:ձմռ
-մանուկ:մանկ
-կնիկ:կնկ
-լեռ:լեր
-դուռ:դր
+
 
 #These irregulars  take an optional irregular dative ոջ, 
 #The oblique forms can take a մ 
 #I classify into nouns that never reduce, those that do reduce, and the reduced form
 LEXICON NounFamilyOchFixed
+#Larger list in noun_lex_irreg
 ընկեր:ընկեր
-աներ:աներ
-տալ:տալ
-տագր:տագր
-ներ:ներ
-դասընկեր:դասընկեր
 
 LEXICON NounFamilyOchBase
+#Larger list in noun_lex_irreg
 կին:կին
-քոյր:քոյր
-սկեսուր:սկեսուր
-մօրաքոյր:մօրաքոյր{mono}
-տէր:տէր
 LEXICON NounFamilyOchReduced
 կին:կն
-քոյր:քր
-տէր:տիր
-տէր:տէր # Dir/LR
-սկեսուր:սկեսր
-մօրաքոյր:մօրաքր
 
 #Words like հայր հօր
 LEXICON NounFamilyOBase
+#Larger list in noun_lex_irreg
 հայր:հայր
-մայր:մայր
-եղբայր:եղբայր
-տիրամայր:տիրամայր{mono}
-կնքահայր:կնքահայր{mono}
 LEXICON NounFamilyOAblauted
 հայր:հօր
-մայր:մօր
-եղբայր:եղբօր
-տիրամայր:տիրամօր
-կնքահայր:կնքահօր
 
 #Words like տուն տան
 LEXICON NounRandomOBase
+#Larger list in noun_lex_irreg
 տուն:տուն
-շուն:շուն
-դրամատուն:դրամատուն{mono}
-ծովաշուն:ծովաշուն{mono}
 LEXICON NounRandomOAblauted
 տուն:տան
-շուն:շան
-դրամատուն:դրամատան
-ծովաշուն:ծովաշան
-
+ 
 
 
 
@@ -1408,8 +1235,6 @@ LEXICON NounRandomOAblauted
 LEXICON NounFamilyNkForm
 Վարդանանք:Վարդանա
 
-
-
 #These are nouns which supplete or have irregular reduction in their declensions
 #The noun տղայ suppletes to տղու for dative/genitive and takes irregular plural
 LEXICON NounIrregBoyBase
@@ -1418,6 +1243,19 @@ LEXICON NounIrregBoyReduced
 տղայ:տղ
 LEXICON NounIrregMan
 մարդ:մարդ
+այծամարդ:այծամարդ{mono}
+անտառամարդ:անտառամարդ{mono}
+աստուածամարդ:աստուածամարդ{mono}
+գերմարդ:գերմարդ{mono}
+էրիկմարդ:էրիկմարդ{mono}
+կիսամարդ:կիսամարդ{mono}
+մանկամարդ:մանկամարդ{mono}
+սկզբնամարդ:սկզբնամարդ{mono}
+վիշապամարդ:վիշապամարդ{mono}
+տղամարդ:տղամարդ{mono}
+քրջամարդ:քրջամարդ{mono}
+օձամարդ:օձամարդ{mono}
+
 LEXICON NounIrregWomanBase
 տիկին:տիկին
 տանտիկին:տանտիկին
@@ -1425,20 +1263,18 @@ LEXICON NounIrregWomanReduced #I make hard-coded allomorphs տիկնայք տի�
 տիկին:տիկն
 տանտիկին:տանտիկն
 
-#The noun ճամբայ suppletes to  ճամբու for dative/genitive, and էշ էշու իշու
-LEXICON NounIrregRoadReduceBase
-ճամբայ:ճամբայ
-էշ:էշ
-LEXICON NounIrregRoadReduceReduced
-ճամբայ:ճամբ
-էշ:իշ # Dir L/R
-էշ:էշ # Dir L/R
 
-#The noun հաշիւ suppletes to հաշուով in irregulary reduced form
-LEXICON NounIrregCountReduceBase
-հաշիւ:հաշիւ
-LEXICON NounIrregCountReduceReduced
-հաշիւ:հաշու
+
+#Words that supplete/syncopate and take -u 
+#Like  ճամբայ suppletes to  ճամբու for dative/genitive, and էշ էշու իշու
+# Make sure there's a regular version
+LEXICON NounSuppleteDativeU
+ճամբայ:ճամբ
+էշ:իշ 
+էշ:էշ 
+կէս:կիս
+
+
 
 #The noun աստուած suppletes to աստծոյ աստուծոյ  for dative/genitive
 LEXICON NounIrregGod
@@ -1449,51 +1285,34 @@ LEXICON NounIrregGodNoVowel
 աստուած:աստծ
 
 #The noun սէր reduces to սիրոյ  for dative/genitive
-LEXICON NounLoveBase
-սէր:սէր
-հոգի:հոգի
-ամուսին:ամուսին
-որդի:որդի
-եկեղեցի:եկեղեցի
-մարմին:մարմին
-խնդիր:խնդիր
-LEXICON NounLoveReduced
+# make sure this word has duplicate in regular list
+# this list only has the reduced form as seen in archaic cases
+LEXICON NounIrregArchaicOj
+#Larger list in noun_lex_irreg
 սէր:սիր
-հոգի:հոգւ
-ամուսին:ամուսն
-որդի:որդւ
-եկեղեցի:եկեղեցւ
-մարմին:մարմն
-խնդիր:խնդր
-մարդ:մարդ  # Dir/LR  don't have unreduced form because taken care of by special declension
 
 #The noun բերանի reduces to բերնի բերնէ by irregular syncope of non-high vowel
-LEXICON NounSyncopeBase
-բերան:բերան
 LEXICON NounSyncopeReduced
 բերան:բերն
-
-#The noun աղջիկ reduces to աղջկա աղջկան  for dative/genitive
-LEXICON NounGirlBase
-աղջիկ:աղջիկ
-LEXICON NounGirlReduced
-աղջիկ:աղջկ
+զաւակ:զաւկ
+ճակատ:ճակտ
+պատիւ:պատու 
+հաշիւ:հաշու
 
 #For nouns which are regular except for fossilized archaic case-forms
-LEXICON IrregFrozenBase
-դուստր:դուստր
-կայսր:կայսր
-անուն:անուն
-հիմն:հիմն
-արիւն:արիւն
+#I only list irregulars, and i let the regular versions be in the normal list
 LEXICON IrregFrozenCase
 դուստր<n><dat_gen>:դստեր
 կայսր<n><dat_gen>:կայսեր
-անուն<n><dat_gen>:անուան
-անուն<n><ins>:անուամբ
-հիմն<n><dat_gen>:հիման
-արիւն<n><dat_gen>:արեան
-արիւն<n><ins>:արեամբ
+կին<n><pl><dat_gen>:կանանց
+կորուստ<n><dat_gen>:կորստեան
+հանգիստ<n><dat_gen>:հանգստեան
+ծննունդ<n><dat_gen>:ծննդեան
+գալուստ<n><dat_gen>:գալստեան
+թաքուստ<n_adj><subst><dat_gen>:թաքստեան
+փախուստ<n><dat_gen>:փախստեան
+ժողովուրդ<n><dat_gen>:ժողովրդեան
+
 
 #The country names անգլիա changes to անգլիոյ  for dative/genitive
 #Regular nouns which never shift are in separate group
@@ -2039,7 +1858,7 @@ VerbRootNil(1) VZero VerbRootNil(2): ImpSgIR
 VerbRootNelNale(1)|VerbRootNelNala(1) VZero VerbRootNelNale(2):|VerbRootNelNala(2): ImpSgIR
 VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): ImpSg # Dir/LR
 VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): ImpSgIR
-VerbRootCilIlc(1)|VerbRootCilIli(1) VZero VerbRootCilIlc(2):|VerbRootCilIli(2): ThI ImpSg # Dir/LR
+VerbRootCilIlc(1)|VerbRootCilIli(1) VZero VerbRootCilIlc(2):|VerbRootCilIli(2): EmptyAffr? ThI ImpSg # Dir/LR դպչէ was found  in the bible
 VerbRootCilIlc(1)|VerbRootCilIli(1) VZero VerbRootCilIlc(2):|VerbRootCilIli(2): ImpSgIR
 VerbRootCel(1) VZero VerbRootCel(2): ThI ImpSg # Dir/LR   թռի, not թռէ
 VerbRootCel(1) VZero VerbRootCel(2): ImpSgIR
@@ -2234,6 +2053,7 @@ VerbRootDoPres(1) VZero VerbRootDoPres(2): SubjPart
 VerbRootSay(1) VZero VerbRootSay(2): SubjPart
 VerbRootSpitOldPres(1) EmptyNasal VZero VerbRootSpitOldPres(2): SubjPart
 VerbRootFallPast(1) VZero VerbRootFallPast(2): SubjPart
+VerbRootFallPres(1) VZero VerbRootFallPres(2): SubjPart # Dir/LR
 VerbRootBite(1) EmptyNasal VZero VerbRootBite(2): SubjPart
 VerbRootPlay(1) VZero VerbRootPlay(2): Aor SubjPart
 VerbRootStay(1) VZero VerbRootStay(2): ThA Aor SubjPart
@@ -2463,6 +2283,7 @@ EvidentialPart
 ProspectivePart 
 FuturePart 
 NegativePart
+:Neg NegativePart Neg: # Dir/LR because sometimes see reduction of 3SG չի/չ՚
 NegatedChunks 
 
 #Auxiliary 
@@ -2499,6 +2320,7 @@ LEXICON Aux # Class 32
 
 LEXICON SyntheticNegAux3SGI 
 <synth_vaux><pres><p3><sg><neg>:չի
+<synth_vaux><pres><p3><sg><neg>:չ՚
 
 
 LEXICON VZero
@@ -2880,10 +2702,16 @@ LEXICON VerbRootTurnPres(2)
 դառնալ:դառն <iv>
 անդրադառնալ:անդրադառն <tv>
 վերադառնալ:վերադառն <iv>
+ամբառնալ:ամբառն <iv_tv> # Dir/LR  optionally irregular
+բառնալ:բառն <tv> # Dir/LR  optionally irregular
+համբառնալ:համբառն <iv_tv> # Dir/LR  optionally irregular
 LEXICON VerbRootTurnPast(2)
 դառնալ:դարձ <iv>
 անդրադառնալ:անդրադարձ <tv>
 վերադառնալ:վերադարձ <iv>
+ամբառնալ:ամբարձ <iv_tv> # Dir/LR  optionally irregular
+բառնալ:բարձ <tv> # Dir/LR  optionally irregular
+համբառնալ:համբարձ <iv_tv> # Dir/LR  optionally irregular
 LEXICON VerbRootTake(2)
 առնել:առ <tv>
 LEXICON VerbRootOpenPres(2)
@@ -3074,7 +2902,7 @@ LEXICON VerbRootCilIli(2)		# Class 26 դպիլ includes 44
 
 
 LEXICON VerbRootBring(2)  #Class 37 38 արտաբերել բերել
-արտաբերել:արտաբեր <tv>
+արտաբերել:արտաբեր <tv>  #optionally takes regular case
 բերել:բեր <tv>
 զոհաբերել:զոհաբեր <tv>
 մակաբերել:մակաբեր <iv>
@@ -4602,6 +4430,7 @@ LEXICON VerbRootE(2) 		#Class 1 երգել and 2 քաղել
 տարանջատել:տարանջատ <tv>
 տարբաղադրել:տարբաղադր <tv>
 տարբերել:տարբեր <tv>
+արտաբերել:արտաբեր <tv>  
 տարհամոզել:տարհամոզ <tv>
 տարորոշել:տարորոշ <tv>
 տարտղնել:տարտղն <tv>
@@ -5237,10 +5066,7 @@ LEXICON VerbRootI(2)		#Class 3 ապրիլ and 4 խօսիլ; includes class 17 ո
 
   
 LEXICON VerbRootA(2)		# Class 5 աղալ and 6 կարդալ
-
-
-
-
+ոռնալ:ոռն <iv>
 աղալ:աղ <tv>
 անսալ:անս <tv>
 արտորալ:արտոր <iv>
@@ -6262,7 +6088,6 @@ LEXICON InchRoot(2) #Class 19 ամչնալ and 20 նիհարնալ
 բառնալ:բառ <tv>
 համբառնալ:համբառ <iv_tv>
 մոռնալ:մոռ <tv>
-ոռնալ:ոռ <iv>
 գինովնալ:գինով <iv>
 ուժովնալ:ուժով <iv>
 գիտնալ:գիտ <tv>
@@ -10386,6 +10211,8 @@ LEXICON VerbRootUcanel(2)		#Obsolete/Archaic, Class 11 ուսուցանել and 
 #Monosyllabic nouns which arbitrary take -ner 
 #When forming their possessive plural, I have to manually add the ն before the possessive plural
 LEXICON NounIrregMonoNerOld   #Some prescriptively take -ner, but in real life, they take -er
+
+
 բեռ:բեռ  #Taken from Hagopian 350
 սայլաբեռ:սայլաբեռ{mono}
 
@@ -10634,6 +10461,7 @@ LEXICON NounIrregMonoNerOld   #Some prescriptively take -ner, but in real life, 
 
 # մահ:մահ # removed because the word has too many other irregular forms + the ner form is obsolete
 
+
 LEXICON NounIrregMonoNerStill  #Only very few both descriptively and presriptively  take -ner
 լեռ:լեռ
 հրալեռ:հրալեռ{mono}
@@ -10677,6 +10505,7 @@ LEXICON NounIrregU
 մարդաձի:մարդաձի{mono}
 սայլաձի:սայլաձի{mono}
 վագերաձի:վագերաձի{mono}
+
 
 մանչ:մանչ
 չին:չին
@@ -10831,10 +10660,11 @@ LEXICON NounTimeVan
 գիշեր:գիշեր
 միջագիշեր:միջագիշեր
 նախագիշեր:նախագիշեր
+կէսգիշեր:կէսգիշեր
 
 ցերեկ:ցերեկ
 վաղը:վաղ
-երեկ:երեկ
+երէկ:երէկ
 ատեն:ատեն
 ամառ:ամառ
 միջնամառ:միջնամառ
@@ -10875,10 +10705,12 @@ LEXICON NounTimeVanReducedBase
 երկուշաբթի:երկուշաբթի
 հինգշաբթի:հինգշաբթի
 չորեքշաբթի:չորեքշաբթի
+մէկշաբթի:մէկշաբթի
 կիրակի:կիրակի
 
 իրիկուն:իրիկուն
 առտու:առտու
+տարի:տարի
 հեռու:հեռու
 
 LEXICON NounTimeVanReducedReduced
@@ -10888,6 +10720,7 @@ LEXICON NounTimeVanReducedReduced
 երկուշաբթի:երկուշաբթ
 հինգշաբթի:հինգշաբթ
 չորեքշաբթի:չորեքշաբթ
+մէկշաբթի:մէկշաբթ
 կիրակի:կիրակ
 
 իրիկուն:իրիկ
@@ -10901,23 +10734,27 @@ LEXICON NounTimeVanUReducedBase
 զատկաշաբաթ:զատկաշաբաթ
 միաշաբաթ:միաշաբաթ
 
-տարի:տարի
 LEXICON NounTimeVanUReducedReduced
 շաբաթ:շաբթ
 զատկաշաբաթ:զատկաշաբթ
 միաշաբաթ:միաշաբթ
 
-տարի:տար
 
 #Adverbs which take -van when nominalized
 LEXICON NounTimeVanAdv
 այսօր:այսօր
+երբ:երբ
+առաջ:առաջ
+անգամ:անգամ
+շատոնց:շատոնց
+
 LEXICON NounTimeVanHima
 հիմա:հիմա #This word takes the time suffixes with կ
 
-#These irregulars only take an optional irregular dative ան, 
-#while everything else is regular or follows a separate declension class
-#So I'll only make a lexicon for their reduced form for the dative
+#These irregulars only take an optional irregular dative ան, and its inflected like -անէ 
+#while everything else is regular
+#My cheat is to only use the reduced stem here
+#Each of these words should have a duplicate entry in the regular list, else in time list
 LEXICON NounOldAnForm
 գարուն:գարն
 աշուն:աշն
@@ -10931,12 +10768,36 @@ LEXICON NounOldAnForm
 սառնալեռ:սառնալեր{mono}
 
 դուռ:դր
+կողմ:կողմ
+բեռ:բեռ
+
+անուն:անու
+հիմն:հիմ
+արիւն:արե
+
+էրիկ:էրկ
+
+աղջիկ:աղջկ
+հօրաքեռաղջիկ:հօրաքեռաղջկ
+մօրաքեռաղջիկ:մօրաքեռաղջկ
+
+
 
 LEXICON NounReg #For the -an words which have regular alternates instead of other specialized classes
 գարուն:գարուն
 աշուն:աշուն
 մանուկ:մանուկ
 կնիկ:կնիկ
+կողմ:կողմ
+բեռ:բեռ
+անուն:անուն
+հիմն:հիմն
+արիւն:արիւն
+էրիկ:էրիկ
+աղջիկ:աղջիկ
+հօրաքեռաղջիկ:հօրաքեռաղջիկ
+մօրաքեռաղջիկ:մօրաքեռաղջիկ
+
 
 #These irregulars  take an optional irregular dative ոջ, 
 #The oblique forms can take a մ 
@@ -10976,6 +10837,13 @@ LEXICON NounFamilyOchBase
 մօրքոյր:մօրքոյր{mono}
 
 սկեսուր:սկեսուր
+կեսուր:կեսուր
+
+տէր:տէր
+տպարանատէր:տպարանատէր
+տանտէր:տանտէր
+տանուտէր:տանուտէր
+
 
 LEXICON NounFamilyOchReduced
 կին:կն
@@ -10999,9 +10867,21 @@ LEXICON NounFamilyOchReduced
 մօրքոյր:մօրքր
 
 սկեսուր:սկեսր
+կեսուր:կեսր
+
+տէր:տիր
+տէր:տէր # Dir/LR
+տպարանատէր:տպարանատիր
+տպարանատէր:տպարանատէր  # Dir/LR
+տանուտէր:տանուտիր
+տանուտէր:տանուտէր  # Dir/LR
+տանտէր:տանտիր
+տանտէր:տանտէր  # Dir/LR
+
 
 #Words like հայր հօր
 LEXICON NounFamilyOBase
+
 հայր:հայր
 աբբահայր:աբբահայր{mono}
 աղանդահայր:աղանդահայր{mono}
@@ -11114,6 +10994,7 @@ LEXICON NounRandomOBase
 տուն:տուն
 աղաւնետուն:աղաւնետուն{mono}
 աղօթատուն:աղօթատուն{mono}
+ձմեռնատուն:ձմեռնատուն{mono}
 աստեղատուն:աստեղատուն{mono}
 աստղատուն:աստղատուն{mono}
 ատենատուն:ատենատուն{mono}
@@ -11266,6 +11147,7 @@ LEXICON NounRandomOAblauted
 արուեստատուն:արուեստատան
 աւանդատուն:աւանդատան
 բաժատուն:բաժատան
+ձմեռնատուն:ձմեռնատան
 բաժտուն:բաժտան
 բոզատուն:բոզատան
 գանձատուն:գանձատան
@@ -11402,62 +11284,21 @@ LEXICON NounRandomOAblauted
 
 
 
-
-#These are nouns which supplete or have irregular reduction in their declensions
-#The noun տղայ suppletes to տղու for dative/genitive and takes irregular plural
-LEXICON NounIrregBoyBase
-տղայ:տղայ
-LEXICON NounIrregBoyReduced
-տղայ:տղ
-LEXICON NounIrregMan
-մարդ:մարդ
-այծամարդ:այծամարդ{mono}
-անտառամարդ:անտառամարդ{mono}
-աստուածամարդ:աստուածամարդ{mono}
-գերմարդ:գերմարդ{mono}
-էրիկմարդ:էրիկմարդ{mono}
-կիսամարդ:կիսամարդ{mono}
-մանկամարդ:մանկամարդ{mono}
-սկզբնամարդ:սկզբնամարդ{mono}
-վիշապամարդ:վիշապամարդ{mono}
-տղամարդ:տղամարդ{mono}
-քրջամարդ:քրջամարդ{mono}
-օձամարդ:օձամարդ{mono}
-
-LEXICON NounIrregWomanBase
-տիկին:տիկին
-տանտիկին:տանտիկին
-LEXICON NounIrregWomanReduced #I make hard-coded allomorphs տիկնայք տիկնանց inside the PATTTERns
-տիկին:տիկն
-տանտիկին:տանտիկն
-
-
-
-
-#The noun ասուած suppletes to աստծոյ աստուծոյ  for dative/genitive
-LEXICON NounIrregGod
-Աստուած:աստուած
-LEXICON NounIrregGodReducedU
-Աստուած:աստուծ
-LEXICON NounIrregGodNoVowel
-Աստուած:աստծ
-
 #The noun սէր reduces to սիրոյ  for dative/genitive
-LEXICON NounLoveBase
-սէր:սէր
-LEXICON NounLoveReduced
+# make sure this word has duplicate in regular list
+# this list only has the reduced form as seen in archaic cases
+LEXICON NounIrregArchaicOj
 սէր:սիր
-
-#The noun աղջիկ reduces to աղջկա աղջկան  for dative/genitive
-LEXICON NounGirlBase
-աղջիկ:աղջիկ
-հօրաքեռաղջիկ:հօրաքեռաղջիկ
-մօրաքեռաղջիկ:մօրաքեռաղջիկ
-LEXICON NounGirlReduced
-աղջիկ:աղջկ
-հօրաքեռաղջիկ:հօրաքեռաղջկ
-մօրաքեռաղջիկ:մօրաքեռաղջկ
-
+հոգի:հոգւ
+ամուսին:ամուսն
+որդի:որդւ
+եկեղեցի:եկեղեցւ
+մարմին:մարմն
+խնդիր:խնդր
+մարդ:մարդ  # Dir/LR  don't have unreduced form because taken care of by special declension
+հուր:հր
+լոյս:լուս
+յոյս:յուս
 ################################
 #### Lexicon of nouns which are present in Kouyoumdjian's dictionary "A comprehensive dictionary Armenian-English"
 ### These are nouns which unambiguously belong to a declension class based on suffixes
@@ -21032,6 +20873,7 @@ DigitNumbers
 
 #Cardinals and unordinals
 NumberDeclension
+CardinalFraction
 
 
 PATTERN NumberDeclension
@@ -21061,80 +20903,88 @@ NumericalBase NZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
 
 PATTERN NumericalBase
 #Base for declension and so
-OnesCardinal
-Number2Declined
-OnesOrdinal
+OnesCardinal 
+Number2Declined 
+OnesOrdinal 
 DecadesCardinalOrdinal
 CardinalOrdinalHundreds
 CardinalOrdinalThousandsMillions
 
 PATTERN OnesCardinal
-Number1  
-Number2
-Number3_4
-Number0_5_6
-Number7_8_9 Def?
+#Numbers 1-9, including meaningless def
+Number1   [<num>:]
+Number2 [<num>:]
+Number3_4 [<num>:]
+Number0_5_6 [<num>:]
+Number7_8_9 [<num>:] Def? 
 
 PATTERN OnesOrdinal
+#Ordinals 1-9, including fused ordinals like առաջին
 OnesCardinal OrdinalSuffixRegular
-SpecialOrdinals
+SpecialOrdinals [<num><ord>:]
 
 PATTERN DecadesCardinalOrdinal
-Number10 MeaninglessDefNasal? OrdinalSuffixRegular?
-NumberDecades OrdinalSuffixRegular?
+#Numbers 10, 20/30/../90, and combined forms like 11
+#Assume the intervening definite nasal and schwa are optional
+Number10 [<num>:] MeaninglessDefNasal? OrdinalSuffixRegular?
+NumberDecades [<num>:] OrdinalSuffixRegular?
 Number10 MeaninglessDefNasal ConnectiveSchwa? OnesCardinal|OnesOrdinal|Number2Declined
 NumberDecades (ConnectiveSchwa|ConnectiveU)? OnesCardinal|OnesOrdinal|Number2Declined
 
 PATTERN CardinalOrdinalHundreds
-OnesCardinal? NumberHundred OrdinalSuffixRegular?
+OnesCardinal? NumberHundred [<num>:] OrdinalSuffixRegular?
 OnesCardinal? NumberHundred (ConnectiveSchwa|ConnectiveU)? OnesCardinal|OnesOrdinal|DecadesCardinalOrdinal|Number2Declined
 
 PATTERN CardinalOrdinalThousandsMillions
-NumberThousand OrdinalSuffixRegular?
-NumberMillionUp OrdinalSuffixRegular?
+NumberThousand [<num>:] OrdinalSuffixRegular?
+NumberMillionUp [<num>:] OrdinalSuffixRegular?
 
 
+PATTERN CardinalFraction
+#This is for fractions that are spelled without a space liek մէկուկէս one-and-half
+OnesCardinal ConnectiveU HalfFraction
+Number10 [<num>:] MeaninglessDefNasal? ConnectiveU HalfFraction
 
-
-LEXICON Number1(2)
-մէկ:մէկ <num> 
-LEXICON Number2(2)
-երկու:երկու <num> 
+LEXICON Number1
+մէկ:մէկ 
+LEXICON Number2
+երկու:երկու  
 LEXICON Number2Declined(2)
-երկուք:երկուք <num> 
-LEXICON Number3_4(2)
-երեք:երեք <num> 
-չորս:չորս <num> 
-LEXICON Number0_5_6(2)
-զէրօ:զէրօ <num> 
-հինգ:հինգ <num> 
-վեց:վեց <num> 
-LEXICON Number7_8_9(2)
-եօթ:եօթ <num> 
-ութ:ութ <num> 
-ին:ին <num> 
-LEXICON Number10(2)
-տաս:տաս <num> 
-LEXICON NumberDecades(2)
-քսան:քսան <num> 
-երեսուն:երեսուն <num> 
-քառասուն:քառասուն <num> 
-յիսուն:յիսուն <num> 
-վաթսուն:վաթսուն <num> 
-եօթանասուն:եօթանասուն <num> 
-ութսուն:ութսուն <num> 
-ինիսուն:ինիսուն <num> 
-իննսուն:իննսուն <num> 
+երկուք:երկուք  <num>
+LEXICON Number3_4
+երեք:երեք  
+չորս:չորս  
+LEXICON Number0_5_6
+զէրօ:զէրօ  
+հինգ:հինգ  
+վեց:վեց  
+LEXICON Number7_8_9
+եօթ:եօթ  
+ութ:ութ  
+ին:ին  
+LEXICON Number10
+տաս:տաս  
+LEXICON NumberDecades
+քսան:քսան  
+երեսուն:երեսուն  
+քառասուն:քառասուն  
+յիսուն:յիսուն  
+վաթսուն:վաթսուն  
+եօթանասուն:եօթանասուն  
+ութսուն:ութսուն  
+ինիսուն:ինիսուն  
+իննսուն:իննսուն  
+իննիսուն:իննիսուն
 
-LEXICON NumberHundred(2)
-հարիւր:հարիւր <num> 
-LEXICON NumberThousand(2)
-հազար:հազար <num> 
-LEXICON NumberMillionUp(2)
-միլիոն:միլիոն <num> 
-պիլիոն:պիլիոն <num> 
-միլիարդ:միլիարդ <num> 
-միլիառ:միլիառ <num> 
+LEXICON NumberHundred
+հարիւր:հարիւր  
+LEXICON NumberThousand
+հազար:հազար  
+LEXICON NumberMillionUp
+միլիոն:միլիոն  
+պիլիոն:պիլիոն  
+միլիարդ:միլիարդ  
+միլիառ:միլիառ  
 
 LEXICON MeaninglessDefNasal
 <def_meaningless>:ն
@@ -21143,14 +20993,18 @@ LEXICON ConnectiveSchwa
 LEXICON ConnectiveU
 :ու
 
+
 LEXICON OrdinalSuffixRegular
 <ord>:երորդ
-LEXICON SpecialOrdinals(2)
-առաջին:առաջին <num><ord>
-երկրորդ:երկրորդ <num><ord>
-երրորդ:երրորդ <num><ord>
-չորրորդ:չորրորդ <num><ord>
+LEXICON SpecialOrdinals
+առաջին:առաջին 
+երկրորդ:երկրորդ 
+երրորդ:երրորդ 
+չորրորդ:չորրորդ 
 
+LEXICON HalfFraction
+<frac>:կէս
+<frac>:քառորդ
 
 PATTERN DigitNumbers
 Digit+ [<num>:]
@@ -26280,14 +26134,20 @@ PersonalPronoun
 SubstantivePronoun
 ReciprocalPronoun
 
+#ինքզինքս ինքզինքիս
 ReflexivePronoun  CaseRegI? (Def|Poss)?
-ReflexivePronoun  PossPl CaseRegPostPluralPoss Def|Poss?
-ReflexivePronoun  InsReg PossPl  Def|Poss?
+ReflexivePronoun  PossPl CaseRegPostPluralPoss (Def|Poss)?
+ReflexivePronoun  InsReg PossPl  (Def|Poss)?
 
+#ինքնիրմէ ինքնիրեն 
+ReflexivePronounInkIr (CaseBoundaryM CaseRegOblique)? (Def|Poss)?
+ReflexivePronounInkIr [<acc>:են] (Def|Poss)?
+
+ReflexivePronounArchaic
 
 DemonstrativePronoun (Def|Poss)?  
 RelativePronoun ((Def Def?)|Poss)?   # Double Def is because of attributive like որունն է 
-ReflexivePronounArchaic
+
 
 Quantifier [<qnt>:] CaseRegI? (Def|Poss)? 
 #Plural
@@ -26314,6 +26174,7 @@ LEXICON PersonalPronoun
 ես<prn><dat><sg><p1>:ինձ  # Dir/LR
 ես<prn><acc><sg><p1>:զիս  # Dir/LR
 ես<prn><acc><sg><p1>:ինձ  # Dir/LR
+ես<prn><acc><sg><p1>:ինծ  # Dir/LR
 ես<prn><acc><sg><p1>:ինծի
 ես<prn><abl><sg><p1>:ինձմէ
 ես<prn><abl><sg><p1>:ինծմէ  # Dir/LR
@@ -26330,6 +26191,7 @@ LEXICON PersonalPronoun
 մենք<prn><ins><pl><p1>:մեզմով
 
 դուն<prn><nom><sg><p2>:դուն
+դուն<prn><nom><sg><p2>:դու  # Dir/LR
 դուն<prn><gen><sg><p2>:քու
 դուն<prn><dat><sg><p2>:քեզի
 դուն<prn><dat><sg><p2>:քեզ  # Dir/LR
@@ -26561,6 +26423,11 @@ LEXICON ReflexivePronoun
 ինքզինքը<prn><ref>:ինքզինք
 նոյնինքը<prn><ref>:նոյնինք
 
+LEXICON ReflexivePronounInkIr
+ինքիր<prn><ref>:ինքիր
+ինքնիր<prn><ref>:ինքնիր
+
+
 LEXICON ReflexivePronounArchaic
 #Somewhat archaic
 ինքս<prn><ref><px1sg>:ինքս
@@ -26642,6 +26509,7 @@ LEXICON DemonstrativePronoun
 անոնք<prn><dem><dst><pl><gen_dat>:անոնց
 անոնք<prn><dem><dst><pl><acc>:անոնք
 անոնք<prn><dem><dst><pl><acc>:զանոնք # Dir/LR 
+անոնք<prn><dem><dst><pl><acc>:զանոնց # Dir/LR 
 անոնք<prn><dem><dst><pl><abl>:անոնցմէ
 անոնք<prn><dem><dst><pl><ins>:անոնցմով
 
@@ -26667,13 +26535,18 @@ LEXICON RelativePronoun
 որ<prn><rel><sg><ins>:որմով 
 
 որ<prn><rel><pl><nom>:որոնք
+որ<prn><rel><pl><nom>:ոմանք # Dir/LR
 որ<prn><rel><pl><gen_dat>:որոնց
 որ<prn><rel><pl><acc>:որոնք # Dir/LR 
+որ<prn><rel><pl><acc>:զորոնք # Dir/LR 
 որ<prn><rel><pl><acc>:որս # Dir/LR 
 որ<prn><rel><pl><acc>:զորս # Dir/LR 
+որ<prn><rel><pl><acc>:ոմանց # Dir/LR
 որ<prn><rel><pl><abl>:որոնցմէ
+որ<prn><rel><pl><abl>:ոմանցմէ # Dir/LR
 որ<prn><rel><pl><ins>:որոնցով # Dir/LR 
 որ<prn><rel><pl><ins>:որոնցմով 
+որ<prn><rel><pl><ins>:ոմանցմով # Dir/LR
 
 ինչ<prn><rel><sg><nom>:ինչ # what
 ինչ<prn><rel><sg><gen_dat>:ինչին
@@ -26782,6 +26655,7 @@ LEXICON TruePreposition
 առանց<pr>:առանց
 դէպի<pr>:դէպի
 ըստ<pr>:ըստ
+վասն<pr>:վասն
 
 LEXICON TruePrepositionVary
 #True prepositions (doesn't decline) but can sometimes be a postposition
@@ -26875,16 +26749,12 @@ LEXICON FrozenPrepositionVary
 
 LEXICON FrozenPostposition
 #True postpositions, don't decline, frozem from nouns or verbs or adjectives
-
+#I removed some of these because I can decline them
 մասին<post><def>:մասին
 մասին<post><px1sg>:մասիս
 մասին<post><px2sg>:մասիդ
 
-միջոցով<post>:միջոցով
-միջոցաւ<post>:միջոցաւ
-վերաբերեալ<post>:վերաբերեալ
-պատճառով<post>:պատճառով
-պատճառաւ<post>:պատճառաւ
+
 առթիւ<post>:առթիւ
 չափով<post>:չափով
 սկսեալ<post>:սկսեալ
@@ -26908,6 +26778,13 @@ LEXICON DeclinablePostposition
 
 
 դիմաց<post>:դիմաց  # reassigned from Hagopian
+
+միջոցով<post>:միջոցով #This block was reassigned from True postpositions because I can decline them
+միջոցաւ<post>:միջոցաւ
+վերաբերեալ<post>:վերաբերեալ
+պատճառով<post>:պատճառով
+պատճառաւ<post>:պատճառաւ
+
 
 ընդմէջ<post>:ընդմէջ #postposition form takes case in my judgments; added from corpus
 # Also include adverbal postpositions
@@ -44180,7 +44057,6 @@ LEXICON AdvReg
 մուրցացի:մուրցացի
 շեշտակի:շեշտակի
 վաղուընէ:վաղուընէ
-քաւլիցի:քաւլիցի
 ջերմագին:ջերմագին
 ռամկօրէն:ռամկօրէն
 բազմաբար:բազմաբար
@@ -44426,7 +44302,6 @@ LEXICON AdvReg
 տոտիկ:տոտիկ
 տոտիկ:տոտիկ
 բարով:բարով
-երէկ:երէկ
 զիկէն:զիկէն
 զօրէն:զօրէն
 խոլոր:խոլոր
@@ -44470,7 +44345,6 @@ LEXICON AdvReg
 վերուստ:վերուստ
 քանիցս:քանիցս
 հետաքրքրաբար:հետաքրքրաբար
-շատոնցուընէ:շատոնցուընէ
 երաժշտապէս:երաժշտապէս
 երաժշտօրէն:երաժշտօրէն
 մեծանձնաբար:մեծանձնաբար
@@ -46690,6 +46564,20 @@ LEXICON AdvAdjOren
 
 
 LEXICON NounReg
+ճակատ:ճակատ
+ճամբայ:ճամբայ
+էշ:էշ
+կէս:կէս
+դուստր:դուստր
+կայսր:կայսր
+սէր:սէր
+հոգի:հոգի
+լոյս:լոյս
+ամուսին:ամուսին
+որդի:որդի
+եկեղեցի:եկեղեցի
+մարմին:մարմին
+խնդիր:խնդիր
 էրիւր:էրիւր
 կառափուշ:կառափուշ
 ջերումն:ջերումն
@@ -52723,6 +52611,7 @@ LEXICON NounReg
 զարնող:զարնող
 զարտագոյն:զարտագոյն
 զարօշ:զարօշ
+բերան:բերան
 զաւակ:զաւակ
 զաւակք:զաւակք
 զաւեշտ:զաւեշտ
@@ -53015,7 +52904,6 @@ LEXICON NounReg
 էտէր:էտէր
 էրան:էրան
 էրէ:էրէ
-էրիկ:էրիկ
 էփիմէրտէզ:էփիմէրտէզ
 էք:էք
 ըղեղ:ըղեղ
@@ -54685,7 +54573,6 @@ LEXICON NounReg
 լողուկ:լողուկ
 լողուսոյց:լողուսոյց
 լողքար:լողքար
-լոյս:լոյս
 լոյսամուտ:լոյսամուտ
 լոյսանուն:լոյսանուն
 լոյսանցոյց:լոյսանցոյց
@@ -60723,7 +60610,6 @@ LEXICON NounReg
 ճախնասարեկ:ճախնասարեկ
 ճախնատունկ:ճախնատունկ
 ճախր:ճախր
-ճակատ:ճակատ
 ճակատագէտ:ճակատագէտ
 ճակատագիր:ճակատագիր
 ճակատադէտ:ճակատադէտ
@@ -60755,7 +60641,6 @@ LEXICON NounReg
 ճաճանչաքար:ճաճանչաքար
 ճաճանչոսկր:ճաճանչոսկր
 ճամբակ:ճամբակ
-ճամբայ:ճամբայ
 ճամբար:ճամբար
 ճամբող:ճամբող
 ճամբորդ:ճամբորդ
@@ -63315,6 +63200,7 @@ LEXICON NounReg
 յոյս:յոյս
 յոշոշիկ:յոշոշիկ
 յոպնակ:յոպնակ
+հաշիւ:հաշիւ
 յոպնակաւոր:յոպնակաւոր
 յոպոպ:յոպոպ
 յոպոպասար:յոպոպասար
@@ -69397,11 +69283,9 @@ LEXICON NounReg
 տանձիկ:տանձիկ
 տանձփոր:տանձփոր
 տանձօղի:տանձօղի
-տանուտէր:տանուտէր
 տանջանարան:տանջանարան
 տանտալաքար:տանտալաքար
 տանտաղոս:տանտաղոս
-տանտէր:տանտէր
 տանտիսենի:տանտիսենի
 տանտիրուհի:տանտիրուհի
 տանրէկ:տանրէկ
@@ -69725,7 +69609,6 @@ LEXICON NounReg
 տզրուկաբոյծ:տզրուկաբոյծ
 տզրուկեայք:տզրուկեայք
 տէլդա:տէլդա
-տէր:տէր
 տէրպապա:տէրպապա
 տէրտէր:տէրտէր
 տէքոր:տէքոր
@@ -69991,7 +69874,6 @@ LEXICON NounReg
 տպազիոն:տպազիոն
 տպարան:տպարան
 տպարանապետ:տպարանապետ
-տպարանատէր:տպարանատէր
 տպաւորապաշտ:տպաւորապաշտ
 տպաքանակ:տպաքանակ
 տպաքար:տպաքար
@@ -73598,6 +73480,32 @@ LowerCaseLetter [<min>:]
 UpperCaseLetter [<maj>:]
 Conjunction [<conj>:]
 OtherParticles [<particle>:]
+DeclDeclinableInterjection
+
+PATTERN DeclDeclinableInterjection
+#Singular
+DeclinableInterjection [<ij>:]
+DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NSg0 CaseRegI? (Def|Poss)? 
+
+#Singular attributive
+DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
+
+#Plural
+DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+
+#Plural attributive
+DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
+
+#Plural possessive (separate line for instrumental)
+DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NSg0|NPlReg  	PossPl CaseRegPostPluralPoss Def|Poss
+DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NSg0|NPlReg  	InsReg PossPl  Def|Poss
+
+
+
+LEXICON DeclinableInterjection
+այո:այո 
+ոչ:ոչ 
+
 
 LEXICON Interjection
 Ա:Ա # had ՜
@@ -73606,7 +73514,6 @@ LEXICON Interjection
 ահ:ահ 
 աղէ:աղէ 
 այ:այ 
-այո:այո 
 անկցի:անկցի 
 աւաղ:աւաղ # had ՜
 ափսոս:ափսոս 
@@ -73630,7 +73537,6 @@ LEXICON Interjection
 հովայ:հովայ 
 հուռայ:հուռայ 
 ոհ:ոհ 
-ոչ:ոչ 
 ով:ով # had ՜
 որպէս:որպէս # had ՜
 ուռա:ուռա 
@@ -73643,6 +73549,9 @@ LEXICON Interjection
 քաւ:քաւ 
 օխ:օխ 
 օն:օն 
+քաւլիցի:քաւլիցի # reassigned from adverb
+քաւ\ լիցի:քաւ\ լիցի
+լիցի:լիցի
 
 LEXICON LowerCaseLetter
 ա:ա
@@ -73790,7 +73699,7 @@ LEXICON OtherParticles
 #     without իա, and some reducible with իա
 #  from https://bible-links.org/keywords.php?type=2 are human names
 #  from https://bible-links.org/keywords.php?type=5 are month names, as normal nouns
-
+# I removed the ացի ethnonyms into separate list for bible-specific additions
 
 LEXICON NounCountryUnreducible
 Աբանա:Աբանա
@@ -74102,7 +74011,6 @@ LEXICON NounCountryUnreducible
 Դումա:Դումա
 Դուրա:Դուրա
 Դօթայիմ:Դօթայիմ
-Եբրայեցի:Եբրայեցի
 Եբրօն:Եբրօն
 Եբրօնա:Եբրօնա
 Եգիպտոս:Եգիպտոս
@@ -74588,7 +74496,6 @@ LEXICON NounCountryUnreducible
 Սելովամ:Սելովամ
 Սելսահ:Սելսահ
 Սելքա:Սելքա
-Սեմարացի:Սեմարացի
 Սեմարիմ:Սեմարիմ
 Սեն:Սեն
 Սենա:Սենա
@@ -74627,7 +74534,6 @@ LEXICON NounCountryUnreducible
 Սիւքեմ:Սիւքեմ
 Սիօն:Սիօն
 Սիօր-լեբնաթին:Սիօր-լեբնաթին
-Սկիւթացի:Սկիւթացի
 Սոդոմ:Սոդոմ
 Սոկքով:Սոկքով
 Սոկքովթ:Սոկքովթ
@@ -74870,7 +74776,6 @@ LEXICON NameGivenUnclassified
 Ագաբա:Ագաբա
 Ագաբոս:Ագաբոս
 Ագագ:Ագագ
-Ագագացի:Ագագացի
 Ագարա:Ագարա
 Ագգիթ:Ագգիթ
 Ագեդողեմ:Ագեդողեմ
@@ -74981,7 +74886,6 @@ LEXICON NameGivenUnclassified
 Ամրան:Ամրան
 Ամրի:Ամրի
 Ամօն:Ամօն
-Ամօրհացի:Ամօրհացի
 Այիա:Այիա
 Այծեմնիկ:Այծեմնիկ
 Անա:Անա
@@ -75078,7 +74982,6 @@ LEXICON NameGivenUnclassified
 Արիստոբուղոս:Արիստոբուղոս
 Արիփ:Արիփ
 Արմոնի:Արմոնի
-Արուկեցի:Արուկեցի
 Արուս:Արուս
 Արուսեակ:Արուսեակ
 Արուր:Արուր
@@ -75092,7 +74995,6 @@ LEXICON NameGivenUnclassified
 Արօդի:Արօդի
 Արօտի:Արօտի
 Աւովդ:Աւովդ
-Ափարսաքացի:Ափարսաքացի
 Ափեսես:Ափեսես
 Ափէր:Ափէր
 Ափփիմ:Ափփիմ
@@ -75133,7 +75035,6 @@ LEXICON NameGivenUnclassified
 Աքոբոր:Աքոբոր
 Աքուդ:Աքուդ
 Աքուք:Աքուք
-Աքուքացի:Աքուքացի
 Աքսա:Աքսա
 Բաալթամար:Բաալթամար
 Բաալիս:Բաալիս
@@ -75248,7 +75149,6 @@ LEXICON NameGivenUnclassified
 Գաբրիէլ:Գաբրիէլ
 Գագաթ:Գագաթ
 Գադ:Գադ
-Գադարացի:Գադարացի
 Գադդի:Գադդի
 Գազամ:Գազամ
 Գազէզ:Գազէզ
@@ -75274,7 +75174,6 @@ LEXICON NameGivenUnclassified
 Գեսամ:Գեսամ
 Գեսան:Գեսան
 Գերա:Գերա
-Գերգեսացի:Գերգեսացի
 Գերսոմ:Գերսոմ
 Գերսոն:Գերսոն
 Գեփա:Գեփա
@@ -75319,7 +75218,6 @@ LEXICON NameGivenUnclassified
 Դինացիք:Դինացիք
 Դիոնեսիոս:Դիոնեսիոս
 Դիոս:Դիոս
-Դիոսկուրացի:Դիոսկուրացի
 Դիոտրէփէս:Դիոտրէփէս
 Դիսան:Դիսան
 Դիսօն:Դիսօն
@@ -75486,7 +75384,6 @@ LEXICON NameGivenUnclassified
 Զիա:Զիա
 Զիզա:Զիզա
 Զիփա:Զիփա
-Զուզեցի:Զուզեցի
 Զօհէթ:Զօհէթ
 Զօրաբաբէլ:Զօրաբաբէլ
 Էգղա:Էգղա
@@ -75515,11 +75412,9 @@ LEXICON NameGivenUnclassified
 Թարա:Թարա
 Թարակա:Թարակա
 Թարանա:Թարանա
-Թարգաթացի:Թարգաթացի
 Թարէ:Թարէ
 Թարէս:Թարէս
 Թաքաս:Թաքաս
-Թեզբացի:Թեզբացի
 Թեկէղ:Թեկէղ
 Թեկուա:Թեկուա
 Թեմա:Թեմա
@@ -75549,7 +75444,6 @@ LEXICON NameGivenUnclassified
 Իսահակ:Իսահակ
 Իսահառ:Իսահառ
 Իսաքար:Իսաքար
-Իսկարիովտացի:Իսկարիովտացի
 Իսմայէլ:Իսմայէլ
 Իսմայիա:Իսմայիա
 Իսրայէլ:Իսրայէլ
@@ -75560,14 +75454,12 @@ LEXICON NameGivenUnclassified
 Իրու:Իրու
 Իքաբօդ:Իքաբօդ
 Լաբան:Լաբան
-Լաբացի:Լաբացի
 Լայէլ:Լայէլ
 Լատիներէն:Լատիներէն
 Լատուսիմ:Լատուսիմ
 Լեգէոն:Լեգէոն
 Լեմուէլ:Լեմուէլ
 Լիա:Լիա
-Լիբերտինացի:Լիբերտինացի
 Լիդիա:Լիդիա
 Լինոս:Լինոս
 Լիւդիա:Լիւդիա
@@ -75593,9 +75485,7 @@ LEXICON NameGivenUnclassified
 Կարսենա:Կարսենա
 Կեդար:Կեդար
 Կեդմա:Կեդմա
-Կեդմոնացի:Կեդմոնացի
 Կենեզ:Կենեզ
-Կենեցի:Կենեցի
 Կենքրա:Կենքրա
 Կերեն-հափուք:Կերեն-հափուք
 Կերոս:Կերոս
@@ -75638,7 +75528,6 @@ LEXICON NameGivenUnclassified
 Հեգէի:Հեգէի
 Հելեմ:Հելեմ
 Հելլել:Հելլել
-Հելլենացի:Հելլենացի
 Հեղի:Հեղի
 Հեմամ:Հեմամ
 Հեն:Հեն
@@ -75721,7 +75610,6 @@ LEXICON NameGivenUnclassified
 Մակեբիս:Մակեբիս
 Մակեղօթ:Մակեղօթ
 Մակենիա:Մակենիա
-Մահաւացի:Մահաւացի
 Մահէր-շալալ-հաշ-բազ:Մահէր-շալալ-հաշ-բազ
 Մաղաղիէլ:Մաղաղիէլ
 Մաղաքիա:Մաղաքիա
@@ -75739,7 +75627,6 @@ LEXICON NameGivenUnclassified
 Մաշ:Մաշ
 Մաոնաթա:Մաոնաթա
 Մաովք:Մաովք
-Մասարացի:Մասարացի
 Մասեղամիա:Մասեղամիա
 Մասէ:Մասէ
 Մասիզեբել:Մասիզեբել
@@ -75796,7 +75683,6 @@ LEXICON NameGivenUnclassified
 Մեսողոմիթ:Մեսողոմիթ
 Մեսուղամ:Մեսուղամ
 Մեստրեմ:Մեստրեմ
-Մեսօբացի:Մեսօբացի
 Մետաբեէլ:Մետաբեէլ
 Մետաբէլ:Մետաբէլ
 Մերամօթ:Մերամօթ
@@ -76047,7 +75933,6 @@ LEXICON NameGivenUnclassified
 Նադաբ:Նադաբ
 Նադաբիա:Նադաբիա
 Նաեմանի:Նաեմանի
-Նազովրեցի:Նազովրեցի
 Նաթան:Նաթան
 Նաթանայէլ:Նաթանայէլ
 Նաթանայիմներ:Նաթանայիմներ
@@ -76068,13 +75953,11 @@ LEXICON NameGivenUnclassified
 Նաքովր:Նաքովր
 Նեբրովթ:Նեբրովթ
 Նեկոդա:Նեկոդա
-Նեհելամացի:Նեհելամացի
 Նեհուսթա:Նեհուսթա
 Նեռ:Նեռ
 Նեսիա:Նեսիա
 Նեսրաք:Նեսրաք
 Նետոփա:Նետոփա
-Նետոփաթացի:Նետոփաթացի
 Ներ:Ներ
 Ներգեղսարասար:Ներգեղսարասար
 Ներէոս:Ներէոս
@@ -76315,7 +76198,6 @@ LEXICON NameGivenUnclassified
 Սեմիրամովթ:Սեմիրամովթ
 Սենաա:Սենաա
 Սենաբ:Սենաբ
-Սենացի:Սենացի
 Սենեքերիմ:Սենեքերիմ
 Սենուա:Սենուա
 Սեպփօր:Սեպփօր
@@ -76404,7 +76286,6 @@ LEXICON NameGivenUnclassified
 Սօբէկ:Սօբէկ
 Սօհամ:Սօհամ
 Սօղոս:Սօղոս
-Սօքեցի:Սօքեցի
 Վայեզաթա:Վայեզաթա
 Վաշթի:Վաշթի
 Վափառ:Վափառ
@@ -76468,7 +76349,6 @@ LEXICON NameGivenUnclassified
 Փասփառ:Փասփառ
 Փարեդա:Փարեդա
 Փարէս:Փարէս
-Փարիսեցի:Փարիսեցի
 Փարմասթա:Փարմասթա
 Փարոս:Փարոս
 Փարուա:Փարուա
@@ -76493,12 +76373,10 @@ LEXICON NameGivenUnclassified
 Փիրամ:Փիրամ
 Փիքող:Փիքող
 Փղեգոնտ:Փղեգոնտ
-Փղշտացի:Փղշտացի
 Փորաթա:Փորաթա
 Փորտունատ:Փորտունատ
 Փուա:Փուա
 Փուդ:Փուդ
-Փութացի:Փութացի
 Փուտիէլ:Փուտիէլ
 Փուր:Փուր
 Փուրա:Փուրա
@@ -76517,7 +76395,6 @@ LEXICON NameGivenUnclassified
 Քանանիս:Քանանիս
 Քառան:Քառան
 Քասղեւ:Քասղեւ
-Քասղուքացի:Քասղուքացի
 Քասղօն:Քասղօն
 Քարմի:Քարմի
 Քարքաս:Քարքաս
@@ -76543,10 +76420,8 @@ LEXICON NameGivenUnclassified
 Քոդողագոմոր:Քոդողագոմոր
 Քոլոզէ:Քոլոզէ
 Քոնոնիա:Քոնոնիա
-Քոռեցի:Քոռեցի
 Քոռի:Քոռի
 Քովթամ:Քովթամ
-Քուբացի:Քուբացի
 Քուզա:Քուզա
 Քուզեբա:Քուզեբա
 Քուսարսաթեմ:Քուսարսաթեմ
@@ -76623,7 +76498,6 @@ LEXICON AdvReg
 կոյրզկուրայն:կոյրզկուրայն
 ընդմիշտ:ընդմիշտ
 մտովի:մտովի
-շատոնց:շատոնց
 դէն:դէն
 հաւատարմօրէն:հաւատարմօրէն
 
@@ -76792,3 +76666,564 @@ LEXICON InchRoot(2)
 յամէնալ:յամէ <iv> #alternate spelling
 դանդաղանալ:դանդաղա <iv>
 մօտիկնալ:մօտիկ <iv>
+##### Words added from the Bible
+
+LEXICON NounAdjReg
+ագագացի:ագագացի
+ազովտացի:ազովտացի
+աթենացի:աթենացի
+աղեքսանդրացի:աղեքսանդրացի
+ամաղեկացի:ամաղեկացի
+ամմոնացի:ամմոնացի
+ամօրհացի:ամօրհացի
+անաթովթացի:անաթովթացի
+աստարովթացի:աստարովթացի
+ասօնացի:ասօնացի
+արաբաթացի:արաբաթացի
+արաբացի:արաբացի
+արարացի:արարացի
+արափաթացի:արափաթացի
+արաքացի:արաքացի
+արբացի:արբացի
+արիմաթացի:արիմաթացի
+արիսպագացի:արիսպագացի
+արոէրացի:արոէրացի
+արովրացի:արովրացի
+արուկեցի:արուկեցի
+ափարսաքացի:ափարսաքացի
+աքուքացի:աքուքացի
+բազկաթացի:բազկաթացի
+բարումացի:բարումացի
+բաւուրիմացի:բաւուրիմացի
+բեթելացի:բեթելացի
+բեթլեհեմացի:բեթլեհեմացի
+բեթսամիւսացի:բեթսամիւսացի
+բերիացի:բերիացի
+բերովթացի:բերովթացի
+բլրացի:բլրացի
+բուզացի:բուզացի
+բօսրացի:բօսրացի
+գաբաացի:գաբաացի
+գաբաւոնացի:գաբաւոնացի
+գադարացի:գադարացի
+գադացի:գադացի
+գադերացի:գադերացի
+գալիլիացի:գալիլիացի
+գաղաադացի:գաղաադացի
+գաղղիմացի:գաղղիմացի
+գեդովրացի:գեդովրացի
+գեթացի:գեթացի
+գեթքոփերացի:գեթքոփերացի
+գեղոնացի:գեղոնացի
+գերգեսացի:գերգեսացի
+գերսոնացի:գերսոնացի
+դամասկոսցի:դամասկոսցի
+դիոսկուրացի:դիոսկուրացի
+եբրայեցի:եբրայեցի
+եդովմայեցի:եդովմայեցի
+եզրահացի:եզրահացի
+ելկեսացի:ելկեսացի
+ետեբացի:ետեբացի
+երուսաղեմացի:երուսաղեմացի
+երուսաղէմացի:երուսաղէմացի
+եփեսացի:եփեսացի
+եփրաթացի:եփրաթացի
+զաբուղոնացի:զաբուղոնացի
+զուզեցի:զուզեցի
+թամնաթացի:թամնաթացի
+թարգաթացի:թարգաթացի
+թարսիսցի:թարսիսցի
+թեզբացի:թեզբացի
+թեկուացի:թեկուացի
+թեմանացի:թեմանացի
+թեսաղոնիկեցի:թեսաղոնիկեցի
+թիսացի:թիսացի
+իկոնացի:իկոնացի
+իսկարիովտացի:իսկարիովտացի
+իսմայելացի:իսմայելացի
+իսրայէլացի:իսրայէլացի
+լաբացի:լաբացի
+լեբնացի:լեբնացի
+լիբերտինացի:լիբերտինացի
+լիւստրացի:լիւստրացի
+խեւացի:խեւացի
+կաբեսէելացի:կաբեսէելացի
+կանանացի:կանանացի
+կարմելացի:կարմելացի
+կեդմոնացի:կեդմոնացի
+կենեցի:կենեցի
+կեսարացի:կեսարացի
+կիւրենացի:կիւրենացի
+կորխացի:կորխացի
+հագարացի:հագարացի
+հարօդացի:հարօդացի
+հելլենացի:հելլենացի
+մագդաղենացի:մագդաղենացի
+մադիանացի:մադիանացի
+մաթանացի:մաթանացի
+մակեդոնացի:մակեդոնացի
+մահաւացի:մահաւացի
+մաուլացի:մաուլացի
+մասարացի:մասարացի
+մասրեկացի:մասրեկացի
+մարեսացի:մարեսացի
+մաքաթացի:մաքաթացի
+մեսօբացի:մեսօբացի
+մերոնոթացի:մերոնոթացի
+մեքուրաթացի:մեքուրաթացի
+մովաբացի:մովաբացի
+մօրստացի:մօրստացի
+յայիրացի:յայիրացի
+յարուփացի:յարուփացի
+յեբուսացի:յեբուսացի
+յեզրայելացի:յեզրայելացի
+յեզրացի:յեզրացի
+յեթերացի:յեթերացի
+նաամացի:նաամացի
+նազովրեցի:նազովրեցի
+նեհելամացի:նեհելամացի
+նետոփաթացի:նետոփաթացի
+նովացի:նովացի
+ոդողոմացի:ոդողոմացի
+ովսացի:ովսացի
+որոնացի:որոնացի
+ռումացի:ռումացի
+սաղաբինացի:սաղաբինացի
+սամարացի:սամարացի
+սանամացի:սանամացի
+սարաացի:սարաացի
+սարօնացի:սարօնացի
+սեմարացի:սեմարացի
+սենացի:սենացի
+սեփամացի:սեփամացի
+սիդոնացի:սիդոնացի
+սիլօնացի:սիլօնացի
+սկիւթացի:սկիւթացի
+սուբացի:սուբացի
+սունամացի:սունամացի
+սօքեցի:սօքեցի
+տարսոնացի:տարսոնացի
+տիւրացի:տիւրացի
+փարաթոնացի:փարաթոնացի
+փարիսեցի:փարիսեցի
+փելլատացի:փելլատացի
+փելօնացի:փելօնացի
+փղշտացի:փղշտացի
+փութացի:փութացի
+քանանացի:քանանացի
+քասղուքացի:քասղուքացի
+քետացի:քետացի
+քոռեցի:քոռեցի
+քուբացի:քուբացի
+բեթլէհեմացի:բեթլէհեմացի
+բեթլէհէմացի:բեթլէհէմացի
+ափարսաթաքացի:ափարսաթաքացի
+ափերսացի:ափերսացի
+բաբելոնացի:բաբելոնացի
+գաղատացի:գաղատացի
+եղամացի:եղամացի
+շուշանացի:շուշանացի
+ասորացի:ասորացի
+դեդանացի:դեդանացի
+լիւրիկացի:լիւրիկացի
+կիտացի:կիտացի
+յերամելացի:յերամելացի
+սինէացի:սինէացի
+կորնթացի:կորնթացի
+սողոմացի:սողոմացի
+ամաթացի:ամաթացի
+ասենացի:ասենացի
+արուադացի:արուադացի
+դերբացի:դերբացի
+թահքեմոնացի:թահքեմոնացի
+մագդաղինացի:մագդաղինացի
+սողոմացիի:սողոմացիի
+փերեզացի:փերեզացի
+կողոսացի:կողոսացի
+կորնթացի:կորնթացի
+ակկարոնացի:ակկարոնացի
+անամացի:անամացի
+աւացի:աւացի
+բաբելացի:բաբելացի
+գեբաղացի:գեբաղացի
+դամադացի:դամադացի
+եմաթացի:եմաթացի
+եսթաւուղացի:եսթաւուղացի
+զիփացի:զիփացի
+լիբէացի:լիբէացի
+կահաթացի:կահաթացի
+կափթորացի:կափթորացի
+կենեզացի:կենեզացի
+ղաբացի:ղաբացի
+ղուդացի:ղուդացի
+մաոնացի:մաոնացի
+նետոբաթացի:նետոբաթացի
+նեփթուքացի:նեփթուքացի
+նինուէացի:նինուէացի
+պաթուրեսացի:պաթուրեսացի
+սամաթացի:սամաթացի
+սեփարուիմացի:սեփարուիմացի
+սովկաթացի:սովկաթացի
+փուդացի:փուդացի
+քութացի:քութացի
+գեսուրացի:գեսուրացի
+կիտացի:կիտացի
+պաթուրեսացի:պաթուրեսացի
+սարացի:սարացի
+սովկիացի:սովկիացի
+աբիլինացի:աբիլինացի
+ազատացի:ազատացի
+ասկաղոնացի:ասկաղոնացի
+բերացի:բերացի
+գազացի:գազացի
+գազերացի:գազերացի
+գոմորացի:գոմորացի
+իտուրացի:իտուրացի
+լիկայոնացի:լիկայոնացի
+մանաքաթացի:մանաքաթացի
+մեմփացի:մեմփացի
+յետուրացի:յետուրացի
+նափեսացի:նափեսացի
+նոդաբացի:նոդաբացի
+սիւքեմացի:սիւքեմացի
+սուրիացի:սուրիացի
+տափնացի:տափնացի
+տրաքոնացի:տրաքոնացի
+
+LEXICON AdjReg
+հարիւրական:հարիւրական
+հրատագնապ:հրատագնապ
+նախանձաւոր:նախանձաւոր
+նախասիրած:նախասիրած
+նկարագործ:նկարագործ
+պղծեալ:պղծեալ
+պղնձանիգ:պղնձանիգ
+փափկալի:փափկալի
+անթլփատուած:անթլփատուած
+անմարդ:անմարդ
+ապականացու:ապականացու
+առատաբուղխ:առատաբուղխ
+աստուածահաճոյ:աստուածահաճոյ
+արմտեաց:արմտեաց
+աւետեաց:աւետեաց
+բազմագագաթ:բազմագագաթ
+բազմափետուր:բազմափետուր
+բազումողորմ:բազումողորմ
+բարձրացեալ:բարձրացեալ
+բաւարար:բաւարար
+բնաջինջ:բնաջինջ
+բոլորախայտ:բոլորախայտ
+գահավէժ:գահավէժ
+գեղարդաւոր:գեղարդաւոր
+գլխիվար:գլխիվար
+գորշագոյն:գորշագոյն
+գորովալից:գորովալից
+դաշտանաւոր:դաշտանաւոր
+դառնահոգի:դառնահոգի
+դարանամուտ:դարանամուտ
+դժուարախօս:դժուարախօս
+եօթնական:եօթնական
+զօրաց:զօրաց
+թառամեալ:թառամեալ
+թեփաձեւ:թեփաձեւ
+թիաքարշ:թիաքարշ
+ինչեւիցէ:ինչեւիցէ
+իւղալի:իւղալի
+լանջագեղ:լանջագեղ
+խժաբեր:խժաբեր
+խոստացեալ:խոստացեալ
+խորշակաբեր:խորշակաբեր
+խունկեղէն:խունկեղէն
+ծանրախօս:ծանրախօս
+ծծմբեղէն:ծծմբեղէն
+ծննդեան:ծննդեան
+կապուտակեայ:կապուտակեայ
+հազարական:հազարական
+հրաւիրեալ:հրաւիրեալ
+հօրենական:հօրենական
+մականուանեալ:մականուանեալ
+մարգարէական:մարգարէական
+մարմնակից:մարմնակից
+մեծաթեւ:մեծաթեւ
+մեղաց:մեղաց
+մէկիկ:մէկիկ
+միեւնոյն:միեւնոյն
+յակնթեղէն:յակնթեղէն
+յառաջիկայ:յառաջիկայ
+յիշատակաց:յիշատակաց
+շատուոր:շատուոր
+շարժեալ:շարժեալ
+շնացեալ:շնացեալ
+շնորհաց:շնորհաց
+շրջանակաձեւ:շրջանակաձեւ
+չորսական:չորսական
+պլպլած:պլպլած
+ջարդուբուրդ:ջարդուբուրդ
+սպառազինեալ:սպառազինեալ
+վանդակաւոր:վանդակաւոր
+տնկակից:տնկակից
+տրտումերես:տրտումերես
+ցանցակերպ:ցանցակերպ
+փայտեղէն:փայտեղէն
+փառաց:փառաց
+քանդակաձեւ:քանդակաձեւ
+քանդակեալ:քանդակեալ
+քթանեղէն:քթանեղէն
+քիչուոր:քիչուոր
+բեռցած:բեռցած
+ծնողաց:ծնողաց
+հզօրաց:հզօրաց
+աղեկ:աղեկ
+ամենաստեղծ:ամենաստեղծ
+այլախառն:այլախառն
+այլայլախառն:այլայլախառն
+անապականացու:անապականացու
+անխափանելի:անխափանելի
+
+LEXICON AdvAdjReg
+անզիղջ:անզիղջ
+դառնագին:դառնագին
+երկերկու:երկերկու
+հիմնայատակ:հիմնայատակ
+
+LEXICON NounAdjReg
+կապեալ:կապեալ
+նեղուածք:նեղուածք
+որբեւարի:որբեւարի
+պատկերաւոր:պատկերաւոր
+պնդերես:պնդերես
+վրանագործ:վրանագործ
+բեհեզեղէն:բեհեզեղէն
+բուժարար:բուժարար
+գարեղէն:գարեղէն
+դրուագազարդ:դրուագազարդ
+իշխանազուն:իշխանազուն
+
+LEXICON AdvReg
+հոդ:հոդ
+ատենօք:ատենօք
+արտորնօք:արտորնօք
+գաղտնօրէն:գաղտնօրէն
+գիտակցաբար:գիտակցաբար
+ընդհակառակ:ընդհակառակ
+համառօտաբար:համառօտաբար
+ձրիապէս:ձրիապէս
+մէկդի:մէկդի
+մէկմէկ:մէկմէկ
+մէյմէկ:մէյմէկ
+յաւիտենապէս:յաւիտենապէս
+յաւիտենից:յաւիտենից
+յիսունական:յիսունական
+որեւիցէ:որեւիցէ
+սրտանց:սրտանց
+այստեղ:այստեղ
+այդտեղ:այդտեղ
+այնտեղ:այնտեղ
+ասանկ:ասանկ
+ատանկ:ատանկ
+ասդի:ասդի
+մէյ:մէյ
+մէյմը:մէյմը
+մէյմըն:մէյմըն
+
+LEXICON NounUtjunSuffix
+պզտկութիւն:պզտկ
+տագրութիւն:տագր
+փեսայութիւն:փեսայ
+ճերմկութիւն:ճերմկ
+յօժարակամութիւն:յօժարակամ
+շատուորութիւն:շատուոր
+որբեւարութիւն:որբեւար
+սնոտաբանութիւն:սնոտաբան
+սպաննութիւն:սպանն
+փայլունութիւն:փայլուն
+քնքշութիւն:քնքշ
+աղջկութիւն:աղջկ
+անշահեկանութիւն:անշահեկան
+անօրինութիւն:անօրին
+ապօրէնութիւն:ապօրէն
+արիւնապարտութիւն:արիւնապարտ
+գէշութիւն:գէշ
+գիշութիւն:գիշ
+եղբայրսիրութիւն:եղբայրսիր
+լեցունութիւն:լեցուն
+խորունկութիւն:խորունկ
+ծիսակատարութիւն:ծիսակատար
+կանանչութիւն:կանանչ
+կշտութիւն:կշտ
+հաստատամտութիւն:հաստատամտ
+հծծութիւն:հծծ
+ճանչուորութիւն:ճանչուոր
+մեծավայելչութիւն:մեծավայելչ
+փտտութիւն:փտտ
+
+LEXICON NounReg
+Թագաւորաց:Թագաւորաց
+Մնացորդաց:Մնացորդաց
+Դատաւորաց:Դատաւորաց
+Սաղմոսաց:Սաղմոսաց
+Ծննդոց:Ծննդոց
+Առակաց:Առակաց
+Թուոց:Թուոց
+Ողբք:Ողբք
+Ելից:Ելից
+հաւաքատեղ:հաւաքատեղ{mono}
+ալմուկ:ալմուկ
+ակ:ակ
+ակնվանի:ակնվանի
+ակունք:ակունք
+աղացք:աղացք
+կառաձի:կառաձի{mono}
+աղբերակ:աղբերակ
+աղիւսատուն:աղիւսատուն
+ամաղեկացի:ամաղեկացի
+ամեթովս:ամեթովս
+ամոլաջիլ:ամոլաջիլ
+այծեամ:այծեամ
+ասացուածք:ասացուածք
+ասրակտուր:ասրակտուր
+արեգակ:արեգակ
+արհեստագէտ:արհեստագէտ
+աւերմունք:աւերմունք
+բաղարջակերաց:բաղարջակերաց
+բաղարջակերք:բաղարջակերք
+բանկատեղի:բանկատեղի
+բեհեզագործ:բեհեզագործ
+բերդապահ:բերդապահ
+բնակարան:բնակարան
+բոլորտիք:բոլորտիք
+բռնաքար:բռնաքար
+գամուածք:գամուածք
+գառ:գառ
+գեթացի:գեթացի
+գեղարդ:գեղարդ
+գետարծիւ:գետարծիւ
+գետեզերք:գետեզերք
+գինտ:գինտ
+դիւթանք:դիւթանք
+դրանդիք:դրանդիք
+եղնգնաքար:եղնգնաքար
+երախայրի:երախայրի
+երգոց:երգոց
+երկայնք:երկայնք
+եփարան:եփարան
+զբաղմունք:զբաղմունք
+թելադրանք:թելադրանք
+թէհաշ:թէհաշ
+ժողովք:ժողովք
+ինձ:ինձ
+լէգէոն:լէգէոն
+խայտուց:խայտուց
+խաշինք:խաշինք
+խեցեղէն:խեցեղէն
+խնդիրք:խնդիրք
+խոմէթ:խոմէթ
+խունկեղէգ:խունկեղէգ
+խօմէր:խօմէր
+ծամոց:ծամոց
+կանանչեղէն:կանանչեղէն
+կապարալար:կապարալար
+կասիա:կասիա
+կարասիք:կարասիք
+կարկառակոյտ:կարկառակոյտ
+կշիռք:կշիռք
+կշռաթաթ:կշռաթաթ
+կովադիա:կովադիա
+կուլ:կուլ
+կօթուն:կօթուն
+հանգստավայր:հանգստավայր
+հաւալուս:հաւալուս
+հաւաքոյթ:հաւաքոյթ
+հիմենի:հիմենի
+ճախին:ճախին
+ճակատնոց:ճակատնոց
+ճանապարհորդակից:ճանապարհորդակից
+ճանչուոր:ճանչուոր
+ճերմկուց:ճերմկուց
+մատռուակապետ:մատռուակապետ
+մողէս:մողէս
+մրցորդ:մրցորդ
+յանձնառու:յանձնառու
+յանուն:յանուն
+նեռ:նեռ
+ներսիդի:ներսիդի
+նզովուածք:նզովուածք
+նկարագործող:նկարագործող
+շղարշատեռ:շղարշատեռ
+շրջանակաւոր:շրջանակաւոր
+որդիք:որդիք
+որմնադիր:որմնադիր
+ունելի:ունելի
+ուսմունք:ուսմունք
+չագալ:չագալ
+պատուիրանք:պատուիրանք
+պէգա:պէգա
+պսկուճ:պսկուճ
+ջերմուկ:ջերմուկ
+սերմնացան:սերմնացան
+սիսեռ:սիսեռ
+ստաշխ:ստաշխ
+սրբութեանց:սրբութեանց
+սրտադող:սրտադող
+տաղաւարահար:տաղաւարահար
+ցուցմունք:ցուցմունք
+քարաթօշ:քարաթօշ
+քրիսոպրասոս:քրիսոպրասոս
+օմէր:օմէր
+օրինաց:օրինաց
+
+LEXICON CausativeVerbRoot
+կնտեցնել:կնտե
+ամուրցնել:ամուր
+երդմնցնել:երդմն
+համովցնել:համով
+պզտկցնել:պզտկ
+իրաւցնել:իրաւ
+
+LEXICON InchRoot(2)
+կանանչանալ:կանանչա <iv>
+պառաւնալ:պառաւ <iv>
+ամայանալ:ամայա <iv>
+անհամնալ:անհամ <iv>
+համովնալ:համով <iv>
+պզտկնալ:պզտկ <iv>
+
+LEXICON PassiveVerbRoot
+կեղծաւորուիլ:կեղծաւոր
+թողուիլ:թող
+կտրտուիլ:կտրտ
+հաշուըուիլ:հաշուը
+հատուցանուիլ:հատուցան
+պատուըուիլ:պատուը
+ցրուըուիլ:ցրուը
+
+
+LEXICON VerbRootA(2)
+տընտընալ:տընտըն <iv>
+
+LEXICON VerbRootE(2)
+երերել:երեր <iv>
+թապլտկել:թապլտկ <iv>
+փտտել:փտտ <iv>
+անմաքրել:անմաքր <tv>
+թուլատրել:թուլատր <tv>
+թքնել:թքն <tv>
+կտրտել:կտրտ <tv>
+հարցուփորձել:հարցուփորձ <tv>
+հրամմել:հրամմ <tv>
+ճեղքռտել:ճեղքռտ <tv>
+սպանել:սպան <tv>
+վերագրաւել:վերագրաւ <tv>
+
+LEXICON VerbRootI(2)
+բաղխիլ:բաղխ <iv>
+դժգոհիլ:դժգոհ <iv>
+ըմբշամարտիլ:ըմբշամարտ <iv>
+կոտրտիլ:կոտրտ <iv>
+մականուանիլ:մականուան <iv>
+յանդգնիլ:յանդգն <iv>
+տարաժամիլ:տարաժամ <iv>
+փտտիլ:փտտ <iv>
+
+LEXICON NounUmSuffix
+կոխում:կոխ

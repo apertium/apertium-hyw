@@ -5,6 +5,8 @@
 #Monosyllabic nouns which arbitrary take -ner 
 #When forming their possessive plural, I have to manually add the ն before the possessive plural
 LEXICON NounIrregMonoNerOld   #Some prescriptively take -ner, but in real life, they take -er
+
+
 բեռ:բեռ  #Taken from Hagopian 350
 սայլաբեռ:սայլաբեռ{mono}
 
@@ -253,6 +255,7 @@ LEXICON NounIrregMonoNerOld   #Some prescriptively take -ner, but in real life, 
 
 # մահ:մահ # removed because the word has too many other irregular forms + the ner form is obsolete
 
+
 LEXICON NounIrregMonoNerStill  #Only very few both descriptively and presriptively  take -ner
 լեռ:լեռ
 հրալեռ:հրալեռ{mono}
@@ -296,6 +299,7 @@ LEXICON NounIrregU
 մարդաձի:մարդաձի{mono}
 սայլաձի:սայլաձի{mono}
 վագերաձի:վագերաձի{mono}
+
 
 մանչ:մանչ
 չին:չին
@@ -450,10 +454,11 @@ LEXICON NounTimeVan
 գիշեր:գիշեր
 միջագիշեր:միջագիշեր
 նախագիշեր:նախագիշեր
+կէսգիշեր:կէսգիշեր
 
 ցերեկ:ցերեկ
 վաղը:վաղ
-երեկ:երեկ
+երէկ:երէկ
 ատեն:ատեն
 ամառ:ամառ
 միջնամառ:միջնամառ
@@ -494,10 +499,12 @@ LEXICON NounTimeVanReducedBase
 երկուշաբթի:երկուշաբթի
 հինգշաբթի:հինգշաբթի
 չորեքշաբթի:չորեքշաբթի
+մէկշաբթի:մէկշաբթի
 կիրակի:կիրակի
 
 իրիկուն:իրիկուն
 առտու:առտու
+տարի:տարի
 հեռու:հեռու
 
 LEXICON NounTimeVanReducedReduced
@@ -507,6 +514,7 @@ LEXICON NounTimeVanReducedReduced
 երկուշաբթի:երկուշաբթ
 հինգշաբթի:հինգշաբթ
 չորեքշաբթի:չորեքշաբթ
+մէկշաբթի:մէկշաբթ
 կիրակի:կիրակ
 
 իրիկուն:իրիկ
@@ -520,23 +528,27 @@ LEXICON NounTimeVanUReducedBase
 զատկաշաբաթ:զատկաշաբաթ
 միաշաբաթ:միաշաբաթ
 
-տարի:տարի
 LEXICON NounTimeVanUReducedReduced
 շաբաթ:շաբթ
 զատկաշաբաթ:զատկաշաբթ
 միաշաբաթ:միաշաբթ
 
-տարի:տար
 
 #Adverbs which take -van when nominalized
 LEXICON NounTimeVanAdv
 այսօր:այսօր
+երբ:երբ
+առաջ:առաջ
+անգամ:անգամ
+շատոնց:շատոնց
+
 LEXICON NounTimeVanHima
 հիմա:հիմա #This word takes the time suffixes with կ
 
-#These irregulars only take an optional irregular dative ան, 
-#while everything else is regular or follows a separate declension class
-#So I'll only make a lexicon for their reduced form for the dative
+#These irregulars only take an optional irregular dative ան, and its inflected like -անէ 
+#while everything else is regular
+#My cheat is to only use the reduced stem here
+#Each of these words should have a duplicate entry in the regular list, else in time list
 LEXICON NounOldAnForm
 գարուն:գարն
 աշուն:աշն
@@ -550,12 +562,36 @@ LEXICON NounOldAnForm
 սառնալեռ:սառնալեր{mono}
 
 դուռ:դր
+կողմ:կողմ
+բեռ:բեռ
+
+անուն:անու
+հիմն:հիմ
+արիւն:արե
+
+էրիկ:էրկ
+
+աղջիկ:աղջկ
+հօրաքեռաղջիկ:հօրաքեռաղջկ
+մօրաքեռաղջիկ:մօրաքեռաղջկ
+
+
 
 LEXICON NounReg #For the -an words which have regular alternates instead of other specialized classes
 գարուն:գարուն
 աշուն:աշուն
 մանուկ:մանուկ
 կնիկ:կնիկ
+կողմ:կողմ
+բեռ:բեռ
+անուն:անուն
+հիմն:հիմն
+արիւն:արիւն
+էրիկ:էրիկ
+աղջիկ:աղջիկ
+հօրաքեռաղջիկ:հօրաքեռաղջիկ
+մօրաքեռաղջիկ:մօրաքեռաղջիկ
+
 
 #These irregulars  take an optional irregular dative ոջ, 
 #The oblique forms can take a մ 
@@ -595,6 +631,13 @@ LEXICON NounFamilyOchBase
 մօրքոյր:մօրքոյր{mono}
 
 սկեսուր:սկեսուր
+կեսուր:կեսուր
+
+տէր:տէր
+տպարանատէր:տպարանատէր
+տանտէր:տանտէր
+տանուտէր:տանուտէր
+
 
 LEXICON NounFamilyOchReduced
 կին:կն
@@ -618,9 +661,21 @@ LEXICON NounFamilyOchReduced
 մօրքոյր:մօրքր
 
 սկեսուր:սկեսր
+կեսուր:կեսր
+
+տէր:տիր
+տէր:տէր # Dir/LR
+տպարանատէր:տպարանատիր
+տպարանատէր:տպարանատէր  # Dir/LR
+տանուտէր:տանուտիր
+տանուտէր:տանուտէր  # Dir/LR
+տանտէր:տանտիր
+տանտէր:տանտէր  # Dir/LR
+
 
 #Words like հայր հօր
 LEXICON NounFamilyOBase
+
 հայր:հայր
 աբբահայր:աբբահայր{mono}
 աղանդահայր:աղանդահայր{mono}
@@ -733,6 +788,7 @@ LEXICON NounRandomOBase
 տուն:տուն
 աղաւնետուն:աղաւնետուն{mono}
 աղօթատուն:աղօթատուն{mono}
+ձմեռնատուն:ձմեռնատուն{mono}
 աստեղատուն:աստեղատուն{mono}
 աստղատուն:աստղատուն{mono}
 ատենատուն:ատենատուն{mono}
@@ -885,6 +941,7 @@ LEXICON NounRandomOAblauted
 արուեստատուն:արուեստատան
 աւանդատուն:աւանդատան
 բաժատուն:բաժատան
+ձմեռնատուն:ձմեռնատան
 բաժտուն:բաժտան
 բոզատուն:բոզատան
 գանձատուն:գանձատան
@@ -1021,59 +1078,18 @@ LEXICON NounRandomOAblauted
 
 
 
-
-#These are nouns which supplete or have irregular reduction in their declensions
-#The noun տղայ suppletes to տղու for dative/genitive and takes irregular plural
-LEXICON NounIrregBoyBase
-տղայ:տղայ
-LEXICON NounIrregBoyReduced
-տղայ:տղ
-LEXICON NounIrregMan
-մարդ:մարդ
-այծամարդ:այծամարդ{mono}
-անտառամարդ:անտառամարդ{mono}
-աստուածամարդ:աստուածամարդ{mono}
-գերմարդ:գերմարդ{mono}
-էրիկմարդ:էրիկմարդ{mono}
-կիսամարդ:կիսամարդ{mono}
-մանկամարդ:մանկամարդ{mono}
-սկզբնամարդ:սկզբնամարդ{mono}
-վիշապամարդ:վիշապամարդ{mono}
-տղամարդ:տղամարդ{mono}
-քրջամարդ:քրջամարդ{mono}
-օձամարդ:օձամարդ{mono}
-
-LEXICON NounIrregWomanBase
-տիկին:տիկին
-տանտիկին:տանտիկին
-LEXICON NounIrregWomanReduced #I make hard-coded allomorphs տիկնայք տիկնանց inside the PATTTERns
-տիկին:տիկն
-տանտիկին:տանտիկն
-
-
-
-
-#The noun ասուած suppletes to աստծոյ աստուծոյ  for dative/genitive
-LEXICON NounIrregGod
-Աստուած:աստուած
-LEXICON NounIrregGodReducedU
-Աստուած:աստուծ
-LEXICON NounIrregGodNoVowel
-Աստուած:աստծ
-
 #The noun սէր reduces to սիրոյ  for dative/genitive
-LEXICON NounLoveBase
-սէր:սէր
-LEXICON NounLoveReduced
+# make sure this word has duplicate in regular list
+# this list only has the reduced form as seen in archaic cases
+LEXICON NounIrregArchaicOj
 սէր:սիր
-
-#The noun աղջիկ reduces to աղջկա աղջկան  for dative/genitive
-LEXICON NounGirlBase
-աղջիկ:աղջիկ
-հօրաքեռաղջիկ:հօրաքեռաղջիկ
-մօրաքեռաղջիկ:մօրաքեռաղջիկ
-LEXICON NounGirlReduced
-աղջիկ:աղջկ
-հօրաքեռաղջիկ:հօրաքեռաղջկ
-մօրաքեռաղջիկ:մօրաքեռաղջկ
-
+հոգի:հոգւ
+ամուսին:ամուսն
+որդի:որդւ
+եկեղեցի:եկեղեցւ
+մարմին:մարմն
+խնդիր:խնդր
+մարդ:մարդ  # Dir/LR  don't have unreduced form because taken care of by special declension
+հուր:հր
+լոյս:լուս
+յոյս:յուս

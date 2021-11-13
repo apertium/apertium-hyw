@@ -58,6 +58,7 @@ LEXICON TruePreposition
 առանց<pr>:առանց
 դէպի<pr>:դէպի
 ըստ<pr>:ըստ
+վասն<pr>:վասն
 
 LEXICON TruePrepositionVary
 #True prepositions (doesn't decline) but can sometimes be a postposition
@@ -151,16 +152,12 @@ LEXICON FrozenPrepositionVary
 
 LEXICON FrozenPostposition
 #True postpositions, don't decline, frozem from nouns or verbs or adjectives
-
+#I removed some of these because I can decline them
 մասին<post><def>:մասին
 մասին<post><px1sg>:մասիս
 մասին<post><px2sg>:մասիդ
 
-միջոցով<post>:միջոցով
-միջոցաւ<post>:միջոցաւ
-վերաբերեալ<post>:վերաբերեալ
-պատճառով<post>:պատճառով
-պատճառաւ<post>:պատճառաւ
+
 առթիւ<post>:առթիւ
 չափով<post>:չափով
 սկսեալ<post>:սկսեալ
@@ -184,6 +181,13 @@ LEXICON DeclinablePostposition
 
 
 դիմաց<post>:դիմաց  # reassigned from Hagopian
+
+միջոցով<post>:միջոցով #This block was reassigned from True postpositions because I can decline them
+միջոցաւ<post>:միջոցաւ
+վերաբերեալ<post>:վերաբերեալ
+պատճառով<post>:պատճառով
+պատճառաւ<post>:պատճառաւ
+
 
 ընդմէջ<post>:ընդմէջ #postposition form takes case in my judgments; added from corpus
 # Also include adverbal postpositions

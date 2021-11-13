@@ -224,10 +224,10 @@ InfixPunctAdded:0 <=> InfixPunctLexical: :*  _   ;
 !!! Noun allomorphy
 
 ! For definite allomorphy, the input definite suffix is %{defն%} 
-! It's a  ը after consonants, and ն after vowels
+! It's a   ն after/before vowels, ը elsewhere
 ! Need the :0* context because of deleted glides
 ! Need the ու line because of infixal punctuation creating *բո՝ւը
-"definite suffix is ն after vowels"
+"definite suffix is ն after/before vowels"
 %{defն%}:ն <=>   RealVowel  (:0|:InfixPunctAdded)* _ ;
  				:ո  (:0|:InfixPunctAdded)* :ւ _ ;
 				_ (:0|:InfixPunctAdded)* RealVowel ;

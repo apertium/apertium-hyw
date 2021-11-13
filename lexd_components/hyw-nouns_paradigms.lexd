@@ -23,7 +23,6 @@
 #All the main declension systems
 PATTERNS
 NounDeclRegular
-NounDeclRisingClusters
 InfinitivalDecl
 AdjAdvDeclRegular
 NounOtherPOSDeclRegular
@@ -41,7 +40,8 @@ NounDeclIrregularTimeVan
 NounDeclOldOch
 NounDeclOldFamilyOAblaut
 
-#Dative only patterns
+
+# Dative+oblique only patterns
 NounDeclOldAnForm
 NounDeclFamilyNkForm
 NounDeclOldRandomOAblaut
@@ -102,19 +102,19 @@ PATTERN NameDecl
 # For names or proper nouns. Don't have the NouNInflBoundary to block glide deletion
 #Country names  are in separate category because some of them take -ia suffix
 #Singular
-NameBase   CaseRegI? (Def|Poss)? 
+NameBase NouNinflBoundary  CaseRegI? (Def|Poss)? 
 
-NameBase AttributiveGenIDef|AttributiveInst
+NameBase NouNinflBoundary AttributiveGenIDef|AttributiveInst
 
 #Plural
-NameBase    NPlReg CaseRegU? (Def|Poss)? 
+NameBase  NouNinflBoundary  NPlReg CaseRegU? (Def|Poss)? 
 
-NameBase 	NPlReg AttributiveGenUDef|AttributiveInst
+NameBase  NouNinflBoundary	NPlReg AttributiveGenUDef|AttributiveInst
 
 
 #Plural possessive (separate line for instrumental)
-NameBase   NPlReg?  PossPl CaseRegPostPluralPoss Def|Poss
-NameBase   NPlReg?  InsReg PossPl  Def|Poss
+NameBase NouNinflBoundary  NPlReg?  PossPl CaseRegPostPluralPoss Def|Poss
+NameBase NouNinflBoundary  NPlReg?  InsReg PossPl  Def|Poss
 
 PATTERN NameBase
 NameMaleGiven [<n><np><ant><m>:]
@@ -135,6 +135,9 @@ PATTERN NounDeclIrregularTimeVan
 NounTimeVan|NounTimeVanU 	NZero NouNinflBoundary NSg0 CaseTimeVan? NouNinflBoundary (Def|Poss)? 
 NounTimeVan|NounTimeVanU	NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?  # Dir/LR
 NounTimeVanU 	 			NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)? # Dir/LR
+#sometimes see words like շատոնցմէ where get regular inflection but case-boundary M
+NounTimeVan|NounTimeVanU	NZero NouNinflBoundary NSg0 CaseBoundaryM CaseRegOblique (Def|Poss)?  # Dir/LR
+
 
 #Singular attributive
 #The ուանէ form is preferably treated as attributive
@@ -163,6 +166,9 @@ NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 NouNinflBoundary (Def|Pos
 #With case
 NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)? 
 NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?  # Dir/LR
+#with possible case-boundary m like շատոնցմէ
+NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 CaseBoundaryM CaseRegOblique (Def|Poss)?  # Dir/LR
+
 
 #Attributive
 NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 AttributiveVan
@@ -191,6 +197,8 @@ NounTimeVanHima [:կուան] AdvZero SubstZero NouNinflBoundary NSg0|NPlReg  In
 
 #For reduced forms իրիկուն իրիկուան
 #For reduced forms շաբաթ շաբթուան շաբթուն
+# I don't think we ever find մ boundary here, even in older texts
+
 NounTimeVanReducedBase|NounTimeVanUReducedBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
 
 NounTimeVanReducedReduced|NounTimeVanUReducedReduced NZero NouNinflBoundary NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)?
@@ -388,27 +396,6 @@ PATTERN NounOtherPOSBase
 AdvNounReg [<adv_noun>:]
 NounAdjReg [<noun_adj>:]
 
-PATTERN NounDeclRisingClusters
-#This is for nouns like մեղր which can variably take եր ներ
-#Because of speaker-variation in syllabification
-
-NounRisingClusters NZero NouNinflBoundary NSg0 CaseRegI? (Def|Poss)?
-NounRisingClusters NZero NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)?   # Dir/LR
-
-NounRisingClusters NZero NouNinflBoundary NPlVary CaseRegU? (Def|Poss)? 
-NounRisingClusters NZero NouNinflBoundaryRed NPlVary CaseRegU? (Def|Poss)?    # Dir/LR
-
-NounRisingClusters NZero NouNinflBoundary NSg0|NPlVary  PossPl CaseRegPostPluralPoss Def|Poss
-NounRisingClusters NZero NouNinflBoundaryRed NSg0|NPlVary  PossPl CaseRegPostPluralPoss Def|Poss   # Dir/LR
-NounRisingClusters NZero NouNinflBoundary NSg0|NPlVary  InsReg PossPl  Def|Poss
-NounRisingClusters NZero NouNinflBoundaryRed NSg0|NPlVary  InsReg PossPl  Def|Poss   # Dir/LR
-
-#attributive
-NounRisingClusters NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
-NounRisingClusters NZero NouNinflBoundaryRed NSg0 AttributiveGenIDef|AttributiveInst   # Dir/LR
-
-NounRisingClusters NZero NouNinflBoundary NPlVary AttributiveGenUDef|AttributiveInst
-NounRisingClusters NZero NouNinflBoundaryRed NPlVary AttributiveGenUDef|AttributiveInst # Dir/LR
 
 
 
@@ -508,9 +495,16 @@ PATTERN NounDeclOldAnForm
 #The -an then triggers arbitrary reduction
 #My cheat is that this pattern only forms the dative
 #The words should have a regular version in the regular list
-#So this pattern only derives գարուն գարնան
+#So this pattern only derives գարուն գարնան գարնանէ
+# can also do unreduced nouns like կողմ կողման կողմանէ
+# some can use այ when add indefinite suffx
+# Can have ամբ forms in instrumental
 
-NounOldAnForm NZero NouNinflBoundary NSg0 DatGenArchaicAn  (Def|Poss)? 
+NounOldAnForm NZero NouNinflBoundary NSg0 DatGenArchaicAn (Def|Poss)? 
+NounOldAnForm NZero NouNinflBoundary NSg0 DatGenArchaicAn CaseRegOblique  (Def|Poss)?  # Dir/LR
+NounOldAnForm NZero NouNinflBoundary NSg0 DatGenArchaicAnAj # Dir/LR
+NounOldAnForm NZero NouNinflBoundary NSg0 InstArchaicAmp (Def|Poss)?  # Dir/LR
+
 
 PATTERN NounDeclUmSuffix
 #pattern for suffix ում
@@ -523,7 +517,7 @@ NounUmSuffix NUmSuffixReduced NZero NouNinflBoundary NSg0 DatGenArchaicAn (Def|P
 NounUmSuffix NUmSuffixBase NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?   # Dir/LR
 NounUmSuffix NUmSuffixBase NZero NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)?  
 #Singular archaic oblique cases like ուսմանէ ուսմամբ
-NounUmSuffix NUmSuffixReduced NZero NouNinflBoundary NSg0 DatGenArchaicAn AblReg (Def|Poss)? # Dir/LR
+NounUmSuffix NUmSuffixReduced NZero NouNinflBoundary NSg0 DatGenArchaicAn CaseRegOblique (Def|Poss)? # Dir/LR
 NounUmSuffix NUmSuffixReduced NZero NouNinflBoundary NSg0 InstArchaicAmp (Def|Poss)? # Dir/LR
 
 
@@ -704,9 +698,10 @@ NounIrregBoyReduced NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)?
 
 #regularized plural and reguarlized case տղաներու տղաքներու
 NounIrregBoyBase NZero  NouNinflBoundary NPlIrregK? NPlReg CaseRegU? (Def|Poss)?   # Dir/LR
-#Irregular plural and irregular case տղաք տղոց տղոցմէ
+#Irregular plural and irregular case տղաք տղոց տղոցմէ and տղայոց
 NounIrregBoyBase NZero NouNinflBoundary NPlIrregK  (Def|Poss)? 
 NounIrregBoyReduced NZero NouNinflBoundary PlDatGenIrregularOts (CaseBoundaryM CaseRegOblique)? (Def|Poss)? 
+NounIrregBoyBase NZero NouNinflBoundary PlDatGenIrregularOts  (CaseBoundaryM CaseRegOblique)? (Def|Poss)?  # Dir/LR
 
 #regularized plural possessive տղայներնիս տղաքներնիս
 NounIrregBoyBase NZero	 NouNinflBoundary NSg0|(NPlIrregK? NPlReg)  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
@@ -805,148 +800,43 @@ NounIrregGod NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
 NounIrregGod NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
 
 # սէր սիրոյ հոգի հոգւոյն, սիրով մարմին մարմնոյ
-#Singular 
-NounLoveBase NZero NouNinflBoundary NSg0  (Def|Poss)? 
-#regular case 
-NounLoveBase NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?  
-#in case of high vowel reduction
-NounLoveBase NZero NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)?  # Dir/LR
+#Regular forms are derived elsewhere by having a duplicat entry in RegNoun
+#These entries here are treated as optional ones
 
 # Archaic dative case  սիրոյ սիրոյն
 #Can't have  boundary after ոյ to block glide deletion + force ն definite
-NounLoveReduced NZero NouNinflBoundary NSg0 DatGenArchaicOj ([<def>:ն]|Poss)?   # Dir/LR
+NounIrregArchaicOj NZero NouNinflBoundary NSg0 DatGenArchaicOj ([<def>:ն]|Poss)?   # Dir/LR
 #սիրով սիրովն
-NounLoveReduced NZero NouNinflBoundary NSg0 InsReg ([<def>:ն]|Poss)?   # Dir/LR
+NounIrregArchaicOj NZero NouNinflBoundary NSg0 InsReg ([<def>:ն]|Poss)?   # Dir/LR
 
-#Plural
-NounLoveBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-#Plural possessive (separate line for instrumental)
-NounLoveBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounLoveBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-
-#attributive, just regular
-NounLoveBase NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
-NounLoveBase NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
-
-#աղջիկ for dative աղջկան աղջկայ
-#Singular 
-NounGirlBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
-# regular case աղջիկի
-NounGirlBase NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?    # Dir/LR
-NounGirlBase NZero NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)?
-#Reduced աղջկայ աղջկան -- not sure if nasal is always definite TO DO
-NounGirlReduced NZero NouNinflBoundary NSg0 DatGenArchaicAnAj NouNinflBoundary (Def|Poss)?  
-# Reduced and oblique աղջկանէ
-NounGirlReduced NZero NouNinflBoundary NSg0 DatGenArchaicAn CaseRegOblique (Def|Poss)?   # Dir/LR
-
-#Plural
-NounGirlBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-#Plural possessive (separate line for instrumental)
-NounGirlBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounGirlBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-
-#attributive
-NounGirlBase NZero NouNinflBoundary NSg0 AttributiveGenIDef  # Dir/LR
-NounGirlBase NZero NouNinflBoundary NSg0 AttributiveInst
-NounGirlBase NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
-
-
+  
+#Words that supplete or reduce midvowel, and take  dative -u
 #ճամբայ ճամբուն ճամբայի ճամբէն , էշ էշու իշու էշէ իշէ
-
-#Singular 
-NounIrregRoadReduceBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
-# regular case ճամբայի
-NounIrregRoadReduceBase NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
-NounIrregRoadReduceBase NZero NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)? 
-#Reduced ճամբու ճամբէն 
-NounIrregRoadReduceReduced NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)?  
-NounIrregRoadReduceReduced NZero NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)?   # Dir/LR
-
-#Plural
-NounIrregRoadReduceBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-#Plural possessive (separate line for instrumental)
-NounIrregRoadReduceBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounIrregRoadReduceBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-
-NounIrregRoadReduceBase NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
+#Only have irregulars, while regualrs are formed elsewhere as the norm
+NounSuppleteDativeU NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)?   # Dir/LR
+NounSuppleteDativeU NZero NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)?   # Dir/LR
+#Plural possessive 
+NounSuppleteDativeU NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
 
 #attributive
-NounIrregRoadReduceBase NZero NouNinflBoundary NSg0 AttributiveGenIDef  # Dir/LR
-NounIrregRoadReduceBase NZero NouNinflBoundary NSg0 AttributiveInst 
-NounIrregRoadReduceReduced NZero NouNinflBoundary NSg0 AttributiveGenUDef 
-NounIrregRoadReduceReduced NZero NouNinflBoundary NSg0 AttributiveInst   # Dir/LR
-NounIrregRoadReduceBase NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
+NounSuppleteDativeU NZero NouNinflBoundary NSg0 AttributiveGenUDef # Dir/LR
+NounSuppleteDativeU NZero NouNinflBoundary NSg0 AttributiveInst   # Dir/LR
 
 
-#հաշիւ հաշուով
-#Singular 
-NounIrregCountReduceBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
-# regular case հաշիւիդ հաշւիդ 
-NounIrregCountReduceBase NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
-NounIrregCountReduceBase NZero NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)?  # Dir/LR
-
-#Reduced հաշուի
-NounIrregCountReduceReduced NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?    # Dir/LR
-
-#Plural
-NounIrregCountReduceBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-#Plural possessive (separate line for instrumental)
-NounIrregCountReduceBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounIrregCountReduceBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-
-#attributive
-NounIrregCountReduceBase NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
-NounIrregCountReduceBase NZero NouNinflBoundaryRed NSg0 AttributiveGenIDef|AttributiveInst # Dir/LR
-NounIrregCountReduceReduced NZero NouNinflBoundary NSg0 AttributiveGenIDef    # Dir/LR
-NounIrregCountReduceBase NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
-
-
+ 
 #For a bunch of words with frozen classical case-slots
-# անուն անունի անուան անուամբ
-#Regular form is norm
-IrregFrozenBase NZero NouNinflBoundary NSg0 CaseRegI? (Def|Poss)? 
-IrregFrozenBase NZero NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)?  # Dir/LR
-#frozen, i pushed the infletion feature inside the lexical entry
+# կայսր կայսեր
+#Regular form is norm, so I only list irregular
+#Regular form is derived in other declensions
 IrregFrozenCase (Def|Poss)? 
 
-#Plural
-IrregFrozenBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-IrregFrozenBase NZero  NouNinflBoundaryRed NPlReg CaseRegU? (Def|Poss)? # Dir/LR
-#Plural possessive (separate line for instrumental)
-IrregFrozenBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-IrregFrozenBase NZero	 NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss # Dir/LR
-IrregFrozenBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-IrregFrozenBase NZero  NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss # Dir/LR
-
-#attributive
-IrregFrozenBase NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
-IrregFrozenBase NZero NouNinflBoundaryRed NSg0 AttributiveGenIDef|AttributiveInst  # Dir/LR
-IrregFrozenBase NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
-IrregFrozenBase NZero  NouNinflBoundaryRed NPlReg AttributiveGenUDef|AttributiveInst # Dir/LR
 
 
 # for words with optional syncope of non-high vowel in declined forms like բերան բերնի
-NounSyncopeBase
-#Singular  բերանը
-NounSyncopeBase NZero NouNinflBoundary NSg0 (Def|Poss)? 
-# regular case բերանիդ  բերանէդ
-NounSyncopeBase NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
-NounSyncopeBase NZero NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)?  # Dir/LR
-
-#Reduced բերնիդ բերնէդ
+#I only show syncopated forms as optional. Unsyncopated should be part of regular forms
 NounSyncopeReduced NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?    # Dir/LR
-
-#Plural բերաններ
-NounSyncopeBase NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-#Plural possessive (separate line for instrumental)
-NounSyncopeBase NZero  NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounSyncopeBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-
 #attributive
-NounSyncopeBase NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
-NounSyncopeBase NZero NouNinflBoundaryRed NSg0 AttributiveGenIDef|AttributiveInst # Dir/LR
 NounSyncopeReduced NZero NouNinflBoundary NSg0 AttributiveGenIDef    # Dir/LR
-NounSyncopeBase NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
 
 
 ############ Attributive
@@ -1096,14 +986,11 @@ LEXICON NPlReg
 #But for plural variation and errors:
 #Compounds can vary in the choice of plural suffix
 #Some monosyllables optionally surface with -ներ  because of possessive plural readings in Eastern
+#Some final CC-clusters variably take -ner or -er depending on a schwa
 <pl>:ներ		# Dir/LR
 <pl>:եր		# Dir/LR
 
-LEXICON NPlVary
-#This is for monosyllabic words which can take both plurals
-<pl>:ներ		# Dir/LR
-<pl>:եր		
-
+ 
 LEXICON NPlNerOnly
 <pl>:ներ	
 
@@ -1152,13 +1039,13 @@ LEXICON CaseTimeVan
 <abl>:ուանէ # Dir/LR
 <ins>:ուընով 
 <ins>:ուանով # Dir/LR
+<ins>:ուամբ # Dir/LR
 
 LEXICON DatGenArchaicAn
 <dat_gen>:ան
-
 LEXICON DatGenArchaicAnAj
-<dat_gen>:ան
-<dat_gen>:այ
+<dat_gen>:այ 
+
 
 LEXICON InstArchaicAmp
 <ins>:ամբ
@@ -1204,6 +1091,7 @@ LEXICON PossPl
 LEXICON Indf
 մը<enc><idf>:մը
 մը<enc><idf>:մըն
+մը<enc><idf>:մ՚
 
 #####  Nouns
 LEXICON NounReg
@@ -1229,46 +1117,24 @@ LEXICON AdvReg
 #When forming their possessive plural, I have to manually add the ն before the possessive plural
 LEXICON NounIrregMonoNerOld   #Some prescriptively take -ner, but in real life, they take -er
 բեռ:բեռ  #Taken from Hagopian 350
-դուռ:դուռ
-եզ:եզ
-թոռ:թոռ
-հարս:հարս
-մատ:մատ
-մուկ:մուկ
-ձուկ:ձուկ
-ձեռ:ձեռ
-ոտ:ոտ
-ռուս:ռուս
-# մահ:մահ # removed because the word has too many other irregular forms + the ner form is obsolete
+#Larger list is in noun_lex_irreg
 
 
 LEXICON NounIrregMonoNerStill  #Only very few both descriptively and presriptively  take -ner
+#Larger list is in noun_lex_irreg
 լեռ:լեռ
-LEXICON NounRisingClusters
-մեղր:մեղր
 
 LEXICON NounIrregU
 #These words take ու in the dative
 #I allow them to optionally take ի 
 #This don't have high vowels that can reduce
+#Larger list in noun_lex_irreg
 հայ:հայ #Taken from Hagopian 351
-ձի:ձի
-մանչ:մանչ
-չին:չին
-չար:չար
-գահ:գահ
-պահ:պահ
-դար:դար
-ծով:ծով
-կով:կով
-հաւ:հաւ
-արջ:արջ
-թի:թի
-արեւ:արեւ
 
 #Some nouns optionally take irregular inflection
 #When they do, they reduce
 LEXICON NounIrregUReducePoly
+#Larger list in noun_lex_irreg
 գլուխ:գլուխ
 
 #List of all words that take the ութիւն suffix
@@ -1287,117 +1153,78 @@ LEXICON NounUmSuffix
 
 #Time words which take the ուան declension
 LEXICON NounTimeVan
+#Larger list in noun_lex_irreg
 մահ:մահ
-օր:օր
-ժամանակ:ժամանակ
-գիշեր:գիշեր
-ցերեկ:ցերեկ
-վաղը:վաղ
-երեկ:երեկ
-ատեն:ատեն
-ամառ:ամառ
-ձմեռ:ձմեռ
 
 LEXICON NounTimeVanU
 #words which take the -van declension class, but can also do dative -u
+#Larger list in noun_lex_irreg
 ժամ:ժամ
 
 #Time words which reduce a final vowel or substring in inflected forms
 LEXICON NounTimeVanReducedBase
+#Larger list in noun_lex_irreg
 իրիկուն:իրիկուն
-առտու:առտու
-հեռու:հեռու
-տարի:տարի
 LEXICON NounTimeVanReducedReduced
+#Larger list in noun_lex_irreg
 իրիկուն:իրիկ
-առտու:առտ
-հեռու:հեռ
-տարի:տար
 
 #Words which take -van and -u and reduce
 LEXICON NounTimeVanUReducedBase
+#Larger list in noun_lex_irreg
 շաբաթ:շաբաթ
 ամիս:ամիս
-տարի:տարի # Dir/LR
 LEXICON NounTimeVanUReducedReduced
+#Larger list in noun_lex_irreg
 ամիս:ամս
 շաբաթ:շաբթ
-տարի:տար # Dir/LR
 
 #Adverbs which take -van when nominalized
 LEXICON NounTimeVanAdv
+#Larger list in noun_lex_irreg
 այսօր:այսօր
-երբ:երբ
-առաջ:առաջ
-անգամ:անգամ
 հիմակ:հիմակ # this is a very rare word, more often just հիմա
+
 LEXICON NounTimeVanHima
 հիմա:հիմա #This word takes the time suffixes
 
-#These irregulars only take an optional irregular dative ան, 
+#These irregulars only take an optional irregular dative ան, and its inflected like -անէ 
 #while everything else is regular
-#So I'll only make a lexicon for their reduced form for the dative
+# Some have ամբ form too
+#My cheat is to only use the reduced stem here
+#Each of these words should have a duplicate entry in the regular list, else in time list
 LEXICON NounOldAnForm
+#Larger list in noun_lex_irreg
 գարուն:գարն
-աշուն:աշն
-ամառ:ամռ
-ձմեռ:ձմռ
-մանուկ:մանկ
-կնիկ:կնկ
-լեռ:լեր
-դուռ:դր
+
 
 #These irregulars  take an optional irregular dative ոջ, 
 #The oblique forms can take a մ 
 #I classify into nouns that never reduce, those that do reduce, and the reduced form
 LEXICON NounFamilyOchFixed
+#Larger list in noun_lex_irreg
 ընկեր:ընկեր
-աներ:աներ
-տալ:տալ
-տագր:տագր
-ներ:ներ
-դասընկեր:դասընկեր
 
 LEXICON NounFamilyOchBase
+#Larger list in noun_lex_irreg
 կին:կին
-քոյր:քոյր
-սկեսուր:սկեսուր
-մօրաքոյր:մօրաքոյր{mono}
-տէր:տէր
 LEXICON NounFamilyOchReduced
 կին:կն
-քոյր:քր
-տէր:տիր
-տէր:տէր # Dir/LR
-սկեսուր:սկեսր
-մօրաքոյր:մօրաքր
 
 #Words like հայր հօր
 LEXICON NounFamilyOBase
+#Larger list in noun_lex_irreg
 հայր:հայր
-մայր:մայր
-եղբայր:եղբայր
-տիրամայր:տիրամայր{mono}
-կնքահայր:կնքահայր{mono}
 LEXICON NounFamilyOAblauted
 հայր:հօր
-մայր:մօր
-եղբայր:եղբօր
-տիրամայր:տիրամօր
-կնքահայր:կնքահօր
 
 #Words like տուն տան
 LEXICON NounRandomOBase
+#Larger list in noun_lex_irreg
 տուն:տուն
-շուն:շուն
-դրամատուն:դրամատուն{mono}
-ծովաշուն:ծովաշուն{mono}
 LEXICON NounRandomOAblauted
 տուն:տան
-շուն:շան
-դրամատուն:դրամատան
-ծովաշուն:ծովաշան
-
+ 
 
 
 
@@ -1408,8 +1235,6 @@ LEXICON NounRandomOAblauted
 LEXICON NounFamilyNkForm
 Վարդանանք:Վարդանա
 
-
-
 #These are nouns which supplete or have irregular reduction in their declensions
 #The noun տղայ suppletes to տղու for dative/genitive and takes irregular plural
 LEXICON NounIrregBoyBase
@@ -1418,6 +1243,19 @@ LEXICON NounIrregBoyReduced
 տղայ:տղ
 LEXICON NounIrregMan
 մարդ:մարդ
+այծամարդ:այծամարդ{mono}
+անտառամարդ:անտառամարդ{mono}
+աստուածամարդ:աստուածամարդ{mono}
+գերմարդ:գերմարդ{mono}
+էրիկմարդ:էրիկմարդ{mono}
+կիսամարդ:կիսամարդ{mono}
+մանկամարդ:մանկամարդ{mono}
+սկզբնամարդ:սկզբնամարդ{mono}
+վիշապամարդ:վիշապամարդ{mono}
+տղամարդ:տղամարդ{mono}
+քրջամարդ:քրջամարդ{mono}
+օձամարդ:օձամարդ{mono}
+
 LEXICON NounIrregWomanBase
 տիկին:տիկին
 տանտիկին:տանտիկին
@@ -1425,20 +1263,18 @@ LEXICON NounIrregWomanReduced #I make hard-coded allomorphs տիկնայք տի�
 տիկին:տիկն
 տանտիկին:տանտիկն
 
-#The noun ճամբայ suppletes to  ճամբու for dative/genitive, and էշ էշու իշու
-LEXICON NounIrregRoadReduceBase
-ճամբայ:ճամբայ
-էշ:էշ
-LEXICON NounIrregRoadReduceReduced
-ճամբայ:ճամբ
-էշ:իշ # Dir L/R
-էշ:էշ # Dir L/R
 
-#The noun հաշիւ suppletes to հաշուով in irregulary reduced form
-LEXICON NounIrregCountReduceBase
-հաշիւ:հաշիւ
-LEXICON NounIrregCountReduceReduced
-հաշիւ:հաշու
+
+#Words that supplete/syncopate and take -u 
+#Like  ճամբայ suppletes to  ճամբու for dative/genitive, and էշ էշու իշու
+# Make sure there's a regular version
+LEXICON NounSuppleteDativeU
+ճամբայ:ճամբ
+էշ:իշ 
+էշ:էշ 
+կէս:կիս
+
+
 
 #The noun աստուած suppletes to աստծոյ աստուծոյ  for dative/genitive
 LEXICON NounIrregGod
@@ -1449,51 +1285,34 @@ LEXICON NounIrregGodNoVowel
 աստուած:աստծ
 
 #The noun սէր reduces to սիրոյ  for dative/genitive
-LEXICON NounLoveBase
-սէր:սէր
-հոգի:հոգի
-ամուսին:ամուսին
-որդի:որդի
-եկեղեցի:եկեղեցի
-մարմին:մարմին
-խնդիր:խնդիր
-LEXICON NounLoveReduced
+# make sure this word has duplicate in regular list
+# this list only has the reduced form as seen in archaic cases
+LEXICON NounIrregArchaicOj
+#Larger list in noun_lex_irreg
 սէր:սիր
-հոգի:հոգւ
-ամուսին:ամուսն
-որդի:որդւ
-եկեղեցի:եկեղեցւ
-մարմին:մարմն
-խնդիր:խնդր
-մարդ:մարդ  # Dir/LR  don't have unreduced form because taken care of by special declension
 
 #The noun բերանի reduces to բերնի բերնէ by irregular syncope of non-high vowel
-LEXICON NounSyncopeBase
-բերան:բերան
 LEXICON NounSyncopeReduced
 բերան:բերն
-
-#The noun աղջիկ reduces to աղջկա աղջկան  for dative/genitive
-LEXICON NounGirlBase
-աղջիկ:աղջիկ
-LEXICON NounGirlReduced
-աղջիկ:աղջկ
+զաւակ:զաւկ
+ճակատ:ճակտ
+պատիւ:պատու 
+հաշիւ:հաշու
 
 #For nouns which are regular except for fossilized archaic case-forms
-LEXICON IrregFrozenBase
-դուստր:դուստր
-կայսր:կայսր
-անուն:անուն
-հիմն:հիմն
-արիւն:արիւն
+#I only list irregulars, and i let the regular versions be in the normal list
 LEXICON IrregFrozenCase
 դուստր<n><dat_gen>:դստեր
 կայսր<n><dat_gen>:կայսեր
-անուն<n><dat_gen>:անուան
-անուն<n><ins>:անուամբ
-հիմն<n><dat_gen>:հիման
-արիւն<n><dat_gen>:արեան
-արիւն<n><ins>:արեամբ
+կին<n><pl><dat_gen>:կանանց
+կորուստ<n><dat_gen>:կորստեան
+հանգիստ<n><dat_gen>:հանգստեան
+ծննունդ<n><dat_gen>:ծննդեան
+գալուստ<n><dat_gen>:գալստեան
+թաքուստ<n_adj><subst><dat_gen>:թաքստեան
+փախուստ<n><dat_gen>:փախստեան
+ժողովուրդ<n><dat_gen>:ժողովրդեան
+
 
 #The country names անգլիա changes to անգլիոյ  for dative/genitive
 #Regular nouns which never shift are in separate group

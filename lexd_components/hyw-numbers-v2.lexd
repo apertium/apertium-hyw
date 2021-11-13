@@ -8,6 +8,7 @@ DigitNumbers
 
 #Cardinals and unordinals
 NumberDeclension
+CardinalFraction
 
 
 PATTERN NumberDeclension
@@ -37,80 +38,88 @@ NumericalBase NZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
 
 PATTERN NumericalBase
 #Base for declension and so
-OnesCardinal
-Number2Declined
-OnesOrdinal
+OnesCardinal 
+Number2Declined 
+OnesOrdinal 
 DecadesCardinalOrdinal
 CardinalOrdinalHundreds
 CardinalOrdinalThousandsMillions
 
 PATTERN OnesCardinal
-Number1  
-Number2
-Number3_4
-Number0_5_6
-Number7_8_9 Def?
+#Numbers 1-9, including meaningless def
+Number1   [<num>:]
+Number2 [<num>:]
+Number3_4 [<num>:]
+Number0_5_6 [<num>:]
+Number7_8_9 [<num>:] Def? 
 
 PATTERN OnesOrdinal
+#Ordinals 1-9, including fused ordinals like առաջին
 OnesCardinal OrdinalSuffixRegular
-SpecialOrdinals
+SpecialOrdinals [<num><ord>:]
 
 PATTERN DecadesCardinalOrdinal
-Number10 MeaninglessDefNasal? OrdinalSuffixRegular?
-NumberDecades OrdinalSuffixRegular?
+#Numbers 10, 20/30/../90, and combined forms like 11
+#Assume the intervening definite nasal and schwa are optional
+Number10 [<num>:] MeaninglessDefNasal? OrdinalSuffixRegular?
+NumberDecades [<num>:] OrdinalSuffixRegular?
 Number10 MeaninglessDefNasal ConnectiveSchwa? OnesCardinal|OnesOrdinal|Number2Declined
 NumberDecades (ConnectiveSchwa|ConnectiveU)? OnesCardinal|OnesOrdinal|Number2Declined
 
 PATTERN CardinalOrdinalHundreds
-OnesCardinal? NumberHundred OrdinalSuffixRegular?
+OnesCardinal? NumberHundred [<num>:] OrdinalSuffixRegular?
 OnesCardinal? NumberHundred (ConnectiveSchwa|ConnectiveU)? OnesCardinal|OnesOrdinal|DecadesCardinalOrdinal|Number2Declined
 
 PATTERN CardinalOrdinalThousandsMillions
-NumberThousand OrdinalSuffixRegular?
-NumberMillionUp OrdinalSuffixRegular?
+NumberThousand [<num>:] OrdinalSuffixRegular?
+NumberMillionUp [<num>:] OrdinalSuffixRegular?
 
 
+PATTERN CardinalFraction
+#This is for fractions that are spelled without a space liek մէկուկէս one-and-half
+OnesCardinal ConnectiveU HalfFraction
+Number10 [<num>:] MeaninglessDefNasal? ConnectiveU HalfFraction
 
-
-LEXICON Number1(2)
-մէկ:մէկ <num> 
-LEXICON Number2(2)
-երկու:երկու <num> 
+LEXICON Number1
+մէկ:մէկ 
+LEXICON Number2
+երկու:երկու  
 LEXICON Number2Declined(2)
-երկուք:երկուք <num> 
-LEXICON Number3_4(2)
-երեք:երեք <num> 
-չորս:չորս <num> 
-LEXICON Number0_5_6(2)
-զէրօ:զէրօ <num> 
-հինգ:հինգ <num> 
-վեց:վեց <num> 
-LEXICON Number7_8_9(2)
-եօթ:եօթ <num> 
-ութ:ութ <num> 
-ին:ին <num> 
-LEXICON Number10(2)
-տաս:տաս <num> 
-LEXICON NumberDecades(2)
-քսան:քսան <num> 
-երեսուն:երեսուն <num> 
-քառասուն:քառասուն <num> 
-յիսուն:յիսուն <num> 
-վաթսուն:վաթսուն <num> 
-եօթանասուն:եօթանասուն <num> 
-ութսուն:ութսուն <num> 
-ինիսուն:ինիսուն <num> 
-իննսուն:իննսուն <num> 
+երկուք:երկուք  <num>
+LEXICON Number3_4
+երեք:երեք  
+չորս:չորս  
+LEXICON Number0_5_6
+զէրօ:զէրօ  
+հինգ:հինգ  
+վեց:վեց  
+LEXICON Number7_8_9
+եօթ:եօթ  
+ութ:ութ  
+ին:ին  
+LEXICON Number10
+տաս:տաս  
+LEXICON NumberDecades
+քսան:քսան  
+երեսուն:երեսուն  
+քառասուն:քառասուն  
+յիսուն:յիսուն  
+վաթսուն:վաթսուն  
+եօթանասուն:եօթանասուն  
+ութսուն:ութսուն  
+ինիսուն:ինիսուն  
+իննսուն:իննսուն  
+իննիսուն:իննիսուն
 
-LEXICON NumberHundred(2)
-հարիւր:հարիւր <num> 
-LEXICON NumberThousand(2)
-հազար:հազար <num> 
-LEXICON NumberMillionUp(2)
-միլիոն:միլիոն <num> 
-պիլիոն:պիլիոն <num> 
-միլիարդ:միլիարդ <num> 
-միլիառ:միլիառ <num> 
+LEXICON NumberHundred
+հարիւր:հարիւր  
+LEXICON NumberThousand
+հազար:հազար  
+LEXICON NumberMillionUp
+միլիոն:միլիոն  
+պիլիոն:պիլիոն  
+միլիարդ:միլիարդ  
+միլիառ:միլիառ  
 
 LEXICON MeaninglessDefNasal
 <def_meaningless>:ն
@@ -119,14 +128,18 @@ LEXICON ConnectiveSchwa
 LEXICON ConnectiveU
 :ու
 
+
 LEXICON OrdinalSuffixRegular
 <ord>:երորդ
-LEXICON SpecialOrdinals(2)
-առաջին:առաջին <num><ord>
-երկրորդ:երկրորդ <num><ord>
-երրորդ:երրորդ <num><ord>
-չորրորդ:չորրորդ <num><ord>
+LEXICON SpecialOrdinals
+առաջին:առաջին 
+երկրորդ:երկրորդ 
+երրորդ:երրորդ 
+չորրորդ:չորրորդ 
 
+LEXICON HalfFraction
+<frac>:կէս
+<frac>:քառորդ
 
 PATTERN DigitNumbers
 Digit+ [<num>:]
