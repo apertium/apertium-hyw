@@ -1,0 +1,114 @@
+PATTERNS
+Unpunctuated
+NormSyl*
+NormSyl* CC Vowel :Punct CC NormSyl* Punct:
+
+PATTERN NormSyl
+CC Vowel CC
+
+PATTERN CC
+Consonant*
+
+LEXICON Vowel
+ա
+ե
+է
+ը
+ո
+օ
+ի
+Ա
+Ե
+Է
+Ը
+Ո
+Օ
+Ի
+
+LEXICON Consonant
+բ
+գ
+դ
+զ
+թ
+ժ
+լ
+խ
+ծ
+կ
+հ
+ձ
+ղ
+ճ
+մ
+յ
+ն
+շ
+չ
+պ
+ջ
+ռ
+ս
+վ
+տ
+ր
+ց
+ւ
+փ
+ք
+ֆ
+Բ
+Գ
+Դ
+Զ
+Թ
+Ժ
+Լ
+Խ
+Ծ
+Կ
+Հ
+Ձ
+Ղ
+Ճ
+Մ
+Յ
+Ն
+Շ
+Չ
+Պ
+Ջ
+Ռ
+Ս
+Վ
+Տ
+Ր
+Ց
+Ւ
+Փ
+Ք
+Ֆ
+
+LEXICON Punct
+՜
+՞
+՛
+
+LEXICON Unpunctuated
+%-
+֊ 
+– 
+ — 
+, 
+՝
+։
+.
+'
+ «
+»
+%(
+%)
+՚
+՟
+…    
+ՙ

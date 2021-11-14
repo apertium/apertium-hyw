@@ -15,6 +15,6 @@ InfixalPunctuation?
 # These are punctuation markers which are added on the stressed vowel of words
 LEXICON InfixalPunctuation
 
-՜<punct>:՜	# Elongated marker, often used in shouting out vocatives
-՞<punct>:՞	# Question marker, often added to wh-words, polar question verbs, and the main questioned word in a question
-՛<punct>:՛	# Imperative marker, added to imperative verbs and general shouting emphasis
++՜<punct>:՜	# Elongated marker, often used in shouting out vocatives
++՞<punct>:՞	# Question marker, often added to wh-words, polar question verbs, and the main questioned word in a question
++՛<punct>:՛	# Imperative marker, added to imperative verbs and general shouting emphasis

@@ -70,17 +70,30 @@ $(BASENAME).$(LANG1).lexd: $(LEXD_FILES)
 .deps/$(LANG1).punctuation.hfst: lexd_components/$(LANG1)-infixal_punctuation.lexd .deps/.d
 	lexd $< | hfst-txt2fst -o $@ -v
 
+.deps/$(LANG1).punct-gen.hfst: $(BASENAME).$(LANG1)-punct.twol .deps/.d
+	hfst-twolc $< -o $@
+
+.deps/$(LANG1).punct-morf.hfst: $(BASENAME).$(LANG1)-punct.lexd .deps/.d
+	lexd $< > .deps/$(LANG1).punct-morf.att
+	hfst-txt2fst .deps/$(LANG1).punct-morf.att -o $@ -v
+
 .deps/$(LANG1).RL.lexd-punct.hfst: .deps/$(LANG1).RL.lexd.hfst .deps/$(LANG1).punctuation.hfst
 	hfst-concatenate -1 $< -2 .deps/$(LANG1).punctuation.hfst -o $@ -v
 
 .deps/$(LANG1).LR.lexd-punct.hfst: .deps/$(LANG1).LR.lexd.hfst .deps/$(LANG1).punctuation.hfst
 	hfst-concatenate -1 $< -2 .deps/$(LANG1).punctuation.hfst -o $@ -v
 
-.deps/$(LANG1).RL.hfst: .deps/$(LANG1).RL.lexd-punct.hfst .deps/$(LANG1).twol.hfst
+.deps/$(LANG1).RL.lexd-punct-twol.hfst: .deps/$(LANG1).RL.lexd-punct.hfst .deps/$(LANG1).twol.hfst
 	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-punct.hfst -2 .deps/$(LANG1).twol.hfst -o $@
 
-.deps/$(LANG1).LR.hfst: .deps/$(LANG1).LR.lexd-punct.hfst .deps/$(LANG1).twol.hfst
+.deps/$(LANG1).LR.lexd-punct-twol.hfst: .deps/$(LANG1).LR.lexd-punct.hfst .deps/$(LANG1).twol.hfst
 	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-punct.hfst -2 .deps/$(LANG1).twol.hfst -o $@
+
+.deps/$(LANG1).RL.hfst: .deps/$(LANG1).RL.lexd-punct-twol.hfst .deps/$(LANG1).punct-gen.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-punct-twol.hfst -2 .deps/$(LANG1).punct-gen.hfst -o $@
+
+.deps/$(LANG1).LR.hfst: .deps/$(LANG1).LR.lexd-punct-twol.hfst .deps/$(LANG1).punct-morf.hfst
+	hfst-compose -1 .deps/$(LANG1).LR.lexd-punct-twol.hfst -2 .deps/$(LANG1).punct-morf.hfst -o $@
 
 $(LANG1).autogen.hfst: .deps/$(LANG1).RL.hfst
 	hfst-fst2fst -O $< -o $@

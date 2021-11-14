@@ -1,0 +1,109 @@
+Alphabet 
+ ա  ե է ը ո օ ի լ
+բ գ դ զ թ ժ  խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ ս վ տ ր ց ւ փ ք ֆ
+ Ա  Ե Է Ը Ո Օ Ի Լ
+Բ Գ Դ Զ Թ Ժ  Խ Ծ Կ Հ Ձ Ղ Ճ Մ Յ Ն Շ Չ Պ Ջ Ռ Ս Վ Տ Ր Ց Ւ Փ Ք Ֆ
+
+՚		!apostrophe
+
+՜:՜		!punctuation from the infixial file that's added to every word
+՞:՞
+՛:՛
+%{՜%}:՜   ! irregular punctuation inside lexical entries
+%{՞%}:՞
+%{՛%}:՛
+
+
+
+!other punctuation symbols
+%-
+֊ 
+– 
+ — 
+, 
+՝
+։
+.
+'
+ «
+»
+%(
+%)
+՚
+՟
+…    
+ՙ    
+
+% 
+;
+
+Sets
+
+InfixPunctAdded = ՜ ՞ ՛ ; 
+InfixPunctLexical = %{՜%}  %{՞%} %{՛%} ;
+Vowel = 	ա  ե է ը ո օ ի  
+		Ա  Ե Է Ը Ո Օ Ի  
+		;
+NonSchwaVowel = ա  ե է ո օ ի  
+		Ա  Ե Է  Ո Օ Ի  
+		;
+Cons = բ գ դ զ թ ժ  լ խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ ս վ տ ր ց ւ փ ք ֆ  
+       Բ Գ Դ Զ Թ Ժ  Լ Խ Ծ Կ Հ Ձ Ղ Ճ Մ Յ Ն Շ Չ Պ Ջ Ռ Ս Վ Տ Ր Ց Ւ Փ Ք Ֆ 
+       ; 
+
+Rules
+
+!!! Imperative exclamation point
+!Some irregular verbs have a C-final imperative, but the exlamation mark is inside the verb
+!This will metathesize the exclamation mark in this context
+!It only works for verbs like բերել -- the very լալ has a cheat in the lexd
+!"delete the exclamation mark when it follows a consonant"
+!՛:0 <=> :Cons _ .#. ;
+!"add an exclamation mark after an irregular imperative verb's final vowel"
+!0:՛ <=> FullVowel _ :Cons* :Cons  ՛:0 .#. ;
+
+!!! Infixal punctuation
+!The lexd file adds an infixal punctuation at end of every word
+!This marker must metathesize into the rightmost full vowel (=stressed vowel) in regular cases irregular verbs have a C-final imperative, but the exlamation mark is inside the verb
+"delete the exclamation mark when it follows a consonant"
+՛:0 <=> (:Cons|:ը) :0* _ :0* .#. ;
+"metathesize exclamation mark"
+0:՛ <=> :NonSchwaVowel _ :0* (:Cons* | :ը* | :0*)*  (:Cons | :ը*)  :0*  ՛:0 .#. ;
+	except
+		InfixPunctLexical: :*  _  ;
+
+"delete the question mark when it follows a consonant"
+՞:0 <=>  (:Cons|:ը) :0* _ :0* .#. ;
+"metathesize question mark"
+0:՞ <=> :NonSchwaVowel _  :0* (:Cons* | :ը* | :0*)*  (:Cons | :ը*)  :0*  ՞:0  .#. ;
+	except
+		InfixPunctLexical: :*  _  ;
+
+"delete the vocative mark when it follows a consonant"
+՜:0 <=>  (:Cons|:ը)  :0* _ :0* .#. ;
+"metathesize vocative mark"
+0:՜ <=> :NonSchwaVowel _  :0* (:Cons* | :ը* | :0*)*  (:Cons | :ը*)  :0*  ՜:0  .#. ;
+	except
+		InfixPunctLexical: :*  _  ;
+
+"deleted added punctuation if the word already has punctuation"
+InfixPunctAdded:0 <=> InfixPunctLexical: :*  _   ;
+
+"if the word has a exclamation punctuation, then it takes the quality of the added exclamation punctuation"
+%{՜%}:՛  <=> _ :* ՛:0 .#. ;
+"if the word has a exclamation punctuation, then it takes the quality of the added question punctuation"
+%{՜%}:՞  <=> _ :* ՞:0 .#. ;
+"if the word has a exclamation punctuation, then it takes the quality of the added vocative punctuation"
+%{՜%}:՜  <=> _ :* ՜:0 .#. ;
+"if the word has a question punctuation, then it takes the quality of the added exclamation punctuation"
+%{՞%}:՛  <=> _ :* ՛:0 .#. ;
+"if the word has a question punctuation, then it takes the quality of the added question punctuation"
+%{՞%}:՞  <=> _ :* ՞:0 .#. ;
+"if the word has a question punctuation, then it takes the quality of the added vocative punctuation"
+%{՞%}:՜  <=> _ :* ՜:0 .#. ;
+"if the word has a vocative punctuation, then it takes the quality of the added exclamation punctuation"
+%{՜%}:՛  <=> _ :* ՛:0 .#. ;
+"if the word has a vocative punctuation, then it takes the quality of the added question punctuation"
+%{՜%}:՞  <=> _ :* ՞:0 .#. ;
+"if the word has a vocative punctuation, then it takes the quality of the added vocative punctuation"
+%{՜%}:՜  <=> _ :* ՜:0 .#. ;
