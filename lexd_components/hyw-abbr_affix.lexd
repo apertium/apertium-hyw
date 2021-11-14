@@ -5,10 +5,10 @@
 
 PATTERNS
 #Just digits and numbers in numerical form
-DigitNumbers
+DigitNumbers [-:-]?  [<abbr>:] Abbreviation?
 StrandedAffixes
 DigitNumbers StrandedAffixes
-([:-]|[:\ ])?  [<abbr>:] Abbreviation
+[-:-]?  [<abbr>:] Abbreviation
 
 PATTERN StrandedAffixes
 [-:-]? StrandedAffixDef|StrandedAffixPoss

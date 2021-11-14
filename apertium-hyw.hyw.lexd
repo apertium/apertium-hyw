@@ -2515,6 +2515,7 @@ LEXICON Prog
 
 LEXICON Fut
 պիտի<pro><fut>:պիտի
+պիտ<pro><fut>:պիտ # Dir/LR
 
 #Negation-based lexicons
 LEXICON NegPtcp
@@ -76747,7 +76748,7 @@ PATTERNS
 DigitNumbers
 StrandedAffixes
 DigitNumbers StrandedAffixes
-([:-]|[:\ ])?  [<abbr>:] Abbreviation
+[-:-]?  [<abbr>:] Abbreviation
 
 PATTERN StrandedAffixes
 [-:-]? StrandedAffixDef|StrandedAffixPoss

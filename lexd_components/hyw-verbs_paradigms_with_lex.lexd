@@ -1123,6 +1123,7 @@ LEXICON Prog
 
 LEXICON Fut
 պիտի<pro><fut>:պիտի
+պիտ<pro><fut>:պիտ # Dir/LR
 
 #Negation-based lexicons
 LEXICON NegPtcp
