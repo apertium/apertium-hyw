@@ -3,8 +3,6 @@
 #### Using only standard numbers and most common colloquial variants
 
 PATTERNS
-#Just digits and numbers in numerical form
-DigitNumbers
 
 #Cardinals and unordinals
 NumberDeclension
@@ -141,18 +139,3 @@ LEXICON HalfFraction
 <frac>:կէս
 <frac>:քառորդ
 
-PATTERN DigitNumbers
-Digit+ [<num>:]
-Digit+ ([.]|[,]) Digit+ [<num>:]
-
-LEXICON Digit
-0
-1
-2
-3
-4
-5
-6
-7
-8
-9

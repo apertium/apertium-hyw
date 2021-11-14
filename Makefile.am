@@ -26,6 +26,7 @@ LEXD_FILES=  \
 	   lexd_components/$(LANG1)-other.lexd   \
 	   lexd_components/$(LANG1)-names_bible.lexd \
 	   lexd_components/$(LANG1)-added_essayan.lexd \
+	   lexd_components/$(LANG1)-abbr_affix.lexd \
 	   lexd_components/$(LANG1)-added_bible.lexd
 
 

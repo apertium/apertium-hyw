@@ -1021,7 +1021,7 @@ LEXICON DatGenRegI
 <dat_gen>:ու #Dir/LR In case of unexpected irregularization
 LEXICON DatGenRegU
 <dat_gen>:ու
-<dat_gen>:ի #Dir/LR In case of regularization
+<dat_gen>:ի # Dir/LR In case of regularization
 LEXICON AblReg
 <abl>:է
 <abl>:ից # Dir/LR because of code-switching
@@ -1365,9 +1365,17 @@ LEXICON NameFamily
 # կրկնակի:կրկնակի
 # LEXICON Infinitival
 # կրկնակի:կրկնակի
+# LEXICON Neg
+# կրկնակի:կրկնակի
 # LEXICON NameMaleFemaleGiven 
 # կրկնակի:կրկնակի
 # LEXICON NameFemaleGivenLocation
+# կրկնակի:կրկնակի
+#LEXICON PerfectPart
+# կրկնակի:կրկնակի
+#LEXICON SubjectPart
+# կրկնակի:կրկնակի
+#LEXICON ProspectivePart
 # կրկնակի:կրկնակի
 
 
