@@ -64,7 +64,6 @@ TODO: test tagger result
 Files and data
 -------------------------------------------------------------------------------
 
-* [`apertium-hyw.hyw.lexc`](apertium-hyw.hyw.lexc) - Morphotactic dictionary
 * [`apertium-hyw.hyw.twol`](apertium-hyw.hyw.twol) - Morphophonological rules
 * [`apertium-hyw.hyw.rlx`](apertium-hyw.hyw.rlx) - Constraint Grammar disambiguation rules
 * [`apertium-hyw.post-hyw.dix`](apertium-hyw.post-hyw.dix) - Post-generator
