@@ -1,0 +1,64 @@
+#######
+######
+######
+### Digits, acronyms/abbreviations, and stranded suffixes
+
+PATTERNS
+#Just digits and numbers in numerical form
+DigitNumbers
+StrandedAffixes
+DigitNumbers StrandedAffixes
+([:-]|[:\ ])?  [<abbr>:] Abbreviation
+
+PATTERN StrandedAffixes
+[-:-]? StrandedAffixDef|StrandedAffixPoss
+[-:-]? StrandedAffixCaseRegI|StrandedAffixCaseRegU (StrandedAffixDef|StrandedAffixPoss)?
+[-:-]? StrandedAffixPL StrandedAffixCaseRegU? (StrandedAffixDef|StrandedAffixPoss)?
+
+LEXICON Abbreviation
+թթ:թթ
+րդ<ord>:րդ
+դոկտ:դոկտ
+
+PATTERN DigitNumbers
+Digit+ [<num>:]
+Digit+ ([.]|[,]) Digit+ [<num>:]
+
+LEXICON Digit
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+LEXICON StrandedAffixDef
+ը<def>:ը
+ն<def>:ն
+LEXICON StrandedAffixPoss
+ս<px1sg>:ս
+ըս<px1sg>:ըս # Dir/LR  -- in case of typos because EANC has this rule
+դ<px2sg>:դ
+ըե<px2sg>:ըդ # Dir/LR  -- in case of typos because EANC has this rule
+LEXICON StrandedAffixCaseRegI
+ի<dat_gen>:ի
+ու<dat_gen>:ու #Dir/LR In case of unexpected irregularization
+է<abl>:է
+իս<abl>:ից # Dir/LR because of code-switching
+ով<ins>:ով
+ում<loc>:ում # Dir/LR because of code-switching
+LEXICON StrandedAffixCaseRegU
+ի<dat_gen>:ի #Dir/LR In case of unexpected irregularization
+ու<dat_gen>:ու 
+է<abl>:է
+իս<abl>:ից # Dir/LR because of code-switching
+ով<ins>:ով
+ում<loc>:ում # Dir/LR because of code-switching
+LEXICON StrandedAffixPL
+ներ<pl>:ներ	
+եր<pl>:եր	
+
