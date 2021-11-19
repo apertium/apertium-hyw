@@ -22,9 +22,9 @@ LEXICON NonInfixalPunctuation
 )<rpar>:) 	# Right parenthesis 	
 ՚<apos>:՚		# Apostrophe, mostly used for combining a function words with verbs
 
-…<clb>:…		# Ellipses
-.<clb>:.		# Acts like a semicolon
-՝<clb>:՝		# A weaker boundary than a semicolon
+…<sent>:…		# Ellipses
+.<sent>:.		# Acts like a semicolon
+՝<sent>:՝		# A weaker boundary than a semicolon
 
 ֊<guio>:֊		# Rather outdated type of hyphen that's on Wikipedia, but not on keyboards
 -<guio>:-	# Normal hyphen
