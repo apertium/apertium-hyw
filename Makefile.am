@@ -62,13 +62,16 @@ $(BASENAME).$(LANG1).lexd: $(LEXD_FILES)
 	cat $< | grep -v 'Dir/RL' > $@
 
 .deps/$(LANG1).RL.lexd.hfst: .deps/$(LANG1).RL.lexd
-	lexd $< | hfst-txt2fst -o $@ -v
+	lexd $< .deps/$(LANG1).RL.lexd.att
+	hfst-txt2fst .deps/$(LANG1).RL.lexd.att -o $@ -v
 
 .deps/$(LANG1).LR.lexd.hfst: .deps/$(LANG1).LR.lexd
-	lexd $< | hfst-txt2fst -o $@ -v
+	lexd $< .deps/$(LANG1).LR.lexd.att
+	hfst-txt2fst .deps/$(LANG1).LR.lexd.att -o $@ -v
 
 .deps/$(LANG1).punctuation.hfst: lexd_components/$(LANG1)-infixal_punctuation.lexd .deps/.d
-	lexd $< | hfst-txt2fst -o $@ -v
+	lexd $< .deps/$(LANG1).punctuation.att
+	hfst-txt2fst .deps/$(LANG1).punctuation.att -o $@ -v
 
 .deps/$(LANG1).punct-gen.hfst: $(BASENAME).$(LANG1)-punct.twol .deps/.d
 	hfst-twolc $< -o $@
