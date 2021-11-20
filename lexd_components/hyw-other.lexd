@@ -16,6 +16,7 @@ UpperCaseLetter [<maj>:]
 Conjunction [<conj>:]
 OtherParticles [<particle>:]
 DeclDeclinableInterjection
+ForeignPhrases
 
 PATTERN DeclDeclinableInterjection
 #Singular
@@ -84,6 +85,7 @@ LEXICON Interjection
 քաւ:քաւ 
 օխ:օխ 
 օն:օն 
+քա:քա # had ՛ 
 քաւլիցի:քաւլիցի # reassigned from adverb
 քաւ\ լիցի:քաւ\ լիցի
 լիցի:լիցի
@@ -225,4 +227,17 @@ LEXICON OtherParticles
 ահաւասիկ:ահաւասիկ 
 առ:առ
 թող:թող
+եւ\ այլն:եւ\ այլն
 եւայլն:եւայլն
+եւն:եւն
+
+
+LEXICON ForeignPhrases
+#A lot of these are biblical
+Օրթի:Օրթի
+յԱստուծոյ:յԱստուծոյ
+յանուանէ:յանուանէ
+Ողորմեա:Ողորմեա
+պռօսխումը:պռօսխումը
+գտանին:գտանին
+գրեսցուք:գրեսցուք

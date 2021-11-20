@@ -80,11 +80,13 @@ LEXICON PersonalPronoun
 մենք<prn><acc><pl><p1>:մեզի 
 մենք<prn><abl><pl><p1>:մեզմէ
 մենք<prn><abl><pl><p1>:մեզանից  # Dir/LR  Eastern code-switching
+մենք<prn><abl><pl><p1>:մենէ  # Dir/LR  
 մենք<prn><abl><pl><p1>:մեզնից  # Dir/LR  Eastern code-switching
 մենք<prn><ins><pl><p1>:մեզմով
 մենք<prn><ins><pl><p1>:մեզանով  # Dir/LR  Eastern code-switching
 մենք<prn><ins><pl><p1>:մեզնով  # Dir/LR  Eastern code-switching
 մենք<prn><loc><pl><p1>:մեզանում  # Dir/LR  Eastern code-switching
+մենք<prn><loc><pl><p1>:մերում  # Dir/LR  Eastern code-switching
 
 դուն<prn><nom><sg><p2>:դուն
 դուն<prn><nom><sg><p2>:դու    # Dir/LR  Eastern code-switching
@@ -97,6 +99,7 @@ LEXICON PersonalPronoun
 դուն<prn><abl><sg><p2>:քեզմէ
 դուն<prn><abl><sg><p2>:քեզանից  # Dir/LR  Eastern code-switching
 դուն<prn><abl><sg><p2>:քեզնից  # Dir/LR  Eastern code-switching
+դուն<prn><abl><sg><p2>:քենէ  # Dir/LR 
 դուն<prn><ins><sg><p2>:քեզմով
 դուն<prn><ins><sg><p2>:քեզանով  # Dir/LR  Eastern code-switching
 դուն<prn><ins><sg><p2>:քեզնով  # Dir/LR  Eastern code-switching
@@ -189,7 +192,7 @@ LEXICON PersonalPronoun
 LEXICON SubstantivePronoun
 #single possessor, single object
 իմս<prn><subs><px1sg><sg><nom_acc>:իմս # mine
-իմս<prn><subs><px1sg><sg><nom_acc>:իմիս # Dir/LR
+իմս<prn><subs><px1sg><sg><nom_acc>:իմինս # Dir/LR
 իմս<prn><subs><px1sg><sg><gen_dat>:իմինիս 
 իմս<prn><subs><px1sg><sg><abl>:իմինէս 
 իմս<prn><subs><px1sg><sg><ins>:իմինովս 
@@ -346,6 +349,11 @@ LEXICON ReciprocalPronoun
 իրար<prn><ref><ins>:իրարմով
 իրար<prn><ref><ins>:իրարով # Dir/LR  Eastern code-switching
 
+#undeclinable
+մէկըզմէկ<prn><ref><acc>:մէկըզմէկ
+
+
+
 ### She doesn't provide reflexive paradigms, but just reciprocals
 LEXICON ReflexivePronoun
 ինքզինքը<prn><ref>:ինքզինք
@@ -375,6 +383,7 @@ LEXICON ReflexivePronounArchaic
 LEXICON DemonstrativePronoun
 այս<prn><dem><prx><sg><nom>:այս  # this
 այս<prn><dem><prx><sg><nom>:սոյն  # Dir/LR 
+այս<prn><dem><prx><sg><nom>:ասի   # Dir/LR 
 այս<prn><dem><prx><sg><nom>:ասիկա   # Dir/LR 
 այս<prn><dem><prx><sg><nom>:աս   # Dir/LR 
 այս<prn><dem><prx><sg><nom>:սա  # Dir/LR  Eastern code-switching
@@ -409,6 +418,8 @@ LEXICON DemonstrativePronoun
 այդ<prn><dem><med><sg><nom>:ատիկա   # Dir/LR 
 այդ<prn><dem><med><sg><nom>:ադ   # Dir/LR 
 այդ<prn><dem><med><sg><nom>:ատ   # Dir/LR 
+այդ<prn><dem><med><sg><nom>:ատի   # Dir/LR
+այդ<prn><dem><med><sg><nom>:դոյն   # Dir/LR
 այդ<prn><dem><med><sg><nom>:դա   # Dir/LR  Eastern code-switching   
 այդ<prn><dem><med><sg><gen_dat>:ատոր   
 այդ<prn><dem><med><sg><gen_dat>:դրա   # Dir/LR  Eastern code-switching   
@@ -438,6 +449,7 @@ LEXICON DemonstrativePronoun
 այն<prn><dem><dst><sg><nom>:այն  # that yonder
 այն<prn><dem><dst><sg><nom>:անիկա   # Dir/LR 
 այն<prn><dem><dst><sg><nom>:ան   # Dir/LR 
+այն<prn><dem><dst><sg><nom>:անի  # Dir/LR 
 այն<prn><dem><dst><sg><nom>:նա     # Dir/LR  Eastern code-switching   
 այն<prn><dem><dst><sg><gen_dat>:անոր   
 այն<prn><dem><dst><sg><gen_dat>:նրա   # Dir/LR  Eastern code-switching   
@@ -459,6 +471,7 @@ LEXICON DemonstrativePronoun
 
 անոնք<prn><dem><dst><pl><nom>:անոնք  # these
 անոնք<prn><dem><dst><pl><nom>:նոքս    # Dir/LR
+անոնք<prn><dem><dst><pl><nom>:նոքա    # Dir/LR
 անոնք<prn><dem><dst><pl><nom>:նրանք    # Dir/LR  Eastern code-switching   
 անոնք<prn><dem><dst><pl><gen_dat>:անոնց
 անոնք<prn><dem><dst><pl><gen_dat>:նոցա    # Dir/LR

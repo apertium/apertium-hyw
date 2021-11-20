@@ -126,6 +126,7 @@ NameFemaleGivenLocation [<n><np><ant_f_top>:]
 
 NameFamily  [<n><np><pat>:]
 NameGivenUnclassified [<n><np><ant>:]
+NameNotGivenCountry [<n><np><al>:]
  
 PATTERN NounDeclIrregularTimeVan
 #optional normal case
@@ -1314,18 +1315,9 @@ LEXICON NounSyncopeReduced
 
 #For nouns which are regular except for fossilized archaic case-forms
 #I only list irregulars, and i let the regular versions be in the normal list
-LEXICON IrregFrozenCase
-դուստր<n><dat_gen>:դստեր
-կայսր<n><dat_gen>:կայսեր
-կին<n><pl><dat_gen>:կանանց
-կորուստ<n><dat_gen>:կորստեան
-հանգիստ<n><dat_gen>:հանգստեան
-ծննունդ<n><dat_gen>:ծննդեան
-գալուստ<n><dat_gen>:գալստեան
-թաքուստ<n_adj><subst><dat_gen>:թաքստեան
-փախուստ<n><dat_gen>:փախստեան
-ժողովուրդ<n><dat_gen>:ժողովրդեան
-
+#LEXICON IrregFrozenCase
+#դուստր<n><sg><dat_gen>:դստեր
+#I put the wordin the lex_irreg list
 
 #The country names անգլիա changes to անգլիոյ  for dative/genitive
 #Regular nouns which never shift are in separate group

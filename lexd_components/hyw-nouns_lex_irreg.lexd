@@ -542,6 +542,38 @@ LEXICON NounTimeVanAdv
 առաջ:առաջ
 անգամ:անգամ
 շատոնց:շատոնց
+յառաջ:յառաջ
+
+LEXICON IrregFrozenCase
+դուստր<n><sg><dat_gen>:դստեր
+կայսր<n><sg><dat_gen>:կայսեր
+կին<n><pl><dat_gen>:կանանց
+կին<n><pl>:կանայք
+կորուստ<n><sg><dat_gen>:կորստեան
+հանգիստ<n><sg><dat_gen>:հանգստեան
+ծննունդ<n><sg><dat_gen>:ծննդեան
+գալուստ<n><sg><dat_gen>:գալստեան
+թաքուստ<n_adj><subst><sg><dat_gen>:թաքստեան
+փախուստ<n><sg><dat_gen>:փախստեան
+ժողովուրդ<n><sg><dat_gen>:ժողովրդեան
+յառաջ<adv><subst><sg><abl>:յառաջուց
+հոն<adv><subst><sg><abl>:հոնկէ
+հոն<adv><subst><sg><abl>:հոնկից
+հոս<adv><subst><sg><abl>:հոսկէ
+հոս<adv><subst><sg><abl>:հոսկից
+հոտ<adv><subst><sg><abl>:հոտկէ
+հոտ<adv><subst><sg><abl>:հոտկից
+պզտիկ<adv><subst><sg><abl>:պզտիկուց
+ափ<n><sg><abl>:ափանց
+ասորի<n><pl><dat_gen>:ասորւոց
+մարդ<n><pl><dat_gen>:մարդկան
+յոյն<n><pl><dat_gen>:յունաց
+գիր<n><sg><gen>:գրոյն
+կերպարանք<n><ins>:կերպարանօք
+հիւսիսականք<n><pl><dat_gen>:հիւսիսականաց
+հրահանգ<n><pl><dat_gen>:հրահանգաց		
+փոփոխումն<n><pl><dat_gen>:փոփոխմանց	
+
 
 LEXICON NounTimeVanHima
 հիմա:հիմա #This word takes the time suffixes with կ
@@ -592,6 +624,7 @@ LEXICON NounReg #For the -an words which have regular alternates instead of othe
 աղջիկ:աղջիկ
 հօրաքեռաղջիկ:հօրաքեռաղջիկ
 մօրաքեռաղջիկ:մօրաքեռաղջիկ
+քեռաղջիկ:քեռաղջիկ
 
 
 #These irregulars  take an optional irregular dative ոջ, 
@@ -623,6 +656,8 @@ LEXICON NounFamilyOchBase
 հօրեղբօրկին:հօրեղբօրկին{mono}
 քեռւոյկին:քեռւոյկին{mono}
 քրմակին:քրմակին{mono}
+քեռեկին:քեռեկին{mono}
+քեռկին:քեռկին{mono}
 
 քոյր:քոյր
 հարսնքոյր:հարսնքոյր{mono}
@@ -652,6 +687,8 @@ LEXICON NounFamilyOchReduced
 հօրեղբօրկին:հօրեղբօրկն
 քեռւոյկին:քեռւոյկն
 քրմակին:քրմակն
+քեռեկին:քեռեկն
+քեռկին:քեռկն
 
 
 քոյր:քր

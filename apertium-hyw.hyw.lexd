@@ -1046,9 +1046,11 @@ LEXICON CaseTimeVan
 <dat_gen>:ուան # Dir/LR
 <dat_gen>:ուայ 
 <abl>:ուընէ
+<abl>:ւընէ  # Dir/LR
 <abl>:ուանէ # Dir/LR
 <abl>:ուանից # Dir/LR because of code-switching
 <ins>:ուընով 
+<ins>:ւընով # Dir/LR
 <ins>:ուանով # Dir/LR
 <ins>:ուամբ # Dir/LR
 
@@ -73828,6 +73830,7 @@ LEXICON OtherParticles
 ահաւասիկ:ահաւասիկ 
 առ:առ
 թող:թող
+եւ\ այլն:եւ\ այլն
 եւայլն:եւայլն
 
 

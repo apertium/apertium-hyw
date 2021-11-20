@@ -110,6 +110,7 @@ CausBase CausPass
 #This is for orthographic variants
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPass
 CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPass
+CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrPass
 
 
 #This is for lexically listed passives
@@ -172,6 +173,7 @@ VerbRootA(1) VZero VerbRootA(2): ThA Inf
 CausBase CausPres ThE Inf
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausOrthographicSchwaPres ThE Inf
 CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPres ThE Inf
+CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrSchwaPres ThE Inf
 
 
 PassBase Pass ThI Inf
@@ -269,6 +271,7 @@ VerbRootA(1) VZero VerbRootA(2): ThA
 CausBase CausPres ThE
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausOrthographicSchwaPres ThE
 CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPres ThE
+CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrSchwaPres ThE Inf
 
 
 PassBase Pass ThI 
@@ -465,7 +468,7 @@ PassBase Pass ImpSgIR
 
 CausBase CausPast ImpSgR
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast ImpSgR
-CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPast ImpSgR
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrPast ImpSgR
 
 
 InchBase InchEmpty Aor ImpSgIR
@@ -530,7 +533,7 @@ VerbRootA(1) VZero VerbRootA(2): ThA Aor ImpPl
 
 CausBase CausPast Aor ImpPl
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor ImpPl
-CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPast Aor ImpPl
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrPast Aor ImpPl
 
 PassBase Pass ThI Aor ImpPl
 
@@ -587,6 +590,8 @@ VerbRootA(1) VZero VerbRootA(2): ThA [<proh>:] ProhAgr
 CausBase CausPres ThE [<proh>:] ProhAgr
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPres ThE [<proh>:] ProhAgr
 CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPres  ThE [<proh>:] ProhAgr
+CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrSchwaPres  ThE [<proh>:] ProhAgr
+
 
 PassBase Pass ThI [<proh>:] ProhAgr
 
@@ -641,6 +646,7 @@ VerbRootA(1) VZero VerbRootA(2): ThA Aor SubjPart
 CausBase CausPres SubjPart
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPres SubjPart
 CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPres SubjPart
+CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrSchwaPres SubjPart
 
 PassBase Pass SubjPart
 
@@ -696,14 +702,14 @@ VerbRootA(1) VZero VerbRootA(2): ThA Aor PerfPart
 
 CausBase CausPast Aor PerfPart
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor PerfPart
-CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPast Aor PerfPart
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrPast Aor PerfPart
 
 ### Arak had հարցուցուած as perfect participle of passivized causative, even though also had հարցուիլ
 ### Just to be safe, I optionally insert the past+aorist for this construction
 ## TO DO: Clarify from Arak29 if this is a glitch
 CausBase CausPast Aor Pass PerfPart   # Dir/LR
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor Pass PerfPart   # Dir/LR
-CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPast Pass Aor PerfPart   # Dir/LR
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrPast Pass Aor PerfPart   # Dir/LR
 
 
 
@@ -758,7 +764,7 @@ VerbRootA(1) VZero VerbRootA(2): ThA Aor EvidPart
 
 CausBase CausPast Aor EvidPart
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor EvidPart
-CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPast Aor EvidPart
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrPast Aor EvidPart
 
 PassBase Pass EvidPart
 
@@ -814,6 +820,8 @@ VerbRootA(1) VZero VerbRootA(2): ThA Pres0|PastImpf0 NegPtcp
 CausBase CausPres ThE Pres0|PastImpf0 NegPtcp 
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPres ThE Pres0|PastImpf0 NegPtcp 
 CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPres ThE Pres0|PastImpf0 NegPtcp 
+CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrSchwaPres ThE Pres0|PastImpf0 NegPtcp 
+
 
 PassBase Pass ThI Pres0 NegPtcp 
 PassBase Pass ThE PastImpf0 NegPtcp #For i->e
@@ -997,6 +1005,8 @@ LEXICON CausOrthographicSchwaPres
 <caus>:ցըն
 LEXICON CausOrthographicAffrPres
 <caus>:ձն
+LEXICON CausOrthographicAffrSchwaPres
+<caus>:ձըն
 LEXICON CausOrthographicAffrPast
 <caus>:ձու
 LEXICON CausOrthographicAffrPass
@@ -1194,8 +1204,9 @@ LEXICON CausativeVerbRootOrthographicSchwa
 LEXICON CausativeVerbRootOrthographicAffr
 դարձնել:դար
 վերադարձնել:վերադար
-
-
+LEXICON CausativeVerbRootOrthographicAffrSchwa
+դարձընել:դար
+բարձընել:բար
 
 LEXICON PassiveVerbRoot
 ածիլուիլ:ածիլ
