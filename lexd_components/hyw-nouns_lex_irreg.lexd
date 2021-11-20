@@ -786,6 +786,7 @@ LEXICON NounFamilyOAblauted
 #Words like տուն տան
 LEXICON NounRandomOBase
 տուն:տուն
+ածխատուն:ածխատուն{mono}
 աղաւնետուն:աղաւնետուն{mono}
 աղօթատուն:աղօթատուն{mono}
 ձմեռնատուն:ձմեռնատուն{mono}
@@ -931,6 +932,7 @@ LEXICON NounRandomOBase
 
 LEXICON NounRandomOAblauted
 տուն:տան
+ածխատուն:ածխատան
 աղաւնետուն:աղաւնետան
 աղօթատուն:աղօթատան
 աստեղատուն:աստեղատան

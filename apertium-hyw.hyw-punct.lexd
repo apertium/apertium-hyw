@@ -88,6 +88,8 @@ LEXICON Consonant
 Փ
 Ք
 Ֆ
+-
+
 
 LEXICON Punct
 ՜
@@ -95,7 +97,7 @@ LEXICON Punct
 ՛
 
 LEXICON Unpunctuated
-%-
+-
 ֊ 
 – 
  — 

@@ -81,6 +81,7 @@ Number10 [<num>:] MeaninglessDefNasal? ConnectiveU HalfFraction
 
 LEXICON Number1
 մէկ:մէկ 
+մեկ:մեկ  # Dir/LR EA
 LEXICON Number2
 երկու:երկու  
 LEXICON Number2Declined(2)
@@ -90,10 +91,12 @@ LEXICON Number3_4
 չորս:չորս  
 LEXICON Number0_5_6
 զէրօ:զէրօ  
+զրո:զրո  # Dir/LR EA
 հինգ:հինգ  
 վեց:վեց  
 LEXICON Number7_8_9
 եօթ:եօթ  
+յոթ:յոթ  # Dir/LR EA
 ութ:ութ  
 ին:ին  
 LEXICON Number10
@@ -103,8 +106,10 @@ LEXICON NumberDecades
 երեսուն:երեսուն  
 քառասուն:քառասուն  
 յիսուն:յիսուն  
+հիսուն:հիսուն  # Dir/LR EA
 վաթսուն:վաթսուն  
 եօթանասուն:եօթանասուն  
+յոթանասուն:յոթանասուն  # Dir/LR EA
 ութսուն:ութսուն  
 ինիսուն:ինիսուն  
 իննսուն:իննսուն  
@@ -116,6 +121,7 @@ LEXICON NumberThousand
 հազար:հազար  
 LEXICON NumberMillionUp
 միլիոն:միլիոն  
+բիլիոն:բիլիոն
 պիլիոն:պիլիոն  
 միլիարդ:միլիարդ  
 միլիառ:միլիառ  

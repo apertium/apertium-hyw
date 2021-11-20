@@ -57,13 +57,20 @@ LEXICON TruePreposition
 մինչեւ<pr>:մինչեւ
 առանց<pr>:առանց
 դէպի<pr>:դէպի
+դէպ<pr>:դէպ
 ըստ<pr>:ըստ
 վասն<pr>:վասն
+զկնի<pr>:զկնի #maybe
+կնի<pr>:կնի #maybe
+մակ<pr>:մակ # maybe
+ընդ<pr>:ընդ  
+նդ<pr>:նդ
 
 LEXICON TruePrepositionVary
 #True prepositions (doesn't decline) but can sometimes be a postposition
 բացի<pr_post>:բացի
 փոխանակ<pr_post>:փոխանակ
+փոխան<pr_post>:փոխան
 # բացի<post>:բացի
 # փոխանակ<post>:փոխանակ
 
@@ -77,6 +84,9 @@ LEXICON TruePostposition
 քան<post>:քան
 համար<post>:համար
 պէս<post>:պէս
+թարց<post>:թարց  # maybe
+զերթ<post>:զերթ   # maybe
+զերդ<post>:զերդ  # maybe
 
 LEXICON TruePostpositionVary
 #Does not decline, can sometimes be a preposition
@@ -138,6 +148,13 @@ LEXICON FrozenPreposition
 չհաշուած<pr>:չհաշուած  
 նկատի\ չառած<pr>:նկատի\ չառած
 ընդմէջ<pr>:ընդմէջ #in my judgment, preposition is frozen, while postposition takes ablative
+ընդդիմական<pr>:ընդդիմական
+ընդձեռն<pr>:ընդձեռն
+առընթեր<pr>:առընթեր
+ընթեր<pr>:ընթեր
+յաղագս<pr>:յաղագս
+ընդդէմ<pr>:ընդդէմ
+
 
 LEXICON FrozenPrepositionVary
 #don't decline, frozen from nouns or verbs or adjectives, can sometimes be postposition
@@ -167,6 +184,7 @@ LEXICON FrozenPostpositionVary
 #don't decline, frozen from nouns or verbs or adjectives, can sometimes be preposition
 շնորհիւ<post_pr>:շնորհիւ
 # շնորհիւ<pr>:շնորհիւ
+յանդիման<post_pr>:յանդիման
 
 LEXICON DeclinablePostposition
 #Take case and plural and substantive
@@ -174,11 +192,13 @@ LEXICON DeclinablePostposition
 դէմ<post>:դէմ
 մէջ<post>:մէջ
 վրայ<post>:վրայ
+մերձ<post>:մերձ
+վերայ<post>:վերայ
 տակ<post>:տակ
 քով<post>:քով
 մօտ<post>:մօտ
 հետ<post>:հետ
-
+յետ<post>:յետ #maybe
 
 դիմաց<post>:դիմաց  # reassigned from Hagopian
 
@@ -187,7 +207,7 @@ LEXICON DeclinablePostposition
 վերաբերեալ<post>:վերաբերեալ
 պատճառով<post>:պատճառով
 պատճառաւ<post>:պատճառաւ
-
+նպատակաւ<post>:նպատակաւ
 
 ընդմէջ<post>:ընդմէջ #postposition form takes case in my judgments; added from corpus
 # Also include adverbal postpositions

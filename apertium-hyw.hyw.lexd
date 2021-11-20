@@ -8948,11 +8948,13 @@ LEXICON VerbRootI(2)		#Class 3 ապրիլ and 4 խօսիլ; includes class 17 ո
 քոսոտիլ:քոսոտ <iv>
 քսուըռտիլ:քսուըռտ <iv>
 օգտիլ:օգտ <iv>
+չաջողիլ:չաջող <iv>
 օթագայիլ:օթագայ <iv>
 օթիլ:օթ <iv>
 օտարասեռիլ:օտարասեռ <iv>
   
 LEXICON VerbRootA(2)		# Class 5 աղալ and 6 կարդալ
+չաւատալ:չաւատ  <iv>
 արտօրալ:արտօր <iv>
 ափսոսալ:ափսոս <iv>
 գնալ:գն <iv>
@@ -10972,7 +10974,6 @@ LEXICON NounFamilyOAblauted
 խոստովանահայր:խոստովանահօր
 կնքահայր:կնքահօր
 կրօնահայր:կրօնահօր
-հայր:հայր
 յառաջահայր:յառաջահօր
 նախահայր:նախահօր
 պապուհայր:պապուհօր
@@ -11019,6 +11020,7 @@ LEXICON NounFamilyOAblauted
 #Words like տուն տան
 LEXICON NounRandomOBase
 տուն:տուն
+ածխատուն:ածխատուն{mono}
 աղաւնետուն:աղաւնետուն{mono}
 աղօթատուն:աղօթատուն{mono}
 ձմեռնատուն:ձմեռնատուն{mono}
@@ -11164,6 +11166,7 @@ LEXICON NounRandomOBase
 
 LEXICON NounRandomOAblauted
 տուն:տան
+ածխատուն:ածխատան
 աղաւնետուն:աղաւնետան
 աղօթատուն:աղօթատան
 աստեղատուն:աստեղատան
@@ -20974,6 +20977,7 @@ Number10 [<num>:] MeaninglessDefNasal? ConnectiveU HalfFraction
 
 LEXICON Number1
 մէկ:մէկ 
+մեկ:մեկ  # Dir/LR EA
 LEXICON Number2
 երկու:երկու  
 LEXICON Number2Declined(2)
@@ -20983,10 +20987,12 @@ LEXICON Number3_4
 չորս:չորս  
 LEXICON Number0_5_6
 զէրօ:զէրօ  
+զրո:զրո  # Dir/LR EA
 հինգ:հինգ  
 վեց:վեց  
 LEXICON Number7_8_9
 եօթ:եօթ  
+յոթ:յոթ  # Dir/LR EA
 ութ:ութ  
 ին:ին  
 LEXICON Number10
@@ -20996,8 +21002,10 @@ LEXICON NumberDecades
 երեսուն:երեսուն  
 քառասուն:քառասուն  
 յիսուն:յիսուն  
+հիսուն:հիսուն  # Dir/LR EA
 վաթսուն:վաթսուն  
 եօթանասուն:եօթանասուն  
+յոթանասուն:յոթանասուն  # Dir/LR EA
 ութսուն:ութսուն  
 ինիսուն:ինիսուն  
 իննսուն:իննսուն  
@@ -21009,6 +21017,7 @@ LEXICON NumberThousand
 հազար:հազար  
 LEXICON NumberMillionUp
 միլիոն:միլիոն  
+բիլիոն:բիլիոն
 պիլիոն:պիլիոն  
 միլիարդ:միլիարդ  
 միլիառ:միլիառ  
@@ -26201,6 +26210,7 @@ LEXICON PersonalPronoun
 ես<prn><ins><sg><p1>:ինձնով  # Dir/LR  Eastern code-switching
 
 մենք<prn><nom><pl><p1>:մենք
+մենք<prn><nom><pl><p1>:մեք  # Dir/LR
 մենք<prn><gen><pl><p1>:մեր
 մենք<prn><dat><pl><p1>:մեզի
 մենք<prn><dat><pl><p1>:մեզ  # Dir/LR
@@ -26244,11 +26254,15 @@ LEXICON PersonalPronoun
 դուք<prn><loc><pl><p1>:ձեզանում  # Dir/LR  Eastern code-switching
 
 ան<prn><nom><sg><p3>:ան
-ան<prn><nom><sg><p3>:նա
+ան<prn><nom><sg><p3>:նա # Dir/LR   Eastern code-switching
+ան<prn><nom><sg><p3>:նէ # Dir/LR
 ան<prn><gen><sg><p3>:անոր
 ան<prn><gen><sg><p3>:նրա  # Dir/LR  Eastern code-switching
+ան<prn><gen><sg><p3>:նորա  # Dir/LR   
+ան<prn><gen><sg><p3>:ներա  # Dir/LR   
 ան<prn><dat><sg><p3>:անոր
 ան<prn><dat><sg><p3>:նրան  # Dir/LR  Eastern code-switching
+ան<prn><dat><sg><p3>:նմա  # Dir/LR  
 ան<prn><acc><sg><p3>:ան  
 ան<prn><acc><sg><p3>:զանի # Dir/LR
 ան<prn><abl><sg><p3>:անորմէ
@@ -26276,6 +26290,7 @@ LEXICON PersonalPronoun
 ինքը<prn><log><nom><sg><p3>:ինքն # Dir/LR
 ինքը<prn><log><gen><sg><p3>:իր
 ինքը<prn><log><gen><sg><p3>:իւր  # Dir/LR
+ինքը<prn><log><gen><sg><p3>:ւիւր  # Dir/LR
 ինքը<prn><log><dat><sg><p3>:իրեն
 ինքը<prn><log><acc><sg><p3>:իրեն
 ինքը<prn><log><acc><sg><p3>:զինք # Dir/LR
@@ -26326,6 +26341,7 @@ LEXICON SubstantivePronoun
 անորը<prn><subs><px3sg><sg><nom_acc>:անորը # its
 անորը<prn><subs><px3sg><sg><nom_acc>:անորն # Dir/LR
 անորը<prn><subs><px3sg><sg><gen_dat>:անորինը
+նորա<prn><subs><px3sg><sg><gen_dat>:նորային # Dir/LR
 անորը<prn><subs><px3sg><sg><gen_dat>:անորինն # Dir/LR
 անորը<prn><subs><px3sg><sg><nom_acc>:անորն # Dir/LR
 անորը<prn><subs><px3sg><sg><gen_dat>:անորինն # Dir/LR
@@ -26376,6 +26392,7 @@ LEXICON SubstantivePronoun
 
 #many possessors, single object
 մերինը<prn><subs><px1pl><sg><nom_acc>:մերինը # our
+մերինը<prn><subs><px1pl><sg><nom_acc>:մերային # Dir/LR 
 մերինը<prn><subs><px1pl><sg><nom_acc>:մերինն # Dir/LR 
 մերինը<prn><subs><px1pl><sg><nom_acc>:մերը # Dir/LR
 մերինը<prn><subs><px1pl><sg><nom_acc>:մերն # Dir/LR
@@ -26495,10 +26512,12 @@ LEXICON ReflexivePronounArchaic
 
 LEXICON DemonstrativePronoun
 այս<prn><dem><prx><sg><nom>:այս  # this
+այս<prn><dem><prx><sg><nom>:սոյն  # Dir/LR 
 այս<prn><dem><prx><sg><nom>:ասիկա   # Dir/LR 
 այս<prn><dem><prx><sg><nom>:աս   # Dir/LR 
 այս<prn><dem><prx><sg><nom>:սա  # Dir/LR  Eastern code-switching
 այս<prn><dem><prx><sg><gen_dat>:ասոր   
+այս<prn><dem><prx><sg><gen_dat>:սորա # Dir/LR
 այս<prn><dem><prx><sg><gen_dat>:սրա # Dir/LR  Eastern code-switching   
 այս<prn><dem><prx><sg><gen_dat>:սրան # Dir/LR  Eastern code-switching   
 այս<prn><dem><prx><sg><acc>:այս
@@ -26516,6 +26535,7 @@ LEXICON DemonstrativePronoun
 ասոնք<prn><dem><prx><pl><nom>:ասոնք  # these
 ասոնք<prn><dem><prx><pl><nom>:սրանք   # Dir/LR  Eastern code-switching   
 ասոնք<prn><dem><prx><pl><gen_dat>:ասոնց
+ասոնք<prn><dem><prx><pl><gen_dat>:սոցա # Dir/LR  Eastern code-switching   
 ասոնք<prn><dem><prx><pl><gen_dat>:սրանց   # Dir/LR  Eastern code-switching   
 ասոնք<prn><dem><prx><pl><acc>:ասոնք
 ասոնք<prn><dem><prx><pl><abl>:ասոնցմէ
@@ -26576,8 +26596,10 @@ LEXICON DemonstrativePronoun
 այն<prn><dem><dst><sg><ins>:նրանով   # Dir/LR  Eastern code-switching   
 
 անոնք<prn><dem><dst><pl><nom>:անոնք  # these
+անոնք<prn><dem><dst><pl><nom>:նոքս    # Dir/LR
 անոնք<prn><dem><dst><pl><nom>:նրանք    # Dir/LR  Eastern code-switching   
 անոնք<prn><dem><dst><pl><gen_dat>:անոնց
+անոնք<prn><dem><dst><pl><gen_dat>:նոցա    # Dir/LR
 անոնք<prn><dem><dst><pl><gen_dat>:նրանց    # Dir/LR  Eastern code-switching   
 անոնք<prn><dem><dst><pl><acc>:անոնք
 անոնք<prn><dem><dst><pl><acc>:զանոնք # Dir/LR 
@@ -26663,6 +26685,9 @@ LEXICON Quantifier
 այդչափ:այդչափ
 այնչափ:այնչափ
 այսչափ:այսչափ
+ցորչամ:ցորչամ
+ցորչափ:ցորչափ
+ցորքան:ցորքան
 այդքան:այդքան
 այնքան:այնքան
 այսքան:այսքան
@@ -26738,13 +26763,20 @@ LEXICON TruePreposition
 մինչեւ<pr>:մինչեւ
 առանց<pr>:առանց
 դէպի<pr>:դէպի
+դէպ<pr>:դէպ
 ըստ<pr>:ըստ
 վասն<pr>:վասն
+զկնի<pr>:զկնի #maybe
+կնի<pr>:կնի #maybe
+մակ<pr>:մակ # maybe
+ընդ<pr>:ընդ  
+նդ<pr>:նդ
 
 LEXICON TruePrepositionVary
 #True prepositions (doesn't decline) but can sometimes be a postposition
 բացի<pr_post>:բացի
 փոխանակ<pr_post>:փոխանակ
+փոխան<pr_post>:փոխան
 # բացի<post>:բացի
 # փոխանակ<post>:փոխանակ
 
@@ -26758,6 +26790,9 @@ LEXICON TruePostposition
 քան<post>:քան
 համար<post>:համար
 պէս<post>:պէս
+թարց<post>:թարց  # maybe
+զերթ<post>:զերթ   # maybe
+զերդ<post>:զերդ  # maybe
 
 LEXICON TruePostpositionVary
 #Does not decline, can sometimes be a preposition
@@ -26819,6 +26854,13 @@ LEXICON FrozenPreposition
 չհաշուած<pr>:չհաշուած  
 նկատի\ չառած<pr>:նկատի\ չառած
 ընդմէջ<pr>:ընդմէջ #in my judgment, preposition is frozen, while postposition takes ablative
+ընդդիմական<pr>:ընդդիմական
+ընդձեռն<pr>:ընդձեռն
+առընթեր<pr>:առընթեր
+ընթեր<pr>:ընթեր
+յաղագս<pr>:յաղագս
+ընդդէմ<pr>:ընդդէմ
+
 
 LEXICON FrozenPrepositionVary
 #don't decline, frozen from nouns or verbs or adjectives, can sometimes be postposition
@@ -26848,6 +26890,7 @@ LEXICON FrozenPostpositionVary
 #don't decline, frozen from nouns or verbs or adjectives, can sometimes be preposition
 շնորհիւ<post_pr>:շնորհիւ
 # շնորհիւ<pr>:շնորհիւ
+յանդիման<post_pr>:յանդիման
 
 LEXICON DeclinablePostposition
 #Take case and plural and substantive
@@ -26855,11 +26898,13 @@ LEXICON DeclinablePostposition
 դէմ<post>:դէմ
 մէջ<post>:մէջ
 վրայ<post>:վրայ
+մերձ<post>:մերձ
+վերայ<post>:վերայ
 տակ<post>:տակ
 քով<post>:քով
 մօտ<post>:մօտ
 հետ<post>:հետ
-
+յետ<post>:յետ #maybe
 
 դիմաց<post>:դիմաց  # reassigned from Hagopian
 
@@ -26868,7 +26913,7 @@ LEXICON DeclinablePostposition
 վերաբերեալ<post>:վերաբերեալ
 պատճառով<post>:պատճառով
 պատճառաւ<post>:պատճառաւ
-
+նպատակաւ<post>:նպատակաւ
 
 ընդմէջ<post>:ընդմէջ #postposition form takes case in my judgments; added from corpus
 # Also include adverbal postpositions
@@ -43943,6 +43988,7 @@ LEXICON AdvReg
 չեւ:չեւ
 պէս:պէս
 վաղ:վաղ
+աւասիկ:աւասիկ
 խառն:խառն
 հարթ:հարթ
 մերկ:մերկ
@@ -44082,8 +44128,6 @@ LEXICON AdvReg
 վաղվաղ:վաղվաղ
 վաշխով:վաշխով
 վերջոյ:վերջոյ
-ցորչափ:ցորչափ
-ցորքան:ցորքան
 փարթար:փարթար
 հանգոյն:հանգոյն
 չորրորդ:չորրորդ
@@ -44374,7 +44418,7 @@ LEXICON AdvReg
 թերի:թերի
 կարի:կարի
 յապա:յապա
-քեզի:քեզի
+յայնկոյս:յայնկոյս
 պութա-պութա:պութա-պութա
 հիմի:հիմի # had ՞
 համակ:համակ
@@ -46652,6 +46696,11 @@ LEXICON AdvAdjOren
 
 
 LEXICON NounReg
+անողնայարաւոր:անողնայարաւոր
+թեփասողուն:թեփասողուն
+ձկնատեսակ:ձկնատեսակ
+փշագլուխ:փշագլուխ
+քաղիկ:քաղիկ
 ճակատ:ճակատ
 ճամբայ:ճամբայ
 էշ:էշ
@@ -73779,7 +73828,7 @@ LEXICON OtherParticles
 ահաւասիկ:ահաւասիկ 
 առ:առ
 թող:թող
-
+եւայլն:եւայլն
 
 
 ########################################
