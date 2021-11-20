@@ -42,15 +42,22 @@
 ########################################
 ########################################
 
+PATTERN VerbStemE
+VerbRootE(1) VZero VerbRootE(2):
+PATTERN VerbStemA
+VerbRootA(1) VZero VerbRootA(2):
+PATTERN VerbStemI
+VerbRootI(1) VZero VerbRootI(2):
+
 
 #Base of causative is root+th
 PATTERN CausBase
-VerbRootE(1) VZero VerbRootE(2): ThE 
-VerbRootE(1) VZero VerbRootE(2): ThA? # Dir/LR   to capture variation in theme-less or with mismatched vowel 
-VerbRootI(1) VZero VerbRootI(2): ThE #I'm just changing -i- to -e- directly
-VerbRootI(1) VZero VerbRootI(2): ThA? # Dir/LR   to capture variation in theme-less or with mismatched vowel 
-VerbRootA(1) VZero VerbRootA(2): ThA 
-VerbRootA(1) VZero VerbRootA(2): ThE? # Dir/LR   to capture variation in theme-less or with mismatched vowel  
+VerbStemE ThE 
+VerbStemE ThA? # Dir/LR   to capture variation in theme-less or with mismatched vowel 
+VerbStemI ThE #I'm just changing -i- to -e- directly
+VerbStemI ThA? # Dir/LR   to capture variation in theme-less or with mismatched vowel 
+VerbStemA ThA 
+VerbStemA ThE? # Dir/LR   to capture variation in theme-less or with mismatched vowel  
 
 InchBase InchEmpty  #<inch> marked by either covert or overt -n-
 
@@ -102,9 +109,9 @@ VerbRootEatPres(1) VZero VerbRootEatPres(2):  ThE   # Dir/LR
 
 #Base of passive is root
 PATTERN PassBase
-VerbRootE(1) VZero VerbRootE(2): 
-VerbRootI(1) VZero VerbRootI(2): 
-VerbRootA(1) VZero VerbRootA(2): ThA Aor
+VerbStemE 
+VerbStemI 
+VerbStemA ThA Aor
 
 CausBase CausPass 
 #This is for orthographic variants
@@ -166,9 +173,9 @@ InchRoot(1) VZero InchRoot(2):
 
 #Infinitival
 PATTERN Infinitival
-VerbRootE(1) VZero VerbRootE(2): ThE Inf
-VerbRootI(1) VZero VerbRootI(2): ThI Inf
-VerbRootA(1) VZero VerbRootA(2): ThA Inf
+VerbStemE ThE Inf
+VerbStemI ThI Inf
+VerbStemA ThA Inf
 
 CausBase CausPres ThE Inf
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausOrthographicSchwaPres ThE Inf
@@ -264,9 +271,9 @@ PATTERN IndcSubjBase
 #Base of verb for regular Indicative and Subjunctive (without prefix)
 #Base is root till theme vowel
 #Present
-VerbRootE(1) VZero VerbRootE(2): ThE 
-VerbRootI(1) VZero VerbRootI(2): ThI 
-VerbRootA(1) VZero VerbRootA(2): ThA 
+VerbStemE ThE 
+VerbStemI ThI 
+VerbStemA ThA 
 
 CausBase CausPres ThE
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausOrthographicSchwaPres ThE
@@ -394,9 +401,9 @@ VerbRootNulC(1) EmptyNasal VZero VerbRootNulC(2):  ThE ImpfAgr Subj0
 
 PATTERN Past
 #Past
-VerbRootE(1) VZero VerbRootE(2): ThE Aor PastPrimAgr Indc0
-VerbRootI(1) VZero VerbRootI(2): ThI Aor PastSecAgr Indc0 
-VerbRootA(1) VZero VerbRootA(2): ThA Aor PastPrimAgr Indc0 
+VerbStemE ThE Aor PastPrimAgr Indc0
+VerbStemI ThI Aor PastSecAgr Indc0 
+VerbStemA ThA Aor PastPrimAgr Indc0 
 
 CausBase CausPast Aor PastPrimAgr Indc0
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor PastPrimAgr Indc0
@@ -458,10 +465,10 @@ VerbRootSendPast(1) VZero VerbRootSendPast(2): PastSplitAgr Indc0
 PATTERN Imperative
 #Optionality is handled via Dir/LR
 #Imperatives sg
-VerbRootE(1) VZero VerbRootE(2): ThE ImpSg
-VerbRootI(1) VZero VerbRootI(2): ThI ImpSg # Dir/LR
-VerbRootI(1) VZero VerbRootI(2): ImpSgIR
-VerbRootA(1) VZero VerbRootA(2): ThA ImpSg 
+VerbStemE ThE ImpSg
+VerbStemI ThI ImpSg # Dir/LR
+VerbStemI ImpSgIR
+VerbStemA ThA ImpSg 
 
 PassBase Pass ThI ImpSg # Dir/LR
 PassBase Pass ImpSgIR
@@ -527,9 +534,9 @@ VerbRootEatPast(1) VZero VerbRootEatPast(2): ImpSgInternalMark
 VerbRootSendPast(1) VZero VerbRootSendPast(2): ImpSgInternalMark
 
 #Imperatives pl
-VerbRootE(1) VZero VerbRootE(2): ThE Aor ImpPl
-VerbRootI(1) VZero VerbRootI(2): ThI Aor ImpPl
-VerbRootA(1) VZero VerbRootA(2): ThA Aor ImpPl
+VerbStemE ThE Aor ImpPl
+VerbStemI ThI Aor ImpPl
+VerbStemA ThA Aor ImpPl
 
 CausBase CausPast Aor ImpPl
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor ImpPl
@@ -583,9 +590,9 @@ VerbRootSendPast(1) VZero VerbRootSendPast(2): ImpPl
 
 PATTERN Prohibitive
 #Prohibitives
-VerbRootE(1) VZero VerbRootE(2): ThE [<proh>:] ProhAgr
-VerbRootI(1) VZero VerbRootI(2): ThI [<proh>:] ProhAgr
-VerbRootA(1) VZero VerbRootA(2): ThA [<proh>:] ProhAgr
+VerbStemE ThE [<proh>:] ProhAgr
+VerbStemI ThI [<proh>:] ProhAgr
+VerbStemA ThA [<proh>:] ProhAgr
 
 CausBase CausPres ThE [<proh>:] ProhAgr
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPres ThE [<proh>:] ProhAgr
@@ -639,9 +646,9 @@ VerbRootSendPres(1) VZero VerbRootSendPres(2): ThI [<proh>:] ProhAgr
 
 PATTERN SubjectPart
 #Subject participle
-VerbRootE(1) VZero VerbRootE(2): SubjPart
-VerbRootI(1) VZero VerbRootI(2): SubjPart
-VerbRootA(1) VZero VerbRootA(2): ThA Aor SubjPart
+VerbStemE SubjPart
+VerbStemI SubjPart
+VerbStemA ThA Aor SubjPart
 
 CausBase CausPres SubjPart
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPres SubjPart
@@ -696,9 +703,9 @@ VerbRootSendPres(1) VZero VerbRootSendPres(2): SubjPart
 
 PATTERN PerfectPart
 #Perfect participle
-VerbRootE(1) VZero VerbRootE(2): PerfPart
-VerbRootI(1) VZero VerbRootI(2): PerfPart
-VerbRootA(1) VZero VerbRootA(2): ThA Aor PerfPart
+VerbStemE PerfPart
+VerbStemI PerfPart
+VerbStemA ThA Aor PerfPart
 
 CausBase CausPast Aor PerfPart
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor PerfPart
@@ -758,9 +765,9 @@ VerbRootSendPast(1) VZero VerbRootSendPast(2): PerfPart
 
 PATTERN EvidentialPart
 #Evidential participle
-VerbRootE(1) VZero VerbRootE(2): EvidPart
-VerbRootI(1) VZero VerbRootI(2): EvidPart
-VerbRootA(1) VZero VerbRootA(2): ThA Aor EvidPart
+VerbStemE EvidPart
+VerbStemI EvidPart
+VerbStemA ThA Aor EvidPart
 
 CausBase CausPast Aor EvidPart
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor EvidPart
@@ -812,10 +819,10 @@ VerbRootSendPast(1) VZero VerbRootSendPast(2): EvidPart
 PATTERN NegativePart
 #Negative participle
 #Indicatives (negative)
-VerbRootE(1) VZero VerbRootE(2): ThE Pres0|PastImpf0 NegPtcp 
-VerbRootI(1) VZero VerbRootI(2): ThI Pres0 NegPtcp 
-VerbRootI(1) VZero VerbRootI(2): ThE PastImpf0 NegPtcp #For i->e
-VerbRootA(1) VZero VerbRootA(2): ThA Pres0|PastImpf0 NegPtcp 
+VerbStemE ThE Pres0|PastImpf0 NegPtcp 
+VerbStemI ThI Pres0 NegPtcp 
+VerbStemI ThE PastImpf0 NegPtcp #For i->e
+VerbStemA ThA Pres0|PastImpf0 NegPtcp 
 
 CausBase CausPres ThE Pres0|PastImpf0 NegPtcp 
 CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPres ThE Pres0|PastImpf0 NegPtcp 
