@@ -52,69 +52,89 @@ NounDeclIrregReduce
 NounDeclIrregReducePoly
 
 
+PATTERN Optimization1
+NounReg NZero
+
+PATTERN Optimization2
+Optimization1 NouNinflBoundary
+Optimization1 NouNinflBoundaryRed # Dir/LR
+
+PATTERN OptimizationSuffix1 # singular
+CaseRegI? (Def|Poss)?
+AttributiveGenIDef
+AttributiveInst
+
+PATTERN OptimizationSuffix1B
+# without case
+Def|Poss
+# with case, with/without definite
+CaseRegI (Def|Poss)?
+# attributive
+AttributiveGenIDef
+AttributiveInst
+
+PATTERN OptimizationSuffix1C
+Def|Poss
+CaseRegU (Def|Poss)?
+AttributiveGenUDef
+AttributiveInst
+
+PATTERN OptimizationSuffix1D
+CaseRegU? (Def|Poss)?
+AttributiveGenUDef
+AttributiveInst
+
+PATTERN OptimizationSuffix2 # plural
+NPlReg CaseRegU? (Def|Poss)?
+NPlReg AttributiveGenUDef
+NPlReg AttributiveInst
+
+PATTERN OptimizationSuffix3 # plural possessive
+PossPl CaseRegPostPluralPoss Def|Poss
+InsReg PossPl  Def|Poss
+
+PATTERN OptimizationSuffixSetPl1
+# plural
+OptimizationSuffix2
+# plural possessive
+NSg0|NPlReg OptimizationSuffix3
  
 PATTERN NounDeclRegular
-#Singular
-NounReg NZero NouNinflBoundary NSg0 CaseRegI? (Def|Poss)? 
-NounReg NZero NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)?  # Dir/LR
-
-#Singular attributive
-NounReg NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
-NounReg NZero NouNinflBoundaryRed NSg0 AttributiveGenIDef|AttributiveInst  # Dir/LR
-
-#Plural
-NounReg NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-NounReg NZero NouNinflBoundaryRed NPlReg CaseRegU? (Def|Poss)?  # Dir/LR
-
-#Plural attributive
-NounReg NZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
-NounReg NZero NouNinflBoundaryRed NPlReg AttributiveGenUDef|AttributiveInst  # Dir/LR
-
-#Plural possessive (separate line for instrumental)
-NounReg NZero NouNinflBoundary NSg0|NPlReg  	PossPl CaseRegPostPluralPoss Def|Poss
-NounReg NZero NouNinflBoundaryRed NSg0|NPlReg  	PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
-NounReg NZero NouNinflBoundary NSg0|NPlReg  	InsReg PossPl  Def|Poss
-NounReg NZero NouNinflBoundaryRed NSg0|NPlReg  	InsReg PossPl  Def|Poss  # Dir/LR
+Optimization2 NSg0 OptimizationSuffix1
+Optimization2 OptimizationSuffixSetPl1
 
 #Not doing combo of plural possessive and of attributive because weird
+
+PATTERN Optimization3
+NounIrregU NZero NouNinflBoundary
 
 PATTERN NounDeclRegularU
 #This is for verbs that take ու in the genitive/dative
 #This don't have high vowels that can reduce
 #Singular
-NounIrregU NZero NouNinflBoundary NSg0 CaseRegU? (Def|Poss)? 
-NounIrregU NZero NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
+Optimization3 NSg0 OptimizationSuffix1D
+Optimization3 NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
 
-NounIrregU NZero NouNinflBoundary NSg0 AttributiveGenUDef|AttributiveInst
 NounIrregU NZero NouNinflBoundaryRed NSg0 AttributiveGenUDef|AttributiveInst  # Dir/LR
 
 #Plural
-NounIrregU NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-
-NounIrregU NZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
+Optimization3 OptimizationSuffixSetPl1
 NounIrregU NZero NouNinflBoundaryRed NPlReg AttributiveGenUDef|AttributiveInst  # Dir/LR
 
-#Plural possessive (separate line for instrumental)
-NounIrregU NZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounIrregU NZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+PATTERN Optimization4
+NameBase NouNinflBoundary
 
 PATTERN NameDecl
 # For names or proper nouns. Don't have the NouNInflBoundary to block glide deletion
 #Country names  are in separate category because some of them take -ia suffix
 #Singular
-NameBase NouNinflBoundary  CaseRegI? (Def|Poss)? 
-
-NameBase NouNinflBoundary AttributiveGenIDef|AttributiveInst
+Optimization4 OptimizationSuffix1
 
 #Plural
-NameBase  NouNinflBoundary  NPlReg CaseRegU? (Def|Poss)? 
-
-NameBase  NouNinflBoundary	NPlReg AttributiveGenUDef|AttributiveInst
-
+Optimization4 OptimizationSuffix2
 
 #Plural possessive (separate line for instrumental)
-NameBase NouNinflBoundary  NPlReg?  PossPl CaseRegPostPluralPoss Def|Poss
-NameBase NouNinflBoundary  NPlReg?  InsReg PossPl  Def|Poss
+Optimization4  NPlReg? OptimizationSuffix3
 
 PATTERN NameBase
 NameMaleGiven [<n><np><ant><m>:]
@@ -127,61 +147,58 @@ NameFemaleGivenLocation [<n><np><ant_f_top>:]
 NameFamily  [<n><np><pat>:]
 NameGivenUnclassified [<n><np><ant>:]
 NameNotGivenCountry [<n><np><al>:]
- 
+
+PATTERN Optimization5
+NounTimeVanAdv AdvZero
+
+PATTERN Optimization6
+Optimization5 SubstZero NouNinflBoundary
+
+PATTERN Optimization7
+NounTimeVan NZero NouNinflBoundary
+NounTimeVanU NZero NouNinflBoundary
+
 PATTERN NounDeclIrregularTimeVan
 #optional normal case
 #Have to add noun-boundary before definite too in order to trigger glide deletion
 #ժամ takes the above and dative ու
 
-NounTimeVan|NounTimeVanU 	NZero NouNinflBoundary NSg0 CaseTimeVan? NouNinflBoundary (Def|Poss)? 
-NounTimeVan|NounTimeVanU	NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?  # Dir/LR
+Optimization7 NSg0 CaseTimeVan? NouNinflBoundary (Def|Poss)? 
+Optimization7 NSg0 OptimizationSuffix1  # Dir/LR
 NounTimeVanU 	 			NZero NouNinflBoundary NSg0 DatGenRegU (Def|Poss)? # Dir/LR
 #sometimes see words like շատոնցմէ where get regular inflection but case-boundary M
-NounTimeVan|NounTimeVanU	NZero NouNinflBoundary NSg0 CaseBoundaryM CaseRegOblique (Def|Poss)?  # Dir/LR
+Optimization7 NSg0 CaseBoundaryM CaseRegOblique (Def|Poss)?  # Dir/LR
 
 
 #Singular attributive
 #The ուանէ form is preferably treated as attributive
-NounTimeVan|NounTimeVanU 	NZero NouNinflBoundary NSg0 AttributiveVan
-NounTimeVan|NounTimeVanU	NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst   # Dir/LR
+Optimization7 NSg0 AttributiveVan
 NounTimeVanU 	 			NZero NouNinflBoundary NSg0 AttributiveGenUDef|AttributiveInst   # Dir/LR
 
 
 #Plural
-NounTimeVan|NounTimeVanU NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)?
-
-NounTimeVan|NounTimeVanU NZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
- 
-#Plural possessive (separate line for instrumental)
-NounTimeVan|NounTimeVanU NZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounTimeVan|NounTimeVanU NZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+Optimization7 OptimizationSuffixSetPl1
 
 
 
 #For irregulars among the time words
 #For irregulars derived from adverbs like այսօր
 #Bare adverb
-NounTimeVanAdv AdvZero
+Optimization5
 #Without case, but with definite
-NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 NouNinflBoundary (Def|Poss)
+Optimization6 NSg0 NouNinflBoundary (Def|Poss)
 #With case
-NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)? 
-NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?  # Dir/LR
+Optimization6 NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)? 
+Optimization6 NSg0 CaseRegI (Def|Poss)?  # Dir/LR
 #with possible case-boundary m like շատոնցմէ
-NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 CaseBoundaryM CaseRegOblique (Def|Poss)?  # Dir/LR
+Optimization6 NSg0 CaseBoundaryM CaseRegOblique (Def|Poss)?  # Dir/LR
 
 
 #Attributive
-NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0 AttributiveVan
+Optimization6 NSg0 AttributiveVan
 
 #Plural
-NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-
-NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst 
-
-#Plural possessive (separate line for instrumental)
-NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounTimeVanAdv AdvZero SubstZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+Optimization6 OptimizationSuffixSetPl1
 
 #For irregular հիմակուան from հիմա
 NounTimeVanHima AdvZero
@@ -192,8 +209,7 @@ NounTimeVanHima [:կ] AdvZero SubstZero NouNinflBoundary NSg0 AttributiveVan
 
 
 #Plural possessive (separate line for instrumental)
-NounTimeVanHima [:կուան] AdvZero SubstZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounTimeVanHima [:կուան] AdvZero SubstZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+NounTimeVanHima [:կուան] AdvZero SubstZero NouNinflBoundary NSg0|NPlReg OptimizationSuffix3
 
 
 #For reduced forms իրիկուն իրիկուան
@@ -213,14 +229,8 @@ NounTimeVanUReducedReduced NZero NouNinflBoundary NSg0 AttributiveGenUDef|Attrib
 
  
 #Plural
-NounTimeVanReducedBase|NounTimeVanUReducedBase NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+NounTimeVanReducedBase|NounTimeVanUReducedBase NZero NouNinflBoundary OptimizationSuffixSetPl1
 
-NounTimeVanReducedBase|NounTimeVanUReducedBase NZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
-
-#Plural possessive (separate line for instrumental)
-NounTimeVanReducedBase|NounTimeVanUReducedBase NZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounTimeVanReducedBase|NounTimeVanUReducedBase NZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-	
 
 PATTERN NounDeclIrregReducePoly
 #For nouns which reduce when they take irregular inflection
@@ -228,27 +238,18 @@ PATTERN NounDeclIrregReducePoly
 #right now just գլուխ because ամիս can go under the -van words
 #I take the -u form as less prefered
 #Singular
-NounIrregUReducePoly NZero NSg0 NouNinflBoundary CaseRegI? (Def|Poss)? 
-NounIrregUReducePoly NZero NSg0 NouNinflBoundaryRed CaseRegI? (Def|Poss)?   # Dir/LR
-NounIrregUReducePoly NZero NouNinflBoundaryRed NSg0 CaseRegU (Def|Poss)?   # Dir/LR
-
-#attributive
-NounIrregUReducePoly NZero NSg0 NouNinflBoundary AttributiveGenIDef|AttributiveInst
-NounIrregUReducePoly NZero NSg0 NouNinflBoundaryRed AttributiveGenIDef|AttributiveInst   # Dir/LR
-NounIrregUReducePoly NZero NouNinflBoundaryRed NSg0 AttributiveGenUDef|AttributiveInst   # Dir/LR
+NounIrregUReducePoly NZero NSg0 NouNinflBoundary OptimizationSuffix1
+NounIrregUReducePoly NZero NSg0 NouNinflBoundaryRed OptimizationSuffix1   # Dir/LR
+NounIrregUReducePoly NZero NouNinflBoundaryRed NSg0 OptimizationSuffix1D   # Dir/LR
 
 #Because polysyllabic, no need for reduction boundary
 #Plural
-NounIrregUReducePoly NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-
-NounIrregUReducePoly NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst 
-
-#Plural possessive (separate line for instrumental)
-NounIrregUReducePoly NZero  NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounIrregUReducePoly NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+NounIrregUReducePoly NZero  NouNinflBoundary OptimizationSuffixSetPl1
 
 
-
+PATTERN Optimization8
+Infinitival
+:Neg Infinitival Neg:
 
 PATTERN InfinitivalDecl
 #For declined infinitivals, I assume they're not pluralized
@@ -256,60 +257,30 @@ PATTERN InfinitivalDecl
 #I make bare infinitival get analyezd as just a verb
 #TO DO: I don't think they can take attributive, but I put them here just to be safe
 
-#Singular caseless definite
-Infinitival  NSg0 (Def|Poss)
-Infinitival  NSg0 CaseRegU (Def|Poss)?
-#Plural possessive (separate line for instrumental)
-Infinitival   PossPl CaseRegPostPluralPoss Def|Poss
-Infinitival   InsReg PossPl  Def|Poss
+#Singular caseless definite and attributive
+Optimization8  NSg0 OptimizationSuffix1C
+#Plural possessive
+Optimization8   OptimizationSuffix3
 
-#Negation forms
-#Singular caseless definite
-:Neg Infinitival Neg: NSg0 (Def|Poss)
-:Neg Infinitival Neg:  NSg0 CaseRegU (Def|Poss)?
-#Plural possessive (separate line for instrumental)
-:Neg Infinitival Neg:   PossPl CaseRegPostPluralPoss Def|Poss
-:Neg Infinitival Neg:   InsReg PossPl  Def|Poss
-
-#Attributive
-Infinitival  NSg0 AttributiveGenUDef|AttributiveInst 
-:Neg Infinitival Neg:  NSg0 AttributiveGenUDef|AttributiveInst 
+PATTERN Optimization9
+ParticipleInflectable SubstZero NouNinflBoundary
+(:Neg ParticipleInflectable Neg:) SubstZero NouNinflBoundary
 
 PATTERN ParticipleDeclension
 #Subject and perfect participle can take nominal inflection
-ParticipleInflectable SubstZero NouNinflBoundary NSg0  (Def|Poss)
-#With case, with/without definite
-ParticipleInflectable SubstZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
-
+Optimization9 NSg0 OptimizationSuffix1B
 
 #Plural
-ParticipleInflectable SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-#Plural possessive (separate line for instrumental)
-ParticipleInflectable SubstZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-ParticipleInflectable SubstZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-
-#Negation forms
-:Neg ParticipleInflectable Neg: SubstZero NouNinflBoundary NSg0  (Def|Poss)
-#With case, with/without definite
-:Neg ParticipleInflectable Neg:  SubstZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
-
-#Plural
-:Neg ParticipleInflectable Neg:  SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-#Plural possessive (separate line for instrumental)
-:Neg ParticipleInflectable Neg:  SubstZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-:Neg ParticipleInflectable Neg:  SubstZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-
-## attributive
-ParticipleInflectable SubstZero NouNinflBoundary NSg0  AttributiveGenIDef|AttributiveInst 
-ParticipleInflectable SubstZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst 
-:Neg ParticipleInflectable Neg: SubstZero NouNinflBoundary NSg0  AttributiveGenIDef|AttributiveInst 
-:Neg ParticipleInflectable Neg:  SubstZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst 
-
+Optimization9 OptimizationSuffixSetPl1
 
 PATTERN ParticipleInflectable
 PerfectPart
 SubjectPart
 ProspectivePart
+
+PATTERN Optimization10
+AdjAdvBaseDegreed SubstZero NouNinflBoundary
+AdjAdvBaseDegreed SubstZero NouNinflBoundaryRed # Dir/LR
 
 PATTERN AdjAdvDeclRegular
 #Exploit this for definite-marked adverbs like ընդամէնը. would be nice to remove the subst feature from them TO DO
@@ -318,31 +289,10 @@ PATTERN AdjAdvDeclRegular
 AdjAdvBaseDegreed
 
 #Singular definite
-#Without case
-AdjAdvBaseDegreed SubstZero NouNinflBoundary NSg0  (Def|Poss)
-AdjAdvBaseDegreed SubstZero NouNinflBoundaryRed NSg0  (Def|Poss) # Dir/LR
-#With case, with/without definite
-AdjAdvBaseDegreed SubstZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
-AdjAdvBaseDegreed SubstZero NouNinflBoundaryRed NSg0 CaseRegI (Def|Poss)?  # Dir/LR
-
-#attributive
-AdjAdvBaseDegreed SubstZero NouNinflBoundary NSg0  AttributiveGenIDef|AttributiveInst 
-AdjAdvBaseDegreed SubstZero NouNinflBoundaryRed NSg0 AttributiveGenIDef|AttributiveInst  # Dir/LR
-
+Optimization10 NSg0 OptimizationSuffix1B
 
 #Plural
-AdjAdvBaseDegreed SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-AdjAdvBaseDegreed SubstZero NouNinflBoundaryRed NPlReg CaseRegU? (Def|Poss)?  # Dir/LR
-
-AdjAdvBaseDegreed SubstZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst 
-AdjAdvBaseDegreed SubstZero NouNinflBoundaryRed NPlReg AttributiveGenUDef|AttributiveInst  # Dir/LR
-
-#Plural possessive (separate line for instrumental)
-AdjAdvBaseDegreed SubstZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-AdjAdvBaseDegreed SubstZero NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
-AdjAdvBaseDegreed SubstZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-AdjAdvBaseDegreed SubstZero NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss  # Dir/LR
-
+Optimization10 OptimizationSuffixSetPl1
 
 PATTERN AdjAdvBaseDegreed
 #Adj with or without superlative prefix
@@ -372,26 +322,16 @@ NounAdjReg [<n_adj>:] NouNinflBoundaryRed AdvOren # Dir/LR
 PATTERN NounOtherPOSDeclRegular
 
 #Singular
-NounOtherPOSBase NouNinflBoundary NSg0 CaseRegI? (Def|Poss)?
-NounOtherPOSBase NouNinflBoundaryRed NSg0 CaseRegI? (Def|Poss)? # Dir/LR
-
-#attributive
-NounOtherPOSBase NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
-NounOtherPOSBase NouNinflBoundaryRed NSg0 AttributiveGenIDef|AttributiveInst # Dir/LR
+NounOtherPOSBase NouNinflBoundary NSg0 OptimizationSuffix1
+NounOtherPOSBase NouNinflBoundaryRed NSg0 OptimizationSuffix1 # Dir/LR
 
 #Plural
-NounOtherPOSBase NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-NounOtherPOSBase NouNinflBoundaryRed NPlReg CaseRegU? (Def|Poss)?  # Dir/LR
-
-#attributive
-NounOtherPOSBase NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
-NounOtherPOSBase NouNinflBoundaryRed NPlReg AttributiveGenUDef|AttributiveInst  # Dir/LR
+NounOtherPOSBase NouNinflBoundary NPlReg OptimizationSuffix1D
+NounOtherPOSBase NouNinflBoundaryRed NPlReg OptimizationSuffix1D  # Dir/LR
 
 #Plural possessive (separate line for instrumental)
-NounOtherPOSBase NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounOtherPOSBase NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
-NounOtherPOSBase NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-NounOtherPOSBase NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss  # Dir/LR
+NounOtherPOSBase NouNinflBoundary NSg0|NPlReg  OptimizationSuffix3
+NounOtherPOSBase NouNinflBoundaryRed NSg0|NPlReg  OptimizationSuffix3  # Dir/LR
 
 PATTERN NounOtherPOSBase
 AdvNounReg [<adv_noun>:]
@@ -406,36 +346,28 @@ PATTERN NounDeclIrregMonoWithN
 #For nouns which take ներ prescriptively but not in practice
 #I give a special diacritic in the plural -ner so that it can trigger reduction
 #Singular մուկ մուկէ մկնէ 
-NounIrregMonoNerOld NZero NouNinflBoundary NSg0 CaseRegI? (Def|Poss)?
+NounIrregMonoNerOld NZero NouNinflBoundary NSg0 OptimizationSuffix1
 NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer NSg0 [:ն]? CaseRegI (Def|Poss)?   # Dir/LR
 
 #attributive
-NounIrregMonoNerOld NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
 NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer NSg0 [:ն]? AttributiveGenIDef|AttributiveInst   # Dir/LR
 
 #Plural
 #մուկեր
-NounIrregMonoNerOld NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+NounIrregMonoNerOld NZero NouNinflBoundary NPlReg OptimizationSuffix1D
 #մկեր
-NounIrregMonoNerOld NZero NouNinflBoundaryRed NPlReg CaseRegU? (Def|Poss)?  # Dir/LR
+NounIrregMonoNerOld NZero NouNinflBoundaryRed NPlReg OptimizationSuffix1D  # Dir/LR
 #մուկներ մկներ
-NounIrregMonoNerOld NZero NouNinflBoundary|NouNinflBoundaryRedForcedNer NPlNerOnly CaseRegU? (Def|Poss)?    # Dir/LR
-
-#attributive
-NounIrregMonoNerOld NZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
-NounIrregMonoNerOld NZero NouNinflBoundaryRed NPlReg AttributiveGenUDef|AttributiveInst  # Dir/LR
-NounIrregMonoNerOld NZero NouNinflBoundary|NouNinflBoundaryRedForcedNer NPlNerOnly AttributiveGenUDef|AttributiveInst    # Dir/LR
+NounIrregMonoNerOld NZero NouNinflBoundary|NouNinflBoundaryRedForcedNer NPlNerOnly OptimizationSuffix1D    # Dir/LR
 
 
 #Plural possessive (separate line for instrumental)
 #I manually add the ն for singular forms before the plural possessive
 #մուկերնիս
-NounIrregMonoNerOld NZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss 
-NounIrregMonoNerOld NZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+NounIrregMonoNerOld NZero NouNinflBoundary NSg0|NPlReg  OptimizationSuffix3
 
 #մկերնիս
-NounIrregMonoNerOld NZero NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss    # Dir/LR
-NounIrregMonoNerOld NZero NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss   # Dir/LR
+NounIrregMonoNerOld NZero NouNinflBoundaryRed NSg0|NPlReg  OptimizationSuffix3   # Dir/LR
 
 #մուկներնիս, I have to force -er 
 NounIrregMonoNerOld NZero NouNinflBoundary (NSg0 [:ներ])|NPlNerOnly  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
@@ -456,9 +388,7 @@ NounIrregMonoNerStill NZero NouNinflBoundary NSg0 AttributiveGenIDef|Attributive
 NounIrregMonoNerStill NZero NouNinflBoundary [:ն] NSg0 AttributiveGenIDef|AttributiveInst  # Dir/LR
 
 #Plural
-NounIrregMonoNerStill NZero NouNinflBoundary NPlNerOnly CaseRegU? (Def|Poss)? 
-
-NounIrregMonoNerStill NZero NouNinflBoundary NPlNerOnly AttributiveGenUDef|AttributiveInst
+NounIrregMonoNerStill NZero NouNinflBoundary NPlNerOnly OptimizationSuffix1D
 
 #Plural possessive (separate line for instrumental)
 #I manually add the ն for singular forms before the plural possessive
@@ -481,8 +411,7 @@ NounUtjunSuffix NUtjunSuffix  NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)
 #Archaic -ութեանց for plural genitive/dat
 NounUtjunSuffix NZero NouNinflBoundary CaseUtjunArchaicPlural   # Dir/LR
 #Plural possessive (separate line for instrumental)
-NounUtjunSuffix NUtjunSuffix  NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounUtjunSuffix NUtjunSuffix  NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+NounUtjunSuffix NUtjunSuffix  NZero	 NouNinflBoundary NSg0|NPlReg  OptimizationSuffix3
 
 
 #attributive, arak included թեանիս
@@ -527,8 +456,7 @@ NounUmSuffix NUmSuffixReduced NZero NouNinflBoundary NSg0 InstArchaicAmp (Def|Po
 NounUmSuffix NUmSuffixBase NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
 
 #Plural possessive (separate line for instrumental)
-NounUmSuffix NUmSuffixBase  NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounUmSuffix NUmSuffixBase  NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+NounUmSuffix NUmSuffixBase  NZero NouNinflBoundary NSg0|NPlReg OptimizationSuffix3
 
 
 #attributive,
@@ -557,8 +485,7 @@ NounDecOldOchNominativeStem  NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?   
 NounDecOldOchNominativeStem  NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
 
 #regularized plural possessive ընկերնիս կիներնիս
-NounDecOldOchNominativeStem NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounDecOldOchNominativeStem NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+NounDecOldOchNominativeStem NZero NouNinflBoundary NSg0|NPlReg  OptimizationSuffix3
 #irregular plural possessive ընկերոջնիս ընկերոջմովնիս ընկերոջովնիս կնոջնիս կնոջմովնիս կնոջոջնիս
 NounDecOldOchObliqueStem NZero	 NouNinflBoundary  DatGenArchaicOch PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
 NounDecOldOchObliqueStem NZero  NouNinflBoundary  DatGenArchaicOch CaseBoundaryM? InsReg PossPl  Def|Poss  # Dir/LR
