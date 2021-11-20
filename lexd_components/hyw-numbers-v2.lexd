@@ -6,32 +6,9 @@
 PATTERNS
 
 #Cardinals and unordinals
-NumberDeclension
 CardinalFraction
-
-
-PATTERN NumberDeclension
-#Singular
 NumericalBase
-#Without case, definite
-NumericalBase SubstZero NouNinflBoundary NSg0  (Def|Poss)
-#With case, with/without definite
-NumericalBase SubstZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)? 
-
-#Singular attributive
-NumericalBase NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
-
-
-#Plural
-NumericalBase SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-#Plural possessive (separate line for instrumental)
-NumericalBase SubstZero NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NumericalBase SubstZero NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
-
-
-#Plural attributive
-NumericalBase NZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
-
+#Declined numbers are computed in the nouns paradigm file
 
 
 

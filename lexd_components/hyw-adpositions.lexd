@@ -27,16 +27,8 @@ FrozenPrepositionVary
 FrozenPostposition
 FrozenPostpositionVary
 
-#Declinable postpositions
-#Singular առջեւը առջեւս առջեւէն առջեւինը
-DeclinablePostposition [<subs>:ին]? NouNinflBoundary NSg0 CaseRegI? (Def|Poss)? 
-#Plural առջեւինները
-DeclinablePostposition [<subs>:ին] NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-#Plural possessive (separate line for instrumental) առջեւնիս առջեւիննիս  առջեւիններնիս
-DeclinablePostposition  NouNinflBoundary NSg0  PossPl CaseRegPostPluralPoss Def|Poss
-DeclinablePostposition  NouNinflBoundary NSg0  InsReg PossPl  Def|Poss
-DeclinablePostposition [<subs>:ին] NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-DeclinablePostposition [<subs>:ին] NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+#Declinable postpositions are computed in the nouns paradigm file
+
 
 
 ##############

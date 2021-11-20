@@ -56,6 +56,7 @@ NounDeclIrregReducePoly
 PATTERN OpenClassRegularNounDeclCanBeBare
 #This is for bucket of nouns that get similar enough inflection
 # This includes regular nouns, multi-POS nouns, and names that are nominalized even when bare
+# postpositions
 #This excludes irregular U, and infinitivals
 #This excludes adverbs/adjectives and participles that are nominalized when non-bare
 
@@ -68,6 +69,7 @@ NounReg NZero NouNinflBoundary
 NounReg NZero NouNinflBoundaryRed # Dir/LR
 NounOtherPOSBase NouNinflBoundary
 NounOtherPOSBase NouNinflBoundaryRed  # Dir/LR
+DeclinablePostposition [<subs>:ին]? NouNinflBoundary
 
 # For names or proper nouns. Don't have the NouNInflBoundary to block glide deletion
 #Country names  are in separate category because some of them take -ia suffix
@@ -130,6 +132,7 @@ NSg0|NPlReg PluralPossessiveDeclension
 PATTERN OpenClassRegularNounDeclCantBeBare
 #This is for bucket of words that get regular nominal inflection when not bare
 # This includes  adverbs/adjectives and participles that are nominalized when non-bare
+# interjctions, nubmers
 
 OpenClassRegularNounDeclCantBeBareStem NSg0 RegNounCaseIDeclensionWithReqDef
 OpenClassRegularNounDeclCantBeBareStem RegPluralAndPluralPossessiveDeclension
@@ -141,6 +144,12 @@ AdjAdvBaseDegreed
 PATTERN OpenClassRegularNounDeclCantBeBareStem
 ParticipleDeclStem
 AdjAdvDeclStem
+DeclDeclinableInterjection SubstZero NouNinflBoundary
+NumericalBase SubstZero  NouNinflBoundary
+NumericalBase SubstZero  NouNinflBoundaryRed # Dir/LR
+CardinalFraction SubstZero  NouNinflBoundary
+CardinalFraction SubstZero NouNinflBoundaryRed # Dir/LR
+
 
 PATTERN ParticipleDeclStem
 ParticipleInflectable SubstZero NouNinflBoundary

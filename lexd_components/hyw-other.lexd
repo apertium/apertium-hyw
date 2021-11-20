@@ -19,24 +19,9 @@ DeclDeclinableInterjection
 ForeignPhrases
 
 PATTERN DeclDeclinableInterjection
-#Singular
+#Declined interjections are computed in the noun paradigms file
 DeclinableInterjection [<ij>:]
-DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NSg0 CaseRegI? (Def|Poss)? 
-
-#Singular attributive
-DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
-
-#Plural
-DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
-
-#Plural attributive
-DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
-
-#Plural possessive (separate line for instrumental)
-DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NSg0|NPlReg  	PossPl CaseRegPostPluralPoss Def|Poss
-DeclinableInterjection [<ij>:] SubstZero NouNinflBoundary NSg0|NPlReg  	InsReg PossPl  Def|Poss
-
-
+DeclinableInterjection [<ij>:]
 
 LEXICON DeclinableInterjection
 այո:այո 
