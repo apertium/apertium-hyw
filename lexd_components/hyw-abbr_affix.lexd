@@ -7,27 +7,27 @@
 
 PATTERNS
 #Just digits and numbers in numerical form
-DigitNumbers
+DigitNumbers [<num>:]
 Abbreviation
-StrandedAffixes
-DigitNumbers [-:-]?  [<abbr>:] Abbreviation
-DigitNumbers StrandedAffixes
-[-:-]?  [<abbr>:] Abbreviation
+#DigitNumbers [:-]?    :Abbreviation [<num>:] Abbreviation:
+DigitNumbers [:-]? [<num>+:] Abbreviation [<abbr>:]
+DigitNumbers [<num>:] StrandedAffixes
+#[:-]?    Abbreviation
+DigitNumbers [:-]? [<num><ord>:րդ]
 
 PATTERN StrandedAffixes
-[-:-]? StrandedAffixDef|StrandedAffixPoss
-[-:-]? StrandedAffixCaseRegI|StrandedAffixCaseRegU (StrandedAffixDef|StrandedAffixPoss)?
-[-:-]? StrandedAffixPL StrandedAffixCaseRegU? (StrandedAffixDef|StrandedAffixPoss)?
+[:-]? StrandedAffixDef|StrandedAffixPoss
+[:-]? StrandedAffixCaseRegI|StrandedAffixCaseRegU|StrandedAffixCaseOblique (StrandedAffixDef|StrandedAffixPoss)?
+[:-]? StrandedAffixPL (StrandedAffixCaseRegU|StrandedAffixCaseOblique)? (StrandedAffixDef|StrandedAffixPoss)?
 
 LEXICON Abbreviation
 թթ:թթ
 պր:պր
-րդ<ord>:րդ
 դոկտ:դոկտ
 
 PATTERN DigitNumbers
-Digit+ [<num>:]
-Digit+ ([.]|[,]) Digit+ [<num>:]
+Digit+ 
+Digit+ ([.]|[,]) Digit+
 
 LEXICON Digit
 0
@@ -42,28 +42,25 @@ LEXICON Digit
 9
 
 LEXICON StrandedAffixDef
-ը<def>:ը
-ն<def>:ն
+<def>:ը
+<def>:ն
 LEXICON StrandedAffixPoss
-ս<px1sg>:ս
-ըս<px1sg>:ըս # Dir/LR  -- in case of typos because EANC has this rule
-դ<px2sg>:դ
-ըե<px2sg>:ըդ # Dir/LR  -- in case of typos because EANC has this rule
+<px1sg>:ս
+<px1sg>:ըս # Dir/LR  -- in case of typos because EANC has this rule
+<px2sg>:դ
+<px2sg>:ըդ # Dir/LR  -- in case of typos because EANC has this rule
 LEXICON StrandedAffixCaseRegI
-ի<dat_gen>:ի
-ու<dat_gen>:ու #Dir/LR In case of unexpected irregularization
-է<abl>:է
-իս<abl>:ից # Dir/LR because of code-switching
-ով<ins>:ով
-ում<loc>:ում # Dir/LR because of code-switching
+<dat_gen>:ի
+<dat_gen>:ու #Dir/LR In case of unexpected irregularization
+LEXICON StrandedAffixCaseOblique
+<abl>:է
+<abl>:ից # Dir/LR because of code-switching
+<ins>:ով
+<loc>:ում # Dir/LR because of code-switching
 LEXICON StrandedAffixCaseRegU
-ի<dat_gen>:ի #Dir/LR In case of unexpected irregularization
-ու<dat_gen>:ու 
-է<abl>:է
-իս<abl>:ից # Dir/LR because of code-switching
-ով<ins>:ով
-ում<loc>:ում # Dir/LR because of code-switching
+<dat_gen>:ի #Dir/LR In case of unexpected irregularization
+<dat_gen>:ու 
 LEXICON StrandedAffixPL
-ներ<pl>:ներ	
-եր<pl>:եր	
+<pl>:ներ	
+<pl>:եր	
 

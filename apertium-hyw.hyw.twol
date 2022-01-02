@@ -237,17 +237,28 @@ Rules
    	    	 	_ (:0|:InfixPunctAdded)* %{mono%}: ;
 
 !! glide epenthesis in nouns
-! The glide յ is added when a) it follows ա , b) it's before nominal suffixes
+! The glide յ is added when a) it follows ա ո օ , b) it's before nominal suffixes
 ! and c) the suffix is vowel-initial
 ! It's absent before definite suffix
 "Insert glide յ  in the context ա _ V-initial suffix "
 0:յ <=>  :ա _ :0* GeneralNInflBoundary: :0* RealVowelUR ;
+		:ո _ :0* GeneralNInflBoundary: :0* RealVowelUR ;
+		:օ _ :0* GeneralNInflBoundary: :0* RealVowelUR ;
 	!	except
    	 !   	Monosyllable :0*	_  ; !not sure if this except clause does anything
    	   ! 	%{mono%}: :0*	_  ; 
    	    	
 !        :ա _ :0* GeneralNInflBoundary: :0* %{defն%}: ;
-   	 
+  
+!! o changes for grapheme <ո> <օ> in nouns
+! The grapheme օ becomes ո a) it's before nominal suffixes
+! and b) the suffix is vowel-initial
+! Have to add caveat that a glide intervenes on the surface
+"Change symbol օ to ո  context օ _ V-initial suffix "
+օ:ո <=>  _ :0* :յ :0* GeneralNInflBoundary: :0*  RealVowelUR ;
+		
+			
+!    	 
 ! Resources:
 ! https://wiki.apertium.org/wiki/Starting_a_new_language_with_HFST#Enter_twol
 ! https://kitwiki.csc.fi/twiki/bin/view/KitWiki/HfstHome
