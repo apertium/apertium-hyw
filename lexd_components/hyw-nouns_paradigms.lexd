@@ -818,7 +818,8 @@ InsReg  [+NP:] AttributiveInstrumentalPostInflection
 PATTERN AttributiveVan
 #special ones for the Van forms
 [<dat_gen><def>:ուան]   [+NP:] AttributiveDefinitePostInflection
-[<ins>:ուընով]  [+NP:] AttributiveInstrumentalPostInflection
+[<ins>:ով]  [+NP:] AttributiveInstrumentalPostInflection
+([<ins>:ուընով]|[<ins>:ուանով])  [+NP:] AttributiveInstrumentalPostInflection # Dir/LR
 PATTERN AttributiveUm
 #special ones for the um forms
 NUmSuffixReduced DatGenArchaicAn  [+NP:] AttributiveDefinitePostInflection #Dir/LR
@@ -1010,13 +1011,14 @@ LEXICON CaseUtjunArchaicPlural
 <pl><dat_gen>:ութեանց
 
 LEXICON CaseTimeVan
-<dat_gen>:ուան # Dir/LR
-<dat_gen>:ուայ 
+<dat_gen>:ուան 
+<dat_gen>:ուայ # Dir/LR
 <abl>:ուընէ
 <abl>:ւընէ  # Dir/LR
 <abl>:ուանէ # Dir/LR
 <abl>:ուանից # Dir/LR because of code-switching
-<ins>:ուընով 
+<ins>:ով 
+<ins>:ուընով # Dir/LR
 <ins>:ւընով # Dir/LR
 <ins>:ուանով # Dir/LR
 <ins>:ուամբ # Dir/LR
