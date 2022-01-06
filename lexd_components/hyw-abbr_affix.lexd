@@ -13,7 +13,8 @@ Abbreviation
 DigitNumbers [:-]? [<num>+:] Abbreviation [<abbr>:]
 DigitNumbers [<num>:] StrandedAffixes
 #[:-]?    Abbreviation
-DigitNumbers [:-]? [<num><ord>:րդ]
+DigitNumbers [:-] [<num><ord>:րդ]
+DigitNumbers [<num><ord>:րդ]  # Dir/LR - analyse without the - but don't generate
 
 PATTERN StrandedAffixes
 [:-]? StrandedAffixDef|StrandedAffixPoss
