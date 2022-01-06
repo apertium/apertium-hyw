@@ -1,6 +1,6 @@
 PATTERNS
 Unpunctuated+
-Unpunctuated+ [-]? NormSyl+
+Unpunctuated+ [-]? Consonant+|NormSyl+ # Had to let Consonant+ be allowed in cause words like 100-km 100 քմ
 NormSyl*
 NormSyl* CC Vowel :Punct CC NormSyl* Punct:
 Barb+
