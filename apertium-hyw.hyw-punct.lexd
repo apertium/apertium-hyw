@@ -1,5 +1,6 @@
 PATTERNS
 Unpunctuated+
+Unpunctuated+ [-]? Consonant+
 NormSyl*
 NormSyl* CC Vowel :Punct CC NormSyl* Punct:
 
@@ -89,6 +90,7 @@ LEXICON Consonant
 Ք
 Ֆ
 -
+\ 
 
 
 LEXICON Punct
