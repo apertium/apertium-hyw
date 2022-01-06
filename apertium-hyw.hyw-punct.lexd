@@ -3,6 +3,7 @@ Unpunctuated+
 Unpunctuated+ [-]? NormSyl+
 NormSyl*
 NormSyl* CC Vowel :Punct CC NormSyl* Punct:
+Barb+
 
 PATTERN NormSyl
 CC Vowel CC
@@ -126,3 +127,67 @@ LEXICON Unpunctuated
 7
 8
 9
+
+LEXICON Barb
+A
+B
+C
+Ç
+D
+E
+É
+F
+G
+H
+I
+Ï
+J
+K
+L
+M
+N
+O
+Ø
+P
+Q
+R
+S
+T
+U
+Ü
+V
+W
+X
+Y
+Z
+a
+b
+c
+ç
+d
+e
+é
+f
+g
+h
+i
+ï
+j
+k
+l
+m
+n
+o
+ø
+p
+q
+r
+s
+t
+u
+ü
+v
+w
+x
+y
+z

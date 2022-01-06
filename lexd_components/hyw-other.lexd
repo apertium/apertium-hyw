@@ -17,6 +17,7 @@ Conjunction [<conj>:]
 OtherParticles [<particle>:]
 DeclDeclinableInterjection
 ForeignPhrases
+Barbarisms
 
 PATTERN DeclDeclinableInterjection
 #Declined interjections are computed in the noun paradigms file
@@ -226,3 +227,70 @@ LEXICON ForeignPhrases
 պռօսխումը:պռօսխումը
 գտանին:գտանին
 գրեսցուք:գրեսցուք
+
+PATTERN Barbarisms
+BarbaricLetter+ [<barb>:]
+
+LEXICON BarbaricLetter
+A
+B
+C
+Ç
+D
+E
+É
+F
+G
+H
+I
+Ï
+J
+K
+L
+M
+N
+O
+Ø
+P
+Q
+R
+S
+T
+U
+Ü
+V
+W
+X
+Y
+Z
+a
+b
+c
+ç
+d
+e
+é
+f
+g
+h
+i
+ï
+j
+k
+l
+m
+n
+o
+ø
+p
+q
+r
+s
+t
+u
+ü
+v
+w
+x
+y
+z
