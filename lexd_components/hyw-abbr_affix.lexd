@@ -6,25 +6,78 @@
 ### Digits, acronyms/abbreviations, and stranded suffixes
 
 PATTERNS
+
 #Just digits and numbers in numerical form
 DigitNumbers [<num>:]
-Abbreviation
-#DigitNumbers [:-]?    :Abbreviation [<num>:] Abbreviation:
-DigitNumbers [:-]? [<num>+:] Abbreviation [<abbr>:]
-DigitNumbers [<num>:] StrandedAffixes
-#[:-]?    Abbreviation
+
+# Abbreviations for titles like պր. Mr.
+AbbreviationTitles [:.]  [<abbr>:]
+AbbreviationTitles   [<abbr>:]  # Dir/LR - analyse without the period but don't generate
+
+# Numbers with abbreviations like  km
+AbbreviationNumbers [<abbr>:]
+DigitNumbers [:-]    AbbreviationNumbers [<num><abbr>:]
+DigitNumbers      AbbreviationNumbers [<num><abbr>:]     # Dir/LR - analyse without the - but don't generate
+
+# Numbers with inflection suffixes like 100-էն 
+DigitNumbers [:-] [<num>:] StrandedAffixes 
+DigitNumbers [<test>:] StrandedAffixes    # Dir/LR - analyse without the - but don't generate
+
+# Numbers with the ordinal suffix
 DigitNumbers [:-] [<num><ord>:րդ]
 DigitNumbers [<num><ord>:րդ]  # Dir/LR - analyse without the - but don't generate
 
-PATTERN StrandedAffixes
-[:-]? StrandedAffixDef|StrandedAffixPoss
-[:-]? StrandedAffixCaseRegI|StrandedAffixCaseRegU|StrandedAffixCaseOblique (StrandedAffixDef|StrandedAffixPoss)?
-[:-]? StrandedAffixPL (StrandedAffixCaseRegU|StrandedAffixCaseOblique)? (StrandedAffixDef|StrandedAffixPoss)?
+# Abbreviations that can take stranded inflection
 
-LEXICON Abbreviation
+AbbreviationDeclinable  [<abbr>:]  ([:-] StrandedAffixes)?
+AbbreviationDeclinable   [<abbr>:] StrandedAffixes     # Dir/LR - analyse without the - but don't generate
+
+
+
+PATTERN StrandedAffixes
+# These are inflectional suffixes that are added on top of numbers and abbreviations
+# They're just copies of nominal inflection suffixes like Def, PL, Case, etc. 
+# I made them separate copies because there's a lot of glitches with stranded affixes because of tokenization problems
+StrandedAffixDefSchwa|StrandedAffixPoss
+StrandedAffixCaseRegI|StrandedAffixCaseOblique (StrandedAffixDefEither|StrandedAffixPoss)?
+StrandedAffixPL (StrandedAffixCaseRegU|StrandedAffixCaseOblique)? (StrandedAffixDefEither|StrandedAffixPoss)?
+
+LEXICON AbbreviationNumbers
+# These are abbreviations that go after numbers
+# Like abbreviations for dates and measures
 թթ:թթ
+քմ:քմ
+
+LEXICON AbbreviationDeclinable
+# These are abbreviations that stand in as nouns, and which can be declined
+# Like ՀՀ-ի where 
+ԱԳ:ԱԳ
+ԱԳՆ:ԱԳՆ
+ԳՄ:ԳՄ
+ԵԱՀԿ:ԵԱՀԿ
+ՀՀ:ՀՀ
+ՀՄԸՄ:ՀՄԸՄ
+ՀՅ:ՀՅ
+ՀՅԴ:ՀՅԴ
+ՀՕՄ:ՀՕՄ
+
+LEXICON AbbreviationTitles
+#These are abbreivations for titles. They are not declinable
 պր:պր
 դոկտ:դոկտ
+հոգշ:հոգշ
+ՍՕ:ՍՕ
+քհնյ:քհնյ
+աԺ:աԺ
+արժ:արժ
+արք:արք
+գերշ:գերշ
+եպս:եպս
+ՆՍՕՏՏ:ՆՍՕՏՏ
+շրջ:շրջ
+սրբ:սրբ
+վրդ:վրդ
+տոքթ:տոքթ
 
 PATTERN DigitNumbers
 Digit+ 
@@ -42,9 +95,16 @@ LEXICON Digit
 8
 9
 
-LEXICON StrandedAffixDef
+LEXICON StrandedAffixDefSchwa
+#This is when the definite suffix is added onto the number/abbreviation
+# We can't tell if the base is pronounced with a final vowel or not
 <def>:ը
-<def>:ն
+<def>:ն # Dir/LR in case the base has a pronounced vowel or pre-clitic
+LEXICON StrandedAffixDefEither
+#This is when the definite is added onto a stranded suffix
+# Here we can tell if the base ends in a vowel or not 
+<def>:{defն}
+<def>:ն # Dir/LR for pre-clitic forms
 LEXICON StrandedAffixPoss
 <px1sg>:ս
 <px1sg>:ըս # Dir/LR  -- in case of typos because EANC has this rule
@@ -52,16 +112,14 @@ LEXICON StrandedAffixPoss
 <px2sg>:ըդ # Dir/LR  -- in case of typos because EANC has this rule
 LEXICON StrandedAffixCaseRegI
 <dat_gen>:ի
-<dat_gen>:ու #Dir/LR In case of unexpected irregularization
 LEXICON StrandedAffixCaseOblique
 <abl>:է
 <abl>:ից # Dir/LR because of code-switching
 <ins>:ով
 <loc>:ում # Dir/LR because of code-switching
 LEXICON StrandedAffixCaseRegU
-<dat_gen>:ի #Dir/LR In case of unexpected irregularization
 <dat_gen>:ու 
 LEXICON StrandedAffixPL
 <pl>:ներ	
-<pl>:եր	
+<pl>:եր	# Dir/LR
 

@@ -573,6 +573,8 @@ LEXICON IrregFrozenCase
 հիւսիսականք<n><pl><dat_gen>:հիւսիսականաց
 հրահանգ<n><pl><dat_gen>:հրահանգաց		
 փոփոխումն<n><pl><dat_gen>:փոփոխմանց	
+գործ<n><pl><dat_gen>:գործոց
+այլ<n><pl><dat_gen>:այլոց
 
 
 LEXICON NounTimeVanHima
@@ -1132,3 +1134,5 @@ LEXICON NounIrregArchaicOj
 հուր:հր
 լոյս:լուս
 յոյս:յուս
+տեղ:տեղւ
+մամուլ:մամլ

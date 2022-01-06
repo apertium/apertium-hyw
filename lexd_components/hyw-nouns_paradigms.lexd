@@ -617,7 +617,7 @@ PATTERN NounDeclCountry
 # These are country nouns which take -ոյ- reduction in dative
 # անգլիա անգլիոյ պոլիս պոլսոյ
 # also includes normal countries as separate list NounCountryUnreducible
-# Add toponym feature
+# Adds toponym feature
 #Singular caseless անգլիա
 NounCountryBase|NounCountryUnreducible  [<n><np><top>:] NouNinflBoundary NSg0 (Def|Poss)? 
 #Singular archaic case  անգլիոյ, must add infl boundary to get glide deletion անգլիոն
