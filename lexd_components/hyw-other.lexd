@@ -172,10 +172,6 @@ LEXICON Conjunction
 կամ:կամ
 գէթ:գէթ
 եւ:եւ
-որչափ:ո{՞}րչափ
-որչափ:որչափ # Dir/LR irregular stress on final
-որքան:ո{՞}րքան
-որքան:որքան # Dir/LR irregular stress on final
 քան:քան
 բայց:բայց
 մինչ:մինչ
@@ -203,6 +199,8 @@ LEXICON Conjunction
 ալ:ալ
 էլ:էլ # EA
 միթէ:միթէ # had ՞
+այնուամենայնիւ:այնուամենայնիւ
+թէկուզ:թէկուզ
 
 LEXICON OtherParticles
 #These are 'prepositons' or 'particles' from Kouyoumdjian 1970

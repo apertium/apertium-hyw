@@ -14,6 +14,7 @@ NumericalBase
 
 PATTERN NumericalBase
 #Base for declension and so
+NumberWeird [<num>:]
 OnesCardinal 
 Number2Declined 
 OnesOrdinal 
@@ -103,6 +104,9 @@ LEXICON NumberMillionUp
 պիլիոն:պիլիոն  
 միլիարդ:միլիարդ  
 միլիառ:միլիառ  
+LEXICON NumberWeird
+# These are numbers which are rarely found and don't form complex numbers
+մի:մի
 
 LEXICON MeaninglessDefNasal
 <def_meaningless>:ն

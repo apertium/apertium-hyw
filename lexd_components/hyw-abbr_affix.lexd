@@ -46,7 +46,10 @@ LEXICON AbbreviationNumbers
 # These are abbreviations that go after numbers
 # Like abbreviations for dates and measures
 թթ:թթ
+թ:թ
 քմ:քմ
+մմ:մմ
+մլն:մլն
 
 LEXICON AbbreviationDeclinable
 # These are abbreviations that stand in as nouns, and which can be declined
@@ -60,6 +63,20 @@ LEXICON AbbreviationDeclinable
 ՀՅ:ՀՅ
 ՀՅԴ:ՀՅԴ
 ՀՕՄ:ՀՕՄ
+ԱԹՍ:ԱԹՍ
+ԳՇ:ԳՇ
+ԶՈՒ:ԶՈՒ
+ԻՒՆԵՍՔՕ:ԻՒՆԵՍՔՕ
+ԼՂ:ԼՂ
+ԿԳՄՍ:ԿԳՄՍ
+ԿԿ:ԿԿ
+ՀԱՊԿ:ՀԱՊԿ
+ՆԱԹՕ:ՆԱԹՕ
+ՊՆ:ՊՆ
+ՌԴ:ՌԴ
+ՍԴ:ՍԴ
+ՍՕԽ:ՍՕԽ
+ՔԱՍԱՏ:ՔԱՍԱՏ
 
 LEXICON AbbreviationTitles
 #These are abbreivations for titles. They are not declinable
@@ -78,6 +95,14 @@ LEXICON AbbreviationTitles
 սրբ:սրբ
 վրդ:վրդ
 տոքթ:տոքթ
+պրն:պրն
+աբղ:աբղ
+ընկ:ընկ
+ԺԱ:ԺԱ
+ԺԲ:ԺԲ
+կեդր:կեդր
+եղբ:եղբ
+
 
 PATTERN DigitNumbers
 Digit+ 

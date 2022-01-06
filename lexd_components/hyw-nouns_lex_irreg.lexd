@@ -575,7 +575,10 @@ LEXICON IrregFrozenCase
 փոփոխումն<n><pl><dat_gen>:փոփոխմանց	
 գործ<n><pl><dat_gen>:գործոց
 այլ<n><pl><dat_gen>:այլոց
-
+աղջիկ<n><pl><dat_gen>:աղջկանց
+դպիր<n><pl><dat_gen>:դպրաց
+մանուկ<n><pl><dat_gen>:մանկանց
+սուրբ<adj><subst><pl><dat_gen>:սրբոց
 
 LEXICON NounTimeVanHima
 հիմա:հիմա #This word takes the time suffixes with կ

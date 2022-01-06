@@ -58,11 +58,9 @@ LEXICON PersonalPronoun
 ես<prn><gen><sg><p1>:իմ
 ես<prn><gen><sg><p1>:իմին  # Dir/LR
 ես<prn><dat><sg><p1>:ինծի
-ես<prn><dat><sg><p1>:ինձ  # Dir/LR
 ես<prn><acc><sg><p1>:զիս  # Dir/LR
-ես<prn><acc><sg><p1>:ինձ  # Dir/LR
+ես<prn><acc><sg><p1>:ինձ  
 ես<prn><acc><sg><p1>:ինծ  # Dir/LR
-ես<prn><acc><sg><p1>:ինծի
 ես<prn><abl><sg><p1>:ինձմէ
 ես<prn><abl><sg><p1>:ինծմէ  # Dir/LR
 ես<prn><abl><sg><p1>:ինձանից  # Dir/LR  Eastern code-switching
@@ -77,9 +75,8 @@ LEXICON PersonalPronoun
 մենք<prn><gen><pl><p1>:մեր
 մենք<prn><gen><pl><p1>:մերին  # Dir/LR
 մենք<prn><dat><pl><p1>:մեզի
-մենք<prn><dat><pl><p1>:մեզ  # Dir/LR
+մենք<prn><acc><pl><p1>:մեզ
 մենք<prn><acc><pl><p1>:զմեզ  # Dir/LR
-մենք<prn><acc><pl><p1>:մեզի 
 մենք<prn><abl><pl><p1>:մեզմէ
 մենք<prn><abl><pl><p1>:մեզանից  # Dir/LR  Eastern code-switching
 մենք<prn><abl><pl><p1>:մենէ  # Dir/LR  
@@ -96,9 +93,8 @@ LEXICON PersonalPronoun
 դուն<prn><gen><sg><p2>:քո   # Dir/LR  Eastern code-switching
 դուն<prn><gen><sg><p2>:քեզին  # Dir/LR
 դուն<prn><dat><sg><p2>:քեզի
-դուն<prn><dat><sg><p2>:քեզ  # Dir/LR
+դուն<prn><acc><sg><p2>:քեզ 
 դուն<prn><acc><sg><p2>:զքեզ  # Dir/LR
-դուն<prn><acc><sg><p2>:քեզի
 դուն<prn><abl><sg><p2>:քեզմէ
 դուն<prn><abl><sg><p2>:քեզանից  # Dir/LR  Eastern code-switching
 դուն<prn><abl><sg><p2>:քեզնից  # Dir/LR  Eastern code-switching
@@ -111,9 +107,8 @@ LEXICON PersonalPronoun
 դուք<prn><gen><pl><p2>:ձեր
 դուք<prn><gen><pl><p2>:ձերին  # Dir/LR
 դուք<prn><dat><pl><p2>:ձեզի
-դուք<prn><dat><pl><p2>:ձեզ  # Dir/LR
+դուք<prn><acc><pl><p2>:ձեզ 
 դուք<prn><acc><pl><p2>:զձեզ  # Dir/LR
-դուք<prn><acc><pl><p2>:ձեզի 
 դուք<prn><abl><pl><p2>:ձեզմէ
 դուք<prn><abl><pl><p2>:ձեզանից  # Dir/LR  Eastern code-switching
 դուք<prn><abl><pl><p2>:ձեզնից  # Dir/LR  Eastern code-switching
@@ -122,18 +117,17 @@ LEXICON PersonalPronoun
 դուք<prn><ins><pl><p2>:ձեզնով  # Dir/LR  Eastern code-switching
 դուք<prn><loc><pl><p1>:ձեզանում  # Dir/LR  Eastern code-switching
 
-ան<prn><nom><sg><p3>:ան
+ան<prn><nom_acc><sg><p3>:ան
 ան<prn><nom><sg><p3>:նա # Dir/LR   Eastern code-switching
 ան<prn><nom><sg><p3>:նէ # Dir/LR
-ան<prn><gen><sg><p3>:անոր
-ան<prn><gen><sg><p3>:անորին  # Dir/LR
+ան<prn><dat_gen><sg><p3>:անոր
+ան<prn><dat_gen><sg><p3>:անորին  # Dir/LR
 ան<prn><gen><sg><p3>:նրա  # Dir/LR  Eastern code-switching
-ան<prn><gen><sg><p3>:նորա  # Dir/LR   
-ան<prn><gen><sg><p3>:ներա  # Dir/LR   
-ան<prn><dat><sg><p3>:անոր
+ան<prn><dat_gen><sg><p3>:նորա  # Dir/LR   
+ան<prn><dat_gen><sg><p3>:ներա  # Dir/LR   
+ան<prn><dat_gen><sg><p3>:անոր
 ան<prn><dat><sg><p3>:նրան  # Dir/LR  Eastern code-switching
 ան<prn><dat><sg><p3>:նմա  # Dir/LR  
-ան<prn><acc><sg><p3>:ան  
 ան<prn><acc><sg><p3>:զանի # Dir/LR
 ան<prn><abl><sg><p3>:անորմէ
 ան<prn><abl><sg><p3>:նրանից  # Dir/LR  Eastern code-switching
@@ -141,15 +135,12 @@ LEXICON PersonalPronoun
 ան<prn><ins><sg><p3>:նրանով  # Dir/LR  Eastern code-switching
 ան<prn><loc><sg><p3>:նրանում  # Dir/LR  Eastern code-switching
 
-անոնք<prn><nom><pl><p3>:անոնք
-անոնք<prn><nom><pl><p3>:նրանք  # Dir/LR  Eastern code-switching
-անոնք<prn><gen><pl><p3>:անոնց
-անոնք<prn><dat><pl><p3>:անոնց
+անոնք<prn><nom_acc><pl><p3>:անոնք
+անոնք<prn><nom_acc><pl><p3>:նրանք  # Dir/LR  Eastern code-switching
+անոնք<prn><dat_gen><pl><p3>:անոնց
 անոնք<prn><dat><pl><p3>:անոնցին  # Dir/LR
-անոնք<prn><dat><pl><p3>:նրանց  # Dir/LR  Eastern code-switching
-անոնք<prn><acc><pl><p3>:նրանց  # Dir/LR  Eastern code-switching
+անոնք<prn><acc_dat><pl><p3>:նրանց  # Dir/LR  Eastern code-switching
 անոնք<prn><acc><pl><p3>:զանոնք  # Dir/LR
-անոնք<prn><acc><pl><p3>:անոնց 
 անոնք<prn><abl><pl><p3>:անոնցմէ
 անոնք<prn><abl><pl><p3>:նրանցից  # Dir/LR  Eastern code-switching
 անոնք<prn><ins><pl><p3>:անոնցմով
@@ -163,8 +154,7 @@ LEXICON PersonalPronoun
 ինքը<prn><log><gen><sg><p3>:իրենին  # Dir/LR
 ինքը<prn><log><gen><sg><p3>:իւր  # Dir/LR
 ինքը<prn><log><gen><sg><p3>:ւիւր  # Dir/LR
-ինքը<prn><log><dat><sg><p3>:իրեն
-ինքը<prn><log><acc><sg><p3>:իրեն
+ինքը<prn><log><acc_dat><sg><p3>:իրեն
 ինքը<prn><log><acc><sg><p3>:զինք # Dir/LR
 ինքը<prn><log><acc><sg><p3><def>:զինքը # Dir/LR
 ինքը<prn><log><acc><sg><p3><def>:զինքն # Dir/LR
@@ -174,12 +164,10 @@ LEXICON PersonalPronoun
 ինքը<prn><log><ins><sg><p3>:իրենով  # Dir/LR  Eastern code-switching
 
 
-իրենք<prn><log><nom><pl><p3>:իրենք
-իրենք<prn><log><gen><pl><p3>:իրենց
+իրենք<prn><log><nom_acc><pl><p3>:իրենք
+իրենք<prn><log><dat_gen><pl><p3>:իրենց
 իրենք<prn><log><gen><pl><p3>:իրենցին  # Dir/LR
-իրենք<prn><log><dat><pl><p3>:իրենց
 իրենք<prn><log><acc><pl><p3>:զիրենք  # Dir/LR
-իրենք<prn><log><acc><pl><p3>:իրենց 
 իրենք<prn><log><abl><pl><p3>:իրենցմէ
 իրենք<prn><log><abl><pl><p3>:իրենցից  # Dir/LR  Eastern code-switching
 իրենք<prn><log><ins><pl><p3>:իրենցմով
@@ -506,22 +494,20 @@ LEXICON DemonstrativePronoun
 
 LEXICON RelativePronoun
 
-որ<prn><rel><sg><nom>:որ # that
-որ<prn><rel><sg><nom><def>:որը # Dir/LR  Eastern code-switching   
-որ<prn><rel><sg><nom><def>:որն # Dir/LR  Eastern code-switching   
+որ<prn><rel><sg><nom_acc>:որ # that
+որ<prn><rel><sg><nom_acc><def>:որը # Dir/LR  Eastern code-switching   
+որ<prn><rel><sg><nom_acc><def>:որն # Dir/LR  Eastern code-switching   
 որ<prn><rel><sg><gen_dat>:որու
 որ<prn><rel><sg><gen_dat>:որի  # Dir/LR  Eastern code-switching   
-որ<prn><rel><sg><acc>:որ
 որ<prn><rel><sg><acc>:զոր # Dir/LR 
 որ<prn><rel><sg><abl>:որմէ
 որ<prn><rel><sg><abl>:որից   # Dir/LR  Eastern code-switching   
 որ<prn><rel><sg><ins>:որմով 
 որ<prn><rel><sg><ins>:որով  # Dir/LR  Eastern code-switching   
 
-որ<prn><rel><pl><nom>:որոնք
-որ<prn><rel><pl><nom>:ոմանք # Dir/LR
+որ<prn><rel><pl><nom_acc>:որոնք
+որ<prn><rel><pl><nom_acc>:ոմանք # Dir/LR
 որ<prn><rel><pl><gen_dat>:որոնց
-որ<prn><rel><pl><acc>:որոնք # Dir/LR 
 որ<prn><rel><pl><acc>:զորոնք # Dir/LR 
 որ<prn><rel><pl><acc>:որս # Dir/LR 
 որ<prn><rel><pl><acc>:զորս # Dir/LR 
@@ -534,29 +520,30 @@ LEXICON RelativePronoun
 որ<prn><rel><pl><ins>:ոմանցմով # Dir/LR
 որ<prn><rel><pl><ins>:ոմանցով  # Dir/LR  Eastern code-switching   
 
-ինչ<prn><rel><sg><nom>:ինչ # what
+ինչ<prn><rel><sg><nom_acc>:ինչ # what
 ինչ<prn><rel><sg><gen_dat>:ինչին
-ինչ<prn><rel><sg><acc>:ինչ
 ինչ<prn><rel><sg><acc>:զինչ # Dir/LR 
 ինչ<prn><rel><sg><abl>:ինչէ
 ինչ<prn><rel><sg><ins>:ինչով 
 
-ով<prn><rel><sg><nom>:ով # who
-ով<prn><rel><sg><acc>:ով
+ով<prn><rel><sg><nom_acc>:ով # who
 ով<prn><rel><sg><acc>:զով # Dir/LR 
 ով<prn><rel><sg><acc>:ում   # Dir/LR  Eastern code-switching   
 ով<prn><rel><sg><gen_dat>:ում   # Dir/LR  Eastern code-switching   
 ով<prn><rel><sg><abl>:ումից   # Dir/LR  Eastern code-switching   
 ով<prn><rel><sg><ins>:ումով   # Dir/LR  Eastern code-switching   
 
-ուր<prn><rel><sg><nom>:ուր # where
-ուր<prn><rel><sg><acc>:ուր
+ով<prn><rel><pl><nom_acc>:ովքեր 
+ով<prn><rel><sg><gen_dat>:ովքերու  
+ով<prn><rel><sg><abl>:ովքերէ  
+ով<prn><rel><sg><ins>:ովքերով   
+
+ուր<prn><rel><sg><nom_acc>:ուր # where
 ուր<prn><rel><sg><abl>:ուրկէ
 
 #I push երբ when into the noun-paradigm because it takes a lot of nominal inflection
-#երբ<prn><rel><sg><nom>:երբ # when
+#երբ<prn><rel><sg><nom_acc>:երբ # when
 #երբ<prn><rel><sg><gen_dat>:երբուան
-#երբ<prn><rel><sg><acc>:երբ
 #երբ<prn><rel><sg><abl>:երբուընէ
 
 
@@ -578,6 +565,10 @@ LEXICON Quantifier
 քանի:քանի #reassigned had ՞
 աւելի:աւելի #reassigned
 նուազ:նուազ #reassigned
+որչափ:ո{՞}րչափ
+որչափ:որչափ # Dir/LR irregular stress on final
+որքան:ո{՞}րքան
+որքան:որքան # Dir/LR irregular stress on final
 
 
 
