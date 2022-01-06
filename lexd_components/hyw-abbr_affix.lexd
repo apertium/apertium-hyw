@@ -21,7 +21,7 @@ DigitNumbers      AbbreviationNumbers [<num><abbr>:]     # Dir/LR - analyse with
 
 # Numbers with inflection suffixes like 100-էն 
 DigitNumbers [:-] [<num>:] StrandedAffixes 
-DigitNumbers [<test>:] StrandedAffixes    # Dir/LR - analyse without the - but don't generate
+DigitNumbers [<num>:] StrandedAffixes    # Dir/LR - analyse without the - but don't generate
 
 # Numbers with the ordinal suffix
 DigitNumbers [:-] [<num><ord>:րդ]
