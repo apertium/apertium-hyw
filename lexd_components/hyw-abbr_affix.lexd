@@ -24,8 +24,8 @@ DigitNumbers [:-] [<num>:] StrandedAffixes
 DigitNumbers [<num>:] StrandedAffixes    # Dir/LR - analyse without the - but don't generate
 
 # Numbers with the ordinal suffix
-DigitNumbers [:-] [<num><ord>:րդ]
-DigitNumbers [<num><ord>:րդ]  # Dir/LR - analyse without the - but don't generate
+DigitNumbers [:-] [<num><ord>:րդ] Def?
+DigitNumbers [<num><ord>:րդ] Def?  # Dir/LR - analyse without the - but don't generate
 
 # Abbreviations that can take stranded inflection
 
@@ -40,6 +40,7 @@ PATTERN StrandedAffixes
 # I made them separate copies because there's a lot of glitches with stranded affixes because of tokenization problems
 StrandedAffixDefSchwa|StrandedAffixPoss
 StrandedAffixCaseRegI|StrandedAffixCaseOblique (StrandedAffixDefEither|StrandedAffixPoss)?
+[:յ] StrandedAffixCaseRegI|StrandedAffixCaseOblique (StrandedAffixDefEither|StrandedAffixPoss)? # Dir/LR in case glide epenthesis after a pronounced vowel like 2-յէ
 StrandedAffixPL (StrandedAffixCaseRegU|StrandedAffixCaseOblique)? (StrandedAffixDefEither|StrandedAffixPoss)?
 
 LEXICON AbbreviationNumbers
@@ -50,6 +51,28 @@ LEXICON AbbreviationNumbers
 քմ:քմ
 մմ:մմ
 մլն:մլն
+սմ:սմ
+կր:կր
+դդ:դդ
+կմ:կմ
+հզ:հզ
+մկ:մկ
+քկ:քկ
+անգլ:անգլ
+ԺԳ:ԺԳ
+ԺԴ:ԺԴ
+ԺԵ:ԺԵ
+ԺԶ:ԺԶ
+ԺԸ:ԺԸ
+ԺԹ:ԺԹ
+լատ:լատ
+ծն:ծն
+յուն:յուն
+սբ:սբ
+վրաց:վրաց
+փրոֆ:փրոֆ
+ֆր:ֆր
+
 
 LEXICON AbbreviationDeclinable
 # These are abbreviations that stand in as nouns, and which can be declined
@@ -60,6 +83,16 @@ LEXICON AbbreviationDeclinable
 ԵԱՀԿ:ԵԱՀԿ
 ՀՀ:ՀՀ
 ՀՄԸՄ:ՀՄԸՄ
+ԳԱ:ԳԱ
+ԳԱԱ:ԳԱԱ
+ԵՈՒՆԵՍՔՕ:ԵՈՒՆԵՍՔՕ
+ԵՊՀ:ԵՊՀ
+ԼՂՀ:ԼՂՀ
+ԽՍՀ:ԽՍՀ
+ԽՍՀՄ:ԽՍՀՄ
+ՀԲԸՄ:ՀԲԸՄ
+ՀԽՍՀ:ՀԽՍՀ
+ՄՈԿ:ՄՈԿ
 ՀՅ:ՀՅ
 ՀՅԴ:ՀՅԴ
 ՀՕՄ:ՀՕՄ
@@ -147,4 +180,5 @@ LEXICON StrandedAffixCaseRegU
 LEXICON StrandedAffixPL
 <pl>:ներ	
 <pl>:եր	# Dir/LR
+<pl>:յեր	# Dir/LR
 

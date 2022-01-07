@@ -36,11 +36,15 @@ RelativePronoun ((Def Def?)|Poss)?   # Double Def is because of attributive like
 
 
 Quantifier [<qnt>:] CaseRegI? (Def|Poss)? 
+QuestionWords [<itg>:] (SubstZero CaseRegI (Def|Poss)?)?
 #Plural
 Quantifier [<qnt>:]  NPlReg CaseRegU? (Def|Poss)? 
+QuestionWords [<itg>:] SubstZero NPlReg CaseRegU? (Def|Poss)? 
 #Plural possessive (separate line for instrumental)
 Quantifier [<qnt>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
 Quantifier [<qnt>:]  NSg0|NPlReg  InsReg PossPl  Def|Poss
+QuestionWords [<itg>:] SubstZero NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+QuestionWords [<itg>:] SubstZero NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 
 ##############
@@ -525,6 +529,8 @@ LEXICON RelativePronoun
 ինչ<prn><rel><sg><acc>:զինչ # Dir/LR 
 ինչ<prn><rel><sg><abl>:ինչէ
 ինչ<prn><rel><sg><ins>:ինչով 
+ինչ<prn><rel><sg><abl>:ի{՞}նչէ # Dir/LR 
+ինչ<prn><rel><sg><ins>:ի{՞}նչով  # Dir/LR 
 
 ով<prn><rel><sg><nom_acc>:ով # who
 ով<prn><rel><sg><acc>:զով # Dir/LR 
@@ -569,7 +575,22 @@ LEXICON Quantifier
 որչափ:որչափ # Dir/LR irregular stress on final
 որքան:ո{՞}րքան
 որքան:որքան # Dir/LR irregular stress on final
+ինչքան:ի{՞}նչքան 
+ինչքան:ինչքան # Dir/LR 
+զինչպիսի:զի{՞}նչպիսի # had ՞
+ինչպիսի:ինչպի{՞}սի
+զինչօրինակ:զի{՞}նչօրինակ  # had ՞
 
+LEXICON QuestionWords
+# These are words that can only act as interrogatives without case, unless nominalized
+ինչպէս:ի{՞}նչպէս # Dir/LR irregularly placed ՞ 
+ինչպէս:ինչպէս # had ՞
+ընչու:ընչու # had ՞
+ինչու:ինչու # had ՞
+ինչու:ի{՞}նչու # Dir/LR irregularly placed ՞ 
+ինչուան:ի{՞}նչուան # Dir/LR with irregularly placed ՞
+ինչուան:ինչուան
+ինչպիսիք:ինչպիսիք
 
 
 #! Resources:

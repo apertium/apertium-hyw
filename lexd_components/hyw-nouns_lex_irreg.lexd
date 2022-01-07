@@ -579,6 +579,11 @@ LEXICON IrregFrozenCase
 դպիր<n><pl><dat_gen>:դպրաց
 մանուկ<n><pl><dat_gen>:մանկանց
 սուրբ<adj><subst><pl><dat_gen>:սրբոց
+Վան<n><np><top><sg><dat_gen>:Վանայ
+Աղուանք<n><np><top><sg><dat_gen>:Աղուանից
+առաքեալ<n><pl><dat_gen>:Առաքելոց
+Հայաստան<n><np><top><sg><dat_gen>:Հայաստանեայց
+մարդ<n><pl><dat_gen>:մարդկանց
 
 LEXICON NounTimeVanHima
 հիմա:հիմա #This word takes the time suffixes with կ
@@ -1139,3 +1144,4 @@ LEXICON NounIrregArchaicOj
 յոյս:յուս
 տեղ:տեղւ
 մամուլ:մամլ
+ակադեմիա:ակադեմի

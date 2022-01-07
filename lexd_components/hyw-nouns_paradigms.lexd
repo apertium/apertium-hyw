@@ -805,6 +805,10 @@ NounSyncopeReduced NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?    # Dir/LR
 #attributive
 NounSyncopeReduced NZero NouNinflBoundary NSg0 AttributiveGenIDef    # Dir/LR
 
+# For words that can reduce before plural Ներ like երկրներ
+# I only derive the reduction here as an optional path
+# The noun gets normal inflection elsewhere
+NounReduceBeforeNer NZero NouNinflBoundary NPlNerOnly CaseRegU? (Def|Poss)?    # Dir/LR
 
 ############ Attributive
 #I don't think the gen-def for attributive replace def with a possessive
@@ -1280,6 +1284,12 @@ LEXICON NounSyncopeReduced
 ճակատ:ճակտ
 պատիւ:պատու 
 հաշիւ:հաշու
+
+LEXICON NounReduceBeforeNer
+# For nouns which can reduce before plural -ner in some registers and dialects
+# Like երկիր երկրներ
+# Make sure that the word also exists in the regular list because I only derive the reduced form here
+երկիր:երկր
 
 #For nouns which are regular except for fossilized archaic case-forms
 #I only list irregulars, and i let the regular versions be in the normal list
