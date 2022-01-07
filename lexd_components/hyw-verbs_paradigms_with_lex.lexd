@@ -758,6 +758,7 @@ VerbRootSpitOldPres(1) VZero VerbRootSpitOldPres(2): PerfPart
 VerbRootFallPast(1) VZero VerbRootFallPast(2): PerfPart
 VerbRootBite(1) VZero VerbRootBite(2): PerfPart
 VerbRootPlay(1) VZero VerbRootPlay(2): Aor PerfPart
+VerbRootPlay(1) VZero VerbRootPlay(2): ThA Aor PerfPart # Dir/LR I've seen խաղացած
 VerbRootStay(1) VZero VerbRootStay(2): ThA Aor PerfPart
 VerbRootSit(1) VZero VerbRootSit(2): PerfPart
 VerbRootEatPast(1) VZero VerbRootEatPast(2): PerfPart

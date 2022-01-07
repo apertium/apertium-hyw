@@ -618,15 +618,19 @@ PATTERN NounDeclCountry
 # անգլիա անգլիոյ պոլիս պոլսոյ
 # also includes normal countries as separate list NounCountryUnreducible
 # Adds toponym feature
+# Some locations can be reduced like Էջմիածնի so I added optional red boundary
 #Singular caseless անգլիա
 NounCountryBase|NounCountryUnreducible  [<n><np><top>:] NouNinflBoundary NSg0 (Def|Poss)? 
 #Singular archaic case  անգլիոյ, must add infl boundary to get glide deletion անգլիոն
 NounCountryReduced  [<n><np><top>:] NouNinflBoundary NSg0 DatGenArchaicOj NouNinflBoundary (Def|Poss)?  
 #Singular modern dative case
-NounCountryBase  [<n><np><top>:] NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
+NounCountryBase  [<n><np><top>:] NouNinflBoundaryRed|NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
 NounCountryUnreducible  [<n><np><top>:] NouNinflBoundary NSg0 DatGenRegI (Def|Poss)? 
+NounCountryUnreducible  [<n><np><top>:] NouNinflBoundaryRed NSg0 DatGenRegI (Def|Poss)?    # Dir/LR
+ 
 #Singular regular oblique case
 NounCountryBase|NounCountryUnreducible  [<n><np><top>:] NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)? 
+NounCountryBase|NounCountryUnreducible  [<n><np><top>:] NouNinflBoundaryRed NSg0 CaseRegOblique (Def|Poss)?  # Dir/LR
 
 
 
