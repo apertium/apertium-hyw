@@ -799,7 +799,7 @@ NounSuppleteDativeU NZero NouNinflBoundary NSg0 AttributiveInst   # Dir/LR
 # կայսր կայսեր
 #Regular form is norm, so I only list irregular
 #Regular form is derived in other declensions
-IrregFrozenCase (Def|Poss)? 
+IrregFrozenCase (Def|Poss)?  # Dir/LR
 
 
 

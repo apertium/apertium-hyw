@@ -36,16 +36,17 @@ RelativePronoun ((Def Def?)|Poss)?   # Double Def is because of attributive like
 
 
 Quantifier [<qnt>:] CaseRegI? (Def|Poss)? 
-QuestionWords [<itg>:] (SubstZero CaseRegI (Def|Poss)?)?
+QuestionWords [<itg>:] CaseRegI? (Def|Poss)?
 #Plural
 Quantifier [<qnt>:]  NPlReg CaseRegU? (Def|Poss)? 
-QuestionWords [<itg>:] SubstZero NPlReg CaseRegU? (Def|Poss)? 
+QuestionWords [<itg>:] NPlReg CaseRegU? (Def|Poss)? 
 #Plural possessive (separate line for instrumental)
 Quantifier [<qnt>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
 Quantifier [<qnt>:]  NSg0|NPlReg  InsReg PossPl  Def|Poss
-QuestionWords [<itg>:] SubstZero NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-QuestionWords [<itg>:] SubstZero NSg0|NPlReg  InsReg PossPl  Def|Poss
+QuestionWords [<itg>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+QuestionWords [<itg>:]  NSg0|NPlReg  InsReg PossPl  Def|Poss
 
+DeclinedQuestionrchaic # Dir/LR
 
 ##############
 ##############
@@ -524,13 +525,6 @@ LEXICON RelativePronoun
 որ<prn><rel><pl><ins>:ոմանցմով # Dir/LR
 որ<prn><rel><pl><ins>:ոմանցով  # Dir/LR  Eastern code-switching   
 
-ինչ<prn><rel><sg><nom_acc>:ինչ # what
-ինչ<prn><rel><sg><gen_dat>:ինչին
-ինչ<prn><rel><sg><acc>:զինչ # Dir/LR 
-ինչ<prn><rel><sg><abl>:ինչէ
-ինչ<prn><rel><sg><ins>:ինչով 
-ինչ<prn><rel><sg><abl>:ի{՞}նչէ # Dir/LR 
-ինչ<prn><rel><sg><ins>:ի{՞}նչով  # Dir/LR 
 
 ով<prn><rel><sg><nom_acc>:ով # who
 ով<prn><rel><sg><acc>:զով # Dir/LR 
@@ -591,6 +585,12 @@ LEXICON QuestionWords
 ինչուան:ի{՞}նչուան # Dir/LR with irregularly placed ՞
 ինչուան:ինչուան
 ինչպիսիք:ինչպիսիք
+ինչ:ինչ 
+ինչ:ի{՞}նչ # Dir/LR 
+
+DeclinedQuestionrchaic
+# Declined archaic questionwords that no one uses
+ինչ<itg><sg><acc>:զինչ 
 
 
 #! Resources:
