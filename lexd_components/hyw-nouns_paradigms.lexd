@@ -55,7 +55,7 @@ NounDeclIrregReducePoly
 
 PATTERN OpenClassRegularNounDeclCanBeBare
 #This is for bucket of nouns that get similar enough inflection
-# This includes regular nouns, multi-POS nouns, and names that are nominalized even when bare
+# This includes regular nouns, and names that are nominalized even when bare
 # postpositions
 #This excludes irregular U, and infinitivals
 #This excludes adverbs/adjectives and participles that are nominalized when non-bare
@@ -67,8 +67,6 @@ OpenClassRegularNounDeclCanBeBareStem RegPluralAndPluralPossessiveDeclension
 PATTERN OpenClassRegularNounDeclCanBeBareStem
 NounReg NZero NouNinflBoundary
 NounReg NZero NouNinflBoundaryRed # Dir/LR
-NounOtherPOSBase NouNinflBoundary
-NounOtherPOSBase NouNinflBoundaryRed  # Dir/LR
 DeclinablePostposition [<subs>:ին]? NouNinflBoundary
 
 # For names or proper nouns. Don't have the NouNInflBoundary to block glide deletion
@@ -78,20 +76,13 @@ NameBaseNotCountry NouNinflBoundary
 
 
 PATTERN NameBaseNotCountry
-NameMaleGiven [<n><np><ant><m>:]
-NameFemaleGiven [<n><np><ant><f>:]
-NameMaleFemaleGiven [<n><np><ant><f_m>:]
-NameMaleGivenLocation [<n><np><ant_m_top>:]
-NameMaleFemaleGivenLocation [<n><np><ant_f_m_top>:]
-NameFemaleGivenLocation [<n><np><ant_f_top>:]
+NameMaleGiven [<np><ant><m>:]
+NameFemaleGiven [<np><ant><f>:]
 
-NameFamily  [<n><np><pat>:]
-NameGivenUnclassified [<n><np><ant>:]
-NameNotGivenCountry [<n><np><al>:]
+NameFamily  [<np><pat>:]
+NameGivenUnclassified [<np><ant>:]
+NameNotGivenCountry [<np><al>:]
 
-PATTERN NounOtherPOSBase
-AdvNounReg [<adv_noun>:]
-NounAdjReg [<noun_adj>:]
 
 
 
@@ -175,19 +166,10 @@ PATTERN AdjAdvBaseSimple
 AdjReg AdjZero
 #Bare adverbs
 AdvReg AdvZero
-#Multi-POS
-AdvAdjReg 	[<adv_adj>:] # Dir/LR
-AdvAdjOren 	[<adv_adj>:] #Dir/LR
-AdvAdjReg 	NouNinflBoundaryRed [<adv_adj>:] # Dir/LR
-AdvAdjOren 	NouNinflBoundaryRed [<adv_adj>:] #Dir/LR
 
 #Derived adverbs
 AdjReg AdvOren
 AdjReg NouNinflBoundaryRed AdvOren # Dir/LR
-AdvAdjReg [<adj>:] AdvOren
-AdvAdjReg [<adj>:] NouNinflBoundaryRed AdvOren # Dir/LR
-NounAdjReg [<n_adj>:] AdvOren
-NounAdjReg [<n_adj>:] NouNinflBoundaryRed AdvOren # Dir/LR
 
 
 
@@ -620,30 +602,30 @@ PATTERN NounDeclCountry
 # Adds toponym feature
 # Some locations can be reduced like Էջմիածնի so I added optional red boundary
 #Singular caseless անգլիա
-NounCountryBase|NounCountryUnreducible  [<n><np><top>:] NouNinflBoundary NSg0 (Def|Poss)? 
+NounCountryBase|NounCountryUnreducible  [<np><top>:] NouNinflBoundary NSg0 (Def|Poss)? 
 #Singular archaic case  անգլիոյ, must add infl boundary to get glide deletion անգլիոն
-NounCountryReduced  [<n><np><top>:] NouNinflBoundary NSg0 DatGenArchaicOj NouNinflBoundary (Def|Poss)?  
+NounCountryReduced  [<np><top>:] NouNinflBoundary NSg0 DatGenArchaicOj NouNinflBoundary (Def|Poss)?  
 #Singular modern dative case
-NounCountryBase  [<n><np><top>:] NouNinflBoundaryRed|NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
-NounCountryUnreducible  [<n><np><top>:] NouNinflBoundary NSg0 DatGenRegI (Def|Poss)? 
-NounCountryUnreducible  [<n><np><top>:] NouNinflBoundaryRed NSg0 DatGenRegI (Def|Poss)?    # Dir/LR
+NounCountryBase  [<np><top>:] NouNinflBoundaryRed|NouNinflBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
+NounCountryUnreducible  [<np><top>:] NouNinflBoundary NSg0 DatGenRegI (Def|Poss)? 
+NounCountryUnreducible  [<np><top>:] NouNinflBoundaryRed NSg0 DatGenRegI (Def|Poss)?    # Dir/LR
  
 #Singular regular oblique case
-NounCountryBase|NounCountryUnreducible  [<n><np><top>:] NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)? 
-NounCountryBase|NounCountryUnreducible  [<n><np><top>:] NouNinflBoundaryRed NSg0 CaseRegOblique (Def|Poss)?  # Dir/LR
+NounCountryBase|NounCountryUnreducible  [<np><top>:] NouNinflBoundary NSg0 CaseRegOblique (Def|Poss)? 
+NounCountryBase|NounCountryUnreducible  [<np><top>:] NouNinflBoundaryRed NSg0 CaseRegOblique (Def|Poss)?  # Dir/LR
 
 
 
 #Plural անգլիաներ
-NounCountryBase|NounCountryUnreducible [<n><np><top>:]  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
+NounCountryBase|NounCountryUnreducible [<np><top>:]  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
 #regularized plural possessive տուներնիս
-NounCountryBase|NounCountryUnreducible  [<n><np><top>:] NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-NounCountryBase|NounCountryUnreducible  [<n><np><top>:] NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
+NounCountryBase|NounCountryUnreducible  [<np><top>:] NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+NounCountryBase|NounCountryUnreducible  [<np><top>:] NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 
 #attributive, i assume no ablaut in the attributive
-NounCountryBase|NounCountryUnreducible  [<n><np><top>:] NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst 
-NounCountryBase|NounCountryUnreducible [<n><np><top>:]  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst 
+NounCountryBase|NounCountryUnreducible  [<np><top>:] NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst 
+NounCountryBase|NounCountryUnreducible [<np><top>:]  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst 
 
 
 PATTERN NounDeclFamilyNkForm
@@ -652,8 +634,8 @@ PATTERN NounDeclFamilyNkForm
 #With no other cases
 #So this pattern only derives Վարդանանք Վարդանանց
 
-NounFamilyNkForm NNkSuffix [<n><np><pat>:] NouNinflBoundary NSg0  (Def|Poss)? 
-NounFamilyNkForm [<n><np><pat>:] NouNinflBoundary NSg0  NNkSuffixCaseNc  (Def|Poss)? 
+NounFamilyNkForm NNkSuffix [<np><pat>:] NouNinflBoundary NSg0  (Def|Poss)? 
+NounFamilyNkForm [<np><pat>:] NouNinflBoundary NSg0  NNkSuffixCaseNc  (Def|Poss)? 
  
  
  
@@ -1327,25 +1309,9 @@ LEXICON NameFamily
 Յովսէփեան:Յովսէփեան
 
 #This is just for quick use o# f just the noun-paradigm lexd
-# LEXICON NameMaleGivenLocation
-# Վան:Վան
-# LEXICON NameMaleFemaleGivenLocation
-# Վան:Վան
-# LEXICON AdvAdjReg
-# կրկնակի:կրկնակի
-# LEXICON AdvAdjOren
-# կրկնակի:կրկնակի
-# LEXICON AdvNounReg
-# կրկնակի:կրկնակի
-# LEXICON NounAdjReg
-# կրկնակի:կրկնակի
 # LEXICON Infinitival
 # կրկնակի:կրկնակի
 # LEXICON Neg
-# կրկնակի:կրկնակի
-# LEXICON NameMaleFemaleGiven 
-# կրկնակի:կրկնակի
-# LEXICON NameFemaleGivenLocation
 # կրկնակի:կրկնակի
 #LEXICON PerfectPart
 # կրկնակի:կրկնակի

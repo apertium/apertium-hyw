@@ -21,7 +21,6 @@ LEXD_FILES=  \
        lexd_components/$(LANG1)-adpositions.lexd \
        lexd_components/$(LANG1)-punctuation.lexd \
 	   lexd_components/$(LANG1)-adjective_adverb_list.lexd \
-	   lexd_components/$(LANG1)-ambiguousPOS.lexd \
 	   lexd_components/$(LANG1)-nouns_regular_list.lexd \
 	   lexd_components/$(LANG1)-other.lexd   \
 	   lexd_components/$(LANG1)-names_bible.lexd \

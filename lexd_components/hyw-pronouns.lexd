@@ -46,7 +46,7 @@ Quantifier [<qnt>:]  NSg0|NPlReg  InsReg PossPl  Def|Poss
 QuestionWords [<itg>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
 QuestionWords [<itg>:]  NSg0|NPlReg  InsReg PossPl  Def|Poss
 
-DeclinedQuestionrchaic # Dir/LR
+DeclinedQuestionArchaic # Dir/LR
 
 ##############
 ##############
@@ -588,7 +588,7 @@ LEXICON QuestionWords
 ինչ:ինչ 
 ինչ:ի{՞}նչ # Dir/LR 
 
-DeclinedQuestionrchaic
+LEXICON DeclinedQuestionArchaic
 # Declined archaic questionwords that no one uses
 ինչ<itg><sg><acc>:զինչ 
 
