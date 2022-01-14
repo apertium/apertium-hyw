@@ -443,9 +443,6 @@ LEXICON NounTimeVan
 մսուտուօր:մսուտուօր{mono}
 քառասնօր:քառասնօր{mono}
 
-երբ:երբ
-անգամ:անգամ
-առաջ:առաջ
 
 
 
@@ -538,7 +535,6 @@ LEXICON NounTimeVanUReducedReduced
 #Adverbs which take -van when nominalized
 LEXICON NounTimeVanAdv
 այսօր:այսօր
-երբ:երբ
 առաջ:առաջ
 անգամ:անգամ
 շատոնց:շատոնց

@@ -249,6 +249,8 @@ NounTimeVanAdv AdvZero
 
 PATTERN NounTimeVanAdvNominalizedStem
 NounTimeVanAdvStem SubstZero NouNinflBoundary
+[երբ<prn>:] ([<rel>:]|[<itg>:])   SubstZero NouNinflBoundary 
+
 
 PATTERN NounTimeVanStem
 NounTimeVan NZero NouNinflBoundary

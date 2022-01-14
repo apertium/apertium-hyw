@@ -31,20 +31,34 @@ ReflexivePronounInkIr [<acc>:են] (Def|Poss)?
 
 ReflexivePronounArchaic
 
-DemonstrativePronoun (Def|Poss)?  
-RelativePronoun ((Def Def?)|Poss)?   # Double Def is because of attributive like որունն է 
+DemonstrativePronounDeterminer (Def|Poss)?  
 
 
-Quantifier [<qnt>:] CaseRegI? (Def|Poss)? 
-QuestionWords [<itg>:] CaseRegI? (Def|Poss)?
+# relative pronouns can function also as wh-word
+[որ<prn>:] ([<rel>:]|[<itg>:])   RelativePronounThatInflected ((Def Def?)|Poss)?   # Double Def is because of attributive like որունն է 
+[ով<prn>:] ([<rel>:]|[<itg>:])   RelativePronounWhoInflected ((Def Def?)|Poss)?   # Double Def is because of attributive like որունն է 
+[ուր<prn>:] ([<rel>:]|[<itg>:])   RelativePronounWhereInflected ((Def Def?)|Poss)?   # Double Def is because of attributive like որունն է 
+
+
+Quantifier [<prn><qnt>:] CaseRegI? (Def|Poss)? 
+QuestionWords [<prn>:] ([<rel>:]|[<itg>:]) CaseRegI? (Def|Poss)? 
+QuantifierQuestionWords [<prn><qnt>:] ([<itg>:])? CaseRegI? (Def|Poss)?
+StrictQuestionWords [<prn><itg>:]  CaseRegI? (Def|Poss)?
 #Plural
-Quantifier [<qnt>:]  NPlReg CaseRegU? (Def|Poss)? 
-QuestionWords [<itg>:] NPlReg CaseRegU? (Def|Poss)? 
+Quantifier [<prn><qnt>:]  NPlReg CaseRegU? (Def|Poss)? 
+QuestionWords [<prn>:] ([<rel>:]|[<itg>:]) NPlReg CaseRegU? (Def|Poss)? 
+QuantifierQuestionWords [<prn><qnt>:] ([<itg>:])? NPlReg CaseRegU? (Def|Poss)? 
+StrictQuestionWords [<prn><itg>:]  NPlReg CaseRegU? (Def|Poss)? 
 #Plural possessive (separate line for instrumental)
-Quantifier [<qnt>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-Quantifier [<qnt>:]  NSg0|NPlReg  InsReg PossPl  Def|Poss
-QuestionWords [<itg>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
-QuestionWords [<itg>:]  NSg0|NPlReg  InsReg PossPl  Def|Poss
+Quantifier [<prn><qnt>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+Quantifier [<prn><qnt>:]  NSg0|NPlReg  InsReg PossPl  Def|Poss
+QuestionWords [<prn>:] ([<rel>:]|[<itg>:])  NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+QuestionWords [<prn>:] ([<rel>:]|[<itg>:])  NSg0|NPlReg  InsReg PossPl  Def|Poss
+StrictQuestionWords [<prn><itg>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+StrictQuestionWords [<prn><itg>:]  NSg0|NPlReg  InsReg PossPl  Def|Poss
+QuantifierQuestionWords [<prn><qnt>:] NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+QuantifierQuestionWords [<prn><qnt>:] NSg0|NPlReg  InsReg PossPl  Def|Poss
+
 
 DeclinedQuestionArchaic # Dir/LR
 
@@ -382,19 +396,22 @@ LEXICON ReflexivePronounArchaic
 
 ### Based on Hagopian 2007 page 355
 
-LEXICON DemonstrativePronoun
-այս<prn><dem><prx><sg><nom>:այս  # this
-այս<prn><dem><prx><sg><nom>:սոյն  # Dir/LR 
-այս<prn><dem><prx><sg><nom>:ասի   # Dir/LR 
-այս<prn><dem><prx><sg><nom>:ասիկա   # Dir/LR 
-այս<prn><dem><prx><sg><nom>:աս   # Dir/LR 
-այս<prn><dem><prx><sg><nom>:սա  # Dir/LR  Eastern code-switching
+
+LEXICON DemonstrativePronounDeterminer
+# I repeat lines from Dem to Det
+այս<prn><dem><prx><sg><nom_acc>:այս  # this
+այս<det><prx>:այս 
+այս<prn><dem><prx><sg><nom_acc>:սոյն  # Dir/LR 
+այս<prn><dem><prx><sg><nom_acc>:ասի   # Dir/LR 
+այս<prn><dem><prx><sg><nom_acc>:ասիկա   # Dir/LR 
+այս<prn><dem><prx><sg><nom_acc>:աս   # Dir/LR 
+այս<det><prx>:աս   # Dir/LR 
+այս<prn><dem><prx><sg><nom_acc>:սա  # Dir/LR  Eastern code-switching
+այս<det><prx>:սա  # Dir/LR  Eastern code-switching
 այս<prn><dem><prx><sg><gen_dat>:ասոր   
 այս<prn><dem><prx><sg><gen_dat>:սորա # Dir/LR
 այս<prn><dem><prx><sg><gen_dat>:սրա # Dir/LR  Eastern code-switching   
 այս<prn><dem><prx><sg><gen_dat>:սրան # Dir/LR  Eastern code-switching   
-այս<prn><dem><prx><sg><acc>:այս
-այս<prn><dem><prx><sg><acc>:ասիկա # Dir/LR 
 այս<prn><dem><prx><sg><acc>:զայս # Dir/LR 
 այս<prn><dem><prx><sg><abl>:ասկէ
 այս<prn><dem><prx><sg><abl>:այսկէ # Dir/LR 
@@ -405,29 +422,30 @@ LEXICON DemonstrativePronoun
 այս<prn><dem><prx><sg><ins>:ասորմով # Dir/LR 
 այս<prn><dem><prx><sg><ins>:սրանով # Dir/LR  Eastern code-switching   
 
-ասոնք<prn><dem><prx><pl><nom>:ասոնք  # these
-ասոնք<prn><dem><prx><pl><nom>:սրանք   # Dir/LR  Eastern code-switching   
+ասոնք<prn><dem><prx><pl><nom_acc>:ասոնք  # these
+ասոնք<prn><dem><prx><pl><nom_acc>:սրանք   # Dir/LR  Eastern code-switching   
 ասոնք<prn><dem><prx><pl><gen_dat>:ասոնց
 ասոնք<prn><dem><prx><pl><gen_dat>:սոցա # Dir/LR  Eastern code-switching   
 ասոնք<prn><dem><prx><pl><gen_dat>:սրանց   # Dir/LR  Eastern code-switching   
-ասոնք<prn><dem><prx><pl><acc>:ասոնք
 ասոնք<prn><dem><prx><pl><abl>:ասոնցմէ
 ասոնք<prn><dem><prx><pl><abl>:սրանցից   # Dir/LR  Eastern code-switching   
 ասոնք<prn><dem><prx><pl><ins>:ասոնցմով
 ասոնք<prn><dem><prx><pl><ins>:սրանցով   # Dir/LR  Eastern code-switching   
 
-այդ<prn><dem><med><sg><nom>:այդ  # that medial
-այդ<prn><dem><med><sg><nom>:ատիկա   # Dir/LR 
-այդ<prn><dem><med><sg><nom>:ադ   # Dir/LR 
-այդ<prn><dem><med><sg><nom>:ատ   # Dir/LR 
-այդ<prn><dem><med><sg><nom>:ատի   # Dir/LR
-այդ<prn><dem><med><sg><nom>:դոյն   # Dir/LR
-այդ<prn><dem><med><sg><nom>:դա   # Dir/LR  Eastern code-switching   
+այդ<prn><dem><med><sg><nom_acc>:այդ  # that medial
+այդ<det><med>:այդ  # that medial
+այդ<prn><dem><med><sg><nom_acc>:ատիկա   # Dir/LR 
+այդ<prn><dem><med><sg><nom_acc>:ադ   # Dir/LR 
+այդ<det><med>:ադ   # Dir/LR 
+այդ<prn><dem><med><sg><nom_acc>:ատ   # Dir/LR 
+այդ<det><med>:ատ   # Dir/LR 
+այդ<prn><dem><med><sg><nom_acc>:ատի   # Dir/LR
+այդ<prn><dem><med><sg><nom_acc>:դոյն   # Dir/LR
+այդ<prn><dem><med><sg><nom_acc>:դա   # Dir/LR  Eastern code-switching   
+այդ<det><med>:դա   # Dir/LR  Eastern code-switching   
 այդ<prn><dem><med><sg><gen_dat>:ատոր   
 այդ<prn><dem><med><sg><gen_dat>:դրա   # Dir/LR  Eastern code-switching   
 այդ<prn><dem><med><sg><gen_dat>:դրան   # Dir/LR  Eastern code-switching   
-այդ<prn><dem><med><sg><acc>:այդ
-այդ<prn><dem><med><sg><acc>:ատիկա # Dir/LR 
 այդ<prn><dem><med><sg><acc>:զայդ # Dir/LR 
 այդ<prn><dem><med><sg><abl>:ատկէ
 այդ<prn><dem><med><sg><abl>:այդկէ # Dir/LR 
@@ -438,26 +456,26 @@ LEXICON DemonstrativePronoun
 այդ<prn><dem><med><sg><ins>:ատորմով # Dir/LR 
 այդ<prn><dem><med><sg><ins>:դրանով   # Dir/LR  Eastern code-switching   
 
-ատոնք<prn><dem><med><pl><nom>:ատոնք  # those
-ատոնք<prn><dem><med><pl><nom>:դրանք   # Dir/LR  Eastern code-switching   
+ատոնք<prn><dem><med><pl><nom_acc>:ատոնք  # those
+ատոնք<prn><dem><med><pl><nom_acc>:դրանք   # Dir/LR  Eastern code-switching   
 ատոնք<prn><dem><med><pl><gen_dat>:ատոնց
 ատոնք<prn><dem><med><pl><gen_dat>:դրանց   # Dir/LR  Eastern code-switching   
-ատոնք<prn><dem><med><pl><acc>:ատոնք
 ատոնք<prn><dem><med><pl><abl>:ատոնցմէ
 ատոնք<prn><dem><med><pl><abl>:դրանցիս   # Dir/LR  Eastern code-switching   
 ատոնք<prn><dem><med><pl><ins>:ատոնցմով
 ատոնք<prn><dem><med><pl><ins>:դրանցով   # Dir/LR  Eastern code-switching   
 
-այն<prn><dem><dst><sg><nom>:այն  # that yonder
-այն<prn><dem><dst><sg><nom>:անիկա   # Dir/LR 
-այն<prn><dem><dst><sg><nom>:ան   # Dir/LR 
-այն<prn><dem><dst><sg><nom>:անի  # Dir/LR 
-այն<prn><dem><dst><sg><nom>:նա     # Dir/LR  Eastern code-switching   
+այն<prn><dem><dst><sg><nom_acc>:այն  # that yonder
+այն<det><dst>:այն  # that yonder
+այն<prn><dem><dst><sg><nom_acc>:անիկա   # Dir/LR 
+այն<prn><dem><dst><sg><nom_acc>:ան   # Dir/LR 
+այն<det><dst>:ան  # that yonder
+այն<prn><dem><dst><sg><nom_acc>:անի  # Dir/LR 
+այն<prn><dem><dst><sg><nom_acc>:նա     # Dir/LR  Eastern code-switching   
+այն<det><dst>:նա     # Dir/LR  Eastern code-switching   
 այն<prn><dem><dst><sg><gen_dat>:անոր   
 այն<prn><dem><dst><sg><gen_dat>:նրա   # Dir/LR  Eastern code-switching   
 այն<prn><dem><dst><sg><gen_dat>:նրան   # Dir/LR  Eastern code-switching   
-այն<prn><dem><dst><sg><acc>:այն
-այն<prn><dem><dst><sg><acc>:անիկա # Dir/LR 
 այն<prn><dem><dst><sg><acc>:զանիկա # Dir/LR 
 այն<prn><dem><dst><sg><acc>:զայն # Dir/LR 
 այն<prn><dem><dst><sg><abl>:անկէ
@@ -471,14 +489,13 @@ LEXICON DemonstrativePronoun
 այն<prn><dem><dst><sg><ins>:անորմով # Dir/LR 
 այն<prn><dem><dst><sg><ins>:նրանով   # Dir/LR  Eastern code-switching   
 
-անոնք<prn><dem><dst><pl><nom>:անոնք  # these
-անոնք<prn><dem><dst><pl><nom>:նոքս    # Dir/LR
-անոնք<prn><dem><dst><pl><nom>:նոքա    # Dir/LR
-անոնք<prn><dem><dst><pl><nom>:նրանք    # Dir/LR  Eastern code-switching   
+անոնք<prn><dem><dst><pl><nom_acc>:անոնք  # these
+անոնք<prn><dem><dst><pl><nom_acc>:նոքս    # Dir/LR
+անոնք<prn><dem><dst><pl><nom_acc>:նոքա    # Dir/LR
+անոնք<prn><dem><dst><pl><nom_acc>:նրանք    # Dir/LR  Eastern code-switching   
 անոնք<prn><dem><dst><pl><gen_dat>:անոնց
 անոնք<prn><dem><dst><pl><gen_dat>:նոցա    # Dir/LR
 անոնք<prn><dem><dst><pl><gen_dat>:նրանց    # Dir/LR  Eastern code-switching   
-անոնք<prn><dem><dst><pl><acc>:անոնք
 անոնք<prn><dem><dst><pl><acc>:զանոնք # Dir/LR 
 անոնք<prn><dem><dst><pl><acc>:զանոնց # Dir/LR 
 անոնք<prn><dem><dst><pl><abl>:անոնցմէ
@@ -489,55 +506,57 @@ LEXICON DemonstrativePronoun
 ##############
 ##############
 ##############
-#### Relative Pronoun morphemes
+#### Relative Pronoun and Interrogative morphemes
 ##############
 ##############
 
 
 
 ### Based on Hagopian 2007 page 355
+#I just get the outputs here. The input is in the pattern so that i can do a disjunction 
+# of relative pronoun and interrogative pronoun tagging
 
-LEXICON RelativePronoun
+LEXICON RelativePronounThatInflected
+<sg><nom_acc>:որ # that
+<sg><nom_acc><def>:որը # Dir/LR  Eastern code-switching   
+<sg><nom_acc><def>:որն # Dir/LR  Eastern code-switching   
+<sg><gen_dat>:որու
+<sg><gen_dat>:որի  # Dir/LR  Eastern code-switching   
+<sg><acc>:զոր # Dir/LR 
+<sg><abl>:որմէ
+<sg><abl>:որից   # Dir/LR  Eastern code-switching   
+<sg><ins>:որմով 
+<sg><ins>:որով  # Dir/LR  Eastern code-switching   
 
-որ<prn><rel><sg><nom_acc>:որ # that
-որ<prn><rel><sg><nom_acc><def>:որը # Dir/LR  Eastern code-switching   
-որ<prn><rel><sg><nom_acc><def>:որն # Dir/LR  Eastern code-switching   
-որ<prn><rel><sg><gen_dat>:որու
-որ<prn><rel><sg><gen_dat>:որի  # Dir/LR  Eastern code-switching   
-որ<prn><rel><sg><acc>:զոր # Dir/LR 
-որ<prn><rel><sg><abl>:որմէ
-որ<prn><rel><sg><abl>:որից   # Dir/LR  Eastern code-switching   
-որ<prn><rel><sg><ins>:որմով 
-որ<prn><rel><sg><ins>:որով  # Dir/LR  Eastern code-switching   
+<pl><nom_acc>:որոնք
+<pl><nom_acc>:ոմանք # Dir/LR
+<pl><gen_dat>:որոնց
+<pl><acc>:զորոնք # Dir/LR 
+<pl><acc>:որս # Dir/LR 
+<pl><acc>:զորս # Dir/LR 
+<pl><acc>:ոմանց # Dir/LR
+<pl><abl>:որոնցմէ
+<pl><abl>:ոմանցմէ # Dir/LR
+<pl><abl>:ոմանցից  # Dir/LR  Eastern code-switching   
+<pl><ins>:որոնցով # Dir/LR 
+<pl><ins>:որոնցմով 
+<pl><ins>:ոմանցմով # Dir/LR
+<pl><ins>:ոմանցով  # Dir/LR  Eastern code-switching   
 
-որ<prn><rel><pl><nom_acc>:որոնք
-որ<prn><rel><pl><nom_acc>:ոմանք # Dir/LR
-որ<prn><rel><pl><gen_dat>:որոնց
-որ<prn><rel><pl><acc>:զորոնք # Dir/LR 
-որ<prn><rel><pl><acc>:որս # Dir/LR 
-որ<prn><rel><pl><acc>:զորս # Dir/LR 
-որ<prn><rel><pl><acc>:ոմանց # Dir/LR
-որ<prn><rel><pl><abl>:որոնցմէ
-որ<prn><rel><pl><abl>:ոմանցմէ # Dir/LR
-որ<prn><rel><pl><abl>:ոմանցից  # Dir/LR  Eastern code-switching   
-որ<prn><rel><pl><ins>:որոնցով # Dir/LR 
-որ<prn><rel><pl><ins>:որոնցմով 
-որ<prn><rel><pl><ins>:ոմանցմով # Dir/LR
-որ<prn><rel><pl><ins>:ոմանցով  # Dir/LR  Eastern code-switching   
+LEXICON RelativePronounWhoInflected
+<sg><nom_acc>:ով # who
+<sg><acc>:զով # Dir/LR 
+<sg><acc>:ում   # Dir/LR  Eastern code-switching   
+<sg><gen_dat>:ում   # Dir/LR  Eastern code-switching   
+<sg><abl>:ումից   # Dir/LR  Eastern code-switching   
+<sg><ins>:ումով   # Dir/LR  Eastern code-switching   
 
+<pl><nom_acc>:ովքեր 
+<sg><gen_dat>:ովքերու  
+<sg><abl>:ովքերէ  
+<sg><ins>:ովքերով   
 
-ով<prn><rel><sg><nom_acc>:ով # who
-ով<prn><rel><sg><acc>:զով # Dir/LR 
-ով<prn><rel><sg><acc>:ում   # Dir/LR  Eastern code-switching   
-ով<prn><rel><sg><gen_dat>:ում   # Dir/LR  Eastern code-switching   
-ով<prn><rel><sg><abl>:ումից   # Dir/LR  Eastern code-switching   
-ով<prn><rel><sg><ins>:ումով   # Dir/LR  Eastern code-switching   
-
-ով<prn><rel><pl><nom_acc>:ովքեր 
-ով<prn><rel><sg><gen_dat>:ովքերու  
-ով<prn><rel><sg><abl>:ովքերէ  
-ով<prn><rel><sg><ins>:ովքերով   
-
+LEXICON RelativePronounWhereInflected
 ուր<prn><rel><sg><nom_acc>:ուր # where
 ուր<prn><rel><sg><abl>:ուրկէ
 
@@ -565,6 +584,14 @@ LEXICON Quantifier
 քանի:քանի #reassigned had ՞
 աւելի:աւելի #reassigned
 նուազ:նուազ #reassigned
+
+LEXICON QuestionWords
+ինչպէս:ի{՞}նչպէս # Dir/LR irregularly placed ՞ 
+ինչպէս:ինչպէս # had ՞
+ինչ:ինչ 
+ինչ:ի{՞}նչ # Dir/LR 
+
+LEXICON QuantifierQuestionWords
 որչափ:ո{՞}րչափ
 որչափ:որչափ # Dir/LR irregular stress on final
 որքան:ո{՞}րքան
@@ -575,22 +602,19 @@ LEXICON Quantifier
 ինչպիսի:ինչպի{՞}սի
 զինչօրինակ:զի{՞}նչօրինակ  # had ՞
 
-LEXICON QuestionWords
+LEXICON StrictQuestionWords
 # These are words that can only act as interrogatives without case, unless nominalized
-ինչպէս:ի{՞}նչպէս # Dir/LR irregularly placed ՞ 
-ինչպէս:ինչպէս # had ՞
 ընչու:ընչու # had ՞
 ինչու:ինչու # had ՞
 ինչու:ի{՞}նչու # Dir/LR irregularly placed ՞ 
 ինչուան:ի{՞}նչուան # Dir/LR with irregularly placed ՞
 ինչուան:ինչուան
 ինչպիսիք:ինչպիսիք
-ինչ:ինչ 
-ինչ:ի{՞}նչ # Dir/LR 
 
 LEXICON DeclinedQuestionArchaic
 # Declined archaic questionwords that no one uses
-ինչ<itg><sg><acc>:զինչ 
+ինչ<prn><itg><sg><acc>:զինչ 
+ինչ<prn><rel><sg><acc>:զինչ 
 
 
 #! Resources:
