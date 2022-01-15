@@ -79,7 +79,7 @@ PATTERN NameBaseNotCountry
 NameMaleGiven [<np><ant><m>:]
 NameFemaleGiven [<np><ant><f>:]
 
-NameFamily  [<np><pat>:]
+NameFamily  [<np><cog>:]
 NameGivenUnclassified [<np><ant>:]
 NameNotGivenCountry [<np><al>:]
 
@@ -636,8 +636,8 @@ PATTERN NounDeclFamilyNkForm
 #With no other cases
 #So this pattern only derives Վարդանանք Վարդանանց
 
-NounFamilyNkForm NNkSuffix [<np><pat>:] NouNinflBoundary NSg0  (Def|Poss)? 
-NounFamilyNkForm [<np><pat>:] NouNinflBoundary NSg0  NNkSuffixCaseNc  (Def|Poss)? 
+NounFamilyNkForm NNkSuffix [<np><cog>:] NouNinflBoundary NSg0  (Def|Poss)? 
+NounFamilyNkForm [<np><cog>:] NouNinflBoundary NSg0  NNkSuffixCaseNc  (Def|Poss)? 
  
  
  

@@ -1062,7 +1062,8 @@ LEXICON FutPtcp
 
 
 LEXICON Aor
-<aor>:{Aor}ց #was {ե}
+:{Aor}ց #was {ե}
+# was <aor>:{Aor}ց #was {ե}
 
 LEXICON PastPrimAgr
 <past><pret><p1><sg>:ի
