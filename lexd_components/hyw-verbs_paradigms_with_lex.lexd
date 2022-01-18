@@ -1195,13 +1195,15 @@ LEXICON VerbRootE(2)
 
 LEXICON VerbRootI(2)
 ապրիլ:ապր <iv>
-խօսիլ:խօս <iv_tv>
+խօսիլ:խօս <iv>
+խօսիլ:խօս <tv>
 ուսանիլ:ուսան <tv>
 սնանիլ:սնան <iv>
 
 LEXICON VerbRootA(2)
 աղալ:աղ <tv>
-կարդալ:կարդ <iv_tv>
+կարդալ:կարդ <tv>
+կարդալ:կարդ <iv>
 
 #Derived verbs
 LEXICON CausativeVerbRoot
@@ -1350,16 +1352,20 @@ LEXICON VerbRootTurnPres(2)
 դառնալ:դառն <iv>
 անդրադառնալ:անդրադառն <tv>
 վերադառնալ:վերադառն <iv>
-ամբառնալ:ամբառն <iv_tv> # Dir/LR  optionally irregular
+ամբառնալ:ամբառն <iv> # Dir/LR  optionally irregular
+ամբառնալ:ամբառն <tv> # Dir/LR  optionally irregular
 բառնալ:բառն <tv> # Dir/LR  optionally irregular
-համբառնալ:համբառն <iv_tv> # Dir/LR  optionally irregular
+համբառնալ:համբառն <iv> # Dir/LR  optionally irregular
+համբառնալ:համբառն <tv> # Dir/LR  optionally irregular
 LEXICON VerbRootTurnPast(2)
 դառնալ:դարձ <iv>
 անդրադառնալ:անդրադարձ <tv>
 վերադառնալ:վերադարձ <iv>
-ամբառնալ:ամբարձ <iv_tv> # Dir/LR  optionally irregular
+ամբառնալ:ամբարձ <tv> # Dir/LR  optionally irregular
+ամբառնալ:ամբարձ <iv> # Dir/LR  optionally irregular
 բառնալ:բարձ <tv> # Dir/LR  optionally irregular
-համբառնալ:համբարձ <iv_tv> # Dir/LR  optionally irregular
+համբառնալ:համբարձ <iv> # Dir/LR  optionally irregular
+համբառնալ:համբարձ <tv> # Dir/LR  optionally irregular
 LEXICON VerbRootTake(2)
 առնել:առ <tv>
 LEXICON VerbRootOpenPres(2)
@@ -1386,7 +1392,8 @@ LEXICON VerbRootYield(2) # Class 47 զիջիմ զիջայ մի զիջիր մի �
 զիջիլ:զիջ <iv>
 կարեկցիլ:կարեկց <iv>
 LEXICON VerbRootAccept(2) # Class 48 ընդունիմ ընդունեցի ընդունեցայ մի ընդունիր մի ընդունէք
-ընդունիլ:ընդուն <iv_tv>
+ընդունիլ:ընդուն <iv>
+ընդունիլ:ընդուն <tv>
 LEXICON VerbRootDoPres(2) # Class 49 ընել
 ընել:ըն <tv>
 LEXICON VerbRootDoPast(2) # ընել
