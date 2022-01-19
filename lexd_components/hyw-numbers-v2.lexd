@@ -7,6 +7,7 @@ PATTERNS
 
 #Cardinals and unordinals
 CardinalFraction
+ClassicalOrdinals [<num><ord>:]
 NumericalBase
 #Declined numbers are computed in the nouns paradigm file
 
@@ -128,3 +129,26 @@ LEXICON HalfFraction
 <frac>:կէս
 <frac>:քառորդ
 
+LEXICON ClassicalOrdinals
+# Kouyoumdjian had some classical ordinals
+# I don't know how they're used so I didn't make any internal analysis for them
+վաթսներորդ:վաթսներորդ
+հնգետասաներորդ:հնգետասաներորդ
+տասներկուերորդ:տասներկուերորդ
+յիսներորդ:յիսներորդ
+վեցհարիւրորդ:վեցհարիւրորդ
+քառսուներորդ:քառսուներորդ
+վեշտասաներորդ:վեշտասաներորդ
+տասներեքերորդ:տասներեքերորդ
+երեսներորդ:երեսներորդ
+երեքհարիւր:երեքհարիւր
+չորեքհարիւրորդ:չորեքհարիւրորդ
+քառասներորդ:քառասներորդ
+երեքտասաներորդ:երեքտասաներորդ
+չորեքտասաներորդ:չորեքտասաներորդ
+մետասաներորդ:մետասաներորդ
+ութեւտասներորդ:ութեւտասներորդ
+եօթանասներորդ:եօթանասներորդ
+իննսներորդ:իննսներորդ
+ութսներորդ:ութսներորդ
+իննեւտասներորդ:իննեւտասներորդ

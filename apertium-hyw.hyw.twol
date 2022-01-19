@@ -210,15 +210,22 @@ Rules
 ! It precedes a vowel-initial inflectional suffix
 ! I capture that by using a morpheme boundary %{NinflRed%} that's only found
 ! between nouns and inflection for reduction
+! Doesn't target word-initial vowels in the orthography
 "Delete ի if before a vowel-initial suffix, with 1 or more consonants between them; can be forced before -ner in some lexemes"
-ի:0 <=> _ :Cons :Cons* (:0)* %{NinflRed%}: (:0)*  FullVowel ; 
+ի:0 <=>  _ :Cons :Cons* (:0)* %{NinflRed%}: (:0)*  FullVowel ; 
 		_ :Cons :Cons* (:0)* %{NinflRedForcedNer%}:  ; 
+			except
+				.#. (:0)* _ ; 
 "Delete ու  if before a vowel-initial suffix, with 1 or more consonants between them (part 1); can be forced before -ner in some lexemes"
 ո:0 <=> _ ւ: :Cons :Cons* (:0)* %{NinflRed%}: (:0)*  FullVowel ;
 		_ ւ: :Cons :Cons* (:0)* %{NinflRedForcedNer%}:  ; 
+			except
+				.#. (:0)* _ ; 
 "Delete ու  if before a vowel-initial suffix, with 1 or more consonants between them (part 2); can be forced before -ner in some lexemes"
 ւ:0 <=> ո: _  :Cons :Cons* (:0)* %{NinflRed%}: (:0)*  FullVowel ;
 		ո: _  :Cons :Cons* (:0)* %{NinflRedForcedNer%}:  ; 
+			except
+				.#. (:0)* ո: _ ; 
 
 
 !!!!!!!!!

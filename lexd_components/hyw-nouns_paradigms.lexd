@@ -67,7 +67,7 @@ OpenClassRegularNounDeclCanBeBareStem RegPluralAndPluralPossessiveDeclension
 PATTERN OpenClassRegularNounDeclCanBeBareStem
 NounReg NZero NouNinflBoundary
 NounReg NZero NouNinflBoundaryRed # Dir/LR
-DeclinablePostposition [<subs>:ին]? NouNinflBoundary
+DeclinablePostposition  NouNinflBoundary
 
 # For names or proper nouns. Don't have the NouNInflBoundary to block glide deletion
 #Country names  are in separate category because some of them take -ia suffix
@@ -136,10 +136,9 @@ PATTERN OpenClassRegularNounDeclCantBeBareStem
 ParticipleDeclStem
 AdjAdvDeclStem
 DeclDeclinableInterjection SubstZero NouNinflBoundary
-NumericalBase SubstZero  NouNinflBoundary
-NumericalBase SubstZero  NouNinflBoundaryRed # Dir/LR
-CardinalFraction SubstZero  NouNinflBoundary
-CardinalFraction SubstZero NouNinflBoundaryRed # Dir/LR
+NumericalBase|CardinalFraction SubstZero  NouNinflBoundary
+# NumericalBase|CardinalFraction SubstZero  NouNinflBoundaryRed # I don't think these reduce Dir LR
+ClassicalOrdinals [<num><ord>:]  SubstZero  NouNinflBoundary
 
 
 PATTERN ParticipleDeclStem
@@ -421,7 +420,7 @@ PATTERN NounDeclUtjunSuffix
 #Singular caseless
 NounUtjunSuffix NUtjunSuffix NZero NouNinflBoundary NSg0 (Def|Poss)?  
 #Singular archaic case
-NounUtjunSuffix NZero NouNinflBoundary NSg0 CaseUtjunArchaic (Def|Poss)? 
+NounUtjunSuffix NZero NouNinflBoundary NSg0 CaseUtjunArchaicDat|CaseUtjunArchaicAbl|CaseUtjunArchaicLoc (Def|Poss)? 
 #Singular regular case
 NounUtjunSuffix NUtjunSuffix NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?    # Dir/LR
 
@@ -819,7 +818,7 @@ NUmSuffixBase DatGenRegI  Def|Poss   [+NP:] AttributiveDefinitePostInflection
 NUmSuffixBase InsReg [+NP:] AttributiveInstrumentalPostInflection #Dir/LR
 PATTERN AttributiveUtjun
 # archaic forms like թեանէն
-CaseUtjunArchaic   [+NP:] AttributiveDefinitePostInflection #Dir/LR 
+CaseUtjunArchaicDat|CaseUtjunArchaicInst   [+NP:] AttributiveDefinitePostInflection #Dir/LR 
 NUtjunSuffix AttributiveGenIDef|AttributiveInst
 
 PATTERN AttributiveOch
@@ -845,14 +844,14 @@ PATTERN AttributiveDefinitePostInflection
 #It has to take some overt inflection later
 NSg0 CaseRegI (Def|Poss)?
 NSg0 (Def|Poss)
-NPlReg CaseRegU? (Def|Poss)? 
+NPlNerOnly CaseRegU? (Def|Poss)? 
 
 PATTERN AttributiveInstrumentalPostInflection
 #This is for the instrumental-ending attributive;
 #It can't just take definite because then the same meaning as un-attributive
 #It has to take some overt inflection later
 NSg0 CaseRegI (Def|Poss)?
-NPlReg CaseRegU? (Def|Poss)? 
+NPlNerOnly CaseRegU? (Def|Poss)? 
 
 #####################
 ####### Case patterns
@@ -978,10 +977,10 @@ LEXICON NouNinflBoundaryRedForcedNer
 #<acc>:
 LEXICON DatGenRegI
 <dat_gen>:ի
-<dat_gen>:ու #Dir/LR In case of unexpected irregularization
+# <dat_gen>:ու #Dir/LR In case of unexpected irregularization
 LEXICON DatGenRegU
 <dat_gen>:ու
-<dat_gen>:ի # Dir/LR In case of regularization
+# <dat_gen>:ի # Dir/LR In case of regularization
 LEXICON AblReg
 <abl>:է
 <abl>:ից # Dir/LR because of code-switching
@@ -992,10 +991,12 @@ LEXICON LocReg
 <loc>:ում
 
 
-LEXICON CaseUtjunArchaic
+LEXICON CaseUtjunArchaicDat
 <dat_gen>:ութեան
+LEXICON CaseUtjunArchaicAbl
 <abl>:ութենէ
 <abl>:ութենից # Dir/LR because of code-switching
+LEXICON CaseUtjunArchaicInst
 <ins>:ութեամբ
 
 
@@ -1003,8 +1004,8 @@ LEXICON CaseUtjunArchaicPlural
 <pl><dat_gen>:ութեանց
 
 LEXICON CaseTimeVan
-<dat_gen>:ուան 
-<dat_gen>:ուայ # Dir/LR
+# <dat_gen>:ուան It's safer to just treat this as definite
+<dat_gen>:ուայ 
 <abl>:ուընէ
 <abl>:ւընէ  # Dir/LR
 <abl>:ուանէ # Dir/LR

@@ -64,7 +64,7 @@ InchBase InchEmpty  #<inch> marked by either covert or overt -n-
 #This is for lexically listed causatives
 #Lexical causatives take their own special valency tag. Might need to change this later if 
 #it violates some tagging rule TO DO
-CausativeVerbRoot VZero [<<tv>:]
+CausativeVerbRoot VZero [<caus_listed>:]
 #Orthographic variants are separately handled based on the inflection lsot
 
 
@@ -115,15 +115,15 @@ VerbStemA ThA Aor
 
 CausBase CausPass 
 #This is for orthographic variants
-CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPass
-CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPass
-CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrPass
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPass
+CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPass
+CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPass
 
 
 #This is for lexically listed passives
 #Lexical passives take their own special valency tag. Might need to change this later if 
 #it violates some tagging rule TO DO
-PassiveVerbRoot VZero [<iv>:] 
+PassiveVerbRoot VZero [<pass_listed>:] 
 
 #Should I care that this will rarely be traversed? TO DO
 InchBase InchEmpty Aor 
@@ -178,9 +178,9 @@ VerbStemI ThI Inf
 VerbStemA ThA Inf
 
 CausBase CausPres ThE Inf
-CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausOrthographicSchwaPres ThE Inf
-CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPres ThE Inf
-CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrSchwaPres ThE Inf
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausOrthographicSchwaPres ThE Inf
+CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres ThE Inf
+CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres ThE Inf
 
 
 PassBase Pass ThI Inf
@@ -237,8 +237,8 @@ VerbRootEatPres(1) VZero VerbRootEatPres(2): ThE Inf # ուտել
 VerbRootSendPres(1) VZero VerbRootSendPres(2): ThI Inf # տանիլ
 
 #Following defective verbs lack infinitival for Boyacioglu, but they have one in Kouyoumdjian
-VerbRootHaveE(1) VZero VerbRootHaveE(2): ThE Inf # ունել, but inflected as ունիմ
-VerbRootHaveI(1) VZero VerbRootHaveI(2): ThI Inf # ունիլ
+# VerbRootHaveE(1) VZero VerbRootHaveE(2): ThE Inf # ունել, but inflected as ունիմ
+VerbRootHave(1) VZero VerbRootHave(2): ThI Inf # ունիլ
 VerbRootKnow(1) VZero VerbRootKnow(2): ThE Inf # գիտել 
 
 
@@ -276,9 +276,9 @@ VerbStemI ThI
 VerbStemA ThA 
 
 CausBase CausPres ThE
-CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausOrthographicSchwaPres ThE
-CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPres ThE
-CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrSchwaPres ThE Inf
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausOrthographicSchwaPres ThE
+CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres ThE
+CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres ThE Inf
 
 
 PassBase Pass ThI 
@@ -369,14 +369,8 @@ VerbRootExist(1) VZero VerbRootExist(2): ThA ImpfAgr Indc:
 
 PATTERN SubjunctiveIrregular
 #These have an irregular indicative form that lacks prefix
-VerbRootCanShort(1) EmptyNasal VZero VerbRootCanShort(2): ThA Pres0 PresAgr Subj0 #I disagree with Boyacioglu, I have subjunctives
-VerbRootCanShort(1) EmptyNasal VZero VerbRootCanShort(2): ThA ImpfAgr Subj0
 VerbRootCanLong(1) EmptyNasal VZero VerbRootCanLong(2): ThA Pres0 PresAgr Subj0 
 VerbRootCanLong(1) EmptyNasal VZero VerbRootCanLong(2): ThA ImpfAgr Subj0  
-VerbRootHave(1) VZero VerbRootHave(2): ThI Pres0 PresAgr Subj0  #I disagree with Boyacioglu, I have subjunctives
-VerbRootHave(1) VZero VerbRootHave(2): ThI ImpfAgr Subj0 
-VerbRootKnow(1) VZero VerbRootKnow(2): ThE Pres0 PresAgr Subj0  #I disagree with Boyacioglu, I have subjunctives
-VerbRootKnow(1) VZero VerbRootKnow(2): ThE ImpfAgr Subj0 
 VerbRootBeLongPres(1) VZero VerbRootBeLongPres(2): ThA Pres0 PresAgr Subj0
 VerbRootBeLongPres(1) VZero VerbRootBeLongPres(2): ThA ImpfAgr Subj0
 VerbRootBeLongPresEastern(1) VZero VerbRootBeLongPresEastern(2): ThE  Pres0 PresAgr Subj0
@@ -406,8 +400,8 @@ VerbStemI ThI Aor PastSecAgr Indc0
 VerbStemA ThA Aor PastPrimAgr Indc0 
 
 CausBase CausPast Aor PastPrimAgr Indc0
-CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor PastPrimAgr Indc0
-CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPast Aor PastPrimAgr Indc0
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPast Aor PastPrimAgr Indc0
+CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPast Aor PastPrimAgr Indc0
 
 
 PassBase Pass ThI Aor PastSecAgr Indc0
@@ -474,8 +468,8 @@ PassBase Pass ThI ImpSg # Dir/LR
 PassBase Pass ImpSgIR
 
 CausBase CausPast ImpSgR
-CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast ImpSgR
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrPast ImpSgR
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPast ImpSgR
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPast ImpSgR
 
 
 InchBase InchEmpty Aor ImpSgIR
@@ -539,8 +533,8 @@ VerbStemI ThI Aor ImpPl
 VerbStemA ThA Aor ImpPl
 
 CausBase CausPast Aor ImpPl
-CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor ImpPl
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrPast Aor ImpPl
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPast Aor ImpPl
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPast Aor ImpPl
 
 PassBase Pass ThI Aor ImpPl
 
@@ -595,9 +589,9 @@ VerbStemI ThI [<proh>:] ProhAgr
 VerbStemA ThA [<proh>:] ProhAgr
 
 CausBase CausPres ThE [<proh>:] ProhAgr
-CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPres ThE [<proh>:] ProhAgr
-CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPres  ThE [<proh>:] ProhAgr
-CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrSchwaPres  ThE [<proh>:] ProhAgr
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPres ThE [<proh>:] ProhAgr
+CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres  ThE [<proh>:] ProhAgr
+CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres  ThE [<proh>:] ProhAgr
 
 
 PassBase Pass ThI [<proh>:] ProhAgr
@@ -651,9 +645,9 @@ VerbStemI SubjPart
 VerbStemA ThA Aor SubjPart
 
 CausBase CausPres SubjPart
-CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPres SubjPart
-CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPres SubjPart
-CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrSchwaPres SubjPart
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPres SubjPart
+CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres SubjPart
+CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres SubjPart
 
 PassBase Pass SubjPart
 
@@ -708,15 +702,15 @@ VerbStemI PerfPart
 VerbStemA ThA Aor PerfPart
 
 CausBase CausPast Aor PerfPart
-CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor PerfPart
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrPast Aor PerfPart
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPast Aor PerfPart
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPast Aor PerfPart
 
 ### Arak had հարցուցուած as perfect participle of passivized causative, even though also had հարցուիլ
 ### Just to be safe, I optionally insert the past+aorist for this construction
 ## TO DO: Clarify from Arak29 if this is a glitch
 CausBase CausPast Aor Pass PerfPart   # Dir/LR
-CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor Pass PerfPart   # Dir/LR
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrPast Pass Aor PerfPart   # Dir/LR
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPast Aor Pass PerfPart   # Dir/LR
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPast Pass Aor PerfPart   # Dir/LR
 
 
 
@@ -771,8 +765,8 @@ VerbStemI EvidPart
 VerbStemA ThA Aor EvidPart
 
 CausBase CausPast Aor EvidPart
-CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPast Aor EvidPart
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrPast Aor EvidPart
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPast Aor EvidPart
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPast Aor EvidPart
 
 PassBase Pass EvidPart
 
@@ -826,9 +820,9 @@ VerbStemI ThE PastImpf0 NegPtcp #For i->e
 VerbStemA ThA Pres0|PastImpf0 NegPtcp 
 
 CausBase CausPres ThE Pres0|PastImpf0 NegPtcp 
-CausativeVerbRootOrthographicSchwa VZero [<tv>:] CausPres ThE Pres0|PastImpf0 NegPtcp 
-CausativeVerbRootOrthographicAffr VZero [<tv>:] CausOrthographicAffrPres ThE Pres0|PastImpf0 NegPtcp 
-CausativeVerbRootOrthographicAffrSchwa VZero [<tv>:] CausOrthographicAffrSchwaPres ThE Pres0|PastImpf0 NegPtcp 
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPres ThE Pres0|PastImpf0 NegPtcp 
+CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres ThE Pres0|PastImpf0 NegPtcp 
+CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres ThE Pres0|PastImpf0 NegPtcp 
 
 
 PassBase Pass ThI Pres0 NegPtcp 
@@ -1307,18 +1301,12 @@ LEXICON VerbRootCanLong(2)
 LEXICON VerbRootAppear(2) #Class 28 երեւիլ, has -nal version that's regular
 երեւիլ:երեւ <iv>
 
-
-LEXICON VerbRootHaveE(2) # Class 29 ունիմ, has -enal version that's regular
-#Has infinitival form in Kouyoumdjian grammar ունել
-ունել:ուն <tv>
-LEXICON VerbRootHaveI(2)  # There is also rare infinitval ունիլ
-ունիլ:ուն <tv>
-ունիմ:ուն <tv>
+# This defective verb is a mess so I'm only using one lemma
+#LEXICON VerbRootHaveE(2) # Class 29 ունիմ, has -enal version that's regular
+#Has infinitival form in Kouyoumdjian grammar ունել but I think this is just an EA hypercorrection
+# ունել:ուն <tv>
 LEXICON  VerbRootHave(2)
-#To merge the infinitivals ունիլ ունել for conjugations besides the infinitival
-ունել:ուն <tv>
 ունիլ:ուն <tv>
-ունիմ:ուն <tv>
 
 
 LEXICON VerbRootKnow(2) # Class 30 գիտեմ, has -nal version that's regular
