@@ -1016,6 +1016,7 @@ LEXICON CausOrthographicAffrPass
 
 LEXICON Pass
 <pass>:ու
+<pass>:ւ # Dir/LR older orthographies had passive as just ւ
 
 LEXICON InchNasal
 <inch>:ն
@@ -1123,6 +1124,7 @@ LEXICON Indc
 <indc>:կ{G1}{G2}
 LEXICON IndcShort
 <indc>:կու\ 
+<indc>:կու # Dir/LR this is because older publications have no space
 LEXICON  IndcLong
 #Place this to help for parsing unrecognized verbs
 <indc>:կը

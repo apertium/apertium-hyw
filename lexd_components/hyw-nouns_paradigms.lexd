@@ -420,7 +420,7 @@ PATTERN NounDeclUtjunSuffix
 #Singular caseless
 NounUtjunSuffix NUtjunSuffix NZero NouNinflBoundary NSg0 (Def|Poss)?  
 #Singular archaic case
-NounUtjunSuffix NZero NouNinflBoundary NSg0 CaseUtjunArchaicDat|CaseUtjunArchaicAbl|CaseUtjunArchaicLoc (Def|Poss)? 
+NounUtjunSuffix NZero NouNinflBoundary NSg0 CaseUtjunArchaicDat|CaseUtjunArchaicAbl|CaseUtjunArchaicInst (Def|Poss)? 
 #Singular regular case
 NounUtjunSuffix NUtjunSuffix NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?    # Dir/LR
 
