@@ -912,8 +912,8 @@ Indicative
 Subjunctive 
 Past 
 Imperative 
-Proh [:\ ] Prohibitive
-Prohibitive # Dir/LR 
+Proh [:\ ] Prohibitive # Dir/LR   have to push this to dir/lr so that paradigm generation works
+Prohibitive 
 SubjectPart
 PerfectPart 
 EvidentialPart 
