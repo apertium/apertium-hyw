@@ -16,7 +16,7 @@ UpperCaseLetter [<maj>:]
 Conjunction [<conj>:]
 OtherParticles [<particle>:]
 DeclDeclinableInterjection
-ForeignPhrases
+ForeignPhrases [<foreign>:]
 Barbarisms
 
 PATTERN DeclDeclinableInterjection
@@ -32,10 +32,18 @@ LEXICON DeclinableInterjection
 LEXICON Interjection
 Ա:Ա # had ՜
 Աա:Ա{՜}ա{՜} # had ՜
+սուս:սուս # had ՜
 ախ:ախ 
+բաբէ:բաբէ # had ՜
+երնէկ:երնէկ # had ՜
+ապրի:ապրի # ՛
+ապրիս:ապրիս # ՛
 ահ:ահ 
 աղէ:աղէ 
+օֆ:օֆ  # had օ՜ֆ
 այ:այ 
+ա:ա # had ՜
+օ:օ # had ՜
 անկցի:անկցի 
 աւաղ:աւաղ # had ՜
 ափսոս:ափսոս 
@@ -157,6 +165,9 @@ LEXICON UpperCaseLetter
 Ֆ:Ֆ
 
 LEXICON Conjunction
+հապա:հապա  #reassigned
+գոնէ:գոնէ  #reassigned
+գուցէ:գուցէ  #reassigned
 այնուհետեւ:այնուհետեւ  #reassigned
 այսուհետեւ:այսուհետեւ  #reassigned
 այսպէս:այսպէս #reassigned
@@ -165,6 +176,7 @@ LEXICON Conjunction
 զիարդ:զիարդ # had ՞
 իսկ:իսկ
 ուստի:ուստի
+այլ:այլ
 ուրեմն:ուրեմն
 Ւ:Ւ
 զի:զի

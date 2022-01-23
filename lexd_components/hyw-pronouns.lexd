@@ -22,7 +22,7 @@ ReciprocalPronoun
 
 #ինքզինքս ինքզինքիս
 ReflexivePronoun  CaseRegI? (Def|Poss)?
-ReflexivePronoun  PossPl CaseRegPostPluralPoss (Def|Poss)?
+ReflexivePronoun  PossPl CaseRegPostPluralPoss? (Def|Poss)?
 ReflexivePronoun  InsReg PossPl  (Def|Poss)?
 
 #ինքնիրմէ ինքնիրեն 
@@ -50,13 +50,13 @@ QuestionWords [<prn>:] ([<rel>:]|[<itg>:]) NPlReg CaseRegU? (Def|Poss)?
 QuantifierQuestionWords [<prn><qnt>:] ([<itg>:])? NPlReg CaseRegU? (Def|Poss)? 
 StrictQuestionWords [<prn><itg>:]  NPlReg CaseRegU? (Def|Poss)? 
 #Plural possessive (separate line for instrumental)
-Quantifier [<prn><qnt>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+Quantifier [<prn><qnt>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
 Quantifier [<prn><qnt>:]  NSg0|NPlReg  InsReg PossPl  Def|Poss
-QuestionWords [<prn>:] ([<rel>:]|[<itg>:])  NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+QuestionWords [<prn>:] ([<rel>:]|[<itg>:])  NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
 QuestionWords [<prn>:] ([<rel>:]|[<itg>:])  NSg0|NPlReg  InsReg PossPl  Def|Poss
-StrictQuestionWords [<prn><itg>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+StrictQuestionWords [<prn><itg>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
 StrictQuestionWords [<prn><itg>:]  NSg0|NPlReg  InsReg PossPl  Def|Poss
-QuantifierQuestionWords [<prn><qnt>:] NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+QuantifierQuestionWords [<prn><qnt>:] NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
 QuantifierQuestionWords [<prn><qnt>:] NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 
@@ -142,6 +142,7 @@ LEXICON PersonalPronoun
 ան<prn><dat_gen><sg><p3>:անոր
 ան<prn><dat_gen><sg><p3>:անորին  # Dir/LR
 ան<prn><gen><sg><p3>:նրա  # Dir/LR  Eastern code-switching
+ան<prn><dat_gen><sg><p3>:Նորին # Dir/LR royal pronoun
 ան<prn><dat_gen><sg><p3>:նորա  # Dir/LR   
 ան<prn><dat_gen><sg><p3>:ներա  # Dir/LR   
 ան<prn><dat_gen><sg><p3>:անոր
@@ -357,7 +358,7 @@ LEXICON SubstantivePronoun
 
 ### Based on Hagopian 2007 page 355
 LEXICON ReciprocalPronoun
-
+իրար<prn><ref><gen_dat>:իրար # Dir/LR
 իրար<prn><ref><gen_dat>:իրարու #to each other
 իրար<prn><ref><acc>:զիրար   # Dir/LR   obsolete
 իրար<prn><ref><abl>:իրարմէ
@@ -559,6 +560,7 @@ LEXICON RelativePronounWhoInflected
 LEXICON RelativePronounWhereInflected
 ուր<prn><rel><sg><nom_acc>:ուր # where
 ուր<prn><rel><sg><abl>:ուրկէ
+ուր<prn><rel><sg><abl>:ուրկից # Dir/LR ea
 
 #I push երբ when into the noun-paradigm because it takes a lot of nominal inflection
 #երբ<prn><rel><sg><nom_acc>:երբ # when

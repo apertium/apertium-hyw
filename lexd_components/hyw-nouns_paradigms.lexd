@@ -106,7 +106,7 @@ NPlReg CaseDefUDeclension
 
 
 PATTERN PluralPossessiveDeclension # plural possessive
-PossPl CaseRegPostPluralPoss Def|Poss
+PossPl CaseRegPostPluralPoss? Def|Poss
 InsReg PossPl  Def|Poss
 
 PATTERN RegPluralAndPluralPossessiveDeclension
@@ -248,7 +248,7 @@ NounTimeVanAdv AdvZero
 
 PATTERN NounTimeVanAdvNominalizedStem
 NounTimeVanAdvStem SubstZero NouNinflBoundary
-[երբ<prn>:] ([<rel>:]|[<itg>:])   SubstZero NouNinflBoundary 
+[երբ<prn>:երբ] ([<rel>:]|[<itg>:])   SubstZero NouNinflBoundary 
 
 
 PATTERN NounTimeVanStem
@@ -382,11 +382,11 @@ NounIrregMonoNerOld NZero NouNinflBoundary NSg0|NPlReg  PluralPossessiveDeclensi
 NounIrregMonoNerOld NZero NouNinflBoundaryRed NSg0|NPlReg  PluralPossessiveDeclension   # Dir/LR
 
 #մուկներնիս, I have to force -er 
-NounIrregMonoNerOld NZero NouNinflBoundary (NSg0 [:ներ])|NPlNerOnly  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+NounIrregMonoNerOld NZero NouNinflBoundary (NSg0 [:ներ])|NPlNerOnly  PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
 NounIrregMonoNerOld NZero NouNinflBoundary NSg0|NPlNerOnly  InsReg PossPl  Def|Poss   # Dir/LR
 
 #մկներնիս
-NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer (NSg0 [:ներ])|NPlNerOnly  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer (NSg0 [:ներ])|NPlNerOnly  PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
 NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer NSg0|NPlNerOnly  InsReg PossPl  Def|Poss   # Dir/LR
 
 
@@ -405,7 +405,7 @@ NounIrregMonoNerStill NZero NouNinflBoundary NPlNerOnly CaseDefUDeclension
 #Plural possessive (separate line for instrumental)
 #I manually add the ն for singular forms before the plural possessive
 # Have to force եր inside the singular
-NounIrregMonoNerStill NZero NouNinflBoundary (NSg0 [:ներ])|NPlNerOnly  PossPl CaseRegPostPluralPoss Def|Poss 
+NounIrregMonoNerStill NZero NouNinflBoundary (NSg0 [:ներ])|NPlNerOnly  PossPl CaseRegPostPluralPoss? Def|Poss 
 NounIrregMonoNerStill NZero NouNinflBoundary NSg0|NPlNerOnly  InsReg PossPl  Def|Poss 
 
 
@@ -509,7 +509,7 @@ NounDecOldOchNominativeStem  NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)?
 #regularized plural possessive ընկերնիս կիներնիս
 NounDecOldOchNominativeStem NZero NouNinflBoundary NSg0|NPlReg  PluralPossessiveDeclension
 #irregular plural possessive ընկերոջնիս ընկերոջմովնիս ընկերոջովնիս կնոջնիս կնոջմովնիս կնոջոջնիս
-NounDecOldOchObliqueStem NZero	 NouNinflBoundary  DatGenArchaicOch PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+NounDecOldOchObliqueStem NZero	 NouNinflBoundary  DatGenArchaicOch PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
 NounDecOldOchObliqueStem NZero  NouNinflBoundary  DatGenArchaicOch CaseBoundaryM? InsReg PossPl  Def|Poss  # Dir/LR
 
 
@@ -551,10 +551,10 @@ NounFamilyOBase  NZero NouNinflBoundary NSg0 CaseRegI (Def|Poss)?   # Dir/LR
 NounFamilyOBase  NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
 
 #regularized plural possessive եղբայրնիս եղբայրովնիս
-NounFamilyOBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+NounFamilyOBase NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
 NounFamilyOBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 #irregular plural possessive եղբօրնիս եղբօրմովնիս եղբօրովնիս
-NounFamilyOAblauted NZero	 NouNinflBoundary  DatGenArchaicEmpty PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+NounFamilyOAblauted NZero	 NouNinflBoundary  DatGenArchaicEmpty PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
 NounFamilyOAblauted NZero  NouNinflBoundary  DatGenArchaicEmpty CaseBoundaryM? InsReg PossPl  Def|Poss  # Dir/LR
 
 
@@ -582,12 +582,12 @@ NounRandomOBase  NZero NouNinflBoundaryRed NSg0 CaseRegI (Def|Poss)?   # Dir/LR
 #Plural տուներ
 NounRandomOBase  NZero NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
 #regularized plural possessive տուներնիս
-NounRandomOBase NZero  NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+NounRandomOBase NZero  NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
 NounRandomOBase NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 #Optional reduction
 NounRandomOBase  NZero NouNinflBoundaryRed NPlReg CaseRegU? (Def|Poss)?  # Dir/LR
-NounRandomOBase NZero  NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+NounRandomOBase NZero  NouNinflBoundaryRed NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
 NounRandomOBase NZero  NouNinflBoundaryRed NSg0|NPlReg  InsReg PossPl  Def|Poss  # Dir/LR
 
 #attributive, doesnt take ablaut I think
@@ -620,7 +620,7 @@ NounCountryBase|NounCountryUnreducible  [<np><top>:] NouNinflBoundaryRed NSg0 Ca
 #Plural անգլիաներ
 NounCountryBase|NounCountryUnreducible [<np><top>:]  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
 #regularized plural possessive տուներնիս
-NounCountryBase|NounCountryUnreducible  [<np><top>:] NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+NounCountryBase|NounCountryUnreducible  [<np><top>:] NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
 NounCountryBase|NounCountryUnreducible  [<np><top>:] NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 
@@ -658,10 +658,10 @@ NounIrregBoyReduced NZero NouNinflBoundary PlDatGenIrregularOts (CaseBoundaryM C
 NounIrregBoyBase NZero NouNinflBoundary PlDatGenIrregularOts  (CaseBoundaryM CaseRegOblique)? (Def|Poss)?  # Dir/LR
 
 #regularized plural possessive տղայներնիս տղաքներնիս
-NounIrregBoyBase NZero	 NouNinflBoundary NSg0|(NPlIrregK? NPlReg)  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+NounIrregBoyBase NZero	 NouNinflBoundary NSg0|(NPlIrregK? NPlReg)  PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
 NounIrregBoyBase NZero  NouNinflBoundary NSg0|(NPlIrregK? NPlReg)  InsReg PossPl  Def|Poss  # Dir/LR
 #irregular plural possessive տղաքնիս տղաքովնիս տղաքմովնիս
-NounIrregBoyBase NZero	 NouNinflBoundary NPlIrregK  PossPl CaseRegPostPluralPoss Def|Poss
+NounIrregBoyBase NZero	 NouNinflBoundary NPlIrregK  PossPl CaseRegPostPluralPoss? Def|Poss
 NounIrregBoyBase NZero  NouNinflBoundary NPlIrregK CaseBoundaryM? InsReg PossPl  Def|Poss
 
 #attributive
@@ -688,10 +688,10 @@ NounIrregMan NZero NouNinflBoundary NPlIrregIg  (Def|Poss)?
 NounIrregMan NZero NouNinflBoundary PlDatGenIrregularOts (CaseBoundaryM CaseRegOblique)? (Def|Poss)? 
 
 #regularized plural possessive մարդերնիս
-NounIrregMan NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss  # Dir/LR
+NounIrregMan NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
 NounIrregMan NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss	 # Dir/LR
 #irregular plural possessive մարդիկնիս մարդոցնիս մարդոցովնիս մարդոցմովնիս
-NounIrregMan NZero	 NouNinflBoundary NPlIrregIg  PossPl CaseRegPostPluralPoss Def|Poss
+NounIrregMan NZero	 NouNinflBoundary NPlIrregIg  PossPl CaseRegPostPluralPoss? Def|Poss
 NounIrregMan NZero  NouNinflBoundary  PlDatGenIrregularOts CaseBoundaryM? InsReg PossPl  Def|Poss
 
 #attributive
@@ -717,10 +717,10 @@ NounIrregWomanReduced NZero NouNinflBoundary [<pl>:այք]  (Def|Poss)?
 NounIrregWomanReduced NZero NouNinflBoundary [<dat_gen>:անց] (CaseBoundaryM CaseRegOblique)? (Def|Poss)? 
 
 #regularized plural possessive տիկիննիս տիկիններնիս
-NounIrregWomanBase NZero	NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+NounIrregWomanBase NZero	NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
 NounIrregWomanBase NZero  	NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 #irregular plural possessive տիկնայքնիս տիկնացնիս տիկնանցմովնիս
-NounIrregWomanReduced NZero NouNinflBoundary [<pl>:այք]  PossPl CaseRegPostPluralPoss Def|Poss
+NounIrregWomanReduced NZero NouNinflBoundary [<pl>:այք]  PossPl CaseRegPostPluralPoss? Def|Poss
 NounIrregWomanReduced NZero NouNinflBoundary [<dat_gen>:անց] CaseBoundaryM? InsReg PossPl Def|Poss
 
 #attributive, i dont know about attriburive for այք/անց
@@ -746,7 +746,7 @@ NounIrregGodReducedU NZero NouNinflBoundary NSg0 CaseBoundaryM CaseRegOblique (D
 NounIrregGod NZero  NouNinflBoundary NPlReg CaseRegU? (Def|Poss)? 
 
 #Plural possessive (separate line for instrumental)
-NounIrregGod NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss Def|Poss
+NounIrregGod NZero	 NouNinflBoundary NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
 NounIrregGod NZero  NouNinflBoundary NSg0|NPlReg  InsReg PossPl  Def|Poss
 
 #don't think can form attributive irregularly
@@ -878,7 +878,7 @@ InsReg
 LocReg # Dir/LR
 PATTERN CaseRegPostPluralPoss
 #NomAccReg 	
-DatGenRegI
+DatGenRegU
 AblReg
 LocReg # Dir/LR
 
@@ -918,6 +918,7 @@ LEXICON NUtjunSuffix
 #ում suffix reduces to մ before ան
 LEXICON NUmSuffixBase
 :ում
+:ումն # Dir/LR for archaic speech
 LEXICON NUmSuffixReduced
 :մ
 
