@@ -79,7 +79,7 @@ VerbRootCel(1)   VZero VerbRootCel(2): (EmptyAffr ThE)? # Dir/LR   to capture va
 VerbRootNelNale(1)  VZero VerbRootNelNale(2):  ThE  #իջնել իջնալ
 VerbRootNelNale(1)  VZero VerbRootNelNale(2): (EmptyNasal ThE)? # Dir/LR   to capture variation in theme-less or infix-less
 VerbRootNelNala(1)   VZero VerbRootNelNala(2):   ThA 
-VerbRootNelNale(1)  VZero VerbRootNelNale(2): (EmptyNasal ThA)? # Dir/LR   to capture variation in theme-less or infix-less
+VerbRootNelNala(1)  VZero VerbRootNelNala(2): (EmptyNasal ThA)? # Dir/LR   to capture variation in theme-less or infix-less
 VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2):  ThE  		#դպչիլ դպիլ 
 VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): (EmptyAffr ThE)? # Dir/LR   to capture variation in theme-less or infix-less
 VerbRootCilIli(1) VZero VerbRootCilIli(2):  ThE 
@@ -575,10 +575,10 @@ VerbRootSpitOldPres(1) VZero VerbRootSpitOldPres(2): ImpPl
 VerbRootFallPast(1) VZero VerbRootFallPast(2): ImpPl
 VerbRootBite(1) VZero VerbRootBite(2): ImpPl
 VerbRootPlay(1) VZero VerbRootPlay(2): Aor ImpPl
-VerbRootPlay(1) VZero VerbRootPlay(2): ThA Aor ImpPl
+VerbRootPlay(1) VZero VerbRootPlay(2): ThA Aor ImpPl # Dir/LR
 VerbRootStay(1) VZero VerbRootStay(2): ThA Aor ImpPl
-VerbRootSit(1) VZero VerbRootSit(2): ThI Aor ImpPl
-VerbRootSit(1) VZero VerbRootSit(2): ImpPl # Dir/LR
+VerbRootSit(1) VZero VerbRootSit(2): ThI Aor ImpPl # Dir/LR
+VerbRootSit(1) VZero VerbRootSit(2): ImpPl 
 VerbRootEatPast(1) VZero VerbRootEatPast(2): ImpPl
 VerbRootSendPast(1) VZero VerbRootSendPast(2): ImpPl
 
@@ -1314,7 +1314,6 @@ LEXICON  VerbRootHave(2)
 LEXICON VerbRootKnow(2) # Class 30 գիտեմ, has -nal version that's regular
 #Has infinitival form in Kouyoumdjian grammar
 գիտել:գիտ <tv>
-գիտեմ:գիտ <tv>
 
 LEXICON VerbRootExist(2) # Class 31 կամ 
 կամ:կ <iv>
