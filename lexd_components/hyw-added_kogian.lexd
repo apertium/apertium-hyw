@@ -1,5 +1,7 @@
 
 # Words from Kogian dictionary
+#  Fr. S. L. Kogian, Armenian-English Vocabulary. Vienna: Mechitarist Press (1949)
+# http://www.nayiri.com/imagedDictionaryBrowser.jsp?dictionaryId=111&dt=HY_EN
 
 LEXICON AdjReg
 պարսկերէն:պարսկերէն
@@ -800,9 +802,9 @@ LEXICON VerbRootA(2)
 ողբալ:ողբ <iv>
 
 LEXICON VerbRootE(2)
-շաղփաղփել:շաղփաղփ <itv>
-թոթովել:թոթով <itv>
-մտածել:մտած <itv>
+շաղփաղփել:շաղփաղփ <tv>
+թոթովել:թոթով <tv>
+մտածել:մտած <tv>
 անկուշել:անկուշ <tv>
 արտաշնչել:արտաշնչ <tv>
 աքացել:աքաց <tv>

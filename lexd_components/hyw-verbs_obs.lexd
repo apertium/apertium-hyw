@@ -7,6 +7,7 @@ LEXICON VerbRootUv(2)		#Obsolete/Archaic, Class 7 արտահեղուլ
 
 LEXICON VerbRootUc(2)		#Obsolete/Archaic, Class 8 թողուլ
 զեղուլ:զեղ <tv>
+զեղուլ:զեղ <iv>
 թողուլ:թող <tv>
 լեսուլ:լես <tv>
 հեղուլ:հեղ <tv>
@@ -27,6 +28,8 @@ LEXICON VerbRootUcanel(2)		#Obsolete/Archaic, Class 11 ուսուցանել and 
 
 LEXICON VerbRootNulV(2)		#Obsolete/Archaic Class Class 21 երդնուլ
 երդնուլ:երդ <iv>
+երդնուլ:երդ <tv>
+ընթեռնուլ:ընթեռ <iv>
 ընթեռնուլ:ընթեռ <tv>
 
 LEXICON VerbRootNulC(2)		#Obsolete/Archaic Class Class 22 զբօսնուլ
@@ -35,11 +38,13 @@ LEXICON VerbRootNulC(2)		#Obsolete/Archaic Class Class 22 զբօսնուլ
 զգածնուլ:զգած <iv>
 զգեծնուլ:զգեծ <iv?>
 զգենուլ:զգե <iv>
+զգենուլ:զգե <tv>
 զենուլ:զե <tv>
 հեղձնուլ:հեղձ <iv>
 յենուլ:յե <iv>
 ոստնուլ:ոստ <iv>
 պակնուլ:պակ <iv>
 պշնուլ:պշ <tv>
+պշնուլ:պշ <iv>
 ջեռնուլ:ջեռ <iv>
 

@@ -325,6 +325,10 @@ VerbRootSendPres(1) VZero VerbRootSendPres(2): ThI
 VerbRootAppear(1) VZero VerbRootAppear(2): ThI # boyacioglu had defective երեւիլ defective 
 #I think Boyacioglu has an error because the -i- stayed -i- here
 
+# boyaciouglu didnt have indicative կը կարենամ but it can be formed for abstract contexts
+VerbRootCanLong(1) EmptyNasal VZero VerbRootCanLong(2): ThA Pres0 PresAgr  
+VerbRootCanLong(1) EmptyNasal VZero VerbRootCanLong(2): ThA ImpfAgr   
+
 
 PATTERN IndcSubjBaseMonoStem
 #Monosyllabic verbs which take the prefix gu-
@@ -369,8 +373,6 @@ VerbRootExist(1) VZero VerbRootExist(2): ThA ImpfAgr Indc:
 
 PATTERN SubjunctiveIrregular
 #These have an irregular indicative form that lacks prefix
-VerbRootCanLong(1) EmptyNasal VZero VerbRootCanLong(2): ThA Pres0 PresAgr Subj0 
-VerbRootCanLong(1) EmptyNasal VZero VerbRootCanLong(2): ThA ImpfAgr Subj0  
 VerbRootBeLongPres(1) VZero VerbRootBeLongPres(2): ThA Pres0 PresAgr Subj0
 VerbRootBeLongPres(1) VZero VerbRootBeLongPres(2): ThA ImpfAgr Subj0
 VerbRootBeLongPresEastern(1) VZero VerbRootBeLongPresEastern(2): ThE  Pres0 PresAgr Subj0

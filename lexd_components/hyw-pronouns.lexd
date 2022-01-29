@@ -38,7 +38,7 @@ DemonstrativePronounDeterminer (Def|Poss)?
 [որ<prn>:] ([<rel>:]|[<itg>:])   RelativePronounThatInflected ((Def Def?)|Poss)?   # Double Def is because of attributive like որունն է 
 [ով<prn>:] ([<rel>:]|[<itg>:])   RelativePronounWhoInflected ((Def Def?)|Poss)?   # Double Def is because of attributive like որունն է 
 [ուր<prn>:] ([<rel>:]|[<itg>:])   RelativePronounWhereInflected ((Def Def?)|Poss)?   # Double Def is because of attributive like որունն է 
-
+[երբ<prn>:երբ] ([<rel>:]|[<itg>:]) # inflection is in nominal paradigm because takes -van
 
 Quantifier [<prn><qnt>:] CaseRegI? (Def|Poss)? 
 QuestionWords [<prn>:] ([<rel>:]|[<itg>:]) CaseRegI? (Def|Poss)? 

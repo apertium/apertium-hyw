@@ -29,6 +29,7 @@ LEXD_FILES=  \
 	   lexd_components/$(LANG1)-added_bible.lexd \
 	   lexd_components/$(LANG1)-added_kogian.lexd \
 	   lexd_components/$(LANG1)-added_kantsasar.lexd \
+	   lexd_components/$(LANG1)-added_kayayan.lexd \
 	   lexd_components/$(LANG1)-added_wikipedia.lexd
 
 
