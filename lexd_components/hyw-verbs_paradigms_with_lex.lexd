@@ -54,8 +54,8 @@ VerbRootI(1) VZero VerbRootI(2):
 PATTERN CausBase
 VerbStemE ThE 
 VerbStemE ThA? # Dir/LR   to capture variation in theme-less or with mismatched vowel 
-VerbStemI ThE #I'm just changing -i- to -e- directly
-VerbStemI ThA? # Dir/LR   to capture variation in theme-less or with mismatched vowel 
+VerbStemI ThE # Var/hyw I'm just changing -i- to -e- directly
+VerbStemI ThA? # Dir/LR   Var/hyw   to capture variation in theme-less or with mismatched vowel 
 VerbStemA ThA 
 VerbStemA ThE? # Dir/LR   to capture variation in theme-less or with mismatched vowel  
 
@@ -110,7 +110,7 @@ VerbRootEatPres(1) VZero VerbRootEatPres(2):  ThE   # Dir/LR
 #Base of passive is root
 PATTERN PassBase
 VerbStemE 
-VerbStemI 
+VerbStemI  # Var/hyw 
 VerbStemA ThA Aor
 
 CausBase CausPass 
@@ -174,7 +174,7 @@ InchRoot(1) VZero InchRoot(2):
 #Infinitival
 PATTERN Infinitival
 VerbStemE ThE Inf
-VerbStemI ThI Inf
+VerbStemI ThI Inf #  Var/hyw 
 VerbStemA ThA Inf
 
 CausBase CausPres ThE Inf
@@ -183,7 +183,9 @@ CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPre
 CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres ThE Inf
 
 
-PassBase Pass ThI Inf
+PassBase Pass ThI Inf #  Var/hyw 
+PassBase Pass ThE Inf #  Var/hye 
+
 
 InchBase InchNasal ThA Inf
 
@@ -241,9 +243,27 @@ VerbRootSendPres(1) VZero VerbRootSendPres(2): ThI Inf # տանիլ
 VerbRootHave(1) VZero VerbRootHave(2): ThI Inf # ունիլ
 VerbRootKnow(1) VZero VerbRootKnow(2): ThE Inf # գիտել 
 
+PATTERN ImperfConverbHye
+# Imperfective converb for hyw
+VerbStemE   ImpfConv
+VerbStemA   ImpfConv 
+
+CausBase CausPres ThE ImpfConv
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausOrthographicSchwaPres ThE ImpfConv
+CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres ThE ImpfConv
+CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres ThE ImpfConv
+
+
+PassBase Pass ImpfConv
+PassBase Pass  
+
+
+InchBase InchNasal ImpfConv
+
+
 
 PATTERN Indicative
-#Verbs with prefix
+#Verbs with prefix, just for hyw
 :Indc IndcSubjStem Indc:
 #Including irregular monosylabic verbs that take gu-
 :IndcShort IndcSubjBaseMonoStem IndcShort:
@@ -272,7 +292,7 @@ PATTERN IndcSubjBase
 #Base is root till theme vowel
 #Present
 VerbStemE ThE 
-VerbStemI ThI 
+VerbStemI ThI  #  Var/hyw 
 VerbStemA ThA 
 
 CausBase CausPres ThE
@@ -281,7 +301,9 @@ CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPre
 CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres ThE Inf
 
 
-PassBase Pass ThI 
+PassBase Pass ThI  #  Var/hyw 
+PassBase Pass ThE  #  Var/hye 
+
 
 InchBase InchNasal ThA 
 
@@ -398,7 +420,7 @@ VerbRootNulC(1) EmptyNasal VZero VerbRootNulC(2):  ThE ImpfAgr Subj0
 PATTERN Past
 #Past
 VerbStemE ThE Aor PastPrimAgr Indc0
-VerbStemI ThI Aor PastSecAgr Indc0 
+VerbStemI ThI Aor PastSecAgr Indc0 #  Var/hyw 
 VerbStemA ThA Aor PastPrimAgr Indc0 
 
 CausBase CausPast Aor PastPrimAgr Indc0
@@ -406,7 +428,8 @@ CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPast Aor PastPrimA
 CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPast Aor PastPrimAgr Indc0
 
 
-PassBase Pass ThI Aor PastSecAgr Indc0
+PassBase Pass ThI Aor PastSecAgr Indc0 #  Var/hyw 
+PassBase Pass ThE Aor PastSecAgr Indc0 #  Var/hye 
 
 InchBase InchEmpty Aor PastSecAgr Indc0
 
@@ -462,12 +485,14 @@ PATTERN Imperative
 #Optionality is handled via Dir/LR
 #Imperatives sg
 VerbStemE ThE ImpSg
-VerbStemI ThI ImpSg # Dir/LR
-VerbStemI ImpSgIR
+VerbStemI ThI ImpSg # Dir/LR   Var/hyw 
+VerbStemI ImpSgIR #  Var/hyw 
 VerbStemA ThA ImpSg 
 
-PassBase Pass ThI ImpSg # Dir/LR
-PassBase Pass ImpSgIR
+PassBase Pass ThI ImpSg # Dir/LR    Var/hyw 
+PassBase Pass ImpSgIR  #  Var/hyw 
+PassBase Pass ThE ImpSg #  Var/hye 
+
 
 CausBase CausPast ImpSgR
 CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPast ImpSgR
@@ -531,14 +556,15 @@ VerbRootSendPast(1) VZero VerbRootSendPast(2): ImpSgInternalMark
 
 #Imperatives pl
 VerbStemE ThE Aor ImpPl
-VerbStemI ThI Aor ImpPl
+VerbStemI ThI Aor ImpPl #  Var/hyw 
 VerbStemA ThA Aor ImpPl
 
 CausBase CausPast Aor ImpPl
 CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPast Aor ImpPl
 CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPast Aor ImpPl
 
-PassBase Pass ThI Aor ImpPl
+PassBase Pass ThI Aor ImpPl #  Var/hyw 
+PassBase Pass ThE Aor ImpPl #  Var/hye 
 
 InchBase InchEmpty Aor ImpPl
 
@@ -585,9 +611,9 @@ VerbRootEatPast(1) VZero VerbRootEatPast(2): ImpPl
 VerbRootSendPast(1) VZero VerbRootSendPast(2): ImpPl
 
 PATTERN Prohibitive
-#Prohibitives
+#Prohibitives, just for hyw 
 VerbStemE ThE [<proh>:] ProhAgr
-VerbStemI ThI [<proh>:] ProhAgr
+VerbStemI ThI [<proh>:] ProhAgr 
 VerbStemA ThA [<proh>:] ProhAgr
 
 CausBase CausPres ThE [<proh>:] ProhAgr
@@ -596,7 +622,8 @@ CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPre
 CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres  ThE [<proh>:] ProhAgr
 
 
-PassBase Pass ThI [<proh>:] ProhAgr
+PassBase Pass ThI [<proh>:] ProhAgr  
+PassBase Pass ThE [<proh>:] ProhAgr  
 
 InchBase InchNasal ThA [<proh>:] ProhAgr
 
@@ -643,7 +670,7 @@ VerbRootSendPres(1) VZero VerbRootSendPres(2): ThI [<proh>:] ProhAgr
 PATTERN SubjectPart
 #Subject participle
 VerbStemE SubjPart
-VerbStemI SubjPart
+VerbStemI SubjPart # Var/hyw
 VerbStemA ThA Aor SubjPart
 
 CausBase CausPres SubjPart
@@ -698,9 +725,9 @@ VerbRootEatPres(1) VZero VerbRootEatPres(2): SubjPart
 VerbRootSendPres(1) VZero VerbRootSendPres(2): SubjPart
 
 PATTERN PerfectPart
-#Perfect participle
+#Perfect participle -- technically resultative
 VerbStemE PerfPart
-VerbStemI PerfPart
+VerbStemI PerfPart  # Var/hyw
 VerbStemA ThA Aor PerfPart
 
 CausBase CausPast Aor PerfPart
@@ -761,7 +788,7 @@ VerbRootEatPast(1) VZero VerbRootEatPast(2): PerfPart
 VerbRootSendPast(1) VZero VerbRootSendPast(2): PerfPart
 
 PATTERN EvidentialPart
-#Evidential participle
+#Evidential participle, hyw only
 VerbStemE EvidPart
 VerbStemI EvidPart
 VerbStemA ThA Aor EvidPart
@@ -814,7 +841,7 @@ VerbRootEatPast(1) VZero VerbRootEatPast(2): EvidPart
 VerbRootSendPast(1) VZero VerbRootSendPast(2): EvidPart
 
 PATTERN NegativePart
-#Negative participle
+#Negative participle, hyw only
 #Indicatives (negative)
 VerbStemE ThE Pres0|PastImpf0 NegPtcp 
 VerbStemI ThI Pres0 NegPtcp 
@@ -910,26 +937,26 @@ PATTERN NegatedChunks
 #Bucket
 PATTERNS
 Infinitival
-Indicative 
+Indicative  # Var/hyw
 Subjunctive 
 Past 
 Imperative 
-Proh [:\ ] Prohibitive # Dir/LR   have to push this to dir/lr so that paradigm generation works
-Prohibitive 
+Proh [:\ ] Prohibitive # Dir/LR  Var/hyw   have to push this to dir/lr so that paradigm generation works
+Prohibitive  # Var/hyw 
 SubjectPart
 PerfectPart 
-EvidentialPart 
+EvidentialPart  # Var/hyw 
 ProspectivePart 
 FuturePart 
-NegativePart
-:Neg NegativePart Neg: # Dir/LR because sometimes see reduction of 3SG չի/չ՚
+NegativePart # Var/hyw 
+:Neg NegativePart Neg: # Dir/LR Var/hyw  because sometimes see reduction of 3SG չի/չ՚
 NegatedChunks 
 
+ImperfConverbHye # Var/hye
+
 #Auxiliary 
-Aux Pres0 PresAgr Indc0
-:Neg Aux  Pres0 PresAgr Indc0 Neg:
-Aux ImpfAgr Indc0
-:Neg Aux  ImpfAgr Indc0 Neg:
+Aux 
+:Neg Aux Neg:
 
 #the special ci- auxiliary in negated present indicdative 3sg
 SyntheticNegAux3SGI
@@ -955,7 +982,19 @@ IndcShort
 #####################
 
 LEXICON Aux # Class 32
-է<vaux>:ե
+է<vaux><pres><p1><sg>:եմ
+է<vaux><pres><p2><sg>:ես
+է<vaux><pres><p3><sg>:է
+է<vaux><pres><p1><pl>:ենք 
+է<vaux><pres><p2><pl>:էք # Var/hyw
+է<vaux><pres><p2><pl>:եք # Var/hye
+է<vaux><pres><p3><pl>:են
+է<vaux><past><impf><p1><sg>:էի
+է<vaux><past><impf><p2><sg>:էիր
+է<vaux><past><impf><p3><sg>:էր
+է<vaux><past><impf><p1><pl>:էինք
+է<vaux><past><impf><p2><pl>:էիք
+է<vaux><past><impf><p3><pl>:էին
 
 LEXICON SyntheticNegAux3SGI 
 <synth_vaux><pres><p3><sg><neg>:չի
@@ -999,7 +1038,12 @@ LEXICON CausPres
 <caus>:ցըն # Dir/LR in case theres orthographic variation for some causative
 
 LEXICON CausPast
+#This is just for hyw
 <caus>:ցու
+LEXICON CausPastHye
+#This is just for hye
+<caus>:ցր
+
 
 LEXICON CausPass
 <caus>:ց
@@ -1017,8 +1061,10 @@ LEXICON CausOrthographicAffrPass
 <caus>:ձ
 
 LEXICON Pass
-<pass>:ու
-<pass>:ւ # Dir/LR older orthographies had passive as just ւ
+<pass>:ու # Var/hyw
+<pass>:ւ # Dir/LR  Var/hyw older orthographies had passive as just ւ
+<pass>:վ # Var/hye
+
 
 LEXICON InchNasal
 <inch>:ն
@@ -1071,9 +1117,11 @@ LEXICON PastPrimAgr
 <past><pret><p3><pl>:ին
 
 LEXICON PastSecAgr
-<past><pret><p1><sg>:այ
+<past><pret><p1><sg>:այ   # Var/hyw
+<past><pret><p1><sg>:ա   # Var/hye
 <past><pret><p2><sg>:ար
-<past><pret><p3><sg>:աւ
+<past><pret><p3><sg>:աւ # Var/hyw
+<past><pret><p3><sg>:ավ # Var/hye
 <past><pret><p1><pl>:անք
 <past><pret><p2><pl>:աք
 <past><pret><p3><pl>:ան
@@ -1112,7 +1160,8 @@ LEXICON ImpSgInternalMark #Mark is added at end of verb; will later metathesize
 
  
 LEXICON ImpPl
-<imp><p2><pl>:էք # had ՛
+<imp><p2><pl>:էք #  Var/hyw had ՛ 
+<imp><p2><pl>:եք #  Var/hye
 
 LEXICON ProhAgr
 <p2><sg>:ր
@@ -1161,9 +1210,8 @@ LEXICON EvidPart
 <evid>:եր
 
 
-
-
-
+LEXICON ImpfConv
+<impf_cvb>:ում
 
 
 
