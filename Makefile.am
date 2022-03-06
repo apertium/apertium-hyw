@@ -158,7 +158,7 @@ $(LANG1).autopgen.bin: $(BASENAME).post-$(LANG1).dix
 .deps/$(LANG1VAR1).RL.lexd: .deps/$(LANG1VAR1).lexd .deps/.d
 	cat $< | grep -v 'Dir/LR' > $@
 
-.deps/$(LANG1VAR1).LR.lexd:.deps/$(LANG1VAR1).lexd .deps/.d
+.deps/$(LANG1VAR1).LR.lexd: .deps/$(LANG1VAR1).lexd .deps/.d
 	cat $< | grep -v 'Dir/RL' > $@
 
 .deps/$(LANG1VAR1).RL.lexd.hfst: .deps/$(LANG1VAR1).RL.lexd
@@ -180,17 +180,17 @@ $(LANG1).autopgen.bin: $(BASENAME).post-$(LANG1).dix
 #	lexd $< > .deps/$(LANG1).punct-morf.att
 #	hfst-txt2fst .deps/$(LANG1).punct-morf.att -o $@ -v
 
-#.deps/$(LANG1).RL.lexd-punct.hfst: .deps/$(LANG1).RL.lexd.hfst .deps/$(LANG1).punctuation.hfst
-#	hfst-concatenate -1 $< -2 .deps/$(LANG1).punctuation.hfst -o $@ -v
+.deps/$(LANG1VAR1).RL.lexd-punct.hfst: .deps/$(LANG1VAR1).RL.lexd.hfst .deps/$(LANG1).punctuation.hfst
+	hfst-concatenate -1 $< -2 .deps/$(LANG1).punctuation.hfst -o $@ -v
 
-#.deps/$(LANG1).LR.lexd-punct.hfst: .deps/$(LANG1).LR.lexd.hfst .deps/$(LANG1).punctuation.hfst
-#	hfst-concatenate -1 $< -2 .deps/$(LANG1).punctuation.hfst -o $@ -v
+.deps/$(LANG1VAR1).LR.lexd-punct.hfst: .deps/$(LANG1VAR1).LR.lexd.hfst .deps/$(LANG1).punctuation.hfst
+	hfst-concatenate -1 $< -2 .deps/$(LANG1).punctuation.hfst -o $@ -v
 
-.deps/$(LANG1VAR1).RL.lexd-punct-twol.hfst: .deps/$(LANG1).RL.lexd-punct.hfst .deps/$(LANG1VAR1).twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-punct.hfst -2 .deps/$(LANG1VAR1).twol.hfst -o $@
+.deps/$(LANG1VAR1).RL.lexd-punct-twol.hfst: .deps/$(LANG1VAR1).RL.lexd-punct.hfst .deps/$(LANG1VAR1).twol.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1VAR1).RL.lexd-punct.hfst -2 .deps/$(LANG1VAR1).twol.hfst -o $@
 
-.deps/$(LANG1VAR1).LR.lexd-punct-twol.hfst: .deps/$(LANG1).LR.lexd-punct.hfst .deps/$(LANG1VAR1).twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-punct.hfst -2 .deps/$(LANG1VAR1).twol.hfst -o $@
+.deps/$(LANG1VAR1).LR.lexd-punct-twol.hfst: .deps/$(LANG1VAR1).LR.lexd-punct.hfst .deps/$(LANG1VAR1).twol.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1VAR1).LR.lexd-punct.hfst -2 .deps/$(LANG1VAR1).twol.hfst -o $@
 
 .deps/$(LANG1VAR1).RL.hfst: .deps/$(LANG1VAR1).RL.lexd-punct-twol.hfst .deps/$(LANG1).punct-gen.hfst
 	hfst-compose-intersect -1 .deps/$(LANG1VAR1).RL.lexd-punct-twol.hfst -2 .deps/$(LANG1).punct-gen.hfst -o $@
@@ -236,7 +236,7 @@ $(LANG1VAR1).automorf.bin: $(LANG1VAR1).automorf.att.gz .deps/.d
 .deps/$(LANG1VAR2).RL.lexd: .deps/$(LANG1VAR2).lexd .deps/.d
 	cat $< | grep -v 'Dir/LR' > $@
 
-.deps/$(LANG1VAR2).LR.lexd:.deps/$(LANG1VAR2).lexd .deps/.d
+.deps/$(LANG1VAR2).LR.lexd: .deps/$(LANG1VAR2).lexd .deps/.d
 	cat $< | grep -v 'Dir/RL' > $@
 
 .deps/$(LANG1VAR2).RL.lexd.hfst: .deps/$(LANG1VAR2).RL.lexd
@@ -258,17 +258,17 @@ $(LANG1VAR1).automorf.bin: $(LANG1VAR1).automorf.att.gz .deps/.d
 #	lexd $< > .deps/$(LANG1).punct-morf.att
 #	hfst-txt2fst .deps/$(LANG1).punct-morf.att -o $@ -v
 
-#.deps/$(LANG1).RL.lexd-punct.hfst: .deps/$(LANG1).RL.lexd.hfst .deps/$(LANG1).punctuation.hfst
-#	hfst-concatenate -1 $< -2 .deps/$(LANG1).punctuation.hfst -o $@ -v
+.deps/$(LANG1VAR2).RL.lexd-punct.hfst: .deps/$(LANG1VAR2).RL.lexd.hfst .deps/$(LANG1).punctuation.hfst
+	hfst-concatenate -1 $< -2 .deps/$(LANG1).punctuation.hfst -o $@ -v
 
-#.deps/$(LANG1).LR.lexd-punct.hfst: .deps/$(LANG1).LR.lexd.hfst .deps/$(LANG1).punctuation.hfst
-#	hfst-concatenate -1 $< -2 .deps/$(LANG1).punctuation.hfst -o $@ -v
+.deps/$(LANG1VAR2).LR.lexd-punct.hfst: .deps/$(LANG1VAR2).LR.lexd.hfst .deps/$(LANG1).punctuation.hfst
+	hfst-concatenate -1 $< -2 .deps/$(LANG1).punctuation.hfst -o $@ -v
 
-.deps/$(LANG1VAR2).RL.lexd-punct-twol.hfst: .deps/$(LANG1).RL.lexd-punct.hfst .deps/$(LANG1VAR2).twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).RL.lexd-punct.hfst -2 .deps/$(LANG1VAR2).twol.hfst -o $@
+.deps/$(LANG1VAR2).RL.lexd-punct-twol.hfst: .deps/$(LANG1VAR2).RL.lexd-punct.hfst .deps/$(LANG1VAR2).twol.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1VAR2).RL.lexd-punct.hfst -2 .deps/$(LANG1VAR2).twol.hfst -o $@
 
-.deps/$(LANG1VAR2).LR.lexd-punct-twol.hfst: .deps/$(LANG1).LR.lexd-punct.hfst .deps/$(LANG1VAR2).twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1).LR.lexd-punct.hfst -2 .deps/$(LANG1VAR2).twol.hfst -o $@
+.deps/$(LANG1VAR2).LR.lexd-punct-twol.hfst: .deps/$(LANG1VAR2).LR.lexd-punct.hfst .deps/$(LANG1VAR2).twol.hfst
+	hfst-compose-intersect -1 .deps/$(LANG1VAR2).LR.lexd-punct.hfst -2 .deps/$(LANG1VAR2).twol.hfst -o $@
 
 .deps/$(LANG1VAR2).RL.hfst: .deps/$(LANG1VAR2).RL.lexd-punct-twol.hfst .deps/$(LANG1).punct-gen.hfst
 	hfst-compose-intersect -1 .deps/$(LANG1VAR2).RL.lexd-punct-twol.hfst -2 .deps/$(LANG1).punct-gen.hfst -o $@
