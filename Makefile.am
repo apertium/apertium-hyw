@@ -143,11 +143,11 @@ $(LANG1).autopgen.bin: $(BASENAME).post-$(LANG1).dix
 ###############################################################################
 ## hyw transducer
 ###############################################################################
-.deps/$(LANG1VAR1).lexd: $(BASENAME).$(LANG1).lexd
-	grep -v "Var/$(VAR2)" $^ > $@
+.deps/$(LANG1VAR1).lexd: $(BASENAME).$(LANG1).lexd .deps/.d
+	cat $< | grep -v 'Var/$(VAR2)' > $@
 
-.deps/$(LANG1VAR1).twol: $(BASENAME).$(LANG1).twol
-	grep -v "Var/$(VAR2)" $^ > $@
+.deps/$(LANG1VAR1).twol: $(BASENAME).$(LANG1).twol .deps/.d
+	cat $< | grep -v 'Var/$(VAR2)' > $@
 
 .deps/$(LANG1VAR1).twol.hfst: .deps/$(LANG1VAR1).twol .deps/.d
 	hfst-twolc $< -o $@
@@ -221,11 +221,11 @@ $(LANG1VAR1).automorf.bin: $(LANG1VAR1).automorf.att.gz .deps/.d
 ###############################################################################
 ## hye transducer
 ###############################################################################
-.deps/$(LANG1VAR2).lexd: $(BASENAME).$(LANG1).lexd
-	grep -v "Var/$(VAR1)" $^ > $@
+.deps/$(LANG1VAR2).lexd: $(BASENAME).$(LANG1).lexd .deps/.d
+	cat $< | grep -v 'Var/$(VAR1)' > $@
 
-.deps/$(LANG1VAR2).twol: $(BASENAME).$(LANG1).twol
-	grep -v "Var/$(VAR1)" $^ > $@
+.deps/$(LANG1VAR2).twol: $(BASENAME).$(LANG1).twol .deps/.d
+	cat $< | grep -v 'Var/$(VAR1)' > $@
 
 .deps/$(LANG1VAR2).twol.hfst: .deps/$(LANG1VAR2).twol .deps/.d
 	hfst-twolc $< -o $@
