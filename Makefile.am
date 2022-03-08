@@ -1,8 +1,8 @@
 ###############################################################################
-## Makefile for apertium-hyw
+## Makefile for apertium-hyx
 ###############################################################################
 
-LANG1=hyw
+LANG1=hyx
 VAR1=hyw
 VAR2=hye
 LANG1VAR1=$(LANG1)@$(VAR1)
@@ -63,7 +63,7 @@ TARGETS_COMMON =			\
 @ap_include@
 
 ###############################################################################
-## hyw transducer
+## hyx transducer
 ###############################################################################
 $(BASENAME).$(LANG1).lexd: $(LEXD_FILES)
 	cat $^ > $@
@@ -141,7 +141,7 @@ $(LANG1).autopgen.bin: $(BASENAME).post-$(LANG1).dix
 	lt-comp lr $< $@
 
 ###############################################################################
-## hyw transducer
+## hyx transducer
 ###############################################################################
 .deps/$(LANG1VAR1).lexd: $(BASENAME).$(LANG1).lexd .deps/.d
 	cat $< | grep -v 'Var/$(VAR2)' > $@
@@ -360,11 +360,11 @@ EXTRA_DIST=$(BASENAME).$(LANG1).lexd		\
 ## Installation stuff
 ###############################################################################
 #
-#   apertium_hyw_dir: This is where the compiled binaries go
-#   apertium_hyw_srcdir: This is where the source files go
+#   apertium_hyx_dir: This is where the compiled binaries go
+#   apertium_hyx_srcdir: This is where the source files go
 
-apertium_hywdir=$(prefix)/share/apertium/$(BASENAME)/
-apertium_hyw_srcdir=$(prefix)/share/apertium/$(BASENAME)/
+apertium_hyxdir=$(prefix)/share/apertium/$(BASENAME)/
+apertium_hyx_srcdir=$(prefix)/share/apertium/$(BASENAME)/
 
 EXTRA_TARGETS=
 
@@ -372,7 +372,11 @@ if HAVE_HFSTOSPELL
 EXTRA_TARGETS += $(LANG1).zhfst
 endif # HAVE_HFSTOSPELL
 
-apertium_hyw_DATA=$(TARGETS_COMMON) $(EXTRA_TARGETS)
+apertium_hyx_DATA=$(TARGETS_COMMON) $(EXTRA_TARGETS) \
+					$(BASENAME).$(LANG1).lexd \
+					$(BASENAME).$(LANG1).twol \
+					$(BASENAME).$(LANG1).rlx \
+					$(BASENAME).post-$(LANG1).dix
 
 pkgconfigdir = $(prefix)/share/pkgconfig
 pkgconfig_DATA = $(BASENAME).pc
@@ -380,10 +384,7 @@ pkgconfig_DATA = $(BASENAME).pc
 noinst_DATA=modes/$(LANG1)-morph.mode
 
 install-data-local: install-modes
-	$(INSTALL_DATA) $(BASENAME).$(LANG1).lexd $(DESTDIR)$(apertium_hyw_srcdir)
-	$(INSTALL_DATA) $(BASENAME).$(LANG1).twol $(DESTDIR)$(apertium_hyw_srcdir)
-	$(INSTALL_DATA) $(BASENAME).$(LANG1).rlx $(DESTDIR)$(apertium_hyw_srcdir)
-	$(INSTALL_DATA) $(BASENAME).post-$(LANG1).dix $(DESTDIR)$(apertium_hyw_srcdir)
+uninstal-local: uninstall-modes
 
 ###############################################################################
 ## Cleanup

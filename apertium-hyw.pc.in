@@ -1,8 +1,0 @@
-prefix=@prefix@
-exec_prefix=${prefix}
-srcdir=@datarootdir@/apertium/apertium-hyw
-
-Name: apertium-hyw
-Description: Finite-state morphological transducer and constraint grammar for hyw
-Version: @VERSION@
-

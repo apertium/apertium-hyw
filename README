@@ -1,12 +1,12 @@
-hyw: `apertium-hyw`
+hyx: `apertium-hyx`
 ===============================================================================
 
-This is an Apertium monolingual language package for hyw. What
+This is an Apertium monolingual language package for Armenian. What
 you can use this language package for:
 
-* Morphological analysis of hyw
-* Morphological generation of hyw
-* Part-of-speech tagging of hyw
+* Morphological analysis of Armenian
+* Morphological generation of Armenian
+* Part-of-speech tagging of Armenian
 
 Requirements
 -------------------------------------------------------------------------------
@@ -54,26 +54,26 @@ If you are in the source directory after running make, the following
 commands should work:
 
 ```console
-$ echo "TODO: test sentence" | apertium -d . hyw-morph
+$ echo "TODO: test sentence" | apertium -d . hyx-morph
 TODO: test analysis result
 
-$ echo "TODO: test sentence" | apertium -d . hyw-tagger
+$ echo "TODO: test sentence" | apertium -d . hyx-tagger
 TODO: test tagger result
 ```
 
 Files and data
 -------------------------------------------------------------------------------
 
-* [`apertium-hyw.hyw.twol`](apertium-hyw.hyw.twol) - Morphophonological rules
-* [`apertium-hyw.hyw.rlx`](apertium-hyw.hyw.rlx) - Constraint Grammar disambiguation rules
-* [`apertium-hyw.post-hyw.dix`](apertium-hyw.post-hyw.dix) - Post-generator
+* [`apertium-hyx.hyx.twol`](apertium-hyx.hyx.twol) - Morphophonological rules
+* [`apertium-hyx.hyx.rlx`](apertium-hyx.hyx.rlx) - Constraint Grammar disambiguation rules
+* [`apertium-hyx.post-hyx.dix`](apertium-hyx.post-hyx.dix) - Post-generator
 * [`modes.xml`](modes.xml) - Translation modes
 
 For more information
 -------------------------------------------------------------------------------
 
 * https://wiki.apertium.org/wiki/Installation
-* https://wiki.apertium.org/wiki/apertium-hyw
+* https://wiki.apertium.org/wiki/apertium-hyx
 * https://wiki.apertium.org/wiki/Using_an_lttoolbox_dictionary
 
 Help and support

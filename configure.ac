@@ -1,6 +1,6 @@
 AC_PREREQ(2.52)
 
-AC_INIT([Apertium hyw], [0.1.0], [hovdeov@gmail.com], [apertium-hyw], [https://wiki.apertium.org/wiki/Apertium-hyw])
+AC_INIT([Apertium hyx], [0.1.0], [hovdeov@gmail.com], [apertium-hyx], [https://wiki.apertium.org/wiki/Apertium-hyx])
 AM_INIT_AUTOMAKE
 AC_PROG_AWK
 
@@ -28,4 +28,4 @@ PKG_CHECK_MODULES(REGTEST, apertium-regtest >= 0.0.1, [],
 
 AP_MKINCLUDE
 
-AC_OUTPUT([Makefile apertium-hyw.pc])
+AC_OUTPUT([Makefile apertium-hyx.pc])
