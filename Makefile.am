@@ -141,7 +141,7 @@ $(LANG1).autopgen.bin: $(BASENAME).post-$(LANG1).dix
 	lt-comp lr $< $@
 
 ###############################################################################
-## hyx transducer
+## hyw transducer
 ###############################################################################
 .deps/$(LANG1VAR1).lexd: $(BASENAME).$(LANG1).lexd .deps/.d
 	cat $< | grep -v 'Var/$(VAR2)' > $@
