@@ -40,7 +40,7 @@ Alphabet
 %{ThAյ%}:0
 %{լ%}:լ
 
-%{ProhPl%}:0 %{ImpSg%}:0 %{Aor%}:0 %{Impf%}:0 %{Pres3SG%}:0 %{Pres2PL%}:0
+%{ProhPl%}:0 %{ImpSg%}:0 %{Aor%}:0 %{Impf%}:0 %{Pres3SG%}:0 %{Pres2PL%}:0 %{NegPtcpHye%}:0
 
 %{PossPlի%}:ի  ! The plural possessive generally surfaces with ի unless before a vowel
 
@@ -73,16 +73,20 @@ Cons = բ գ դ զ թ ժ  լ խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ ս վ 
 !Noun-infl boundaries
 GeneralNInflBoundary = %{Ninfl%} %{NinflRed%} ;
 
-!Summary of contexts ե theme vowel becomes է    
+!Summary of contexts ե theme vowel becomes է     in Hyw
 JeToE = %{ProhPl%} %{Pres3SG%} %{ImpSg%} %{Impf%}  %{Pres2PL%}
 ;
 
-! Some  contexts where ի theme vowel becomes է   
+!Summary of contexts ե theme vowel becomes ի     in Hye
+JeToI =   %{Pres3SG%} %{ImpSg%}  %{NegPtcpHye%}
+;
+
+! Some  contexts where ի theme vowel becomes է  (ի only in hyw) 
 IToE = %{ImpSg%} %{Impf%} 
 ;
 
 
-! Some   contexts where ի theme vowel becomes ե   
+! Some   contexts where ի theme vowel becomes ե  (ի only in hyw)   
 IToJe = %{Aor%}
 ;
 
@@ -143,10 +147,15 @@ Rules
 "theme vowel /իIToE/ to [է]"
 ի:է  <=>   _  0:* IToE: ;
 
-!!In many contexts, the  ե theme vowel becomes է
+!!In many contexts, the  ե theme vowel becomes է in hyw
 ! These contexts  are part of JeToE
-"theme vowel /ե{JeToE}/ to [է]"
-ե:է  <=>   _ 0:* JeToE: ;
+"theme vowel /ե{JeToE}/ to [է] in hyw"
+ե:է  <=>   _ 0:* JeToE: ;   #  Var/hyw
+
+!!In many contexts, the  ե theme vowel becomes ի in in hye
+"theme vowel /ե{JeToI}/ to [ի] in hye"
+ե:ի  <=>   _ 0:* JeToI: ;   # Var/hye
+
 
 
 !In some contexts, the ի theme vowel becomes ե

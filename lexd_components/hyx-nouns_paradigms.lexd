@@ -146,7 +146,7 @@ ParticipleInflectable SubstZero NouNinflBoundary
 (:Neg ParticipleInflectable Neg:) SubstZero NouNinflBoundary
 
 PATTERN ParticipleInflectable
-PerfectPart
+ResultPart
 SubjectPart
 ProspectivePart
 
