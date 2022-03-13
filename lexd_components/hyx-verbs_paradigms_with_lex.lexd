@@ -46,10 +46,13 @@ PATTERNS
 Infinitival
 Indicative  # Var/hyw
 Subjunctive 
+ImperfConverbHye # Var/hye
+ConditionalHye
 Past 
 Imperative 
 # Proh [:\ ] Prohibitive # Dir/LR  Var/hyw   have to push this to dir/lr so that paradigm generation works
 Prohibitive  # Var/hyw 
+ProhibitiveHye # Var/hye
 SubjectPart
 ResultPart
 PerfectPartHye  # Var/hye
@@ -63,7 +66,6 @@ NegativePartHye # Var/hye
 
 NegatedChunks 
 
-ImperfConverbHye # Var/hye
 
 #Auxiliary 
 Aux 
@@ -105,6 +107,7 @@ VerbStemA ThA
 VerbStemA ThE? # Dir/LR   to capture variation in theme-less or with mismatched vowel  
 
 InchBase InchEmpty  #<inch> marked by either covert or overt -n-
+InchBaseWashHye InchEmpty # Var/hye
 
 #This is for lexically listed causatives
 #Lexical causatives take their own special valency tag. Might need to change this later if 
@@ -115,20 +118,22 @@ CausativeVerbRoot VZero [<caus_listed>:]
 
 #Irregulars
 
-#Irregulars
+#Irregulars infixed i-theme
 VerbRootNil(1)   VZero VerbRootNil(2):    ThE  # անցնիլ group from Boyacioglu
 VerbRootNil(1)   VZero VerbRootNil(2): (EmptyNasal  ThE)?  # Dir/LR   to capture variation in theme-less or infix-less
 # VerbRootCilV(1)|VerbRootCilC(1)   VZero VerbRootCilV(2):|VerbRootCilC(2):     # կպչիլ group from Boyacioglu
+VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2):  ThE  		#դպչիլ դպիլ 
+VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): (EmptyAffr ThE)? # Dir/LR   to capture variation in theme-less or infix-less
+VerbRootCilIli(1) VZero VerbRootCilIli(2):  ThE 
+VerbRootCilIli(1) VZero VerbRootCilIli(2): (EmptyAffr ThE)? # Dir/LR   to capture variation in theme-less or infix-less
+
+#Irregular infixed non-i-theme
 VerbRootCel(1)   VZero VerbRootCel(2):    ThE # թռչել not in Boyacioglu
 VerbRootCel(1)   VZero VerbRootCel(2): (EmptyAffr ThE)? # Dir/LR   to capture variation in theme-less or infix-less
 VerbRootNelNale(1)  VZero VerbRootNelNale(2):  ThE  #իջնել իջնալ
 VerbRootNelNale(1)  VZero VerbRootNelNale(2): (EmptyNasal ThE)? # Dir/LR   to capture variation in theme-less or infix-less
 VerbRootNelNala(1)   VZero VerbRootNelNala(2):   ThA 
 VerbRootNelNala(1)  VZero VerbRootNelNala(2): (EmptyNasal ThA)? # Dir/LR   to capture variation in theme-less or infix-less
-VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2):  ThE  		#դպչիլ դպիլ 
-VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): (EmptyAffr ThE)? # Dir/LR   to capture variation in theme-less or infix-less
-VerbRootCilIli(1) VZero VerbRootCilIli(2):  ThE 
-VerbRootCilIli(1) VZero VerbRootCilIli(2): (EmptyAffr ThE)? # Dir/LR   to capture variation in theme-less or infix-less
 
 
 VerbRootCry(1) VZero VerbRootCry(2): ThA   # լալ
@@ -172,20 +177,21 @@ PassiveVerbRoot VZero [<pass_listed>:]
 
 #Should I care that this will rarely be traversed? TO DO
 InchBase InchEmpty Aor 
-  
+InchBaseWashHye InchEmpty Aor # Var/hye
+
 #Passives of irregular or suppletive verbs
 VerbRootNil(1) EmptyNasal VZero VerbRootNil(2):  # անցնիլ group from Boyacioglu
 VerbRootNil(1) VZero VerbRootNil(2):  # Dir/LR to capture variation in infix-drop
 # VerbRootCilV(1)|VerbRootCilC(1) EmptyAffr VZero VerbRootCilV(2):|VerbRootCilC(2): # կպչիլ group from Boyacioglu
+VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): 		#դպչիլ դպիլ 
+VerbRootCilIlc(1) VZero VerbRootCilIlc(2):  # Dir/LR to capture variation in infix-drop
+VerbRootCilIli(1) VZero VerbRootCilIli(2): 
 VerbRootCel(1) EmptyAffr VZero VerbRootCel(2):  # թռչել not in Boyacioglu
 VerbRootCel(1) 		 	VZero VerbRootCel(2):  # Dir/LR to capture variation in infix-drop
 VerbRootNelNale(1) EmptyNasal VZero VerbRootNelNale(2):  #իջնել իջնալ
 VerbRootNelNale(1)  VZero VerbRootNelNale(2):  # Dir/LR to capture variation in infix-drop
 VerbRootNelNala(1) EmptyNasal VZero VerbRootNelNala(2): 
 VerbRootNelNala(1)  VZero VerbRootNelNala(2):  # Dir/LR to capture variation in infix-drop
-VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): 		#դպչիլ դպիլ 
-VerbRootCilIlc(1) VZero VerbRootCilIlc(2):  # Dir/LR to capture variation in infix-drop
-VerbRootCilIli(1) VZero VerbRootCilIli(2): 
 
 VerbRootGivePast(1) VZero VerbRootGivePast(2):  # տալ
 VerbRootBring(1) VZero VerbRootBring(2):   # բերել
@@ -216,6 +222,9 @@ InchRoot(1) VZero InchRoot(2):
 # InchRootThA(1) ThA VZero InchRootThA(2):
 # InchRootThE(1) ThE VZero InchRootThE(2):
 
+PATTERN InchBaseWashHye
+InchRootWash(1) VZero InchRoot(2): 
+
 #Infinitival
 PATTERN Infinitival
 VerbStemE ThE Inf
@@ -233,6 +242,7 @@ PassBase Pass ThE Inf #  Var/hye
 
 
 InchBase InchNasal ThA Inf
+InchBaseWashHye InchNasal ThA Inf # Var/hye
 
 #Archaic/obsolete
 VerbRootUv(1) VZero VerbRootUv(2): ThU Inf # արտահեղուլ 
@@ -244,13 +254,13 @@ VerbRootNulC(1) EmptyNasal VZero VerbRootNulC(2): ThU Inf # զբօսնուլ
 #Irregulars
 VerbRootNil(1) EmptyNasal VZero VerbRootNil(2): ThI Inf # անցնիլ group from Boyacioglu
 # VerbRootCilV(1)|VerbRootCilC(1) EmptyAffr VZero VerbRootCilV(2):|VerbRootCilC(2): ThI Inf # կպչիլ group from Boyacioglu
+VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): ThI Inf 		#դպչիլ դպիլ 
+VerbRootCilIli(1) VZero VerbRootCilIli(2): ThI Inf 		 
 VerbRootCel(1) EmptyAffr VZero VerbRootCel(2): ThE Inf # թռչել not in Boyacioglu
 VerbRootNelNale(1) EmptyNasal VZero VerbRootNelNale(2): ThE Inf #իջնել իջնալ
 VerbRootNelNala(1) EmptyNasal VZero VerbRootNelNala(2): ThA Inf 
 VerbRootRiseEPres(1) VZero VerbRootRiseEPres(2): ThE Inf #ելլել ելլալ
 VerbRootRiseAPres(1) VZero VerbRootRiseAPres(2): ThA Inf 
-VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): ThI Inf 		#դպչիլ դպիլ 
-VerbRootCilIli(1) VZero VerbRootCilIli(2): ThI Inf 		 
 
 VerbRootCanLong(1) EmptyNasal VZero VerbRootCanLong(2): ThA Inf #կարենալ, not կրնալ
 VerbRootCanShort(1) EmptyNasal VZero VerbRootCanLong(2): ThA Inf #Dir/LR կրնալ, exists in rare speech as inflected forms չկրնալով
@@ -300,10 +310,10 @@ CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAf
 
 
 PassBase Pass ImpfConvSuffix
-PassBase Pass  
 
 
 InchBase InchNasal ImpfConvSuffix
+InchBaseWashHye InchNasal ImpfConvSuffix # Var/hye
 
 
 
@@ -355,6 +365,7 @@ PassBase Pass ThE  #  Var/hye
 
 
 InchBase InchNasal ThA 
+InchBaseWashHye InchNasal ThA # Var/hye
 
 
 VerbRootUv(1) VZero VerbRootUv(2): ThU	#Unclear which one is preferred because archaic
@@ -362,13 +373,13 @@ VerbRootUv(1) VZero VerbRootUv(2): ThE
 VerbRootUcanel(1) VZero VerbRootUcanel(2): ThA EmptyNasal ThE  # Dir/LR
 
 VerbRootNil(1) EmptyNasal VZero VerbRootNil(2): ThI 
+VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): ThI 
+VerbRootCilIli(1) VZero VerbRootCilIli(2): ThI 
+VerbRootCel(1) EmptyAffr VZero VerbRootCel(2): ThE    
 VerbRootNelNale(1) EmptyNasal VZero VerbRootNelNale(2): ThE
 VerbRootNelNala(1) EmptyNasal VZero VerbRootNelNala(2): ThA
 VerbRootRiseEPres(1) VZero VerbRootRiseEPres(2): ThE
 VerbRootRiseAPres(1) VZero VerbRootRiseAPres(2): ThA
-VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): ThI 
-VerbRootCilIli(1) VZero VerbRootCilIli(2): ThI 
-VerbRootCel(1) EmptyAffr VZero VerbRootCel(2): ThE    
 VerbRootBeLongPres(1) VZero VerbRootBeLongPres(2): ThA 
 VerbRootBeLongPresEastern(1) VZero VerbRootBeLongPresEastern(2): ThE
 VerbRootBring(1) VZero VerbRootBring(2): ThE
@@ -473,15 +484,29 @@ VerbStemE PastAgrGoNo3Sg Indc0 # Dir/LR Var/hye    for optional գրինք
 VerbStemI ThI Aor PastSecAgr Indc0 #  Var/hyw 
 VerbStemA ThA Aor PastPrimAgr Indc0 
 
-CausBase CausPast Aor PastPrimAgr Indc0
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPast Aor PastPrimAgr Indc0
-CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPast Aor PastPrimAgr Indc0
+CausBase CausPastHyw Aor PastPrimAgr Indc0 # Var/hyw
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHyw Aor PastPrimAgr Indc0  # Var/hyw
+CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPastHyw Aor PastPrimAgr Indc0  # Var/hyw
+
+CausBase CausPastHye PastAgrGoNo3Sg Indc0 # Var/hye
+CausBase CausPastHye ThE Aor PastAgrGoYes3Sg Indc0 # Var/hye
+CausBase CausPastHye ThE Aor PastAgrGoNo3Sg Indc0 # Var/hye Dir/LR
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:]  CausPastHye PastAgrGoNo3Sg Indc0 # Var/hye
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:]  CausPastHye ThE Aor PastAgrGoYes3Sg Indc0 # Var/hye
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:]  CausPastHye ThE Aor PastAgrGoNo3Sg Indc0 # Var/hye Dir/LR
+CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPastHye  PastAgrGoNo3Sg Indc0 # Var/hye
+CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPastHye ThE Aor PastAgrGoYes3Sg Indc0 # Var/hye
+CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPastHye ThE Aor PastAgrGoNo3Sg Indc0 # Var/hye Dir/LR
+
 
 
 PassBase Pass ThI Aor PastSecAgr Indc0 #  Var/hyw 
-PassBase Pass ThE Aor PastSecAgr Indc0 #  Var/hye 
+PassBase Pass ThE Aor PastPrimAgr Indc0 #  Var/hye
+PassBase Pass PastAgrGoNo3Sg Indc0 # Dir/LR Var/hye   
+
 
 InchBase InchEmpty Aor PastSecAgr Indc0
+InchBaseWashHye InchEmpty Aor PastPrimAgr Indc0 # Var/hye
 
 
 VerbRootUv(1) VZero VerbRootUv(2): ThU Aor PastPrimAgr Indc0 
@@ -495,10 +520,10 @@ VerbRootNulC(1) EmptyNasal VZero VerbRootNulC(2): ThE Aor PastPrimAgr #Obsolete 
 
 VerbRootNil(1) VZero VerbRootNil(2): PastSecAgr Indc0
 # VerbRootCilV(1)|VerbRootCilC(1) VZero VerbRootCilV(2):|VerbRootCilC(2): PastSecAgr Indc0
+VerbRootCilIlc(1)|VerbRootCilIli(1) VZero VerbRootCilIlc(2):|VerbRootCilIli(2): PastSecAgr Indc0
 VerbRootCel(1) VZero VerbRootCel(2): PastSecAgr Indc0
 VerbRootNelNale(1)|VerbRootNelNala(1) VZero VerbRootNelNale(2):|VerbRootNelNala(2): PastSecAgr Indc0
 VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): PastSecAgr Indc0
-VerbRootCilIlc(1)|VerbRootCilIli(1) VZero VerbRootCilIlc(2):|VerbRootCilIli(2): PastSecAgr Indc0
 VerbRootCanShort(1) VZero VerbRootCanShort(2): Aor PastSecAgr Indc0
 VerbRootBeLongPast(1) VZero VerbRootBeLongPast(2): PastSecAgr Indc0
 VerbRootComePast(1) VZero VerbRootComePast(2): PastSecAgr Indc0
@@ -535,24 +560,30 @@ PATTERN Imperative
 #Optionality is handled via Dir/LR
 #Imperatives sg
 VerbStemE ThE ImpSg  # Var/hyw
-VerbStemE     ImpSgIR  # Var/hye
-VerbStemE ThE ImpSg  # Var/hye Dir/LR
+VerbStemE ImpSgIR  # Var/hye  
 
 VerbStemI ThI ImpSg # Dir/LR   Var/hyw 
 VerbStemI ImpSgIR #  Var/hyw 
+
 VerbStemA ThA ImpSg 
 
 PassBase Pass ThI ImpSg # Dir/LR    Var/hyw 
-PassBase Pass ImpSgIR  #  Var/hyw 
-PassBase Pass ThE ImpSg #  Var/hye 
+PassBase Pass ImpSgIR  
 
 
-CausBase CausPast ImpSgR
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPast ImpSgR
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPast ImpSgR
+CausBase CausPastHyw ImpSgR # Var/hyw
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHyw ImpSgR  # Var/hyw
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHyw ImpSgR  # Var/hyw
 
+CausBase CausPastHye ImpSgU # Var/hye
+CausBase CausPastHye ThA ImpSg # Var/hye Dir/LR
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHye ImpSgU  # Var/hye
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHye ThA ImpSg # Var/hye Dir/LR
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHye ImpSgU  # Var/hye
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHye ThA ImpSg # Var/hye Dir/LR
 
-InchBase InchEmpty Aor ImpSgIR
+InchBase InchEmpty Aor ImpSgIR  
+InchBaseWashHye InchEmpty ThA ImpSg  # Var/hye
 
 VerbRootUv(1)|VerbRootUc(1) VZero VerbRootUv(2):|VerbRootUc(2): ImpSgInternalMark #Unclear which one is preferred because archaic/obsolete
 VerbRootUv(1)|VerbRootUc(1) VZero VerbRootUv(2):|VerbRootUc(2): ThU ImpSgInternalMark
@@ -566,13 +597,13 @@ VerbRootNil(1) VZero VerbRootNil(2): ImpSgIR
 # VerbRootCilC(1) VZero VerbRootCilC(2): ImpSgIR
 # VerbRootCilV(1) VZero VerbRootCilV(2): ThI ImpSg # Dir/LR
 # VerbRootCilV(1) VZero VerbRootCilV(2): ImpSgIR
-VerbRootNelNale(1)|VerbRootNelNala(1) VZero VerbRootNelNale(2):|VerbRootNelNala(2): ImpSgIR
-VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): ImpSg # Dir/LR
-VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): ImpSgIR
 VerbRootCilIlc(1)|VerbRootCilIli(1) VZero VerbRootCilIlc(2):|VerbRootCilIli(2): EmptyAffr? ThI ImpSg # Dir/LR դպչէ was found  in the bible
 VerbRootCilIlc(1)|VerbRootCilIli(1) VZero VerbRootCilIlc(2):|VerbRootCilIli(2): ImpSgIR
 VerbRootCel(1) VZero VerbRootCel(2): ThI ImpSg # Dir/LR   թռի, not թռէ
 VerbRootCel(1) VZero VerbRootCel(2): ImpSgIR
+VerbRootNelNale(1)|VerbRootNelNala(1) VZero VerbRootNelNale(2):|VerbRootNelNala(2): ImpSgIR
+VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): ImpSg # Dir/LR
+VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): ImpSgIR
 VerbRootCanShort(1) VZero VerbRootCanShort(2): Aor ImpSgIR
 VerbRootBeLongPast(1) VZero VerbRootBeLongPast(2): ImpSgIR
 VerbRootComePast(1) VZero VerbRootComePast(2): ImpSgUR
@@ -616,14 +647,19 @@ VerbStemE ThE Aor ImpPl # Var/hye Dir/LR
 VerbStemI ThI Aor ImpPl #  Var/hyw 
 VerbStemA ThA Aor ImpPl
 
-CausBase CausPast Aor ImpPl
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPast Aor ImpPl
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPast Aor ImpPl
+CausBase CausPastHyw Aor ImpPl # Var/hyw
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHyw Aor ImpPl # Var/hyw
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHyw Aor ImpPl # Var/hyw
+
+CausBase CausPastHye ImpPl # Var/hye
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHye ImpPl # Var/hye
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHye ImpPl # Var/hye
 
 PassBase Pass ThI Aor ImpPl #  Var/hyw 
 PassBase Pass ThE Aor ImpPl #  Var/hye 
 
 InchBase InchEmpty Aor ImpPl
+InchBaseWashHye InchEmpty Aor ImpPl  # Var/hye
 
 
 VerbRootUv(1)|VerbRootUc(1) VZero VerbRootUv(2):|VerbRootUc(2): ImpPl #Unclear which is preferred
@@ -635,10 +671,10 @@ VerbRootNulC(1) EmptyNasal VZero VerbRootNulC(2): ThE Aor ImpPl
 
 VerbRootNil(1) VZero VerbRootNil(2): ImpPl
 # VerbRootCilV(1)|VerbRootCilC(1) VZero VerbRootCilV(2):|VerbRootCilC(2): ImpPl
-VerbRootNelNale(1)|VerbRootNelNala(1) VZero VerbRootNelNale(2):|VerbRootNelNala(2): ImpPl
-VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): ImpPl
 VerbRootCilIlc(1)|VerbRootCilIli(1) VZero VerbRootCilIlc(2):|VerbRootCilIli(2): ImpPl
 VerbRootCel(1) VZero VerbRootCel(2): ImpPl
+VerbRootNelNale(1)|VerbRootNelNala(1) VZero VerbRootNelNale(2):|VerbRootNelNala(2): ImpPl
+VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): ImpPl
 VerbRootCanShort(1) VZero VerbRootCanShort(2): Aor ImpPl
 VerbRootBeLongPast(1) VZero VerbRootBeLongPast(2): ImpPl
 VerbRootComePast(1) VZero VerbRootComePast(2): ImpPl
@@ -667,62 +703,71 @@ VerbRootSit(1) VZero VerbRootSit(2): ImpPl
 VerbRootEatPast(1) VZero VerbRootEatPast(2): ImpPl
 VerbRootSendPast(1) VZero VerbRootSendPast(2): ImpPl
 
+PATTERN ProhibitiveHye
+#some grammars provide a special archaic prohibitive form for some classes
+CausBase CausPres ProhAgrCausHyeOld
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPres ProhAgrCausHyeOld
+CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres  ProhAgrCausHyeOld
+CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres ProhAgrCausHyeOld
+
+InchBaseWashHye InchNasal ThA ProhAgrWashHyeOld   
+
 PATTERN Prohibitive
 #Prohibitives, just for hyw 
-VerbStemE ThE [<proh>:] ProhAgr
-VerbStemI ThI [<proh>:] ProhAgr 
-VerbStemA ThA [<proh>:] ProhAgr
+VerbStemE ThE ProhAgr
+VerbStemI ThI ProhAgr 
+VerbStemA ThA ProhAgr
 
-CausBase CausPres ThE [<proh>:] ProhAgr
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPres ThE [<proh>:] ProhAgr
-CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres  ThE [<proh>:] ProhAgr
-CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres  ThE [<proh>:] ProhAgr
+CausBase CausPres ThE ProhAgr
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPres ThE ProhAgr
+CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres  ThE ProhAgr
+CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres  ThE ProhAgr
 
 
-PassBase Pass ThI [<proh>:] ProhAgr  
-PassBase Pass ThE [<proh>:] ProhAgr  
+PassBase Pass ThI ProhAgr  
+PassBase Pass ThE ProhAgr  
 
-InchBase InchNasal ThA [<proh>:] ProhAgr
+InchBase InchNasal ThA ProhAgr
 
-VerbRootUv(1)|VerbRootUc(1) VZero VerbRootUv(2):|VerbRootUc(2): ThU [<proh>:] ProhAgr
+VerbRootUv(1)|VerbRootUc(1) VZero VerbRootUv(2):|VerbRootUc(2): ThU ProhAgr
 #VerbRootUcanel group is defective and lacks prohibitives in Boyacioglu
 
-VerbRootNil(1) EmptyNasal VZero VerbRootNil(2): ThI [<proh>:] ProhAgr
-#VerbRootCil(1) EmptyAffr VZero VerbRootCil(2): ThI [<proh>:] ProhAgr #Need to double this accuracy because Boyacioglu didnt have it
-VerbRootNelNale(1) EmptyNasal VZero VerbRootNelNale(2): ThE [<proh>:] ProhAgr
-VerbRootNelNala(1) EmptyNasal VZero VerbRootNelNala(2): ThA [<proh>:] ProhAgr
-VerbRootRiseEPres(1) VZero VerbRootRiseEPres(2): ThE [<proh>:] ProhAgr
-VerbRootRiseAPres(1) VZero VerbRootRiseAPres(2): ThA [<proh>:] ProhAgr
-VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): ThI [<proh>:] ProhAgr 
-VerbRootCilIli(1) VZero VerbRootCilIli(2): ThI [<proh>:] ProhAgr 
-VerbRootCel(1) EmptyAffr VZero VerbRootCel(2): ThE [<proh>:] ProhAgr 
-VerbRootCanLong(1) EmptyNasal VZero VerbRootCanLong(2): ThA [<proh>:] ProhAgr
-VerbRootBeLongPres(1) VZero VerbRootBeLongPres(2): ThA [<proh>:] ProhAgr
-VerbRootBeLongPresEastern(1) VZero VerbRootBeLongPresEastern(2): ThE [<proh>:] ProhAgr
-VerbRootComePres(1) VZero VerbRootComePres(2): ThA [<proh>:] ProhAgr
-VerbRootCry(1) VZero VerbRootCry(2): ThA [<proh>:] ProhAgr
-VerbRootGivePres(1) VZero VerbRootGivePres(2): ThA [<proh>:] ProhAgr
-VerbRootBring(1) VZero VerbRootBring(2): ThE [<proh>:] ProhAgr
-VerbRootTurnPres(1) VZero VerbRootBring(2): ThA [<proh>:] ProhAgr
-VerbRootTake(1) EmptyNasal VZero VerbRootTake(2): ThE [<proh>:] ProhAgr 
-VerbRootSeeA(1) EmptyNasal VZero VerbRootSeeA(2): ThA [<proh>:] ProhAgr 
-VerbRootSeeE(1) EmptyNasal VZero VerbRootSeeE(2): ThE [<proh>:] ProhAgr 
-VerbRootOpenPres(1) VZero VerbRootOpenPres(2): ThA [<proh>:] ProhAgr 
-VerbRootPutPres(1) VZero VerbRootPutPres(2): ThE [<proh>:] ProhAgr 
-VerbRootGoPres(1) VZero VerbRootGoPres(2): ThA [<proh>:] ProhAgr 
-VerbRootHitPres(1) VZero VerbRootHitPres(2): ThE [<proh>:] ProhAgr 
-VerbRootYield(1) VZero VerbRootYield(2): [<proh>:] ProhAgrIrEk 
-VerbRootAccept(1) VZero VerbRootAccept(2): [<proh>:] ProhAgrIrEk 
-VerbRootDoPres(1) VZero VerbRootDoPres(2): ThE [<proh>:] ProhAgr 
-VerbRootSay(1) VZero VerbRootSay(2): ThE [<proh>:] ProhAgr 
-VerbRootSpitOldPres(1) EmptyNasal VZero VerbRootSpitOldPres(2): ThE [<proh>:] ProhAgr 
-VerbRootFallPres(1) VZero VerbRootFallPres(2): ThA [<proh>:] ProhAgr 
-VerbRootBite(1) EmptyNasal VZero VerbRootBite(2): ThE [<proh>:] ProhAgr 
-VerbRootPlay(1) VZero VerbRootPlay(2): ThA [<proh>:] ProhAgr 
-VerbRootStay(1) VZero VerbRootStay(2): ThA [<proh>:] ProhAgr 
-VerbRootSit(1) VZero VerbRootSit(2): ThI [<proh>:] ProhAgr 
-VerbRootEatPres(1) VZero VerbRootEatPres(2): ThE [<proh>:] ProhAgr 
-VerbRootSendPres(1) VZero VerbRootSendPres(2): ThI [<proh>:] ProhAgr 
+VerbRootNil(1) EmptyNasal VZero VerbRootNil(2): ThI ProhAgr
+#VerbRootCil(1) EmptyAffr VZero VerbRootCil(2): ThI ProhAgr #Need to double this accuracy because Boyacioglu didnt have it
+VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): ThI ProhAgr 
+VerbRootCilIli(1) VZero VerbRootCilIli(2): ThI ProhAgr 
+VerbRootCel(1) EmptyAffr VZero VerbRootCel(2): ThE ProhAgr 
+VerbRootNelNale(1) EmptyNasal VZero VerbRootNelNale(2): ThE ProhAgr
+VerbRootNelNala(1) EmptyNasal VZero VerbRootNelNala(2): ThA ProhAgr
+VerbRootRiseEPres(1) VZero VerbRootRiseEPres(2): ThE ProhAgr
+VerbRootRiseAPres(1) VZero VerbRootRiseAPres(2): ThA ProhAgr
+VerbRootCanLong(1) EmptyNasal VZero VerbRootCanLong(2): ThA ProhAgr
+VerbRootBeLongPres(1) VZero VerbRootBeLongPres(2): ThA ProhAgr
+VerbRootBeLongPresEastern(1) VZero VerbRootBeLongPresEastern(2): ThE ProhAgr
+VerbRootComePres(1) VZero VerbRootComePres(2): ThA ProhAgr
+VerbRootCry(1) VZero VerbRootCry(2): ThA ProhAgr
+VerbRootGivePres(1) VZero VerbRootGivePres(2): ThA ProhAgr
+VerbRootBring(1) VZero VerbRootBring(2): ThE ProhAgr
+VerbRootTurnPres(1) VZero VerbRootBring(2): ThA ProhAgr
+VerbRootTake(1) EmptyNasal VZero VerbRootTake(2): ThE ProhAgr 
+VerbRootSeeA(1) EmptyNasal VZero VerbRootSeeA(2): ThA ProhAgr 
+VerbRootSeeE(1) EmptyNasal VZero VerbRootSeeE(2): ThE ProhAgr 
+VerbRootOpenPres(1) VZero VerbRootOpenPres(2): ThA ProhAgr 
+VerbRootPutPres(1) VZero VerbRootPutPres(2): ThE ProhAgr 
+VerbRootGoPres(1) VZero VerbRootGoPres(2): ThA ProhAgr 
+VerbRootHitPres(1) VZero VerbRootHitPres(2): ThE ProhAgr 
+VerbRootYield(1) VZero VerbRootYield(2): ProhAgrIrEk 
+VerbRootAccept(1) VZero VerbRootAccept(2): ProhAgrIrEk 
+VerbRootDoPres(1) VZero VerbRootDoPres(2): ThE ProhAgr 
+VerbRootSay(1) VZero VerbRootSay(2): ThE ProhAgr 
+VerbRootSpitOldPres(1) EmptyNasal VZero VerbRootSpitOldPres(2): ThE ProhAgr 
+VerbRootFallPres(1) VZero VerbRootFallPres(2): ThA ProhAgr 
+VerbRootBite(1) EmptyNasal VZero VerbRootBite(2): ThE ProhAgr 
+VerbRootPlay(1) VZero VerbRootPlay(2): ThA ProhAgr 
+VerbRootStay(1) VZero VerbRootStay(2): ThA ProhAgr 
+VerbRootSit(1) VZero VerbRootSit(2): ThI ProhAgr 
+VerbRootEatPres(1) VZero VerbRootEatPres(2): ThE ProhAgr 
+VerbRootSendPres(1) VZero VerbRootSendPres(2): ThI ProhAgr 
 
 PATTERN SubjectPart
 #Subject participle
@@ -749,11 +794,11 @@ VerbRootNulC(1) EmptyNasal VZero VerbRootNulC(2): SubjPart
 
 VerbRootNil(1) EmptyNasal VZero VerbRootNil(2): SubjPart
 #VerbRootCil(1) EmptyAffr VZero VerbRootCil(2): SubjPart #not listed in boyacioglu
-VerbRootNelNale(1)|VerbRootNelNala(1) EmptyNasal VZero VerbRootNelNale(2):|VerbRootNelNala(2): SubjPart
-VerbRootRiseEPres(1)|VerbRootRiseAPres(1) VZero VerbRootRiseEPres(2):|VerbRootRiseAPres(2): SubjPart
 VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): SubjPart
 VerbRootCilIli(1) VZero VerbRootCilIli(2): SubjPart
 VerbRootCel(1) EmptyAffr VZero VerbRootCel(2): SubjPart
+VerbRootNelNale(1)|VerbRootNelNala(1) EmptyNasal VZero VerbRootNelNale(2):|VerbRootNelNala(2): SubjPart
+VerbRootRiseEPres(1)|VerbRootRiseAPres(1) VZero VerbRootRiseEPres(2):|VerbRootRiseAPres(2): SubjPart
 VerbRootCanShort(1) Aor VZero VerbRootCanShort(2):SubjPart
 VerbRootBeLongPast(1) VZero VerbRootBeLongPast(2): SubjPart
 VerbRootComePast(1) VZero VerbRootComePast(2): SubjPart
@@ -786,6 +831,13 @@ PATTERN PerfectPartHye
 VerbStemE PerfPartSuffixHye
 VerbStemA ThA Aor PerfPartSuffixHye
 
+CausBase CausPastHye  PerfPartSuffixHye
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHye  PerfPartSuffixHye
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHye  PerfPartSuffixHye
+
+PassBase Pass PerfPartSuffixHye
+
+InchBase InchEmpty Aor PerfPartSuffixHye
 
 PATTERN ResultPart
 #Perfect participle -- technically resultative
@@ -793,16 +845,20 @@ VerbStemE ResultPartSuffix
 VerbStemI ResultPartSuffix  # Var/hyw
 VerbStemA ThA Aor ResultPartSuffix
 
-CausBase CausPast Aor ResultPartSuffix
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPast Aor ResultPartSuffix
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPast Aor ResultPartSuffix
+CausBase CausPastHyw Aor ResultPartSuffix # Var/hyw
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHyw Aor ResultPartSuffix  # Var/hyw
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHyw Aor ResultPartSuffix  # Var/hyw
+
+CausBase CausPastHye  ResultPartSuffix # Var/hye
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHye  ResultPartSuffix  # Var/hye
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHye  ResultPartSuffix  # Var/hye
 
 ### Arak had հարցուցուած as perfect participle of passivized causative, even though also had հարցուիլ
 ### Just to be safe, I optionally insert the past+aorist for this construction
 ## TO DO: Clarify from Arak29 if this is a glitch
-CausBase CausPast Aor Pass ResultPartSuffix   # Dir/LR
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPast Aor Pass ResultPartSuffix   # Dir/LR
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPast Pass Aor ResultPartSuffix   # Dir/LR
+CausBase CausPastHyw Aor Pass ResultPartSuffix   # Dir/LR
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHyw Aor Pass ResultPartSuffix   # Dir/LR
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHyw Pass Aor ResultPartSuffix   # Dir/LR
 
 
 
@@ -819,10 +875,10 @@ VerbRootNulC(1) VZero VerbRootNulC(2): ResultPartSuffix
 
 VerbRootNil(1) VZero VerbRootNil(2): ResultPartSuffix
 # VerbRootCilV(1)|VerbRootCilC(1) VZero VerbRootCilV(2):|VerbRootCilC(2): ResultPartSuffix
-VerbRootNelNale(1)|VerbRootNelNala(1) VZero VerbRootNelNale(2):|VerbRootNelNala(2): ResultPartSuffix
-VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): ResultPartSuffix
 VerbRootCilIlc(1)|VerbRootCilIli(1) VZero VerbRootCilIlc(2):|VerbRootCilIli(2): ResultPartSuffix
 VerbRootCel(1) VZero VerbRootCel(2): ResultPartSuffix
+VerbRootNelNale(1)|VerbRootNelNala(1) VZero VerbRootNelNale(2):|VerbRootNelNala(2): ResultPartSuffix
+VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): ResultPartSuffix
 VerbRootCanShort(1) Aor VZero VerbRootCanShort(2):ResultPartSuffix
 VerbRootBeLongPast(1) VZero VerbRootBeLongPast(2): ResultPartSuffix
 VerbRootComePast(1) VZero VerbRootComePast(2): ResultPartSuffix
@@ -856,9 +912,9 @@ VerbStemE EvidPart
 VerbStemI EvidPart
 VerbStemA ThA Aor EvidPart
 
-CausBase CausPast Aor EvidPart
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPast Aor EvidPart
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPast Aor EvidPart
+CausBase CausPastHyw Aor EvidPart
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHyw Aor EvidPart
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHyw Aor EvidPart
 
 PassBase Pass EvidPart
 
@@ -873,10 +929,10 @@ VerbRootNulC(1) VZero VerbRootNulC(2): ThU EvidPart
 
 VerbRootNil(1) VZero VerbRootNil(2): EvidPart
 #VerbRootCil(1) VZero VerbRootCil(2): EvidPart #not listed in boyacioglu
-VerbRootNelNale(1)|VerbRootNelNala(1) VZero VerbRootNelNale(2):|VerbRootNelNala(2): EvidPart
-VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): EvidPart
 VerbRootCilIlc(1)|VerbRootCilIli(1) VZero VerbRootCilIlc(2):|VerbRootCilIli(2): EvidPart
 VerbRootCel(1) VZero VerbRootCel(2): EvidPart
+VerbRootNelNale(1)|VerbRootNelNala(1) VZero VerbRootNelNale(2):|VerbRootNelNala(2): EvidPart
+VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): EvidPart
 VerbRootCanShort(1) VZero VerbRootCanShort(2): Aor EvidPart
 VerbRootBeLongPast(1) VZero VerbRootBeLongPast(2): EvidPart
 VerbRootComePast(1) VZero VerbRootComePast(2): EvidPart
@@ -905,7 +961,18 @@ VerbRootSendPast(1) VZero VerbRootSendPast(2): EvidPart
 
 PATTERN NegativePartHye
 #Negative participle, hye only, connegative
-VerbStemE NegPtcpHye
+VerbStemE ThE NegPtcpHye
+VerbStemA ThA NegPtcpHye
+
+CausBase CausPres ThE NegPtcpHye
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPres ThE NegPtcpHye
+CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres ThE NegPtcpHye
+CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres ThE NegPtcpHye
+
+PassBase Pass ThE NegPtcpHye
+
+InchBase InchNasal ThA NegPtcpHye
+
 
 PATTERN NegativePartHyw
 #Negative participle, hyw only
@@ -937,15 +1004,15 @@ VerbRootNil(1) EmptyNasal VZero VerbRootNil(2): ThI Pres0 NegPtcpHyw
 VerbRootNil(1) EmptyNasal VZero VerbRootNil(2): ThE PastImpf0 NegPtcpHyw #For i->e
 #VerbRootCil(1) EmptyAffr VZero VerbRootCil(2): ThI Pres0 NegPtcpHyw  #not listed in boyacioglu
 #VerbRootCil(1) EmptyAffr VZero VerbRootCil(2): ThE PastImpf0 NegPtcpHyw #For i->e
-VerbRootNelNale(1) EmptyNasal VZero VerbRootNelNale(2): ThE Pres0|PastImpf0 NegPtcpHyw 
-VerbRootNelNala(1) EmptyNasal VZero VerbRootNelNala(2): ThA Pres0|PastImpf0 NegPtcpHyw 
-VerbRootRiseEPres(1) VZero VerbRootRiseEPres(2): ThE Pres0|PastImpf0 NegPtcpHyw 
-VerbRootRiseAPres(1) VZero VerbRootRiseAPres(2): ThA Pres0|PastImpf0 NegPtcpHyw 
 VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): ThI Pres0 NegPtcpHyw 
 VerbRootCilIli(1) VZero VerbRootCilIli(2): ThI Pres0 NegPtcpHyw 
 VerbRootCilIlc(1) EmptyAffr VZero VerbRootCilIlc(2): ThE PastImpf0 NegPtcpHyw #For i->e
 VerbRootCilIli(1) VZero VerbRootCilIli(2): ThE PastImpf0 NegPtcpHyw #For i->e
 VerbRootCel(1) EmptyAffr VZero VerbRootCel(2): ThE Pres0|PastImpf0 NegPtcpHyw 
+VerbRootNelNale(1) EmptyNasal VZero VerbRootNelNale(2): ThE Pres0|PastImpf0 NegPtcpHyw 
+VerbRootNelNala(1) EmptyNasal VZero VerbRootNelNala(2): ThA Pres0|PastImpf0 NegPtcpHyw 
+VerbRootRiseEPres(1) VZero VerbRootRiseEPres(2): ThE Pres0|PastImpf0 NegPtcpHyw 
+VerbRootRiseAPres(1) VZero VerbRootRiseAPres(2): ThA Pres0|PastImpf0 NegPtcpHyw 
 VerbRootCanShort(1) EmptyNasal VZero VerbRootCanShort(2): ThA Pres0|PastImpf0 NegPtcpHyw 
 VerbRootCanLong(1) EmptyNasal VZero VerbRootCanLong(2): ThA Pres0|PastImpf0 NegPtcpHyw 
 VerbRootAppear(1) VZero VerbRootAppear(2): ThI Pres0 NegPtcpHyw 
@@ -1068,7 +1135,7 @@ LEXICON CausPres
 <caus>:ցն
 <caus>:ցըն # Dir/LR in case theres orthographic variation for some causative
 
-LEXICON CausPast
+LEXICON CausPastHyw
 #This is just for hyw
 <caus>:ցու
 LEXICON CausPastHye
@@ -1086,8 +1153,10 @@ LEXICON CausOrthographicAffrPres
 <caus>:ձն
 LEXICON CausOrthographicAffrSchwaPres
 <caus>:ձըն
-LEXICON CausOrthographicAffrPast
+LEXICON CausOrthographicAffrPastHyw
 <caus>:ձու
+LEXICON CausOrthographicAffrPastHye
+<caus>:ձր
 LEXICON CausOrthographicAffrPass
 <caus>:ձ
 
@@ -1168,7 +1237,7 @@ LEXICON PastSplitAgr #For լացի լացաւ
 <past><pret><p2><pl>:իք
 <past><pret><p3><pl>:ին
 
-LEXICON PastAgrGoNo3Sg #For գացի գնաց, EA գրինք գրեց
+LEXICON PastAgrGoNo3Sg #For գացի գնաց, EA գրինք գրեց, EA causative
 <past><pret><p1><sg>:ի
 <past><pret><p2><sg>:իր
 <past><pret><p1><pl>:ինք
@@ -1185,8 +1254,11 @@ LEXICON ImpSgR
 <imp><p2><sg>:ր #Don't add the {ImpSg} tag so that don't trigger i->e change, had ՛
 LEXICON ImpSgIR 
 <imp><p2><sg>:իր # had ՛ 
+<imp><p2><sg>:ի # Dir/LR colloquail EA
 LEXICON ImpSgUR 
 <imp><p2><sg>:ուր # had ՛ 
+LEXICON ImpSgU 
+<imp><p2><sg>:ու # for EA causative
 
 
 LEXICON ImpSgInternalMark #Mark is added at end of verb; will later metathesize
@@ -1198,8 +1270,16 @@ LEXICON ImpPl
 <imp><p2><pl>:եք #  Var/hye
 
 LEXICON ProhAgr
-<p2><sg>:ր
-<p2><pl>:{ProhPl}ք #Was {է}
+<proh><p2><sg>:ր
+<proh><p2><pl>:{ProhPl}ք #Was {է}
+LEXICON ProhAgrCausHyeOld
+<proh><p2><sg>:իր
+<proh><p2><sg>:ի # Dir/LR
+<proh><p2><pl>:եք
+LEXICON ProhAgrWashHyeOld
+<proh><p2><sg>:
+<proh><p2><sg>:ք
+
 
 LEXICON ProhAgrIrEk #For մի զիջիր մի զիջէք
 <p2><sg>:իր
@@ -1318,10 +1398,15 @@ LEXICON InchRoot(2)
 #LEXICON InchRootTh0(2)
 ամչնալ:ամչ <iv>
 նիհարնալ:նիհար <iv>
+լուանալ:լուա <tv> # Var/hyw
 #LEXICON InchRootThA(2)
 ստանալ:ստա <tv>
 #LEXICON InchRootThE(2)
 մօտենալ:մօտե <iv>
+
+LEXICON InchRootWash(2)
+# just for hye
+լուանալ:լուա <tv> 
 
 ##############
 #Obsolete verbs

@@ -78,7 +78,7 @@ JeToE = %{ProhPl%} %{Pres3SG%} %{ImpSg%} %{Impf%}  %{Pres2PL%}
 ;
 
 !Summary of contexts ե theme vowel becomes ի     in Hye
-JeToI =   %{Pres3SG%} %{ImpSg%}  %{NegPtcpHye%}
+JeToI =   %{Pres3SG%}    %{NegPtcpHye%} 
 ;
 
 ! Some  contexts where ի theme vowel becomes է  (ի only in hyw) 
@@ -135,10 +135,12 @@ Rules
 
 
 !!!! GLIDE EPENTHESIS
-!The glide յ is added between the ա theme vowel and pres3sg + imperfective-i
-"The glide յ between the ա theme vowel and before 3sg: /ա{ThAյ}Pres/ -> [այ]"
-%{ThAյ%}:յ <=> ա: _   [  %{Pres3SG%}:  |    %{Impf%}: :ի ]   ;
-
+!The glide յ is added between the ա theme vowel and pres3sg in hyw + imperfective-i
+"The glide յ between the ա theme vowel and before 3sg: /ա{ThAյ}Pres/ -> [այ]" ! Var/hyw
+%{ThAյ%}:յ <=> ա: _   [  %{Pres3SG%}:  ]   ;  ! Var/hyw
+"The glide յ between the ա theme vowel and before imperfect ի: /ա{ThAյ}{Impf}ի/ -> [այի]" 
+%{ThAյ%}:յ <=> ա: _   [      %{Impf%}: :ի ]   ; 
+ 
 
 
 !!!!! THEME VOWEL CHANGES
@@ -149,12 +151,12 @@ Rules
 
 !!In many contexts, the  ե theme vowel becomes է in hyw
 ! These contexts  are part of JeToE
-"theme vowel /ե{JeToE}/ to [է] in hyw"
-ե:է  <=>   _ 0:* JeToE: ;   #  Var/hyw
+"theme vowel /ե{JeToE}/ to [է] in hyw"  !  Var/hyw
+ե:է  <=>   _ 0:* JeToE: ;   !  Var/hyw
 
 !!In many contexts, the  ե theme vowel becomes ի in in hye
-"theme vowel /ե{JeToI}/ to [ի] in hye"
-ե:ի  <=>   _ 0:* JeToI: ;   # Var/hye
+"theme vowel /ե{JeToI}/ to [ի] in hye" ! Var/hye
+ե:ի  <=>   _ 0:* JeToI: ;   ! Var/hye
 
 
 
