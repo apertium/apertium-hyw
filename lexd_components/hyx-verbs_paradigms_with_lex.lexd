@@ -45,6 +45,7 @@
 PATTERNS
 Infinitival
 Indicative  # Var/hyw
+DefectiveIndicative
 Subjunctive 
 ImperfConverbHye # Var/hye
 ConditionalHye
@@ -357,10 +358,10 @@ PATTERN ImperfConverbHye
 VerbStemE   ImpfConvSuffix
 VerbStemA   ImpfConvSuffix 
 
-CausBase CausPres ThE ImpfConvSuffix
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausOrthographicSchwaPres ThE ImpfConvSuffix
-CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres ThE ImpfConvSuffix
-CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres ThE ImpfConvSuffix
+CausBase CausPres  ImpfConvSuffix
+CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausOrthographicSchwaPres  ImpfConvSuffix
+CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres  ImpfConvSuffix
+CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres  ImpfConvSuffix
 
 
 PassBase Pass ImpfConvSuffix
@@ -408,8 +409,6 @@ PATTERN Indicative
 #Including irregular monosylabic verbs that take gu-
 :IndcShort IndcSubjBaseMonoStem IndcShort:
 
-#Irregulars that lake prefix 
-IndicativeIrregular
 
 PATTERN ConditionalHye
 # conditional form in hye only
@@ -522,7 +521,8 @@ VerbRootCry(1) VZero VerbRootCry(2): ThA
 VerbRootGivePres(1) VZero VerbRootGivePres(2): ThA 
 
 
-PATTERN IndicativeIrregular
+PATTERN DefectiveIndicative
+# defectives 
 # I won't generalize them just ot be safe
 #Some of these don't take prefix 
 #Some of them don't have any subjunctive form
@@ -530,6 +530,7 @@ PATTERN IndicativeIrregular
 #:Indc VerbRootCilV(1) EmptyAffr VZero VerbRootCilV(2): ThI ImpfAgr Indc: 
 VerbRootCanShort(1) EmptyNasal VZero VerbRootCanShort(2): ThA Pres0 PresAgr Indc:  # Var/hyw
 VerbRootCanShort(1) EmptyNasal VZero VerbRootCanShort(2): ThA ImpfAgr Indc: # Var/hyw
+
 VerbRootHaveHyw(1) VZero VerbRootHaveHyw(2): ThI Pres0 PresAgr Indc: # Var/hyw ունիմ defective
 VerbRootHaveHyw(1) VZero VerbRootHaveHyw(2): ThI ImpfAgr Indc: # Var/hyw
 VerbRootHaveHye(1) VZero VerbRootHaveHye(2): ThE Pres0 PresAgr Indc: # Var/hye  ունեմ defective
