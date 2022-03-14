@@ -832,7 +832,7 @@ CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHye ImpPl # Va
 CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHye ImpPl # Var/hye
 
 PassBase Pass ThI Aor ImpPl #  Var/hyw 
-PassBase Pass ThE Aor ImpPl #  Var/hye 
+PassBase Pass ImpPl #  Var/hye 
 
 InchBase InchEmpty Aor ImpPl
 InchBaseWashHye InchEmpty Aor ImpPl  # Var/hye
@@ -1964,7 +1964,7 @@ LEXICON VerbRootDoPast(2) # ընել
 անել:ար <tv> # Var/hye
 LEXICON VerbRootSay(2) # Class 50 ըսել
 ըսել:ըս <tv> # Var/hyw
-ասել:ըս <tv> # Var/hye
+ասել:աս <tv> # Var/hye
 LEXICON VerbRootSpitOldHywPres(2) # Class 51 թքնել
 թքնել:թք <iv>
 LEXICON VerbRootSpitOldHywImpSg(2)
