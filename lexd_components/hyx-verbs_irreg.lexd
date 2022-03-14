@@ -121,7 +121,7 @@ LEXICON VerbRootTurnPres(2)	# Class 39 40 անդրադառնալ դառնալ
 LEXICON VerbRootTurnPast(2)
 փոխադառնալ:փոխադարձ <tv>
 LEXICON VerbRootOpenNasal(2)	# Class 42 բանալ
-վերաբանալ:վերաբան <tv> # Var/hyw
+վերաբանալ:վերաբան <tv> 
 LEXICON VerbRootOpenAffr(2)
 վերաբանալ:վերաբաց <tv> # Var/hyw
 վերաբացել:վերաբաց <tv> # Var/hye

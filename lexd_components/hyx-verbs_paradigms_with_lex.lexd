@@ -1563,7 +1563,7 @@ LEXICON ImpSgR
 <imp><p2><sg>:ր #Don't add the {ImpSg} tag so that don't trigger i->e change, had ՛
 LEXICON ImpSgIR 
 <imp><p2><sg>:իր # had ՛ 
-<imp><p2><sg>:ի # Dir/LR colloquail EA
+<imp><p2><sg>:ի # Var/hye Dir/LR 
 LEXICON ImpSgUR 
 <imp><p2><sg>:ուր # had ՛ 
 <imp><p2><sg>:ու  # Dir/LR Var/hye
@@ -1851,14 +1851,14 @@ LEXICON VerbRootRiseAPast(2)
 ելնալ:ել	<iv>
 
 LEXICON VerbRootCanShort(2)
-կրնամ:կր <iv>  # Var/hyw
+կրնամ:կր <iv>  
 #Apparently կրնալ exists, though mostly as negated form չկրնալով
 LEXICON VerbRootCanLong(2)
-կարենալ:կարե <iv>  # Var/hyw
+կարենալ:կարե <iv>  
 # the long form is regular in hye, short form doesnt exist
 
 LEXICON VerbRootAppear(2) #Class 28 երեւիլ, has -nal version that's regular
-երեւիլ:երեւ <iv> # Var/hyw
+երեւիլ:երեւ <iv> 
 # in hye, this verb is replaced regular երեւալ
 
 # This defective verb is a mess so I'm only using one lemma
@@ -1921,7 +1921,7 @@ LEXICON VerbRootBarnalHyePast(2)
 LEXICON VerbRootTake(2)
 առնել:առ <tv>
 LEXICON VerbRootOpenNasal(2)
-բանալ:բան <tv> # Var/hyw
+բանալ:բան <tv> 
 LEXICON VerbRootOpenAffr(2)
 բանալ:բաց <tv> # Var/hyw
 բացել:բաց <tv> # Var/hye
@@ -2019,7 +2019,7 @@ LEXICON VerbRootSendPresHye(2) # Class 58 տանիլ տարաւ
 տանել:տան <tv>
 LEXICON VerbRootSendPast(2)
 տանիլ:տար <tv> # Var/hyw
-տանել:տար <tv> # Var/hyw
+տանել:տար <tv> # Var/hye
 LEXICON VerbRootStandHyePres(2)
 կենալ:կեն <iv>
 LEXICON VerbRootStandHyePast(2)
