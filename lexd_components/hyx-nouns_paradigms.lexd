@@ -197,8 +197,10 @@ PATTERN NounDeclIrregularU
 #Singular
 UNounStemBoundary NSg0 CaseDefUDeclension
 UNounStemBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
-
 NounIrregU NZero NouNinflBoundaryRed NSg0 AttributiveGenUDef|AttributiveInst  # Dir/LR
+
+ SubstZero  NouNinflBoundary NSg0 AttributiveGenUDef|AttributiveInst  # Dir/LR
+
 
 #Plural
 UNounStemBoundary RegPluralAndPluralPossessiveDeclension
@@ -206,7 +208,7 @@ NounIrregU NZero NouNinflBoundaryRed NPlReg AttributiveGenUDef|AttributiveInst  
 
 PATTERN UNounStemBoundary
 NounIrregU NZero NouNinflBoundary
-
+Number1 [<num>:]  SubstZero  NouNinflBoundary
 
 
 ##########################
@@ -479,7 +481,7 @@ PATTERN NounDeclOldAnForm
 # some can use այ when add indefinite suffx
 # Can have ամբ forms in instrumental
 
-NounOldAnForm NZero NouNinflBoundary NSg0 DatGenArchaicAn (Def|Poss)? 
+NounOldAnForm NZero NouNinflBoundary NSg0 DatGenArchaicAn (Def|Poss)?  
 NounOldAnForm NZero NouNinflBoundary NSg0 DatGenArchaicAn CaseRegOblique  (Def|Poss)?  # Dir/LR
 NounOldAnForm NZero NouNinflBoundary NSg0 DatGenArchaicAnAj # Dir/LR
 NounOldAnForm NZero NouNinflBoundary NSg0 InstArchaicAmp (Def|Poss)?  # Dir/LR
@@ -1249,6 +1251,8 @@ LEXICON NounSuppleteDativeU
 էշ:իշ 
 էշ:էշ 
 կէս:կիս
+կիսէշ:կիսէշ{mono}
+կիսէշ:կիսիշ{mono}
 
 
 

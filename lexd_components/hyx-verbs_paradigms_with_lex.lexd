@@ -560,6 +560,8 @@ VerbRootWorth(1)  VZero VerbRootWorth(2): ThI ImpfAgr Indc: # Var/hye
 
 PATTERN SubjunctiveIrregular
 #These have an irregular indicative form that lacks prefix
+VerbRootCanShort(1) EmptyNasal VZero VerbRootCanShort(2): ThA Pres0 PresAgr Indc:  # Var/hyw 
+VerbRootCanShort(1) EmptyNasal VZero VerbRootCanShort(2): ThA ImpfAgr Indc: # Var/hyw 
 
  #U theme vowels with C-initial segment behave haphazardly
 #For optional variants, can't determine which is preferred form in some cases

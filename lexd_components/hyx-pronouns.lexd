@@ -41,17 +41,18 @@ DemonstrativePronounDeterminer (Def|Poss)?
 [երբ<prn>:երբ] ([<rel>:]|[<itg>:]) # inflection is in nominal paradigm because takes -van
 
 Quantifier [<prn><qnt>:] CaseRegI? (Def|Poss)? 
+QuantifierU  [<prn><qnt>:] CaseRegU? (Def|Poss)? 
 QuestionWords [<prn>:] ([<rel>:]|[<itg>:]) CaseRegI? (Def|Poss)? 
 QuantifierQuestionWords [<prn><qnt>:] ([<itg>:])? CaseRegI? (Def|Poss)?
 StrictQuestionWords [<prn><itg>:]  CaseRegI? (Def|Poss)?
 #Plural
-Quantifier [<prn><qnt>:]  NPlReg CaseRegU? (Def|Poss)? 
+Quantifier|QuantifierU [<prn><qnt>:]  NPlReg CaseRegU? (Def|Poss)? 
 QuestionWords [<prn>:] ([<rel>:]|[<itg>:]) NPlReg CaseRegU? (Def|Poss)? 
 QuantifierQuestionWords [<prn><qnt>:] ([<itg>:])? NPlReg CaseRegU? (Def|Poss)? 
 StrictQuestionWords [<prn><itg>:]  NPlReg CaseRegU? (Def|Poss)? 
 #Plural possessive (separate line for instrumental)
-Quantifier [<prn><qnt>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
-Quantifier [<prn><qnt>:]  NSg0|NPlReg  InsReg PossPl  Def|Poss
+Quantifier|QuantifierU [<prn><qnt>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
+Quantifier|QuantifierU [<prn><qnt>:]  NSg0|NPlReg  InsReg PossPl  Def|Poss
 QuestionWords [<prn>:] ([<rel>:]|[<itg>:])  NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
 QuestionWords [<prn>:] ([<rel>:]|[<itg>:])  NSg0|NPlReg  InsReg PossPl  Def|Poss
 StrictQuestionWords [<prn><itg>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
@@ -572,7 +573,6 @@ LEXICON Quantifier
 ամէնք:ամէնք
 բոլոր:բոլոր
 ամէնայն:ամէնայն
-ամէն:ամէն
 իւրաքանչիւր:իւրաքանչիւր
 այդչափ:այդչափ
 այնչափ:այնչափ
@@ -586,6 +586,11 @@ LEXICON Quantifier
 քանի:քանի #reassigned had ՞
 աւելի:աւելի #reassigned
 նուազ:նուազ #reassigned
+
+LEXICON QuantifierU
+ամէն:ամէն
+ամեն:ամեն
+
 
 LEXICON QuestionWords
 ինչպէս:ի{՞}նչպէս # Dir/LR irregularly placed ՞ 
