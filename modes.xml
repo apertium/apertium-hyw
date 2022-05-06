@@ -115,5 +115,20 @@
     </pipeline>
   </mode>
 
+  <mode name="hyx_hyw-paradigm">
+    <pipeline>
+      <program name="sed 's/^/{/g'"/>
+      <program name="sed -E 's/&lt;|$/}&amp;/'"/>
+      <program name="sed 's/&lt;/ %&lt;/g'"/>
+      <program name="sed 's/&gt;/%&gt;/g'"/>
+      <program name="sed -E 's/%&lt;\*%&gt;/?*/g'"/>
+      <program name="hfst-regexp2fst"/>
+      <program name="hfst-compose -1 - -2">
+        <file name="hyx@hyw.autogen.hfst"/>
+      </program>
+      <program name="hfst-expand -c 1"/>
+    </pipeline>
+  </mode>
+
 </modes>
 
