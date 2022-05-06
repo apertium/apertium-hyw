@@ -124,7 +124,7 @@
       <program name="sed -E 's/%&lt;\*%&gt;/?*/g'"/>
       <program name="hfst-regexp2fst"/>
       <program name="hfst-compose -1 - -2">
-        <file name="hyx@hyw.autogen.hfst"/>
+        <file name=".deps/hyx@hyw.RL.hfst"/>
       </program>
       <program name="hfst-expand -c 1"/>
     </pipeline>
