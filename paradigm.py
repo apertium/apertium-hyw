@@ -10,7 +10,14 @@ tg = ''
 for c in s:
     if c == '<':
         if lm:
-            ls.append('{'+lm+'}')
+            if lm == '(':
+                ls.append('[')
+            elif lm == ')':
+                ls.append(']')
+            elif lm in ['|']:
+                ls.append(lm)
+            else:
+                ls.append('{'+lm+'}')
             lm = ''
         tg += '%'
         tg += c
