@@ -117,11 +117,9 @@
 
   <mode name="hyx_hyw-paradigm">
     <pipeline>
-      <program name="sed 's/^/{/g'"/>
-      <program name="sed -E 's/&lt;|$/}&amp;/'"/>
-      <program name="sed 's/&lt;/ %&lt;/g'"/>
-      <program name="sed 's/&gt;/%&gt;/g'"/>
-      <program name="sed -E 's/%&lt;\*%&gt;/?*/g'"/>
+      <program name="python3">
+        <file name="paradigm.py"/>
+      </program>
       <program name="hfst-regexp2fst"/>
       <program name="hfst-compose -1 - -2">
         <file name=".deps/hyx@hyw.RL.hfst"/>
