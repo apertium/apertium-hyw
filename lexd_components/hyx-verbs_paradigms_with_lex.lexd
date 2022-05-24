@@ -125,7 +125,7 @@ InchBaseWashHye InchEmpty # Var/hye
 #This is for lexically listed causatives
 #Lexical causatives take their own special valency tag. Might need to change this later if 
 #it violates some tagging rule TO DO
-CausativeVerbRoot VZero [<caus_listed>:]
+CausativeVerbRoot VZero # [<caus_listed>:]
 #Orthographic variants are separately handled based on the inflection lsot
 
 
@@ -189,15 +189,15 @@ VerbStemA ThA Aor
 
 CausBase CausPass 
 #This is for orthographic variants
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPass
-CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPass
-CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPass
+CausativeVerbRootOrthographicSchwa VZero  CausPass # [<caus_listed>:]
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPass # [<caus_listed>:] 
+CausativeVerbRootOrthographicAffrSchwa VZero  CausOrthographicAffrPass # [<caus_listed>:]
 
 
 #This is for lexically listed passives
 #Lexical passives take their own special valency tag. Might need to change this later if 
 #it violates some tagging rule TO DO
-PassiveVerbRoot VZero [<pass_listed>:] 
+PassiveVerbRoot VZero # [<pass_listed>:] 
 
 #Should I care that this will rarely be traversed? TO DO
 InchBase InchEmpty Aor 
@@ -270,9 +270,9 @@ VerbStemI ThI Inf #  Var/hyw
 VerbStemA ThA Inf
 
 CausBase CausPres ThE Inf
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausOrthographicSchwaPres ThE Inf
-CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres ThE Inf
-CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres ThE Inf
+CausativeVerbRootOrthographicSchwa VZero CausOrthographicSchwaPres ThE Inf #  [<caus_listed>:] 
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPres ThE Inf # [<caus_listed>:] 
+CausativeVerbRootOrthographicAffrSchwa VZero  CausOrthographicAffrSchwaPres ThE Inf # [<caus_listed>:]
 
 
 PassBase Pass ThI Inf #  Var/hyw 
@@ -359,9 +359,9 @@ VerbStemE   ImpfConvSuffix
 VerbStemA   ImpfConvSuffix 
 
 CausBase CausPres  ImpfConvSuffix
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausOrthographicSchwaPres  ImpfConvSuffix
-CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres  ImpfConvSuffix
-CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres  ImpfConvSuffix
+CausativeVerbRootOrthographicSchwa VZero  CausOrthographicSchwaPres  ImpfConvSuffix # [<caus_listed>:]
+CausativeVerbRootOrthographicAffr VZero  CausOrthographicAffrPres  ImpfConvSuffix # [<caus_listed>:]
+CausativeVerbRootOrthographicAffrSchwa VZero CausOrthographicAffrSchwaPres  ImpfConvSuffix #  [<caus_listed>:]
 
 
 PassBase Pass ImpfConvSuffix
@@ -439,9 +439,9 @@ VerbStemI ThI  #  Var/hyw
 VerbStemA ThA 
 
 CausBase CausPres ThE
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausOrthographicSchwaPres ThE
-CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres ThE
-CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres ThE Inf
+CausativeVerbRootOrthographicSchwa VZero CausOrthographicSchwaPres ThE #  [<caus_listed>:]
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPres ThE #  [<caus_listed>:]
+CausativeVerbRootOrthographicAffrSchwa VZero  CausOrthographicAffrSchwaPres ThE Inf # [<caus_listed>:]
 
 
 PassBase Pass ThI  #  Var/hyw 
@@ -583,18 +583,18 @@ VerbStemI ThI Aor PastSecAgr Indc0 #  Var/hyw
 VerbStemA ThA Aor PastPrimAgr Indc0 
 
 CausBase CausPastHyw Aor PastPrimAgr Indc0 # Var/hyw
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHyw Aor PastPrimAgr Indc0  # Var/hyw
-CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPastHyw Aor PastPrimAgr Indc0  # Var/hyw
+CausativeVerbRootOrthographicSchwa VZero CausPastHyw Aor PastPrimAgr Indc0  # Var/hyw   [<caus_listed>:]
+CausativeVerbRootOrthographicAffr VZero  CausOrthographicAffrPastHyw Aor PastPrimAgr Indc0  # Var/hyw  [<caus_listed>:]
 
 CausBase CausPastHye PastAgrGoNo3Sg Indc0 # Var/hye
 CausBase CausPastHye ThE Aor PastAgrYes3SgZero Indc0 # Var/hye
 CausBase CausPastHye ThE Aor PastAgrGoNo3Sg Indc0 # Var/hye Dir/LR
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:]  CausPastHye PastAgrGoNo3Sg Indc0 # Var/hye
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:]  CausPastHye ThE Aor PastAgrYes3SgZero Indc0 # Var/hye
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:]  CausPastHye ThE Aor PastAgrGoNo3Sg Indc0 # Var/hye Dir/LR
-CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPastHye  PastAgrGoNo3Sg Indc0 # Var/hye
-CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPastHye ThE Aor PastAgrYes3SgZero Indc0 # Var/hye
-CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPastHye ThE Aor PastAgrGoNo3Sg Indc0 # Var/hye Dir/LR
+CausativeVerbRootOrthographicSchwa VZero  CausPastHye PastAgrGoNo3Sg Indc0 # Var/hye  [<caus_listed>:]
+CausativeVerbRootOrthographicSchwa VZero  CausPastHye ThE Aor PastAgrYes3SgZero Indc0 # Var/hye   [<caus_listed>:]
+CausativeVerbRootOrthographicSchwa VZero CausPastHye ThE Aor PastAgrGoNo3Sg Indc0 # Var/hye Dir/LR  [<caus_listed>:]  
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPastHye  PastAgrGoNo3Sg Indc0 # Var/hye  [<caus_listed>:]
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPastHye ThE Aor PastAgrYes3SgZero Indc0 # Var/hye  [<caus_listed>:] 
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPastHye ThE Aor PastAgrGoNo3Sg Indc0 # Var/hye Dir/LR [<caus_listed>:] 
 
 
 
@@ -715,16 +715,16 @@ PassBase Pass ImpSgIR
 
 
 CausBase CausPastHyw ImpSgR # Var/hyw
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHyw ImpSgR  # Var/hyw
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHyw ImpSgR  # Var/hyw
+CausativeVerbRootOrthographicSchwa VZero CausPastHyw ImpSgR  # Var/hyw [<caus_listed>:] 
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero CausOrthographicAffrPastHyw ImpSgR  # Var/hyw [<caus_listed>:] 
 
 CausBase CausPastHye ImpSgU # Var/hye
 CausBase CausPastHye ThA ImpSg # Var/hye Dir/LR
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHye ImpSgU  # Var/hye
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHye ThA ImpSg # Var/hye Dir/LR
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHye ImpSgU  # Var/hye
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHye ThA ImpSg # Var/hye Dir/LR
-CausativeVerbRootFillHyeImp(1)  VZero [<caus_listed>:]   ImpSgInternalMark # Var/hye # Dir/LR
+CausativeVerbRootOrthographicSchwa VZero CausPastHye ImpSgU  # Var/hye  [<caus_listed>:]
+CausativeVerbRootOrthographicSchwa VZero CausPastHye ThA ImpSg # Var/hye Dir/LR  [<caus_listed>:]
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero CausOrthographicAffrPastHye ImpSgU  # Var/hye  [<caus_listed>:] 
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero  CausOrthographicAffrPastHye ThA ImpSg # Var/hye Dir/LR [<caus_listed>:]
+CausativeVerbRootFillHyeImp(1)  VZero    ImpSgInternalMark # Var/hye # Dir/LR [<caus_listed>:]
 
 
 
@@ -827,12 +827,12 @@ VerbStemI ThI Aor ImpPl #  Var/hyw
 VerbStemA ThA Aor ImpPl
 
 CausBase CausPastHyw Aor ImpPl # Var/hyw
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHyw Aor ImpPl # Var/hyw
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHyw Aor ImpPl # Var/hyw
+CausativeVerbRootOrthographicSchwa VZero CausPastHyw Aor ImpPl # Var/hyw [<caus_listed>:] 
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero  CausOrthographicAffrPastHyw Aor ImpPl # Var/hyw [<caus_listed>:]
 
 CausBase CausPastHye ImpPl # Var/hye
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHye ImpPl # Var/hye
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHye ImpPl # Var/hye
+CausativeVerbRootOrthographicSchwa VZero  CausPastHye ImpPl # Var/hye [<caus_listed>:]
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero  CausOrthographicAffrPastHye ImpPl # Var/hye [<caus_listed>:]
 
 PassBase Pass ThI Aor ImpPl #  Var/hyw 
 PassBase Pass ImpPl #  Var/hye 
@@ -905,9 +905,9 @@ VerbRootStandHyePast(1) VZero VerbRootStandHyePast(2):  ImpPl # Var/hye
 PATTERN ProhibitiveHye
 #some grammars provide a special archaic prohibitive form for some classes
 CausBase CausPres ProhAgrCausHyeOld
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPres ProhAgrCausHyeOld
-CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres  ProhAgrCausHyeOld
-CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres ProhAgrCausHyeOld
+CausativeVerbRootOrthographicSchwa VZero  CausPres ProhAgrCausHyeOld #  [<caus_listed>:]
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPres  ProhAgrCausHyeOld # [<caus_listed>:] 
+CausativeVerbRootOrthographicAffrSchwa VZero CausOrthographicAffrSchwaPres ProhAgrCausHyeOld # [<caus_listed>:] 
 
 InchBaseWashHye InchNasal ThA ProhAgrWashHyeOld   
 
@@ -936,9 +936,9 @@ VerbStemI ThI ProhAgr
 VerbStemA ThA ProhAgr
 
 CausBase CausPres ThE ProhAgr
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPres ThE ProhAgr
-CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres  ThE ProhAgr
-CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres  ThE ProhAgr
+CausativeVerbRootOrthographicSchwa VZero  CausPres ThE ProhAgr # [<caus_listed>:]
+CausativeVerbRootOrthographicAffr VZero  CausOrthographicAffrPres  ThE ProhAgr # [<caus_listed>:]
+CausativeVerbRootOrthographicAffrSchwa VZero CausOrthographicAffrSchwaPres  ThE ProhAgr # [<caus_listed>:] 
 
 
 PassBase Pass ThI ProhAgr  
@@ -992,9 +992,9 @@ VerbStemI SubjPart # Var/hyw
 VerbStemA ThA Aor SubjPart
 
 CausBase CausPres SubjPart
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPres SubjPart
-CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres SubjPart
-CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres SubjPart
+CausativeVerbRootOrthographicSchwa VZero  CausPres SubjPart # [<caus_listed>:]
+CausativeVerbRootOrthographicAffr VZero  CausOrthographicAffrPres SubjPart # [<caus_listed>:]
+CausativeVerbRootOrthographicAffrSchwa VZero CausOrthographicAffrSchwaPres SubjPart #  [<caus_listed>:] 
 
 PassBase Pass SubjPart
 
@@ -1064,8 +1064,8 @@ VerbStemE PerfPartSuffixHye
 VerbStemA ThA Aor PerfPartSuffixHye
 
 CausBase CausPastHye  PerfPartSuffixHye
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHye  PerfPartSuffixHye
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHye  PerfPartSuffixHye
+CausativeVerbRootOrthographicSchwa VZero  CausPastHye  PerfPartSuffixHye # [<caus_listed>:]
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero CausOrthographicAffrPastHye  PerfPartSuffixHye # [<caus_listed>:] 
 
 PassBase Pass PerfPartSuffixHye
 
@@ -1109,19 +1109,19 @@ VerbStemI ResultPartSuffix  # Var/hyw
 VerbStemA ThA Aor ResultPartSuffix
 
 CausBase CausPastHyw Aor ResultPartSuffix # Var/hyw
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHyw Aor ResultPartSuffix  # Var/hyw
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHyw Aor ResultPartSuffix  # Var/hyw
+CausativeVerbRootOrthographicSchwa VZero CausPastHyw Aor ResultPartSuffix  # Var/hyw [<caus_listed>:] 
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero  CausOrthographicAffrPastHyw Aor ResultPartSuffix  # Var/hyw [<caus_listed>:]
 
 CausBase CausPastHye  ResultPartSuffix # Var/hye
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHye  ResultPartSuffix  # Var/hye
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHye  ResultPartSuffix  # Var/hye
+CausativeVerbRootOrthographicSchwa VZero  CausPastHye  ResultPartSuffix  # Var/hye [<caus_listed>:]
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero CausOrthographicAffrPastHye  ResultPartSuffix  # Var/hye [<caus_listed>:] 
 
 ### Arak had հարցուցուած as perfect participle of passivized causative, even though also had հարցուիլ
 ### Just to be safe, I optionally insert the past+aorist for this construction
 ## TO DO: Clarify from Arak29 if this is a glitch
 CausBase CausPastHyw Aor Pass ResultPartSuffix   # Dir/LR
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHyw Aor Pass ResultPartSuffix   # Dir/LR
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHyw Pass Aor ResultPartSuffix   # Dir/LR
+CausativeVerbRootOrthographicSchwa VZero  CausPastHyw Aor Pass ResultPartSuffix   # Dir/LR [<caus_listed>:]
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero CausOrthographicAffrPastHyw Pass Aor ResultPartSuffix   # Dir/LR  [<caus_listed>:]
 
 
 
@@ -1186,8 +1186,8 @@ VerbStemI EvidPart
 VerbStemA ThA Aor EvidPart
 
 CausBase CausPastHyw Aor EvidPart
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPastHyw Aor EvidPart
-CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrPastHyw Aor EvidPart
+CausativeVerbRootOrthographicSchwa VZero CausPastHyw Aor EvidPart # [<caus_listed>:] 
+CausativeVerbRootOrthographicAffr|CausativeVerbRootOrthographicAffrSchwa VZero  CausOrthographicAffrPastHyw Aor EvidPart # [<caus_listed>:]
 
 PassBase Pass EvidPart
 
@@ -1239,9 +1239,9 @@ VerbStemE ThE NegPtcpHye
 VerbStemA ThA NegPtcpHye
 
 CausBase CausPres ThE NegPtcpHye
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPres ThE NegPtcpHye
-CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres ThE NegPtcpHye
-CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres ThE NegPtcpHye
+CausativeVerbRootOrthographicSchwa VZero  CausPres ThE NegPtcpHye # [<caus_listed>:]
+CausativeVerbRootOrthographicAffr VZero CausOrthographicAffrPres ThE NegPtcpHye #  [<caus_listed>:] 
+CausativeVerbRootOrthographicAffrSchwa VZero CausOrthographicAffrSchwaPres ThE NegPtcpHye # [<caus_listed>:] 
 
 PassBase Pass ThE NegPtcpHye
 
@@ -1289,9 +1289,9 @@ VerbStemI ThE PastImpf0 NegPtcpHyw #For i->e
 VerbStemA ThA Pres0|PastImpf0 NegPtcpHyw 
 
 CausBase CausPres ThE Pres0|PastImpf0 NegPtcpHyw 
-CausativeVerbRootOrthographicSchwa VZero [<caus_listed>:] CausPres ThE Pres0|PastImpf0 NegPtcpHyw 
-CausativeVerbRootOrthographicAffr VZero [<caus_listed>:] CausOrthographicAffrPres ThE Pres0|PastImpf0 NegPtcpHyw 
-CausativeVerbRootOrthographicAffrSchwa VZero [<caus_listed>:] CausOrthographicAffrSchwaPres ThE Pres0|PastImpf0 NegPtcpHyw 
+CausativeVerbRootOrthographicSchwa VZero CausPres ThE Pres0|PastImpf0 NegPtcpHyw  # [<caus_listed>:] 
+CausativeVerbRootOrthographicAffr VZero  CausOrthographicAffrPres ThE Pres0|PastImpf0 NegPtcpHyw  # [<caus_listed>:]
+CausativeVerbRootOrthographicAffrSchwa VZero  CausOrthographicAffrSchwaPres ThE Pres0|PastImpf0 NegPtcpHyw  # [<caus_listed>:]
 
 
 PassBase Pass ThI Pres0 NegPtcpHyw 
