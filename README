@@ -51,10 +51,6 @@ Testing
 -------------------------------------------------------------------------------
 
 If you are in the source directory after running make, the following
-commands should work:
-
-
-If you are in the source directory after running make, the following
 commands should work based on the dialect that you use. 
 
 For Western Armenian, use the following commands. 
