@@ -53,13 +53,56 @@ Testing
 If you are in the source directory after running make, the following
 commands should work:
 
-```console
-$ echo "TODO: test sentence" | apertium -d . hyx-morph
-TODO: test analysis result
 
-$ echo "TODO: test sentence" | apertium -d . hyx-tagger
-TODO: test tagger result
+If you are in the source directory after running make, the following
+commands should work based on the dialect that you use. 
+
+For Western Armenian, use the following commands. 
+
+* Morphological analysis: 
+```console
+echo "ապակիներէն ուրախացայ։" | apertium -d . -f none hyx_hyw-morph
+^ապակիներէն/ապակի<n><pl><abl><def>$
+^ուրախացայ/ուրախանալ<v><iv><inch><past><pret><p1><sg><indc>$
+^։/։<sent>$
 ```
+* Tagging (analysis + disambiguation):
+```console
+% echo "ապակիներէն ուրախացայ։" | apertium -d . -f none hyx_hyw-morph
+^ապակիներէն/ապակի<n><pl><abl><def>$ 
+^ուրախացայ/ուրախանալ<v><iv><inch><past><pret><p1><sg><indc>$
+^։/։<sent>$
+```
+* Morphological generation:
+```console
+% echo  "^ապակի<n><pl><abl><def>$ ^ուրախանալ<v><iv><inch><past><pret><p1><sg><indc>$" | apertium -d . -f none hyx_hyw-gener        
+ապակիներէն ուրախացայ
+```
+
+
+
+For Eastern Armenian, use the following commands. 
+
+* Morphological analysis: 
+```console
+echo "ապակիներից ուրախացա" | apertium -d . -f none hyx_hye-morph
+^ապակիներից/ապակի<n><pl><abl>$ 
+^ուրախացա/ուրախանալ<v><iv><inch><past><pret><p1><sg><indc>$
+^։/։<sent>$
+```
+* Tagging (analysis + disambiguation):
+```console
+% echo "ապակիներից ուրախացա։" | apertium -d . -f none hyx_hye-tagger
+^ապակիներից/ապակի<n><pl><abl>$
+^ուրախացա/ուրախանալ<v><iv><inch><past><pret><p1><sg><indc>$
+^։/։<sent>$
+```
+* Morphological generation:
+```console
+% echo  "^ապակի<n><pl><abl><def>$ ^ուրախանալ<v><iv><inch><past><pret><p1><sg><indc>$" | apertium -d . -f none hyx_hye-gener        
+ապակիներէն ուրախացա
+```
+
 
 Files and data
 -------------------------------------------------------------------------------
