@@ -1,4 +1,4 @@
-hyx: `apertium-hyx`
+hyx: `apertium-hyw`
 ===============================================================================
 
 This is an Apertium monolingual language package for Armenian. What
@@ -103,6 +103,7 @@ echo "ապակիներից ուրախացա" | apertium -d . -f none hyx_hye-mor
 Files and data
 -------------------------------------------------------------------------------
 
+* [`lexd_components`](lexd_components) - Components of morphotactic dictionary
 * [`apertium-hyx.hyx.twol`](apertium-hyx.hyx.twol) - Morphophonological rules
 * [`apertium-hyx.hyx.rlx`](apertium-hyx.hyx.rlx) - Constraint Grammar disambiguation rules
 * [`apertium-hyx.post-hyx.dix`](apertium-hyx.post-hyx.dix) - Post-generator
