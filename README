@@ -53,6 +53,8 @@ Testing
 If you are in the source directory after running make, the following
 commands should work based on the dialect that you use. 
 
+To run the analyzer on a corpus, use scripts and commands from [hyw-corpus](https://github.com/mr-martian/hyw-corpus). 
+
 For Western Armenian, use the following commands. 
 
 * Morphological analysis: 
