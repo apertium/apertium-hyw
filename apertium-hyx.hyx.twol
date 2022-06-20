@@ -37,6 +37,7 @@ Alphabet
 
 % 
 %{G1%}:ը %{G2%}:%  
+%{N1%}:ի %{N2%}:%  
 %{ThAյ%}:0
 %{լ%}:լ
 
@@ -120,7 +121,7 @@ Rules
 
 
 !!!!! AFFIX ALLOMORPHY 
-!Indicative prefix /կ{G1}{G2}/ is [կը ] before C's and [կ'] before V's
+!Indicative prefix /կ{G1}{G2}/ is [կը ] before C's and [կ՚] before V's
 !Complication is that ու is a vowel while ոX is not
 
 "For G1, prefix կ{G1}{G2} to [կ՚] before a vowel"
@@ -132,6 +133,19 @@ Rules
 !%{G1%}:ը <=> _ %{G2%}:    [ [ :Cons ] | [ :ո - [ :ո :ւ ] ] ] ;  
 !"For G2, prefix կ{G1}{G2} to [կը ] before a consonant"
 !%{G2%}:%    <=>   _   [ [ :Cons ] | [ :ո - [ :ո :ւ ] ] ] ;  
+
+!Negative prefix /չ{N1}{N2}/ is [չի ] before C's and [չ՚] before V's
+!Complication is that ու is a vowel while ոX is not
+
+"For N1, prefix չ{N1}{N2} to [չ՚] before a vowel"
+%{N1%}:՚ <=> _ %{N2%}:     [ [ :Vowel - :ո ] | :ո :ւ ] ;  
+"For N2, prefix չ{N1}{N2} to չ՚ before a vowel"
+%{N2%}:0   <=>   _   [ [ :Vowel - :ո ] | :ո :ւ  ] ;  
+
+!"For N1, prefix չ{N1}{N2} to [կի ] before a consonant"
+!%{N1%}:ի <=> _ %{N2%}:    [ [ :Cons ] | [ :ո - [ :ո :ւ ] ] ] ;  
+!"For N2, prefix չ{N1}{N2} to [կի ] before a consonant"
+!%{N2%}:%    <=>   _   [ [ :Cons ] | [ :ո - [ :ո :ւ ] ] ] ;  
 
 
 !!!! GLIDE EPENTHESIS

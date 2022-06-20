@@ -63,6 +63,7 @@ SimultaneousPart  # Var/hye
 FuturePart 
 NegativePartHyw # Var/hyw 
 :Neg NegativePartHyw Neg: # Dir/LR Var/hyw  because sometimes see reduction of 3SG չի/չ՚
+:NegSynthComma NegativePartHyw NegSynthComma: # to forcibly get չի/չ՚+V
 NegativePartHye # Var/hye 
 
 NegatedChunks 
@@ -1406,6 +1407,9 @@ LEXICON SyntheticNegAux3SGI
 <synth_vaux><pres><p3><sg><neg>:չի
 <synth_vaux><pres><p3><sg><neg>:չ՚
 
+LEXICON NegSynthComma
+<p3><sg>:չ{N1}{N2}
+
 
 LEXICON VZero
 <v>:
@@ -1613,6 +1617,8 @@ LEXICON IndcShort
 LEXICON  IndcLong
 #Place this to help for parsing unrecognized verbs
 <indc>:կը
+
+
 
 LEXICON CondHyePrefix
 <cond>:կ
