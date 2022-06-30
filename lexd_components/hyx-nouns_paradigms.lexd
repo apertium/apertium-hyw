@@ -55,7 +55,7 @@ NounDeclIrregReducePoly
 
 PATTERN OpenClassRegularNounDeclCanBeBare
 #This is for bucket of nouns that get similar enough inflection
-# This includes regular nouns, and names that are nominalized even when bare
+# This includes regular nouns,   names, and quantifiers that are nominalized even when bare
 # postpositions
 #This excludes irregular U, and infinitivals
 #This excludes adverbs/adjectives and participles that are nominalized when non-bare
@@ -74,6 +74,11 @@ DeclinablePostposition  NouNinflBoundary
 
 NameBaseNotCountry NouNinflBoundary
 
+# quantifiers and question words are explained in the pronoun lexd
+Quantifier [<prn><qnt>:]
+QuestionWords [<prn>:] ([<rel>:]|[<itg>:])
+QuantifierQuestionWords [<prn><qnt>:] ([<itg>:])?
+StrictQuestionWords [<prn><itg>:]
 
 PATTERN NameBaseNotCountry
 NameMaleGiven [<np><ant><m>:]
@@ -139,7 +144,7 @@ DeclDeclinableInterjection SubstZero NouNinflBoundary
 NumericalBase|CardinalFraction SubstZero  NouNinflBoundary
 # NumericalBase|CardinalFraction SubstZero  NouNinflBoundaryRed # I don't think these reduce Dir LR
 ClassicalOrdinals [<num><ord>:]  SubstZero  NouNinflBoundary
-
+AdverbialPronounDeclinable AdvZero SubstZero  NouNinflBoundary
 
 PATTERN ParticipleDeclStem
 ParticipleInflectable SubstZero NouNinflBoundary
@@ -190,7 +195,7 @@ AttributiveInst
 
 
 PATTERN NounDeclIrregularU
-#This is for nouns that take u-declension
+#This is for nouns and function words that take u-declension
 #This don't have high vowels that can reduce
 #This is a closet set of nouns
 # Does not include infinitivals because infinitivals cant be bare
@@ -199,7 +204,6 @@ UNounStemBoundary NSg0 CaseDefUDeclension
 UNounStemBoundary NSg0 DatGenRegI (Def|Poss)?  # Dir/LR
 NounIrregU NZero NouNinflBoundaryRed NSg0 AttributiveGenUDef|AttributiveInst  # Dir/LR
 
- SubstZero  NouNinflBoundary NSg0 AttributiveGenUDef|AttributiveInst  # Dir/LR
 
 
 #Plural
@@ -209,6 +213,7 @@ NounIrregU NZero NouNinflBoundaryRed NPlReg AttributiveGenUDef|AttributiveInst  
 PATTERN UNounStemBoundary
 NounIrregU NZero NouNinflBoundary
 Number1 [<num>:]  SubstZero  NouNinflBoundary
+QuantifierU  [<prn><qnt>:] 
 
 
 ##########################

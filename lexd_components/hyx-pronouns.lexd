@@ -40,28 +40,13 @@ DemonstrativePronounDeterminer (Def|Poss)?
 [ուր<prn>:] ([<rel>:]|[<itg>:])   RelativePronounWhereInflected ((Def Def?)|Poss)?   # Double Def is because of attributive like որունն է 
 [երբ<prn>:երբ] ([<rel>:]|[<itg>:]) # inflection is in nominal paradigm because takes -van
 
-Quantifier [<prn><qnt>:] CaseRegI? (Def|Poss)? 
-QuantifierU  [<prn><qnt>:] CaseRegU? (Def|Poss)? 
-QuestionWords [<prn>:] ([<rel>:]|[<itg>:]) CaseRegI? (Def|Poss)? 
-QuantifierQuestionWords [<prn><qnt>:] ([<itg>:])? CaseRegI? (Def|Poss)?
-StrictQuestionWords [<prn><itg>:]  CaseRegI? (Def|Poss)?
-#Plural
-Quantifier|QuantifierU [<prn><qnt>:]  NPlReg CaseRegU? (Def|Poss)? 
-QuestionWords [<prn>:] ([<rel>:]|[<itg>:]) NPlReg CaseRegU? (Def|Poss)? 
-QuantifierQuestionWords [<prn><qnt>:] ([<itg>:])? NPlReg CaseRegU? (Def|Poss)? 
-StrictQuestionWords [<prn><itg>:]  NPlReg CaseRegU? (Def|Poss)? 
-#Plural possessive (separate line for instrumental)
-Quantifier|QuantifierU [<prn><qnt>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
-Quantifier|QuantifierU [<prn><qnt>:]  NSg0|NPlReg  InsReg PossPl  Def|Poss
-QuestionWords [<prn>:] ([<rel>:]|[<itg>:])  NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
-QuestionWords [<prn>:] ([<rel>:]|[<itg>:])  NSg0|NPlReg  InsReg PossPl  Def|Poss
-StrictQuestionWords [<prn><itg>:]  NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
-StrictQuestionWords [<prn><itg>:]  NSg0|NPlReg  InsReg PossPl  Def|Poss
-QuantifierQuestionWords [<prn><qnt>:] NSg0|NPlReg  PossPl CaseRegPostPluralPoss? Def|Poss
-QuantifierQuestionWords [<prn><qnt>:] NSg0|NPlReg  InsReg PossPl  Def|Poss
-
+# quantifiers are in the noun paradigm because use the same declensions
 
 DeclinedQuestionArchaic # Dir/LR
+
+# Adverbial pronouns
+AdverbialPronounSpecialDeclined
+# the pronominal adverbs that take regular declension are in the noun paradigm lexd
 
 ##############
 ##############
@@ -319,11 +304,28 @@ LEXICON SubstantivePronoun
 մերինը<prn><subs><px1pl><pl><nom_acc>:մերինները
 մերինը<prn><subs><px1pl><pl><nom_acc>:մերիններն # Dir/LR 
 մերինը<prn><subs><px1pl><pl><gen_dat>:մերիններուն
-մերինը<prn><subs><px1pl><pl><abl>:մերիններէն 
+մերինը<prn><subs><px1pl><pl><abl><def>:մերիններէն 
 մերինը<prn><subs><px1pl><pl><ins>:մերիններով 
 մերինը<prn><subs><px1pl><pl><ins><def>:մերիններովը
 մերինը<prn><subs><px1pl><pl><ins><def>:մերիններովն # Dir/LR 
-
+ 
+մերոնք<prn><subs><px1pl><pl><nom_acc>:մերոնք
+մերոնք<prn><subs><px1pl><pl><nom_acc>:մերոնքներ   # Dir/LR
+մերոնք<prn><subs><px1pl><pl><nom_acc><def>:մերոնքը
+մերոնք<prn><subs><px1pl><pl><nom_acc><def>:մերոնքները  # Dir/LR
+մերոնք<prn><subs><px1pl><pl><nom_acc><def>:մերոնքն # Dir/LR
+մերոնք<prn><subs><px1pl><pl><nom_acc><def>:մերոնքներն # Dir/LR
+մերոնք<prn><subs><px1pl><pl><gen_dat><def>:մերոնքին
+մերոնք<prn><subs><px1pl><pl><gen_dat><def>:մերոնքներուն  # Dir/LR
+մերոնք<prn><subs><px1pl><pl><abl><def>:մերոնքէն 
+մերոնք<prn><subs><px1pl><pl><abl><def>:մերոնքներէն  # Dir/LR
+մերոնք<prn><subs><px1pl><pl><ins>:մերոնքով 
+մերոնք<prn><subs><px1pl><pl><ins>:մերոնքներով # Dir/LR
+մերոնք<prn><subs><px1pl><pl><ins><def>:մերոնքովը
+մերոնք<prn><subs><px1pl><pl><ins><def>:մերոնքներովը # Dir/LR 
+մերոնք<prn><subs><px1pl><pl><ins><def>:մերոնքովն # Dir/LR 
+մերոնք<prn><subs><px1pl><pl><ins><def>:մերոնքներովն # Dir/LR 
+ 
 ձերինը<prn><subs><px2pl><pl><nom_acc>:ձերինները
 ձերինը<prn><subs><px2pl><pl><nom_acc>:ձերիններն # Dir/LR 
 ձերինը<prn><subs><px2pl><pl><gen_dat>:ձերիններուն
@@ -331,6 +333,23 @@ LEXICON SubstantivePronoun
 ձերինը<prn><subs><px2pl><pl><ins>:ձերիններով 
 ձերինը<prn><subs><px2pl><pl><ins><def>:ձերիններովը
 ձերինը<prn><subs><px2pl><pl><ins><def>:ձերիններովն # Dir/LR 
+
+ձերոնք<prn><subs><px2pl><pl><nom_acc>:ձերոնք
+ձերոնք<prn><subs><px2pl><pl><nom_acc>:ձերոնքներ   # Dir/LR
+ձերոնք<prn><subs><px2pl><pl><nom_acc><def>:ձերոնքը
+ձերոնք<prn><subs><px2pl><pl><nom_acc><def>:ձերոնքները  # Dir/LR
+ձերոնք<prn><subs><px2pl><pl><nom_acc><def>:ձերոնքն # Dir/LR
+ձերոնք<prn><subs><px2pl><pl><nom_acc><def>:ձերոնքներն # Dir/LR
+ձերոնք<prn><subs><px2pl><pl><gen_dat><def>:ձերոնքին
+ձերոնք<prn><subs><px2pl><pl><gen_dat><def>:ձերոնքներուն  # Dir/LR
+ձերոնք<prn><subs><px2pl><pl><abl><def>:ձերոնքէն 
+ձերոնք<prn><subs><px2pl><pl><abl><def>:ձերոնքներէն  # Dir/LR
+ձերոնք<prn><subs><px2pl><pl><ins>:ձերոնքով 
+ձերոնք<prn><subs><px2pl><pl><ins>:ձերոնքներով # Dir/LR
+ձերոնք<prn><subs><px2pl><pl><ins><def>:ձերոնքովը
+ձերոնք<prn><subs><px2pl><pl><ins><def>:ձերոնքներովը # Dir/LR 
+ձերոնք<prn><subs><px2pl><pl><ins><def>:ձերոնքովն # Dir/LR 
+ձերոնք<prn><subs><px2pl><pl><ins><def>:ձերոնքներովն # Dir/LR 
 
 անոնցը<prn><subs><px3pl><pl><nom_acc>:անոնցները 
 անոնցը<prn><subs><px3pl><pl><nom_acc>:անոնցներն # Dir/LR 
@@ -369,6 +388,8 @@ LEXICON ReciprocalPronoun
 
 #undeclinable
 մէկըզմէկ<prn><ref><acc>:մէկըզմէկ
+մէկզմէկ<prn><ref><acc>:մէկզմէկ
+մեր<prn><ref><acc>:մեր
 
 
 
@@ -570,19 +591,27 @@ LEXICON RelativePronounWhereInflected
 
 
 LEXICON Quantifier
+այլ:այլ
 ամէնք:ամէնք
 բոլոր:բոլոր
 ամէնայն:ամէնայն
 իւրաքանչիւր:իւրաքանչիւր
+նոյնչափ:նոյնչափ
+նոյնքան:նոյնքան
 այդչափ:այդչափ
 այնչափ:այնչափ
 այսչափ:այսչափ
-ցորչամ:ցորչամ
+ադչափ:ադչափ
+անչափ:անչափ
+ասչափ:ասչափ
 ցորչափ:ցորչափ
 ցորքան:ցորքան
 այդքան:այդքան
 այնքան:այնքան
 այսքան:այսքան
+ադքան:ադքան
+անքան:անքան
+ասքան:ասքան
 քանի:քանի #reassigned had ՞
 աւելի:աւելի #reassigned
 նուազ:նուազ #reassigned
@@ -591,12 +620,14 @@ LEXICON QuantifierU
 ամէն:ամէն
 ամեն:ամեն
 
-
 LEXICON QuestionWords
 ինչպէս:ի{՞}նչպէս # Dir/LR irregularly placed ՞ 
 ինչպէս:ինչպէս # had ՞
 ինչ:ինչ 
 ինչ:ի{՞}նչ # Dir/LR 
+ուրտեղ:ուրտեղ
+որտեղ:որտեղ
+այսինչ:այսինչ
 
 LEXICON QuantifierQuestionWords
 որչափ:ո{՞}րչափ
@@ -605,6 +636,7 @@ LEXICON QuantifierQuestionWords
 որքան:որքան # Dir/LR irregular stress on final
 ինչքան:ի{՞}նչքան 
 ինչքան:ինչքան # Dir/LR 
+ինչչափ:ինչչափ
 զինչպիսի:զի{՞}նչպիսի # had ՞
 ինչպիսի:ինչպի{՞}սի
 զինչօրինակ:զի{՞}նչօրինակ  # had ՞
@@ -613,6 +645,7 @@ LEXICON StrictQuestionWords
 # These are words that can only act as interrogatives without case, unless nominalized
 ընչու:ընչու # had ՞
 ինչու:ինչու # had ՞
+ընտոր:ընտոր
 ինչու:ի{՞}նչու # Dir/LR irregularly placed ՞ 
 ինչուան:ի{՞}նչուան # Dir/LR with irregularly placed ՞
 ինչուան:ինչուան
@@ -622,6 +655,51 @@ LEXICON DeclinedQuestionArchaic
 # Declined archaic questionwords that no one uses
 ինչ<prn><itg><sg><acc>:զինչ 
 ինչ<prn><rel><sg><acc>:զինչ 
+
+
+# Adverbial pronouns that can decline
+LEXICON AdverbialPronounDeclinable
+# Adverbial pronouns that have special declined forms
+հոնտեղ:հոնտեղ
+հոստեղ:հոստեղ
+հոդտեղ:հոդտեղ
+հոս-հոն:հոս-հոն
+նոյնպիսի:նոյնպիսի
+սոյնպիսի:սոյնպիսի
+նոյնպէս:նոյնպէս
+դոյնպէս:դոյնպէս
+սոյնպէս:սոյնպէս
+այսպէս:այսպէս
+այդպէս:այդպէս
+այնպէս:այնպէս
+ասպէս:ասպէս
+ադպէս:ադպէս
+անպէս:անպէս
+այդտեղ:այդտեղ
+այստեղ:այստեղ
+այնտեղ:այնտեղ
+ադտեղ:ադտեղ
+աստեղ:աստեղ
+անտեղ:անտեղ
+անանկ:անանկ
+ասանկ:ասանկ
+ատանկ:ատանկ
+ասդի:ասդի
+այդպիսի:այդպիսի
+այնպիսի:այնպիսի
+այսպիսի:այսպիսի
+այլուր:այլուր
+ամէնուր:ամէնուր
+LEXICON AdverbialPronounSpecialDeclined
+հոն<adv>:հոն
+հոս<adv>:հոս
+հոդ<adv>:հոդ
+հոն<adv><subst><sg><abl>:հոնկէ
+հոն<adv><subst><sg><abl>:հոնկից
+հոս<adv><subst><sg><abl>:հոսկէ
+հոս<adv><subst><sg><abl>:հոսկից
+հոդ<adv><subst><sg><abl>:հոդկէ
+հոդ<adv><subst><sg><abl>:հոդկից
 
 
 #! Resources:
