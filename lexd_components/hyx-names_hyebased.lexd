@@ -35,6 +35,7 @@ LEXICON NameFamily
 Արխիպանց:Արխիպանց
 Աթաբեկանց:Աթաբեկանց
 Աբեսալոմանց:Աբեսալոմանց
+Գրիգորյանց:Գրիգորյանց
 
 #janc WA style
 Աբալեանց:Աբալեանց
@@ -48,6 +49,7 @@ LEXICON NameFamily
 Արխիպեանց:Արխիպեանց
 Աթաբեկեանց:Աթաբեկեանց
 Աբեսալոմեանց:Աբեսալոմեանց
+Գրիգորեանց:Գրիգորեանց
 
 #vowel jan
 Եսայան:Եսայան
@@ -1559,8 +1561,6 @@ LEXICON NameFamily
 # taken from parliament records  http://www.parliament.am/deputies.php?lang=arm&sel=&ord=&show_session=100
 
 #not jan/janc
-Խաչատրայն:Խաչատրայն
-Գրիգորյանց:Գրիգորյանց
 Թոգոշվիլի:Թոգոշվիլի
 Ռիբալկո:Ռիբալկո
 Միխայլով:Միխայլով
