@@ -26,8 +26,7 @@ LEXICON VerbRootNelNale(2)		#Class 23 իջնել իջնալ and 24 գտնել գ
 գտնել:գտ <tv>
 հեծնել:հեծ <iv>
 մտնել:մտ <iv>
-
-դպնալ:դպ <tv> #This verb is also CilIl
+դպնել:դպ <tv> #This verb is also CilIl
 
 
 LEXICON VerbRootNelNala(2)
@@ -36,9 +35,9 @@ LEXICON VerbRootNelNala(2)
 գտնալ:գտ <tv>
 հեծնալ:հեծ <iv>
 մտնալ:մտ <iv>
+դպնալ:դպ <tv> #This verb is also CilIl
 
 
-դպնել:դպ <tv> #This verb is also CilIl
 
 LEXICON VerbRootSeeE(2) #Incorrectly part of գտնել group but it has bare imperative 2sg like առնել
 տեսնել:տես <tv>
