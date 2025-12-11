@@ -159,7 +159,6 @@ LEXICON NounReg
 աղացք:աղացք
 կառաձի:կառաձի{mono}
 աղբերակ:աղբերակ
-աղիւսատուն:աղիւսատուն
 ամաղեկացի:ամաղեկացի
 ամեթովս:ամեթովս
 ամոլաջիլ:ամոլաջիլ
@@ -311,3 +310,9 @@ LEXICON VerbRootI(2)
 
 LEXICON NounUmSuffix
 կոխում:կոխ
+
+LEXICON NounRandomOBase
+աղիւսատուն:աղիւսատուն{mono}
+
+LEXICON NounRandomOAblauted
+աղիւսատուն:աղիւսատան
