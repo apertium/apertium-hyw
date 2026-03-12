@@ -122,8 +122,8 @@ LEXICON VerbRootTurnPast(2)
 LEXICON VerbRootOpenNasal(2)	# Class 42 բանալ
 վերաբանալ:վերաբան <tv> 
 LEXICON VerbRootOpenAffr(2)
-վերաբանալ:վերաբաց <tv> # Var/hyw
-վերաբացել:վերաբաց <tv> # Var/hye
+վերաբանալ:վերաբաց <tv>
+
 
 
 

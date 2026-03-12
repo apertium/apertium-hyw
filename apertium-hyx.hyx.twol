@@ -41,7 +41,7 @@ Alphabet
 %{ThAյ%}:0
 %{լ%}:լ
 
-%{ProhPl%}:0 %{ImpSg%}:0 %{Aor%}:0 %{Impf%}:0 %{Pres3SG%}:0 %{Pres2PL%}:0 %{NegPtcpHye%}:0
+%{ProhPl%}:0 %{ImpSg%}:0 %{Aor%}:0 %{Impf%}:0 %{Pres3SG%}:0 %{Pres2PL%}:0 
 
 %{PossPlի%}:ի  ! The plural possessive generally surfaces with ի unless before a vowel
 
@@ -76,10 +76,6 @@ GeneralNInflBoundary = %{Ninfl%} %{NinflRed%} ;
 
 !Summary of contexts ե theme vowel becomes է     in Hyw
 JeToE = %{ProhPl%} %{Pres3SG%} %{ImpSg%} %{Impf%}  %{Pres2PL%}
-;
-
-!Summary of contexts ե theme vowel becomes ի     in Hye
-JeToI =   %{Pres3SG%}    %{NegPtcpHye%} 
 ;
 
 ! Some  contexts where ի theme vowel becomes է  (ի only in hyw) 
@@ -168,9 +164,6 @@ Rules
 "theme vowel /ե{JeToE}/ to [է] in hyw"  !  Var/hyw
 ե:է  <=>   _ 0:* JeToE: ;   !  Var/hyw
 
-!!In many contexts, the  ե theme vowel becomes ի in in hye
-"theme vowel /ե{JeToI}/ to [ի] in hye" ! Var/hye
-ե:ի  <=>   _ 0:* JeToI: ;   ! Var/hye
 
 
 
@@ -297,4 +290,3 @@ Rules
 ! https://github.com/hfst/
 ! https://wiki.apertium.org/wiki/Twol
 ! https://wiki.apertium.org/wiki/Hfst
-
