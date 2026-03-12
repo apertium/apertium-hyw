@@ -138,9 +138,9 @@ Rules
 "For N2, prefix չ{N1}{N2} to չ՚ before a vowel"
 %{N2%}:0   <=>   _   [ [ :Vowel - :ո ] | :ո :ւ  ] ;  
 
-!"For N1, prefix չ{N1}{N2} to [կի ] before a consonant"
+!"For N1, prefix չ{N1}{N2} to [չի ] before a consonant"
 !%{N1%}:ի <=> _ %{N2%}:    [ [ :Cons ] | [ :ո - [ :ո :ւ ] ] ] ;  
-!"For N2, prefix չ{N1}{N2} to [կի ] before a consonant"
+!"For N2, prefix չ{N1}{N2} to [չի ] before a consonant"
 !%{N2%}:%    <=>   _   [ [ :Cons ] | [ :ո - [ :ո :ւ ] ] ] ;  
 
 
