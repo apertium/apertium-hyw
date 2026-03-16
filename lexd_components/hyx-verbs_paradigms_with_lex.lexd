@@ -687,7 +687,7 @@ VerbStemI ThI ProhAgr
 VerbStemA ThA ProhAgr
 
 CausBase CausPres ThE ProhAgr
-CausativeVerbRootOrthographicSchwa VZero  CausPres ThE ProhAgr # [<caus_listed>:]
+CausativeVerbRootOrthographicSchwa VZero  CausOrthographicSchwaPres ThE ProhAgr # [<caus_listed>:]
 CausativeVerbRootOrthographicAffr VZero  CausOrthographicAffrPres  ThE ProhAgr # [<caus_listed>:]
 CausativeVerbRootOrthographicAffrSchwa VZero CausOrthographicAffrSchwaPres  ThE ProhAgr # [<caus_listed>:] 
 
@@ -743,7 +743,7 @@ VerbStemI SubjPart #
 VerbStemA ThA Aor SubjPart
 
 CausBase CausPres SubjPart
-CausativeVerbRootOrthographicSchwa VZero  CausPres SubjPart # [<caus_listed>:]
+CausativeVerbRootOrthographicSchwa VZero  CausOrthographicSchwaPres SubjPart # [<caus_listed>:]
 CausativeVerbRootOrthographicAffr VZero  CausOrthographicAffrPres SubjPart # [<caus_listed>:]
 CausativeVerbRootOrthographicAffrSchwa VZero CausOrthographicAffrSchwaPres SubjPart #  [<caus_listed>:] 
 
@@ -924,7 +924,7 @@ VerbStemI ThE PastImpf0 NegPtcpHyw #For i->e
 VerbStemA ThA Pres0|PastImpf0 NegPtcpHyw 
 
 CausBase CausPres ThE Pres0|PastImpf0 NegPtcpHyw 
-CausativeVerbRootOrthographicSchwa VZero CausPres ThE Pres0|PastImpf0 NegPtcpHyw  # [<caus_listed>:] 
+CausativeVerbRootOrthographicSchwa VZero CausOrthographicSchwaPres ThE Pres0|PastImpf0 NegPtcpHyw  # [<caus_listed>:] 
 CausativeVerbRootOrthographicAffr VZero  CausOrthographicAffrPres ThE Pres0|PastImpf0 NegPtcpHyw  # [<caus_listed>:]
 CausativeVerbRootOrthographicAffrSchwa VZero  CausOrthographicAffrSchwaPres ThE Pres0|PastImpf0 NegPtcpHyw  # [<caus_listed>:]
 
@@ -1089,6 +1089,7 @@ LEXICON CausPass
 #Orthographic variants of causative
 LEXICON CausOrthographicSchwaPres
 <caus>:ցըն
+<caus>:ցն # Dir/LR in case theres orthographic variation for some causative
 LEXICON CausOrthographicAffrPres
 <caus>:ձն
 LEXICON CausOrthographicAffrSchwaPres
