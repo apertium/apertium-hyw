@@ -140,8 +140,6 @@ VerbRootNelNala(1)  VZero VerbRootNelNala(2): (EmptyNasal ThA)? # Dir/LR   to ca
 VerbRootCry(1) VZero VerbRootCry(2): ThA   # լալ
 VerbRootBring(1) VZero VerbRootBring(2): ThE   # բերել
 VerbRootBring(1) VZero VerbRootBring(2): ThE? # Dir/LR   to capture variation in theme-les
-# skip because listed in CausativeVerbRootOrthographicAffr
-#VerbRootTurnPres(1) VZero VerbRootBring(2): 
 VerbRootSeeA(1)   VZero VerbRootSeeA(2):     # տեսնալ
 VerbRootSeeA(1) VZero VerbRootSeeA(2): (EmptyNasal? ThE)? # Dir/LR   to capture variation in theme-less or infix-less
 VerbRootSeeE(1)   VZero VerbRootSeeE(2):    # տեսնալ
@@ -494,7 +492,8 @@ VerbRootCilIliHyw(1) VZero VerbRootCilIliHyw(2): PastSecAgr Indc0 #
 
 VerbRootCelHyw(1) VZero VerbRootCelHyw(2): PastSecAgr Indc0 # 
 VerbRootNelNale(1)|VerbRootNelNala(1) VZero VerbRootNelNale(2):|VerbRootNelNala(2): PastSecAgr Indc0
-VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): PastSecAgr Indc0
+VerbRootRiseEPast(1) VZero VerbRootRiseEPast(2): PastSecAgr Indc0
+VerbRootRiseAPast(1) VZero VerbRootRiseAPast(2): PastSecAgr Indc0
 VerbRootCanShort(1) VZero VerbRootCanShort(2): Aor PastSecAgr Indc0 # 
 VerbRootBeLongPastHyw(1) VZero VerbRootBeLongPastHyw(2): PastSecAgr Indc0  # 
 
@@ -579,8 +578,10 @@ VerbRootCilIliHyw(1) VZero VerbRootCilIliHyw(2): ImpSgIR #
 VerbRootCelHyw(1) VZero VerbRootCelHyw(2): ThI ImpSg  #  Dir/LR   թռի, not թռէ
 VerbRootCelHyw(1) VZero VerbRootCelHyw(2): ImpSgIR # 
 VerbRootNelNale(1)|VerbRootNelNala(1) VZero VerbRootNelNale(2):|VerbRootNelNala(2): ImpSgIR
-VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): ImpSg # Dir/LR
-VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): ImpSgIR
+VerbRootRiseEPast(1) VZero VerbRootRiseEPast(2): ImpSg # Dir/LR
+VerbRootRiseAPast(1) VZero VerbRootRiseAPast(2): ImpSg # Dir/LR
+VerbRootRiseEPast(1) VZero VerbRootRiseEPast(2): ImpSgIR
+VerbRootRiseAPast(1) VZero VerbRootRiseAPast(2): ImpSgIR
 VerbRootCanShort(1) VZero VerbRootCanShort(2): Aor ImpSgIR # 
 VerbRootBeLongPastHyw(1) VZero VerbRootBeLongPastHyw(2): ImpSgIR # 
 VerbRootComePast(1) VZero VerbRootComePast(2): ImpSgUR # 
@@ -648,7 +649,8 @@ VerbRootCilIlcHyw(1) VZero VerbRootCilIlcHyw(2):  ImpPl #
 VerbRootCilIliHyw(1) VZero VerbRootCilIliHyw(2): ImpPl #   
 VerbRootCelHyw(1) VZero VerbRootCelHyw(2): ImpPl # 
 VerbRootNelNale(1)|VerbRootNelNala(1) VZero VerbRootNelNale(2):|VerbRootNelNala(2): ImpPl
-VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): ImpPl
+VerbRootRiseEPast(1) VZero VerbRootRiseEPast(2): ImpPl
+VerbRootRiseAPast(1) VZero VerbRootRiseAPast(2): ImpPl
 VerbRootCanShort(1) VZero VerbRootCanShort(2): Aor ImpPl # 
 VerbRootBeLongPastHyw(1) VZero VerbRootBeLongPastHyw(2): ImpPl # 
 VerbRootComePast(1) VZero VerbRootComePast(2): ImpPl
@@ -766,7 +768,8 @@ VerbRootCilIlcHyw(1) EmptyAffr VZero VerbRootCilIlcHyw(2): SubjPart #
 VerbRootCilIliHyw(1) VZero VerbRootCilIliHyw(2): SubjPart # 
 VerbRootCelHyw(1) EmptyAffr VZero VerbRootCelHyw(2): SubjPart # 
 VerbRootNelNale(1)|VerbRootNelNala(1) EmptyNasal VZero VerbRootNelNale(2):|VerbRootNelNala(2): SubjPart
-VerbRootRiseEPres(1)|VerbRootRiseAPres(1) VZero VerbRootRiseEPres(2):|VerbRootRiseAPres(2): SubjPart
+VerbRootRiseEPres(1) VZero VerbRootRiseEPres(2): SubjPart
+VerbRootRiseAPres(1) VZero VerbRootRiseAPres(2): SubjPart
 VerbRootCanShort(1) Aor VZero VerbRootCanShort(2):SubjPart # 
 VerbRootBeLongPastHyw(1) VZero VerbRootBeLongPastHyw(2): SubjPart # 
 VerbRootComePast(1) VZero VerbRootComePast(2): SubjPart
@@ -776,6 +779,7 @@ VerbRootBring(1) VZero VerbRootBring(2): SubjPart
 VerbRootTurnPast(1) VZero VerbRootTurnPast(2): SubjPart
 VerbRootTake(1) EmptyNasal VZero VerbRootTake(2): SubjPart
 VerbRootSeeA(1)|VerbRootSeeE(1) EmptyNasal VZero VerbRootSeeA(2):|VerbRootSeeE(2): SubjPart
+VerbRootSeeA(1)|VerbRootSeeE(1)  VZero VerbRootSeeA(2):|VerbRootSeeE(2): SubjPart # Dir/LR
 VerbRootOpenAffr(1) VZero VerbRootOpenAffr(2): SubjPart
 VerbRootPutPres(1) VZero VerbRootPutPres(2): SubjPart
 VerbRootGoPastC(1) VZero VerbRootGoPastC(2): ThA Aor SubjPart # 
@@ -832,7 +836,8 @@ VerbRootCilIlcHyw(1) VZero VerbRootCilIlcHyw(2): ResultPartSuffix #
 VerbRootCilIliHyw(1) VZero VerbRootCilIliHyw(2): ResultPartSuffix # 
 VerbRootCelHyw(1) VZero VerbRootCelHyw(2): ResultPartSuffix # 
 VerbRootNelNale(1)|VerbRootNelNala(1) VZero VerbRootNelNale(2):|VerbRootNelNala(2): ResultPartSuffix
-VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): ResultPartSuffix
+VerbRootRiseEPast(1) VZero VerbRootRiseEPast(2): ResultPartSuffix
+VerbRootRiseAPast(1) VZero VerbRootRiseAPast(2): ResultPartSuffix
 VerbRootCanShort(1) Aor VZero VerbRootCanShort(2):ResultPartSuffix # 
 VerbRootBeLongPastHyw(1) VZero VerbRootBeLongPastHyw(2): ResultPartSuffix # 
 VerbRootComePast(1) VZero VerbRootComePast(2): ResultPartSuffix
@@ -887,7 +892,8 @@ VerbRootCilIlcHyw(1) VZero VerbRootCilIlcHyw(2): EvidPart #
 VerbRootCilIliHyw(1) VZero VerbRootCilIliHyw(2): EvidPart # 
 VerbRootCelHyw(1) VZero VerbRootCelHyw(2): EvidPart # 
 VerbRootNelNale(1)|VerbRootNelNala(1) VZero VerbRootNelNale(2):|VerbRootNelNala(2): EvidPart
-VerbRootRiseEPast(1)|VerbRootRiseAPast(1) VZero VerbRootRiseEPast(2):|VerbRootRiseAPast(2): EvidPart
+VerbRootRiseEPast(1) VZero VerbRootRiseEPast(2): EvidPart
+VerbRootRiseAPast(1) VZero VerbRootRiseAPast(2): EvidPart
 VerbRootCanShort(1) VZero VerbRootCanShort(2): Aor EvidPart # 
 VerbRootBeLongPastHyw(1) VZero VerbRootBeLongPastHyw(2): EvidPart
 VerbRootComePast(1) VZero VerbRootComePast(2): EvidPart
@@ -1398,7 +1404,7 @@ LEXICON VerbRootRiseEPast(2)
 ելնել:ել	<iv>
 LEXICON VerbRootRiseAPres(2)
 ելլալ:ելլ	<iv> # 
-ելնել:ելն	<iv>
+ելնալ:ելն	<iv>
 LEXICON VerbRootRiseAPast(2)
 ելլալ:ել	<iv> # 
 ելնալ:ել	<iv>
