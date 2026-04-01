@@ -72,7 +72,7 @@ Cons = բ գ դ զ թ ժ  լ խ ծ կ հ ձ ղ ճ մ յ ն շ չ պ ջ ռ ս վ 
        ; 
 
 !Noun-infl boundaries
-GeneralNInflBoundary = %{Ninfl%} %{NinflRed%} ;
+GeneralNInflBoundary = %{Ninfl%} %{NinflRed%}  %{NinflRedForcedNer%};
 
 !Summary of contexts ե theme vowel becomes է     in Hyw
 JeToE = %{ProhPl%} %{Pres3SG%} %{ImpSg%} %{Impf%}  %{Pres2PL%}

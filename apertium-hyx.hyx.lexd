@@ -290,7 +290,7 @@ NounTimeVanStem RegPluralAndPluralPossessiveDeclension
 #Bare adverb
 NounTimeVanAdvStem
 #Without case, but with definite
-NounTimeVanAdvNominalizedStem NSg0 NouNinflBoundary (Def|Poss)
+NounTimeVanAdvNominalizedStem NouNinflBoundary NSg0 (Def|Poss)
 #With case
 NounTimeVanAdvNominalizedStem NSg0 CaseTimeVan NouNinflBoundary (Def|Poss)? 
 NounTimeVanAdvNominalizedStem NSg0 CaseRegI (Def|Poss)?  # Dir/LR
@@ -348,8 +348,8 @@ PATTERN NounDeclIrregReducePoly
 #right now just գլուխ because ամիս can go under the -van words
 #I take the -u form as less prefered
 #Singular
-NounIrregUReducePoly NZero NSg0 NouNinflBoundary RegNounCaseIDeclensionWithOptDef
-NounIrregUReducePoly NZero NSg0 NouNinflBoundaryRed RegNounCaseIDeclensionWithOptDef   # Dir/LR
+NounIrregUReducePoly NZero NouNinflBoundary NSg0 RegNounCaseIDeclensionWithOptDef
+NounIrregUReducePoly NZero NouNinflBoundaryRed NSg0 RegNounCaseIDeclensionWithOptDef   # Dir/LR
 NounIrregUReducePoly NZero NouNinflBoundaryRed NSg0 CaseDefUDeclension   # Dir/LR
 
 #Because polysyllabic, no need for reduction boundary
@@ -366,10 +366,10 @@ PATTERN NounDeclIrregMonoWithN
 #I give a special diacritic in the plural -ner so that it can trigger reduction
 #Singular մուկ մուկէ մկնէ 
 NounIrregMonoNerOld NZero NouNinflBoundary NSg0 RegNounCaseIDeclensionWithOptDef
-NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer NSg0 [:ն]? CaseRegI (Def|Poss)?   # Dir/LR
+NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer NSg0 NominalNasalN? CaseRegI (Def|Poss)?   # Dir/LR
 
 #attributive
-NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer NSg0 [:ն]? AttributiveGenIDef|AttributiveInst   # Dir/LR
+NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer NSg0 NominalNasalN? AttributiveGenIDef|AttributiveInst   # Dir/LR
 
 #Plural
 #մուկեր
@@ -389,11 +389,13 @@ NounIrregMonoNerOld NZero NouNinflBoundary NSg0|NPlReg  PluralPossessiveDeclensi
 NounIrregMonoNerOld NZero NouNinflBoundaryRed NSg0|NPlReg  PluralPossessiveDeclension   # Dir/LR
 
 #մուկներնիս, I have to force -er 
-NounIrregMonoNerOld NZero NouNinflBoundary (NSg0 [:ներ])|NPlNerOnly  PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
+NounIrregMonoNerOld NZero NouNinflBoundary NSg0 PossPlWithSpuriousNer CaseRegPostPluralPoss? Def|Poss  # Dir/LR
+NounIrregMonoNerOld NZero NouNinflBoundary NPlNerOnly  PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
 NounIrregMonoNerOld NZero NouNinflBoundary NSg0|NPlNerOnly  InsReg PossPl  Def|Poss   # Dir/LR
 
 #մկներնիս
-NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer (NSg0 [:ներ])|NPlNerOnly  PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
+NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer  NSg0 PossPlWithSpuriousNer CaseRegPostPluralPoss? Def|Poss  # Dir/LR
+NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer  NPlNerOnly  PossPl CaseRegPostPluralPoss? Def|Poss  # Dir/LR
 NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer NSg0|NPlNerOnly  InsReg PossPl  Def|Poss   # Dir/LR
 
 
@@ -401,10 +403,10 @@ NounIrregMonoNerOld NZero NouNinflBoundaryRedForcedNer NSg0|NPlNerOnly  InsReg P
 #It's just լեռ
 #Singular լեռէ լեռնէ
 NounIrregMonoNerStill NZero NouNinflBoundary NSg0 CaseRegI? (Def|Poss)?
-NounIrregMonoNerStill NZero NouNinflBoundary [:ն] NSg0 CaseRegI (Def|Poss)?  # Dir/LR
+NounIrregMonoNerStill NZero NouNinflBoundary NominalNasalN NSg0 CaseRegI (Def|Poss)?  # Dir/LR
 
 NounIrregMonoNerStill NZero NouNinflBoundary NSg0 AttributiveGenIDef|AttributiveInst
-NounIrregMonoNerStill NZero NouNinflBoundary [:ն] NSg0 AttributiveGenIDef|AttributiveInst  # Dir/LR
+NounIrregMonoNerStill NZero NouNinflBoundary NominalNasalN NSg0 AttributiveGenIDef|AttributiveInst  # Dir/LR
 
 #Plural
 NounIrregMonoNerStill NZero NouNinflBoundary NPlNerOnly CaseDefUDeclension
@@ -412,7 +414,8 @@ NounIrregMonoNerStill NZero NouNinflBoundary NPlNerOnly CaseDefUDeclension
 #Plural possessive (separate line for instrumental)
 #I manually add the ն for singular forms before the plural possessive
 # Have to force եր inside the singular
-NounIrregMonoNerStill NZero NouNinflBoundary (NSg0 [:ներ])|NPlNerOnly  PossPl CaseRegPostPluralPoss? Def|Poss 
+NounIrregMonoNerStill NZero NouNinflBoundary  NSg0 PossPlWithSpuriousNer CaseRegPostPluralPoss? Def|Poss 
+NounIrregMonoNerStill NZero NouNinflBoundary NPlNerOnly  PossPl CaseRegPostPluralPoss? Def|Poss 
 NounIrregMonoNerStill NZero NouNinflBoundary NSg0|NPlNerOnly  InsReg PossPl  Def|Poss 
 
 
@@ -766,9 +769,9 @@ NounIrregGod NZero  NouNinflBoundary NPlReg AttributiveGenUDef|AttributiveInst
 
 # Archaic dative case  սիրոյ սիրոյն
 #Can't have  boundary after ոյ to block glide deletion + force ն definite
-NounIrregArchaicOj NZero NouNinflBoundary NSg0 DatGenArchaicOj ([<def>:ն]|Poss)?   # Dir/LR
+NounIrregArchaicOj NZero NouNinflBoundary NSg0 DatGenArchaicOj (DefNOnly|Poss)?   # Dir/LR
 #սիրով սիրովն
-NounIrregArchaicOj NZero NouNinflBoundary NSg0 InsReg ([<def>:ն]|Poss)?   # Dir/LR
+NounIrregArchaicOj NZero NouNinflBoundary NSg0 InsReg (DefNOnly|Poss)?   # Dir/LR
 
   
 #Words that supplete or reduce midvowel, and take  dative -u
@@ -1054,10 +1057,19 @@ LEXICON PlDatGenIrregularOts
 LEXICON CaseBoundaryM
 :մ
 
+# some words take a final ն before either all inflection or just vowel-initial inflection
+# like մուկ(ն)-ի
+LEXICON NominalNasalN
+:ն
+
 #Definite/possessive marking
 LEXICON Def
 <def>:{defն}
 <def>:ն # Dir/LR for pre-clitic forms
+LEXICON DefNOnly
+# for words that forcibly take a definite ն such as archaic սիրոյ-ն
+<def>:ն
+
 
 LEXICON Poss
 <px1sg>:ս
@@ -1069,6 +1081,11 @@ LEXICON PossPl
 # Spurious plural -er- is added before -ni 
 #after monosyllable and before plural possessive 
 <pl_poss>:{SpurPlե}{SpurPlր}ն{PossPlի}  #The ի is deleted in vowel hiatus
+
+LEXICON PossPlWithSpuriousNer
+# Spurious plural -ner- is added before -ni 
+#after irregular monosyllables and before plural possessive  (մուկ-ներ-նիս) 
+<pl_poss>:ներն{PossPlի}  #The ի is deleted in vowel hiatus
 
 #Functional morphemes
 LEXICON Indf
