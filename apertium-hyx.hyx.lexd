@@ -834,7 +834,7 @@ PATTERN AttributiveUm
 #special ones for the um forms
 NUmSuffixReduced DatGenArchaicAn  [+NP:] AttributiveDefinitePostInflection #Dir/LR
 NUmSuffixBase DatGenRegI  Def|Poss   [+NP:] AttributiveDefinitePostInflection
-NUmSuffixBase InsReg [+NP:] AttributiveInstrumentalPostInflection #Dir/LR
+NUmSuffixBase InsReg [+NP:] AttributiveInstrumentalPostInflection # not sure why this was marked as optional
 PATTERN AttributiveUtjun
 # archaic forms like թեանէն
 CaseUtjunArchaicDat|CaseUtjunArchaicInst   [+NP:] AttributiveDefinitePostInflection #Dir/LR 
@@ -917,8 +917,8 @@ Indf
 LEXICON AdvOren
 <adv>:օրէն
 LEXICON AdjSuper
-<sup>:ամէնա # Dir/LR common misspelling
-<sup>:ամենա
+<sup>:ամէնա{super} # Dir/LR common misspelling
+<sup>:ամենա{super} # this boundary between superlative Ամենա and root to trigger mono plural allomorphy when root is mono
 
 
 ##############

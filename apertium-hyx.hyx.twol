@@ -55,6 +55,7 @@ Alphabet
 %{NinflRed%}:0 ! Boundary between noun and inflection, for obligatory reduction
 %{NinflRedForcedNer%}:0  ! Boundary between noun and -ner suffix, obligatory reduction in some lexemes
 %{mono%}:0     ! This is boundary before a monosyllabic root to trigger the right plural
+%{super%}:0  ! this boundary between superlative Ամենա and root to trigger mono plural allomorphy when root is mono
 ;
 
 Sets
@@ -110,6 +111,9 @@ RealVowelUR = [ ա: | ե: | է: |  ո: | օ: | ի: | ո: ւ: | ը: |
 MonosyllableWithoutSchwa =  .#.  (Cons:  ([յ:|ե:]))	RealVowelUR  (Cons:  (Cons:))   (ք:)   ;
 MonosyllableWithSchwa  =  .#. Cons: (Cons:) (Cons:)  ; 
 Monosyllable =   [ MonosyllableWithoutSchwa | MonosyllableSchwa ];
+MonosyllableWithoutSchwa =   (Cons:  ([յ:|ե:]))	RealVowelUR  (Cons:  (Cons:))   (ք:)   ;
+MonosyllableWithSchwa  =   Cons: (Cons:) (Cons:)  ; 
+Monosyllable =  .#.  ( [Cons:|Vowel:]* %{super%}:0 )  [ MonosyllableWithoutSchwa | MonosyllableSchwa | MonosyllableWithYev ];
 ;
  
 

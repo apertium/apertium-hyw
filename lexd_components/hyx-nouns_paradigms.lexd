@@ -917,8 +917,8 @@ Indf
 LEXICON AdvOren
 <adv>:օրէն
 LEXICON AdjSuper
-<sup>:ամէնա # Dir/LR common misspelling
-<sup>:ամենա
+<sup>:ամէնա{super} # Dir/LR common misspelling
+<sup>:ամենա{super} # this boundary between superlative Ամենա and root to trigger mono plural allomorphy when root is mono
 
 
 ##############
