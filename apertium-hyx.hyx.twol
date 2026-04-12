@@ -108,9 +108,6 @@ RealVowelUR = [ ա: | ե: | է: |  ո: | օ: | ի: | ո: ւ: | ը: |
 ! For finding monosyllables, I have to specify monosyllabic words with schwa
 ! because of conflicts with vowel reduction
 ! Also has to reference underlyng segments because of conflicts with other rules
-MonosyllableWithoutSchwa =  .#.  (Cons:  ([յ:|ե:]))	RealVowelUR  (Cons:  (Cons:))   (ք:)   ;
-MonosyllableWithSchwa  =  .#. Cons: (Cons:) (Cons:)  ; 
-Monosyllable =   [ MonosyllableWithoutSchwa | MonosyllableSchwa ];
 MonosyllableWithoutSchwa =   (Cons:  ([յ:|ե:]))	RealVowelUR  (Cons:  (Cons:))   (ք:)   ;
 MonosyllableWithSchwa  =   Cons: (Cons:) (Cons:)  ; 
 Monosyllable =  .#.  ( [Cons:|Vowel:]* %{super%}:0 )  [ MonosyllableWithoutSchwa | MonosyllableSchwa | MonosyllableWithYev ];
