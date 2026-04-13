@@ -1,12 +1,8 @@
 ###############################################################################
-## Makefile for apertium-hyx
+## Makefile for apertium-hyw
 ###############################################################################
 
-LANG1=hyx
-VAR1=hyw
-VAR2=hye
-LANG1VAR1=$(LANG1)@$(VAR1)
-LANG1VAR2=$(LANG1)@$(VAR2)
+LANG1=hyw
 BASENAME=apertium-$(LANG1)
 
 LEXD_FILES=  \
@@ -44,18 +40,6 @@ TARGETS_COMMON =			\
 	$(LANG1).autogen.hfst		\
 	$(LANG1).autogen.bin		\
 	$(LANG1).autogen.att.gz		\
-	$(LANG1VAR1).automorf.hfst		\
-	$(LANG1VAR1).automorf.bin		\
-	$(LANG1VAR1).automorf.att.gz	\
-	$(LANG1VAR1).autogen.hfst		\
-	$(LANG1VAR1).autogen.bin		\
-	$(LANG1VAR1).autogen.att.gz		\
-	$(LANG1VAR2).automorf.hfst		\
-	$(LANG1VAR2).automorf.bin		\
-	$(LANG1VAR2).automorf.att.gz	\
-	$(LANG1VAR2).autogen.hfst		\
-	$(LANG1VAR2).autogen.bin		\
-	$(LANG1VAR2).autogen.att.gz		\
 	$(LANG1).autopgen.bin		\
 	$(LANG1).rlx.bin
 
@@ -63,7 +47,7 @@ TARGETS_COMMON =			\
 @ap_include@
 
 ###############################################################################
-## hyx transducer
+## hyw transducer
 ###############################################################################
 $(BASENAME).$(LANG1).lexd: $(LEXD_FILES)
 	cat $^ > $@
@@ -140,161 +124,6 @@ $(LANG1).automorf.bin: $(LANG1).automorf.att.gz .deps/.d
 $(LANG1).autopgen.bin: $(BASENAME).post-$(LANG1).dix
 	lt-comp lr $< $@
 
-###############################################################################
-## hyw transducer
-###############################################################################
-.deps/$(LANG1VAR1).lexd: $(BASENAME).$(LANG1).lexd .deps/.d
-	cat $< | grep -v 'Var/$(VAR2)' > $@
-
-.deps/$(LANG1VAR1).twol: $(BASENAME).$(LANG1).twol .deps/.d
-	cat $< | grep -v 'Var/$(VAR2)' > $@
-
-.deps/$(LANG1VAR1).twol.hfst: .deps/$(LANG1VAR1).twol .deps/.d
-	hfst-twolc $< -o $@
-
-#.deps/$(LANG1).spellrelax.hfst: $(BASENAME).$(LANG1).spellrelax .deps/.d
-#	hfst-regexp2fst -S -o $@ $<
-
-.deps/$(LANG1VAR1).RL.lexd: .deps/$(LANG1VAR1).lexd .deps/.d
-	cat $< | grep -v 'Dir/LR' > $@
-
-.deps/$(LANG1VAR1).LR.lexd: .deps/$(LANG1VAR1).lexd .deps/.d
-	cat $< | grep -v 'Dir/RL' > $@
-
-.deps/$(LANG1VAR1).RL.lexd.hfst: .deps/$(LANG1VAR1).RL.lexd
-	lexd $< .deps/$(LANG1VAR1).RL.lexd.att
-	hfst-txt2fst .deps/$(LANG1VAR1).RL.lexd.att -o $@ -v
-
-.deps/$(LANG1VAR1).LR.lexd.hfst: .deps/$(LANG1VAR1).LR.lexd
-	lexd $< .deps/$(LANG1VAR1).LR.lexd.att
-	hfst-txt2fst .deps/$(LANG1VAR1).LR.lexd.att -o $@ -v
-
-#.deps/$(LANG1).punctuation.hfst: lexd_components/$(LANG1)-infixal_punctuation.lexd .deps/.d
-#	lexd $< .deps/$(LANG1).punctuation.att
-#	hfst-txt2fst .deps/$(LANG1).punctuation.att -o $@ -v
-
-#.deps/$(LANG1).punct-gen.hfst: $(BASENAME).$(LANG1)-punct.twol .deps/.d
-#	hfst-twolc $< -o $@
-
-#.deps/$(LANG1).punct-morf.hfst: $(BASENAME).$(LANG1)-punct.lexd .deps/.d
-#	lexd $< > .deps/$(LANG1).punct-morf.att
-#	hfst-txt2fst .deps/$(LANG1).punct-morf.att -o $@ -v
-
-.deps/$(LANG1VAR1).RL.lexd-punct.hfst: .deps/$(LANG1VAR1).RL.lexd.hfst .deps/$(LANG1).punctuation.hfst
-	hfst-concatenate -1 $< -2 .deps/$(LANG1).punctuation.hfst -o $@ -v
-
-.deps/$(LANG1VAR1).LR.lexd-punct.hfst: .deps/$(LANG1VAR1).LR.lexd.hfst .deps/$(LANG1).punctuation.hfst
-	hfst-concatenate -1 $< -2 .deps/$(LANG1).punctuation.hfst -o $@ -v
-
-.deps/$(LANG1VAR1).RL.lexd-punct-twol.hfst: .deps/$(LANG1VAR1).RL.lexd-punct.hfst .deps/$(LANG1VAR1).twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1VAR1).RL.lexd-punct.hfst -2 .deps/$(LANG1VAR1).twol.hfst -o $@
-
-.deps/$(LANG1VAR1).LR.lexd-punct-twol.hfst: .deps/$(LANG1VAR1).LR.lexd-punct.hfst .deps/$(LANG1VAR1).twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1VAR1).LR.lexd-punct.hfst -2 .deps/$(LANG1VAR1).twol.hfst -o $@
-
-.deps/$(LANG1VAR1).RL.hfst: .deps/$(LANG1VAR1).RL.lexd-punct-twol.hfst .deps/$(LANG1).punct-gen.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1VAR1).RL.lexd-punct-twol.hfst -2 .deps/$(LANG1).punct-gen.hfst -o $@
-
-.deps/$(LANG1VAR1).LR.hfst: .deps/$(LANG1VAR1).LR.lexd-punct-twol.hfst .deps/$(LANG1).punct-morf.hfst
-	hfst-compose -1 .deps/$(LANG1VAR1).LR.lexd-punct-twol.hfst -2 .deps/$(LANG1).punct-morf.hfst -o $@
-
-$(LANG1VAR1).autogen.hfst: .deps/$(LANG1VAR1).RL.hfst
-	hfst-fst2fst -O $< -o $@
-
-$(LANG1VAR1).automorf.hfst: .deps/$(LANG1VAR1).LR.hfst .deps/$(LANG1).spellrelax.hfst
-	hfst-compose -1 $< -2 .deps/$(LANG1).spellrelax.hfst | hfst-invert | hfst-fst2fst -O -o $@
-
-$(LANG1VAR1).autogen.att.gz: $(LANG1VAR1).autogen.hfst
-	hfst-fst2txt $< | gzip -9 -c -n > $@
-
-$(LANG1VAR1).automorf.att.gz: $(LANG1VAR1).automorf.hfst
-	hfst-fst2txt $< | gzip -9 -c -n > $@
-
-$(LANG1VAR1).autogen.bin: $(LANG1VAR1).autogen.att.gz .deps/.d
-	zcat < $< > .deps/$(LANG1VAR1).autogen.att
-	lt-comp lr .deps/$(LANG1VAR1).autogen.att $@
-
-$(LANG1VAR1).automorf.bin: $(LANG1VAR1).automorf.att.gz .deps/.d
-	zcat < $< > .deps/$(LANG1VAR1).automorf.att
-	lt-comp lr .deps/$(LANG1VAR1).automorf.att $@
-
-###############################################################################
-## hye transducer
-###############################################################################
-.deps/$(LANG1VAR2).lexd: $(BASENAME).$(LANG1).lexd .deps/.d
-	cat $< | grep -v 'Var/$(VAR1)' > $@
-
-.deps/$(LANG1VAR2).twol: $(BASENAME).$(LANG1).twol .deps/.d
-	cat $< | grep -v 'Var/$(VAR1)' > $@
-
-.deps/$(LANG1VAR2).twol.hfst: .deps/$(LANG1VAR2).twol .deps/.d
-	hfst-twolc $< -o $@
-
-#.deps/$(LANG1).spellrelax.hfst: $(BASENAME).$(LANG1).spellrelax .deps/.d
-#	hfst-regexp2fst -S -o $@ $<
-
-.deps/$(LANG1VAR2).RL.lexd: .deps/$(LANG1VAR2).lexd .deps/.d
-	cat $< | grep -v 'Dir/LR' > $@
-
-.deps/$(LANG1VAR2).LR.lexd: .deps/$(LANG1VAR2).lexd .deps/.d
-	cat $< | grep -v 'Dir/RL' > $@
-
-.deps/$(LANG1VAR2).RL.lexd.hfst: .deps/$(LANG1VAR2).RL.lexd
-	lexd $< .deps/$(LANG1VAR2).RL.lexd.att
-	hfst-txt2fst .deps/$(LANG1VAR2).RL.lexd.att -o $@ -v
-
-.deps/$(LANG1VAR2).LR.lexd.hfst: .deps/$(LANG1VAR2).LR.lexd
-	lexd $< .deps/$(LANG1VAR2).LR.lexd.att
-	hfst-txt2fst .deps/$(LANG1VAR2).LR.lexd.att -o $@ -v
-
-#.deps/$(LANG1).punctuation.hfst: lexd_components/$(LANG1)-infixal_punctuation.lexd .deps/.d
-#	lexd $< .deps/$(LANG1).punctuation.att
-#	hfst-txt2fst .deps/$(LANG1).punctuation.att -o $@ -v
-
-#.deps/$(LANG1).punct-gen.hfst: $(BASENAME).$(LANG1)-punct.twol .deps/.d
-#	hfst-twolc $< -o $@
-
-#.deps/$(LANG1).punct-morf.hfst: $(BASENAME).$(LANG1)-punct.lexd .deps/.d
-#	lexd $< > .deps/$(LANG1).punct-morf.att
-#	hfst-txt2fst .deps/$(LANG1).punct-morf.att -o $@ -v
-
-.deps/$(LANG1VAR2).RL.lexd-punct.hfst: .deps/$(LANG1VAR2).RL.lexd.hfst .deps/$(LANG1).punctuation.hfst
-	hfst-concatenate -1 $< -2 .deps/$(LANG1).punctuation.hfst -o $@ -v
-
-.deps/$(LANG1VAR2).LR.lexd-punct.hfst: .deps/$(LANG1VAR2).LR.lexd.hfst .deps/$(LANG1).punctuation.hfst
-	hfst-concatenate -1 $< -2 .deps/$(LANG1).punctuation.hfst -o $@ -v
-
-.deps/$(LANG1VAR2).RL.lexd-punct-twol.hfst: .deps/$(LANG1VAR2).RL.lexd-punct.hfst .deps/$(LANG1VAR2).twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1VAR2).RL.lexd-punct.hfst -2 .deps/$(LANG1VAR2).twol.hfst -o $@
-
-.deps/$(LANG1VAR2).LR.lexd-punct-twol.hfst: .deps/$(LANG1VAR2).LR.lexd-punct.hfst .deps/$(LANG1VAR2).twol.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1VAR2).LR.lexd-punct.hfst -2 .deps/$(LANG1VAR2).twol.hfst -o $@
-
-.deps/$(LANG1VAR2).RL.hfst: .deps/$(LANG1VAR2).RL.lexd-punct-twol.hfst .deps/$(LANG1).punct-gen.hfst
-	hfst-compose-intersect -1 .deps/$(LANG1VAR2).RL.lexd-punct-twol.hfst -2 .deps/$(LANG1).punct-gen.hfst -o $@
-
-.deps/$(LANG1VAR2).LR.hfst: .deps/$(LANG1VAR2).LR.lexd-punct-twol.hfst .deps/$(LANG1).punct-morf.hfst
-	hfst-compose -1 .deps/$(LANG1VAR2).LR.lexd-punct-twol.hfst -2 .deps/$(LANG1).punct-morf.hfst -o $@
-
-$(LANG1VAR2).autogen.hfst: .deps/$(LANG1VAR2).RL.hfst
-	hfst-fst2fst -O $< -o $@
-
-$(LANG1VAR2).automorf.hfst: .deps/$(LANG1VAR2).LR.hfst .deps/$(LANG1).spellrelax.hfst
-	hfst-compose -1 $< -2 .deps/$(LANG1).spellrelax.hfst | hfst-invert | hfst-fst2fst -O -o $@
-
-$(LANG1VAR2).autogen.att.gz: $(LANG1VAR2).autogen.hfst
-	hfst-fst2txt $< | gzip -9 -c -n > $@
-
-$(LANG1VAR2).automorf.att.gz: $(LANG1VAR2).automorf.hfst
-	hfst-fst2txt $< | gzip -9 -c -n > $@
-
-$(LANG1VAR2).autogen.bin: $(LANG1VAR2).autogen.att.gz .deps/.d
-	zcat < $< > .deps/$(LANG1VAR2).autogen.att
-	lt-comp lr .deps/$(LANG1VAR2).autogen.att $@
-
-$(LANG1VAR2).automorf.bin: $(LANG1VAR2).automorf.att.gz .deps/.d
-	zcat < $< > .deps/$(LANG1VAR2).automorf.att
-	lt-comp lr .deps/$(LANG1VAR2).automorf.att $@
 
 ###############################################################################
 ## Debugging transducers (for testvoc)
@@ -360,11 +189,11 @@ EXTRA_DIST=$(BASENAME).$(LANG1).lexd		\
 ## Installation stuff
 ###############################################################################
 #
-#   apertium_hyx_dir: This is where the compiled binaries go
-#   apertium_hyx_srcdir: This is where the source files go
+#   apertium_hyw_dir: This is where the compiled binaries go
+#   apertium_hyw_srcdir: This is where the source files go
 
-apertium_hyxdir=$(prefix)/share/apertium/$(BASENAME)/
-apertium_hyx_srcdir=$(prefix)/share/apertium/$(BASENAME)/
+apertium_hywdir=$(prefix)/share/apertium/$(BASENAME)/
+apertium_hyw_srcdir=$(prefix)/share/apertium/$(BASENAME)/
 
 EXTRA_TARGETS=
 
@@ -372,7 +201,7 @@ if HAVE_HFSTOSPELL
 EXTRA_TARGETS += $(LANG1).zhfst
 endif # HAVE_HFSTOSPELL
 
-apertium_hyx_DATA=$(TARGETS_COMMON) $(EXTRA_TARGETS) \
+apertium_hyw_DATA=$(TARGETS_COMMON) $(EXTRA_TARGETS) \
 					$(BASENAME).$(LANG1).lexd \
 					$(BASENAME).$(LANG1).twol \
 					$(BASENAME).$(LANG1).rlx \
