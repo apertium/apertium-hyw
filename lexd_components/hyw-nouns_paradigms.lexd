@@ -647,18 +647,32 @@ PATTERN NounDeclFamilyNkForm
 # And նց in the genitive/dative
 #So this pattern only derives Վարդանանք Վարդանանց
 
- # Վարդանանք
-NounFamilyNkForm NNkSuffix [<np><cog>:] NouNinflBoundary NSg0  (Def|Poss)? 
+# Վարդանանք
+NounFamilyNkForm [<np><cog>:] NNkSuffix  NouNinflBoundary   (Def|Poss)? 
 # Վարդանանց
-NounFamilyNkForm [<np><cog>:] NouNinflBoundary NSg0  NNkSuffixCaseNc  (Def|Poss)? 
+NounFamilyNkForm [<np><cog>:] NNkSuffixCaseNc NouNinflBoundary (Def|Poss)? 
 # Վարդանանցից
-NounFamilyNkForm [<np><cog>:] NouNinflBoundary NSg0  NNkSuffixCaseNc  CaseRegOblique (Def|Poss)? 
+NounFamilyNkForm [<np><cog>:] NNkSuffixCaseNc NouNinflBoundary CaseRegOblique  (Def|Poss)? 
 
 # regularized Վարդանանքի
-NounFamilyNkForm NNkSuffix [<np><cog>:] NouNinflBoundary NSg0 CaseRegI? (Def|Poss)? # Dir/LR
+NounFamilyNkForm [<np><cog>:] NNkSuffix NouNinflBoundary CaseRegI? (Def|Poss)? # Dir/LR
 # plural
-NounFamilyNkForm NNkSuffix [<np><cog>:] NouNinflBoundary RegNounPluralFormDeclension
+NounFamilyNkForm [<np><cog>:] NNkSuffix NouNinflBoundary RegNounPluralFormDeclension # Dir/LR
 
+
+# for any name like Յովսէփ-ենք -ենց -ենցից
+NameBaseNotCountry NEnkSuffix    (Def|Poss)? 
+NameBaseNotCountry NEnkSuffixCaseNc    (Def|Poss)? 
+NameBaseNotCountry NEnkSuffixCaseNc    CaseRegOblique  (Def|Poss)? 
+NameBaseNotCountry NAnkSuffix    (Def|Poss)?  # Dir/LR
+NameBaseNotCountry NAnkSuffixCaseNc    (Def|Poss)?  # Dir/LR
+NameBaseNotCountry NAnkSuffixCaseNc    CaseRegOblique  (Def|Poss)?  # Dir/LR
+
+# attributive
+NameBaseNotCountry NEnkSuffixCaseNc AttributiveGenIDef|AttributiveInst
+NameBaseNotCountry NEnkSuffix AttributiveGenIDef|AttributiveInst # Dir/LR
+NameBaseNotCountry NAnkSuffixCaseNc AttributiveGenIDef|AttributiveInst # Dir/LR
+NameBaseNotCountry NAnkSuffix AttributiveGenIDef|AttributiveInst # Dir/LR
 
  
  
@@ -947,10 +961,18 @@ LEXICON NUmSuffixReduced
 
 #The suffix նք when part of a nominal suffix like family names
 LEXICON NNkSuffix
-:նք
+<coll>:նք
+LEXICON NEnkSuffix
+<coll>:ենք
+LEXICON NAnkSuffix
+<coll>:անք
 #And its dative/genitive form
 LEXICON NNkSuffixCaseNc
-<dat_gen>:նց
+<coll><dat_gen>:նց
+LEXICON NEnkSuffixCaseNc
+<coll><dat_gen>:ենց
+LEXICON NAnkSuffixCaseNc
+<coll><dat_gen>:անց
 
 ###### Other POS morphemes
 LEXICON AdjZero
